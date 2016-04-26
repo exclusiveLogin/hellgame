@@ -1,0 +1,102 @@
+<header>Добавление монстра</header>
+<div class="idlabel">test</div>
+<form class="form-horizontal">
+    <div id="addmc_left" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="form-group">
+            <span class="control-label col-sm-2 col-md-2">Имя</span>
+            <div class="col-sm-10 col-md-10"><input id="mc_name" type="text" class="form-control" maxlength="20" placeholder="Введите имя"></div>
+        </div>
+        <div class="form-group">
+            <span class="control-label col-sm-2 col-md-2">Класс</span>
+            <div class="col-sm-4 col-md-4">
+                <select id="mc_class" class="form-control">
+                    <option>Не задан</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                </select>
+            </div>
+            <span class="control-label col-sm-2 col-md-2">Уровень</span>
+            <div class="col-sm-4 col-md-4">
+                <select id="mc_lvl" class="form-control">
+                    <option>Не задан</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12 col-md-12">
+                <input id="mc_livetime_val" type="text" class="form-control" maxlength="4" placeholder="Время жизни в часах">
+                <div id="mc_livetime" class="col-sm-12"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="control-label col-sm-3">Температура:</span>
+            <div class="col-sm-9">
+                <input type="text" readonly id="mc_temp_val" class="form-control">
+                <div class="col-sm-12" id="mc_temp"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="control-label col-sm-3">Ветер:</span>
+            <div class="col-sm-9">
+                <input type="text" readonly id="mc_wind_speed_val" class="form-control">
+                <div class="col-sm-12" id="mc_wind_speed"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="control-label col-sm-3">Направление:</span>
+            <div class="col-sm-9">
+                <input type="text" readonly id="mc_direction_val" class="form-control">
+                <div class="col-sm-12" id="mc_direction"></div>
+            </div>
+        </div>
+    </div>
+</form>
+<form class="form-horizontal">
+    <div id="addmc_right" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="form-group">
+            <label>Описание</label>
+            <textarea id="mc_desc" class="form-control" rows="5" placeholder="Добавьте описание монстра"></textarea>
+        </div>
+        <div class="form-group">
+            <span class="control-label col-sm-3">Скорость:</span>
+            <div class="col-sm-9">
+                <input type="text" readonly id="mc_speed_val" class="form-control">
+                <div class="col-sm-12" id="mc_speed"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="control-label col-sm-3">Расстояние:</span>
+            <div class="col-sm-9">
+                <input type="text" readonly id="mc_distance_val" class="form-control">
+                <div class="col-sm-12" id="mc_distance"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="control-label col-sm-3">Воскрешение:</span>
+            <div class="col-sm-9">
+                <input type="text" readonly id="mc_respawn_val" class="form-control">
+                <div class="col-sm-12" id="mc_respawn"></div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="col-xs-12 text-center">
+    <button id="mc_btnsub" class="btn btn-success btn-group-sm">Добавить</button>
+    <button id="mc_btncancel" class="btn btn-danger btn-group-sm">Отмена</button>
+</div>

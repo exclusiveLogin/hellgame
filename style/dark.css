@@ -1,0 +1,198 @@
+.headerdark{
+    background-color: #464646;
+    color: #bbb;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+    padding: 15px;
+    padding-bottom: 0px;
+    line-height: 32px;
+    font-family: "Alegreya Sans SC";
+    font-size: 110%;
+    font-weight: bold;
+    border-bottom: 2px solid red;
+    box-shadow: 0 0 10px 0px rgba(0,0,0,0.7);
+}
+body{
+    margin: 0;
+    background-color: #919191;
+}
+#admintools{
+    margin-top: 10px;
+    padding: 10px;
+    border-top: 1px #91151b solid;
+
+}
+#container{
+    height: 90%;
+    padding-top: 10px;
+}
+/*.card{
+    border: outset 2px lightcyan;
+    border-radius: 15px;
+    background-color: #ccc;
+    margin-top:10px;
+}
+.headermc{
+    border: solid 1px yellow;
+}
+.headermctext{
+    text-align: center;
+}
+
+.rightmc{
+    border: solid 1px lightseagreen;
+}*/
+.photomc{
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0px rgba(0,0,0,0.4);
+    background: url("/style/nophoto.png") no-repeat center;
+    background-size: contain;
+}
+.leftmc,.rightmc{
+    padding:5px;
+ }
+.dangermc{
+    width: 100%;
+    text-align: center;
+    font-size: 120%;
+    font-weight: bold;
+    border: 1px solid grey;
+    background-color: #ccc;
+    color: red;
+}
+.rainmc, .snowmc, .overcastmc, .clearskymc{
+
+}
+.weathermc{
+    text-align: center;
+    font-weight: bold;
+    background-color: #ccc;
+    padding: 0px;
+}
+.wactmc{
+    color: green;
+    text-shadow: 0 0 5px rgba(10,200,10,0.5);
+}
+.activemc,.statusmc,.descriptionmc,.namemc{
+    width: 100% !important;
+    text-align: center;
+    font-size: 120%;
+    font-weight: bold;
+    border: 1px solid grey;
+    background-color: #ccc;
+    color: red;
+}
+@media (max-width: 768px) {
+    .descriptionmc{
+        min-height: 150px;
+        max-height: 150px;
+    }
+}
+@media (min-width:768px) and (max-width: 992px) {
+    .descriptionmc{
+        min-height: 250px;
+        max-height: 250px;
+    }
+
+}
+@media (min-width:992px) and (max-width: 1200px) {
+    .descriptionmc{
+        min-height: 130px;
+        max-height: 130px;
+    }
+
+}
+@media (min-width:1200px) {
+    .descriptionmc{
+        min-height: 86px;
+        max-height: 86px;
+    }
+
+}
+#admintools{
+    display: none;
+}
+#addmc{
+    display: none;
+    padding: 10px;
+    border-top: 1px solid red;
+}
+#menu{
+    margin-bottom: 10px;
+}
+#loginform{
+    padding: 10px;
+    border-top: 1px solid red;
+    display: none;
+}
+#mc_lvl{
+
+}
+#fancytemp{
+    display: none;
+}
+.headermc{
+    cursor: pointer;
+}
+#mc_temp_val, #mc_wind_speed_val, #mc_livetime_val,
+#mc_speed_val, #mc_distance_val, #mc_respawn_val, #mc_direction_val{
+    text-align: center;
+    font-weight: bold;
+    font-size: 150%;
+}
+.idlabel{
+    /* display: inline-block; */
+    border: 1px red solid;
+    font-size: 120%;
+    padding: 0px 20px;
+    position: absolute;
+    right: 12px;
+    top: 5px;
+}
+.user_card_wrapper{
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-bottom: 5px;
+}
+.user_card{
+    border: 2px white outset;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0px rgba(0,0,0,0.4);
+    background: #4c4c4c; /* Old browsers */
+    background: -moz-linear-gradient(top, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=0 ); /* IE6-9 */
+}
+.user_card_photo{
+    height: 50px;
+    width: 50px;
+    margin-right: 5px;
+    background: url("/style/nophoto.png") no-repeat center;
+    background-size: cover;
+    box-shadow: 0 0 5px 3px rgba(250,250,250,0.8);
+}
+.user_card_desc{
+    height: 50px;
+}
+h2.card_title{
+    font-size: 30px;
+    margin-top: 8px;
+    line-height: 20px;
+    color: white;
+}
+h3.card_status{
+    font-size: 15px;
+    line-height: 0px;
+    margin: 0px;
+    color: grey;
+}
+h3.card_status_on{
+    color: greenyellow;
+    text-shadow: 0 0 5px rgba(50,255,50,0.5);
+}
+h3.card_status_off{
+    color: red;
+    text-shadow: 0 0 5px rgba(255,50,50,0.5);
+}
