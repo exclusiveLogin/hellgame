@@ -9,7 +9,7 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="style/dark.css">
     <link rel="stylesheet" href="style/alegreyasanssc.css">
     <link rel="stylesheet" href="style/lightbox.css">
@@ -41,6 +41,11 @@
                 <div class="user_card_desc col-lg-8 col-md-8 col-sm-8 col-xs-8">
                     <h2 class="card_title text-center">SSV</h2>
                     <h3 class="card_status card_status_on text-center">online</h3>
+                    <div class="emocode">
+                        <div class="glyphicon glyphicon-triangle-top"></div>
+                        <div class="emo_n">-16</div>
+                        <div class="emo_down glyphicon glyphicon-triangle-bottom"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -50,6 +55,11 @@
                 <div class="user_card_desc col-lg-8 col-md-8 col-sm-8 col-xs-8">
                     <h2 class="card_title text-center">MSN</h2>
                     <h3 class="card_status card_status_off text-center">offline</h3>
+                    <div class="emocode">
+                        <div class="emo_up glyphicon glyphicon-triangle-top"></div>
+                        <div class="emo_n">+34</div>
+                        <div class="glyphicon glyphicon-triangle-bottom"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -70,6 +80,77 @@
             <div class="col-xs-12 text-center">
                 <button id="btnloginenter" class="btn btn-success btn-group-sm">Войти</button>
                 <button class="btnlogincl btn btn-danger btn-group-sm">Закрыть</button>
+            </div>
+        </div>
+        <div id="usercard" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+            <div class="container-fluid uc_wrapper">
+                <div class="uc_col col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+                    <div class="uc_card uc_title">Карточка</div>
+                    <div class="uc_col_left container-fluid">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+                            <div class="uc_photo"></div>
+                            <div class="label label-success">online</div>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 text-center">
+                            <h2 class="uc_name">SSV</h2>
+                            <p class="uc_name">Сергей</p>
+                            <p class="uc_name">Исследователь</p>
+                            <h4>
+                                <span class="label label-danger">не играет</span>
+                            </h4>
+                            <div class="form-group">
+                                <input id="uc_msg" type="text" class="form-control" maxlength="20" placeholder="Сообщение всем">
+                            </div>
+                            <button class="btn btn-danger disabled">Красный код</button>
+                            <button class="btn btn-warning disabled">Оранжевый код</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="uc_col col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+                    <div class="uc_emo uc_title">Настроение</div>
+                    <div class="container-fluid">
+                        <div class="uc_emocontrol col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center">
+                            <div class="form-group text-center">
+                                <input type="text" readonly id="uc_emo_val" class="form-control">
+                                <div id="uc_emo"></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 text-center">
+                            <div class="form-group">
+                                <input id="uc_emo_title" type="text" class="form-control" maxlength="20" placeholder="Настроение">
+                            </div>
+                            <div class="form-group">
+                                <label>Описание</label>
+                                <textarea id="uc_emo_description" class="form-control" rows="5" placeholder="Добавьте причину такого состояния"></textarea>
+                            </div>
+                            <button class="btn btn-success disabled">Отправить</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="uc_col uc_col_weather col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+                    <div class="uc_weather uc_title">Сообщаю</div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                        <button class="btn btn-success btn-block disabled"><span class="fa fa-lg fa-fw fa-sun-o"></span><span class="hidden-md hidden-sm">Солнечно</span></button>
+                        <button class="btn btn-danger btn-block disabled"><span class="fa fa-lg fa-fw fa-bolt"></span><span class="hidden-md hidden-sm">Гроза</span></button>
+                        <button class="btn btn-danger btn-block disabled"><span class="fa fa-lg fa-fw fa-heartbeat"></span><span class="hidden-md hidden-sm">Страх</span></button>
+                        <button class="btn btn-success btn-block disabled"><span class="fa fa-lg fa-fw fa-bus"></span><span class="hidden-md hidden-sm">Автобус</span></button>
+                        <button class="btn btn-warning btn-block disabled"><span class="fa fa-lg fa-fw fa-calendar"></span><span class="hidden-md hidden-sm">Дела</span></button>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                        <button class="btn btn-success btn-block disabled"><span class="fa fa-lg fa-fw fa-cloud"></span><span class="hidden-md hidden-sm">Облачно</span></button>
+                        <button class="btn btn-danger btn-block disabled"><span class="fa fa-lg fa-fw fa-soundcloud"></span><span class="hidden-md hidden-sm">Туман</span></button>
+                        <button class="btn btn-success btn-block disabled"><span class="fa fa-lg fa-fw fa-home"></span><span class="hidden-md hidden-sm">Дома</span></button>
+                        <button class="btn btn-warning btn-block disabled"><span class="fa fa-lg fa-fw fa-cab"></span><span class="hidden-md hidden-sm">Такси</span></button>
+                        <button class="btn btn-success btn-block disabled"><span class="fa fa-lg fa-fw fa-commenting"></span><span class="hidden-md hidden-sm">Свободен</span></button>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                        <button class="btn btn-warning btn-block disabled"><span class="fa fa-lg fa-fw fa-deaf"></span><span class="hidden-md hidden-sm">Шумно</span></button>
+                        <button class="btn btn-danger btn-block disabled"><span class="fa fa-lg fa-fw fa-asterisk"></span><span class="hidden-md hidden-sm">Снег</span></button>
+                        <button class="btn btn-warning btn-block disabled"><span class="fa fa-lg fa-fw fa-car"></span><span class="hidden-md hidden-sm">Машина</span></button>
+                        <button class="btn btn-warning btn-block disabled"><span class="fa fa-lg fa-fw fa-map"></span><span class="hidden-md hidden-sm">Поездка</span></button>
+                        <button class="btn btn-success btn-block disabled"><span class="fa fa-lg fa-fw fa-cutlery"></span><span class="hidden-md hidden-sm">Ем</span></button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

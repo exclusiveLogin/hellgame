@@ -5,12 +5,29 @@ Global.loginData={
     "password":""
 };
 $(document).ready(function(){
+    $('#uc_emo').slider({
+        range:false,
+        min:0,
+        max:100,
+        value:50,
+        orientation:"vertical",
+        slide:function(event,ui){
+            $('#uc_emo_val').val(ui.value);
+        },
+        create:function(){
+            $('#uc_emo_val').val("---");
+        }
+    });
+    
+    
+    
     $.ajaxSetup({
         cache:false,
         async:false
     });
     updList();
     refreshAuth();
+    
 
     $('#btnloginenter').on('click',function(){
         Global.loginData.login = $('#loginName').val();
