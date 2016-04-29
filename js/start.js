@@ -1,4 +1,3 @@
-var Global={};
 Global.authkey=false;
 Global.loginData={
     "login":"",
@@ -35,19 +34,44 @@ $(document).ready(function(){
         $.ajax({
             url:"/login.php",
             dataType:"json",
-            method:'POST',
+            method:'GET',
             data:Global.loginData,
             success:function(data){
                 Global.authkey=data.auth;
                 refreshAuth();
                 loginToggle(0);
-            },
+                if(data.msg){
+                    var state = false;
+                    if(data.auth) state=true;
+                    showSysMsg(data.msg,state);
+                }
+            }
+            ,
             error:function(){
                 alert("error to load auth ajax");
             }
         });
     });
 });
+function showSysMsg(msg,state) {
+    if(state){
+        $("#sysmsg").removeClass("sys_err");
+        $("#sysmsg").addClass("sys_ok");
+    }
+    else {
+        $("#sysmsg").removeClass("sys_ok");
+        $("#sysmsg").addClass("sys_err");
+    }
+    //$("#sysmsg").show();
+    $("#sysmsg").removeClass("myhide");
+    $("#sysmsg_val").text(msg);
+    setTimeout(hideSysMsg,5000);
+    function hideSysMsg() {
+        $("#sysmsg").addClass("myhide");
+        
+    }
+    
+}
 function deletemc(indexid){
     $.ajax({
         url:"addmcdb.php",

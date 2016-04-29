@@ -11,31 +11,36 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="style/dark.css">
-    <link rel="stylesheet" href="style/alegreyasanssc.css">
     <link rel="stylesheet" href="style/lightbox.css">
     <link rel="stylesheet" href="fancybox/jquery.fancybox.css">
     <link rel="stylesheet" href="jquery-ui-1.11.4/jquery-ui.css">
-
+    <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,100,600,700,300' rel='stylesheet' type='text/css'>
     <!-- Latest compiled and minified JavaScript -->
 
-    <script src="/js/jquery-1.11.3.js" defer></script>
-    <script src="jquery-ui-1.11.4/jquery-ui.js" defer></script>
-    <script src="bootstrap/js/bootstrap.js" defer></script>
-    <script src="/js/start.js" defer></script>
-    <script src="/js/auth.js" defer></script>
-    <script src="/js/lightbox.js" defer></script>
-    <script src="/fancybox/jquery.fancybox.pack.js" defer></script>
-    <script src="/fancybox/jquery.fancybox.js" defer></script>
+    <script src="/js/global.js"></script>
+    <script src="/js/jquery-1.11.3.js"></script>
+    <script src="jquery-ui-1.11.4/jquery-ui.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="/js/start.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/refresher.js"></script>
+    <script src="/js/lightbox.js"></script>
+    <script src="/fancybox/jquery.fancybox.pack.js"></script>
+    <script src="/fancybox/jquery.fancybox.js"></script>
 
-    <script src="/js/checkform.js" defer></script>
+    <script src="/js/checkform.js"></script>
 
 
 </head>
 <body class="clearfix">
     <div id="header" class="container-fluid headerdark">
-        <div class="logo col-lg-2 col-md-2 col-sm-12 hidden-xs">HELL GAME 2016</div>
-        <div class="logo col-xs-12 visible-xs text-center">HELL GAME 2016</div>
-        <div class="user_card_wrapper col-lg-2 col-md-2 col-sm-3 col-xs-6">
+        <div id="sysmsg" class="col-xs-12 col-md-12 col-sm-12 col-lg-12 text-center myhide">Системное сообщение: <span id="sysmsg_val"></span></div>
+
+        <div class="logo col-lg-2 col-md-2 hidden-sm hidden-xs">HELL GAME 2016</div>
+        <div class="logo col-xs-12 visible-xs visible-sm text-center">HELL GAME 2016</div>
+        <div class="user_card_wrapper col-lg-3 col-md-3 col-sm-3 col-xs-6">
             <div class="ssv_card user_card container-fluid">
                 <div class="user_card_photo col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
                 <div class="user_card_desc col-lg-8 col-md-8 col-sm-8 col-xs-8">
@@ -49,7 +54,7 @@
                 </div>
             </div>
         </div>
-        <div class="user_card_wrapper col-lg-2 col-md-2 col-sm-3 col-xs-6">
+        <div class="user_card_wrapper col-lg-3 col-md-3 col-sm-3 col-xs-6">
             <div class="ssv_card user_card container-fluid">
                 <div class="user_card_photo col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
                 <div class="user_card_desc col-lg-8 col-md-8 col-sm-8 col-xs-8">
@@ -63,7 +68,7 @@
                 </div>
             </div>
         </div>
-        <div id="menu" class="col-lg-6 col-md-6 col-sm-6 text-right hidden-xs"></div>
+        <div id="menu" class="col-lg-4 col-md-4 col-sm-6 text-right hidden-xs"></div>
         <div id="menupda" class="col-xs-12 visible-xs text-center"></div>
         <div id="admintools" class="col-xs-12 text-center"></div>
         <div id="addmc" class="col-xs-12 text-center"></div>
@@ -153,6 +158,7 @@
                 </div>
             </div>
         </div>
+
     </div>
     <div id="fancytemp" class="container"></div>
     <div id="wrapper">

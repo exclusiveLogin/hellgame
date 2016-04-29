@@ -1,15 +1,17 @@
 .headerdark{
     background-color: #464646;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
     color: #bbb;
     text-shadow: 0 0 5px rgba(255,255,255,0.5);
-    padding: 15px 0;
-    padding-bottom: 0px;
-    line-height: 32px;
-    font-family: "Alegreya Sans SC";
-    font-size: 110%;
-    font-weight: bold;
     border-bottom: 2px solid red;
     box-shadow: 0 0 10px 0px rgba(0,0,0,0.7);
+}
+.myhide{
+    /*transform: translate(0,-100px);*/
+    margin-top: -100px;
 }
 body{
     margin: 0;
@@ -119,6 +121,12 @@ body{
 #menu{
     margin-bottom: 10px;
 }
+.logo{
+    margin-top: 15px;
+    font-weight: bold;
+    line-height: 32px;
+    font-size: 130%;
+}
 #loginform{
     padding: 10px;
     border-top: 1px solid red;
@@ -154,6 +162,7 @@ body{
     margin-bottom: 5px;
 }
 .user_card{
+    margin-top: 5px;
     border: 2px white outset;
     padding-left: 0px;
     padding-right: 0px;
@@ -181,12 +190,14 @@ h2.card_title{
     margin-top: 8px;
     line-height: 20px;
     color: white;
+    font-family: 'Josefin Sans', sans-serif;
 }
 h3.card_status{
     font-size: 15px;
     line-height: 0px;
     margin: 0px;
     color: grey;
+    font-family: 'Quicksand', sans-serif;
 }
 h3.card_status_on{
     color: greenyellow;
@@ -202,6 +213,8 @@ h3.card_status_off{
     right: 0px;
     height: 50px;
     line-height: 15px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 90%;
 }
 .emo_up{
     color: greenyellow;
@@ -220,6 +233,8 @@ h3.card_status_off{
     padding-left: 0px;
     padding-bottom: 15px;
     border-top: black solid 2px;
+    font-family: 'Quicksand', sans-serif;
+
 }
 .uc_col{
     height: 100%;
@@ -300,4 +315,18 @@ h3.card_status_off{
 }
 .uc_col_weather{
 
+}
+#sysmsg{
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    font-family: Arial;
+    margin-bottom: 15px;
+    transition: all 1s ease;
+}
+.sys_err{
+    background: #91151b;
+}
+.sys_ok{
+    background: #1e9126;
 }
