@@ -1,5 +1,6 @@
 Global = {
     loggedAs:"",
+    users:[],
     proto:{
         name:"",
         title:"",
