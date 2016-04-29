@@ -42,7 +42,10 @@ $(document).ready(function(){
                 loginToggle(0);
                 if(data.msg){
                     var state = false;
-                    if(data.auth) state=true;
+                    if(data.auth){
+                        state=true;
+                        Global.loggedAs = data.login;
+                    } 
                     showSysMsg(data.msg,state);
                 }
             }

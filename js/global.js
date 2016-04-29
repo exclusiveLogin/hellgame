@@ -1,4 +1,5 @@
 Global = {
+    loggedAs:"",
     proto:{
         name:"",
         title:"",

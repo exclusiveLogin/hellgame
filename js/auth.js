@@ -227,6 +227,11 @@ function setHandlers(){
         $('.btnlogin').removeClass('disabled active');
         $('#loginform').hide(500);
     });
+    $('.btnlogout').on('click',function(){
+        Global.authkey = false;
+        refreshAuth();
+        showSysMsg("Вы успешно вышли из системы",true);
+    });
 }
 function loginToggle(state){
     if(state){
