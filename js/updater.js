@@ -21,7 +21,9 @@ $(document).ready(function () {
 function globalUpdate(obj) {//сначала proto потом вне условия все остальное
     if(!Global[obj.login]){
         Global[obj.login] = {};
-        Global[obj.login] = Global.proto;
+        for(var key in Global.blank){
+            Global[obj.login][key] = Global.blank[key];
+        }
         
     }
     Global.users.push(obj.login);
@@ -34,10 +36,16 @@ function globalUpdate(obj) {//сначала proto потом вне услов�
     Global[obj.login].played = obj.played;
     Global[obj.login].online = obj.online;
     Global[obj.login].emotion = obj.emotion;
-    Global[obj.login].status_code = obj.status_code;
+    if(obj.status_code){
+        Global[obj.login].status_code = obj.status_code;
+    }    
     Global[obj.login].upd = obj.upd;
     Global[obj.login].oldEmotion = obj.old_emotion;
     Global[obj.login].tendention = Number(obj.old_emotion) - Number(obj.emotion);
     Global[obj.login].msg_code = obj.msg_code;
+    Global[obj.login].login = obj.login;
+    Global[obj.login].img_big = obj.img_big;
+    Global[obj.login].img_min = obj.img_min;
     
+    refresher();
 }

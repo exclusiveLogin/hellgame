@@ -3,18 +3,41 @@ Global.loginData={
     "login":"",
     "password":""
 };
+function tooltipHandler() {
+    $("[data-tooltip]").mousemove(function (eventObject) {
+
+        var data_tooltip = $(this).attr("data-tooltip");
+
+        $("#tooltip").text(data_tooltip)
+            .css({
+                "top" : eventObject.pageY + 5,
+                "left" : eventObject.pageX + 5
+            })
+            .show();
+
+    }).mouseout(function () {
+
+        $("#tooltip").hide()
+            .text("")
+            .css({
+                "top" : 0,
+                "left" : 0
+            });
+    });
+}
 $(document).ready(function(){
-    $('#uc_emo').slider({
+    tooltipHandler();
+    $('.uc_emo_slider').slider({
         range:false,
         min:0,
         max:100,
         value:50,
         orientation:"vertical",
         slide:function(event,ui){
-            $('#uc_emo_val').val(ui.value);
+            $('.uc_emo_val').val(ui.value);
         },
         create:function(){
-            $('#uc_emo_val').val("---");
+            $('.uc_emo_val').val("---");
         }
     });
     

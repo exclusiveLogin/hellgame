@@ -1,7 +1,7 @@
 Global = {
     loggedAs:"",
     users:[],
-    proto:{
+    blank:{
         name:"",
         title:"",
         login:"",
@@ -12,11 +12,13 @@ Global = {
         played:false,
         online:false,
         emotion:0,
-        status_code:"",//придумать иконку на недоступную эмоцию
+        status_code:"fa-terminal",//придумать иконку на недоступную эмоцию
         upd:0,
         code_msg:"",
         oldEmotion:0,
-        tendention:0
+        tendention:0,
+        img_big:"",
+        img_min:""
     }
 };
 console.log("global created");
