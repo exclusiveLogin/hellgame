@@ -42,5 +42,16 @@ function refresher() {
         if(Global[user_name].status_code){
             widget_obj.find(".uc_status_code").html('<i class="fa '+Global[user_name].status_code+'" aria-hidden="true"></i>');
         }
+        //emo
+        if(Global[user_name].emotion){
+            widget_obj.find(".emo_n").text(Global[user_name].tendention);
+            if(Global[user_name].tendention>0){
+                widget_obj.find(".glyphicon-triangle-top").addClass("emo_up");
+                widget_obj.find(".glyphicon-triangle-bottom").removeClass("emo_down");
+            }else {
+                widget_obj.find(".glyphicon-triangle-top").removeClass("emo_up");
+                widget_obj.find(".glyphicon-triangle-bottom").addClass("emo_down");
+            }
+        }
     }
 }
