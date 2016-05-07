@@ -2,6 +2,8 @@ Global = {
     loggedAs:"",
     users:[],
     blank:{
+        danger:false,
+        status_msg:"не определено",
         trend:{},
         name:"",
         title:"",

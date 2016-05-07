@@ -59,9 +59,72 @@ function refresher() {
         }*/
         
     }
-    Global.trend.series[0].setData(Global.ssv.trend);    
+    //Global.trend.series[0].setData(Global.ssv.trend);    
 }
 
 function refreshUC(user) {
+    //trends
+    Global.trend.series[0].setData(Global[user].trend);
+    //Left SIDE
+    $(".uc_login").text(Global[user].login);
+    $(".uc_name").text(Global[user].name);
+    $(".uc_title").text(Global[user].title);
+    if(Number(Global[user].played)){
+        $(".label-played").removeClass("label-disabled");
+    }else {
+        $(".label-played").addClass("label-disabled");
+    }
+    if(Number(Global[user].r_code)){
+        $(".label-rc").removeClass("label-disabled");
+    }else {
+        $(".label-rc").addClass("label-disabled");
+    }
+    if(Number(Global[user].o_code)){
+        $(".label-oc").removeClass("label-disabled");
+    }else {
+        $(".label-oc").addClass("label-disabled");
+    }
+    //Right SIDE
+    if(Global[user].status_code){
+        $(".uc_weather_icon").html('<i class="fa '+Global[user].status_code+' fa-5x"></i>');
+    }else {
+        $(".uc_weather_icon").html('<i class="fa fa-terminal fa-5x"></i>');
+    }
+    if(Global[user].status_msg){
+        $(".weather_title").text(Global[user].status_msg);
+    }else {
+        $(".weather_title").text("Не определено");
+    }
+    if(Number(Global[user].danger)){
+        $(".weather-label-dng").html('<i class="label label-danger">опасно</i>');
+    }else {
+        $(".weather-label-dng").html('<i class="label label-success">не опасно</i>');
+    }
+    if(Global[user].danger){
+        $(".weather_time_val").text(Global[user].upd);
+    }else {
+        $(".weather_time_val").text(Global[user].upd);
+    }
+    if(Global[user].emotion){
+        $(".emo_val").text(Global[user].emotion);
+    }else {
+        $(".emo_val").text("---");
+    }
+    if(Global[user].tendention){
+        if(Global[user].tendention>=0){
+            $(".emo_val_tend").html('<div class="glyphicon glyphicon-triangle-top emo_up"></div> +'+Global[user].tendention);
+        }
+        else {
+            $(".emo_val_tend").html('<div class="glyphicon glyphicon-triangle-bottom emo_down"></div> '+Global[user].tendention);
+        }
+    
+    }else {
+        $(".emo_val_tend").text("---");
+    }
+    if(Global[user].img_big){
+        $(".uc_photo").css({"backgroundImage":'url("/photo/'+Global[user].img_big+'")'});
+    }else {
+        $(".uc_photo").css({"backgroundImage":'url("/style/nophoto.png")'});
+    }
     
 }

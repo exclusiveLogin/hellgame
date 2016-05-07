@@ -280,12 +280,14 @@ h3.card_status_off{
 .uc_photo{
     height: 150px;
     width: 100%;
-    border: 1px solid red;
+    border: 2px solid white;
+    border-radius: 5px;
     max-width: 150px;
     margin: 0px auto;
     margin-bottom: 10px;
-}
-.uc_name{
+    background: url("/style/nophoto.png") no-repeat center;
+    background-size: cover;
+    box-shadow: 0 0 10px 5px rgba(255,255,255,0.7);
 
 }
 .btn{
@@ -300,10 +302,6 @@ h3.card_status_off{
 }
 .uc_emocontrol{
     padding: 0px;
-}
-.uc_title{
-
-
 }
 .uc_card{
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#701717+0,aa2525+48,5b0404+76,930101+100 */
@@ -322,7 +320,7 @@ h3.card_status_off{
     background: -webkit-linear-gradient(top,  #bfd255 0%,#8eb92a 50%,#72aa00 51%,#9ecb2d 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom,  #bfd255 0%,#8eb92a 50%,#72aa00 51%,#9ecb2d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 ); /* IE6-9 */
-
+    margin-bottom: 15px;
 }
 .uc_emo_val{
     text-align: center;
@@ -334,13 +332,16 @@ h3.card_status_off{
     background: -webkit-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
-
+    margin-bottom: 15px;
 }
 .uc_title{
     margin-bottom: 15px;
 }
 .uc_col_weather{
 
+}
+.uc_login, .uc_name, .uc_title{
+    text-transform: uppercase;
 }
 #sysmsg{
     color: white;
@@ -393,7 +394,7 @@ h3.card_status_off{
     opacity: 0.8;
 }
 .label-disabled{
-    opacity: 0.4;
+    opacity: 0.3;
 }
 .btn_clsuc{
     margin-bottom: 15px;

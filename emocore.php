@@ -44,6 +44,8 @@ if ($target_user){
     }
     $res->free();
 
+    $mysql->query("SET time_zone = '+04:00'");
+
     $query="SELECT DATE_FORMAT(`datetime`,'%Y,%m,%d,%H,%i,%S') AS `datetime`,`value` FROM `".$target_user."_emo` ORDER BY `datetime` ASC";
     $res = $mysql->query($query);
 
