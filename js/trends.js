@@ -211,7 +211,7 @@ $(document).ready(function () {
 // Apply the theme
     Highcharts.setOptions(Highcharts.theme);
 
-    $('.uc_trends').highcharts({
+    $('#trend').highcharts({
         credits:{enabled:false},
         chart: {
             zoomType: 'x',
@@ -275,6 +275,6 @@ $(document).ready(function () {
             }
         }]
     });
-    Global.trend = $('.uc_trends').highcharts();
+    Global.trend = $('#trend').highcharts();
     
 });

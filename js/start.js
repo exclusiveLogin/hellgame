@@ -26,7 +26,12 @@ function tooltipHandler() {
     });
 }
 $(document).ready(function(){
-    
+    $(".btn_clsuc").on("click",function () {
+        //$("#usercard,#usercard-g").hide(500);
+        ucToggle(false,false);
+        ucToggle(true,false);
+        trendToggle(false);
+    });
 
     tooltipHandler();
     $('.uc_emo_slider').slider({
@@ -60,7 +65,7 @@ $(document).ready(function(){
             data:Global.loginData,
             success:function(data){
                 Global.authkey=data.auth;
-                refreshAuth();
+                
                 loginToggle(0);
                 if(data.msg){
                     var state = false;
@@ -70,8 +75,8 @@ $(document).ready(function(){
                     } 
                     showSysMsg(data.msg,state);
                 }
-            }
-            ,
+                refreshAuth();
+            },
             error:function(){
                 alert("error to load auth ajax");
             }

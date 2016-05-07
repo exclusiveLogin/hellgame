@@ -160,6 +160,7 @@ body{
     padding-left: 3px;
     padding-right: 3px;
     margin-bottom: 5px;
+    cursor: pointer;
 }
 .user_card{
     margin-top: 5px;
@@ -247,6 +248,7 @@ h3.card_status_off{
     padding-bottom: 15px;
     border-top: black solid 2px;
     font-family: 'Quicksand', sans-serif;
+    display: none;
 
 }
 #usercard-g{
@@ -395,4 +397,7 @@ h3.card_status_off{
 }
 .btn_clsuc{
     margin-bottom: 15px;
+}
+#trend{
+    display: none;
 }

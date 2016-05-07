@@ -156,7 +156,9 @@ function refreshAuth(){
                 alert("error to load addmc ajax");
             }
         });
-        setHandlers();
+        resetHandlers();
+        setHandlers();        
+        refreshLogged();
     }
     else{//************************Гость****************
         $.ajax({
@@ -197,6 +199,7 @@ function refreshAuth(){
         });
         $('#addmc').html('').hide(500);
         $('#admintools').html('').hide(500);
+        refreshLogged();
 
     }
 }
@@ -209,6 +212,36 @@ function renderCardFooter(cf){
         var quest = confirm("Вы уверены что хотите удалить монстра из базы?(Это вас не спасет)");
         if(quest){deletemc(id);}
     });
+}
+function refreshLogged() {
+    for (var user in Global.users){
+        $("#widget_uc_"+Global.users[user]).off("click");
+        if(Global.users[user] == Global.loggedAs){
+            $("#widget_uc_"+Global.users[user]).on("click",function () {
+                ucToggle(false,true);
+                trendToggle(true);
+                //$("#usercard-g").show(500);
+                //refreshUC(Global.users[user]);
+                //console.log('обработчик на виджет: #widget_uc_'+Global.users[user]+' установлены');
+            });
+        }
+        else {
+            $("#widget_uc_"+Global.users[user]).on("click",function () {
+                ucToggle(true,true);
+                trendToggle(true);
+                //$("#usercard").show(500);
+                //refreshUC(Global.users[user]);
+                //console.log('обработчик на виджет: #widget_uc_'+Global.users[user]+' установлены');
+            });
+        }
+    }
+}
+function resetHandlers() {
+    $('.btnadmintools').off('click');
+    $('.btnadmintoolscl').off('click');
+    $('.btnlogin').off('click');
+    $('.btnlogincl').off('click');
+    $('.btnlogout').off('click');
 }
 function setHandlers(){
     $('.btnadmintools').on('click',function(){
@@ -229,9 +262,34 @@ function setHandlers(){
     });
     $('.btnlogout').on('click',function(){
         Global.authkey = false;
+        Global.loggedAs = "";
         refreshAuth();
         showSysMsg("Вы успешно вышли из системы",true);
     });
+}
+function trendToggle(state) {
+    if(state){
+        $("#trend").fadeIn(500);
+    }else {
+        $("#trend").fadeOut(500);
+    }
+}
+function ucToggle(guest,state) {
+    if(guest){
+        if(state){
+            $("#usercard").show(500);
+        }
+        else {
+            $("#usercard").hide(500);
+        }
+    }else {
+        if(state){
+            $("#usercard-g").show(500);
+        }
+        else {
+            $("#usercard-g").hide(500);
+        }
+    }
 }
 function loginToggle(state){
     if(state){

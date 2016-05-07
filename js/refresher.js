@@ -59,15 +59,9 @@ function refresher() {
         }*/
         
     }
-    Global.trend.series[0].setData(Global.ssv.trend);
-    for (var user in Global.users){
-        $("#widget_uc_"+Global.users[user]).on("click",function () {
-            $("#usercard").show();
-            refreshUC(Global.users[user]);
-            //console.log('обработчик на виджет: #widget_uc_'+Global.users[user]+' установлены');
-        });
-    }
+    Global.trend.series[0].setData(Global.ssv.trend);    
 }
+
 function refreshUC(user) {
     
 }

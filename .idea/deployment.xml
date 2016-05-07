@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" uploadOnCheckin="ed359d5d-8ae5-4c1a-9154-46f2eb6e43ec">
+  <component name="PublishConfigData" uploadOnCheckin="1ebcbb58-fc06-41bb-aeac-81af71ccbb8d">
     <serverData>
       <paths name="hg">
         <serverdata>
@@ -17,6 +17,6 @@
         </serverdata>
       </paths>
     </serverData>
-    <option name="myUploadOnCheckinName" value="hellhost" />
+    <option name="myUploadOnCheckinName" value="hg" />
   </component>
 </project>

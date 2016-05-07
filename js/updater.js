@@ -10,6 +10,7 @@ $(document).ready(function () {
             Global.users = [];
             for(uc in data.r_users){
                 globalUpdate(data.r_users[uc]);
+                refreshLogged();
             }
         },
         error:function(){
