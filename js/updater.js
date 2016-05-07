@@ -40,7 +40,13 @@ function globalUpdate(obj) {//сначала proto потом вне услов�
     //Global[obj.login].emotion = obj.emotion;
     if(obj.status_code){
         Global[obj.login].status_code = obj.status_code;
-    }    
+    }
+    if(obj.danger){
+        Global[obj.login].danger = obj.danger;
+    }
+    if(obj.status_msg){
+        Global[obj.login].status_msg = obj.status_msg;
+    }
     Global[obj.login].upd = obj.upd;
     //Global[obj.login].oldEmotion = obj.old_emotion;
     //Global[obj.login].tendention = Number(obj.old_emotion) - Number(obj.emotion);

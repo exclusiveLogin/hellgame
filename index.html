@@ -120,14 +120,14 @@
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
                             <button class="btn btn-danger btn_clsuc">Закрыть</button>
                             <div class="uc_photo"></div>
-                            <div class="label label-success">online</div>
+                            <div class="label label-success label-online">online</div>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 text-center">
-                            <h2 class="uc_name uc_login">{USER.Login}</h2>
-                            <p class="uc_name uc_name">{USER.Name}</p>
-                            <p class="uc_name uc_title">{USER.Title}</p>
+                            <h2 class="uc_login">{USER.Login}</h2>
+                            <p class="uc_name">{USER.Name}</p>
+                            <p class="uc_title">{USER.Title}</p>
                             <h3>
-                                <span class="label label-danger label-played" data-played="false">{Gamestatus}</span>
+                                <span class="label label-success label-played label-disabled" data-played="true">Играет</span>
                             </h3>
                             <h3>
                                 <span class="label label-danger label-rc label-disabled" data-red-code="false">Красный код</span>
@@ -139,7 +139,7 @@
                     </div>
                 </div>
                 <div class="uc_col col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-                    <div class="uc_emo uc_title">Сообщение пользователю</div>
+                    <div class="uc_emo">Сообщение пользователю</div>
                     <div class="container-fluid">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                             <div class="form-group">
@@ -154,18 +154,18 @@
                     </div>
                 </div>
                 <div class="uc_col uc_col_weather col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-                    <div class="uc_weather uc_title">Сообщение пользователя</div>
+                    <div class="uc_weather">Сообщение пользователя</div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                        <i class="fa fa-bolt fa-5x"></i>
+                        <div class="uc_weather_icon"><i class="fa fa-bolt fa-5x"></i></div>
                         <h2 class="weather_title">{WEATHER.title}</h2>
-                        <p class="label label-danger weather-label-dng">опасно</p>
+                        <p class="weather-label-dng"></p>
                         <p class="weather_time">Получено:<span class="weather_time_val">{date}{time}</span></p>
                         <p>данные возможно устарели</p>
                         <p class="emo_title">Настроение:</p>
                         <h2>
                             <span class="emo_val">{lastEMO}</span>
                             <span class="devider">&nbsp;&nbsp;&nbsp;</span>
-                            <span class="emo_val_tend"><div class="glyphicon glyphicon-triangle-top emo_up"></div>{tend}</span>
+                            <span class="emo_val_tend">{tend}</span>
                         </h2>
                     </div>
                 </div>
@@ -179,12 +179,12 @@
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
                             <button class="btn btn-danger btn_clsuc">Закрыть</button>
                             <div class="uc_photo"></div>
-                            <div class="label label-success">online</div>
+                            <div class="label label-success label-online">online</div>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 text-center">
-                            <h2 class="uc_name uc_login">---</h2>
-                            <p class="uc_name uc_name">---</p>
-                            <p class="uc_name uc_title">---</p>
+                            <h2 class="uc_login">---</h2>
+                            <p class="uc_name">---</p>
+                            <p class="uc_title">---</p>
                             <h4>
                                 <span class="btn btn-danger btn-played" data-played="false">Играть</span>
                             </h4>
@@ -197,7 +197,7 @@
                     </div>
                 </div>
                 <div class="uc_col col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-                    <div class="uc_emo uc_title">Настроение</div>
+                    <div class="uc_emo">Настроение</div>
                     <div class="container-fluid">
                         <div class="uc_emocontrol col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center">
                             <div class="form-group text-center">
@@ -218,7 +218,7 @@
                     </div>
                 </div>
                 <div class="uc_col uc_col_weather col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-                    <div class="uc_weather uc_title">Сообщаю</div>
+                    <div class="uc_weather">Сообщаю</div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
                         <button class="btn btn-success btn-block disabled"><span class="fa fa-lg fa-fw fa-sun-o"></span><span class="hidden-md hidden-sm">Солнечно</span></button>
                         <button class="btn btn-danger btn-block disabled"><span class="fa fa-lg fa-fw fa-bolt"></span><span class="hidden-md hidden-sm">Гроза</span></button>

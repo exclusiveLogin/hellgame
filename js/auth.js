@@ -216,22 +216,24 @@ function renderCardFooter(cf){
 function refreshLogged() {
     for (var user in Global.users){
         $("#widget_uc_"+Global.users[user]).off("click");
+
+        $("#widget_uc_"+Global.users[user]).on("click",function () {
+            var id = $(this).attr("id").substr(-3);
+            refreshUC(id);
+        });
+        
         if(Global.users[user] == Global.loggedAs){
             $("#widget_uc_"+Global.users[user]).on("click",function () {
                 ucToggle(false,true);
+                ucToggle(true,false);
                 trendToggle(true);
-                //$("#usercard-g").show(500);
-                //refreshUC(Global.users[user]);
-                //console.log('обработчик на виджет: #widget_uc_'+Global.users[user]+' установлены');
             });
         }
         else {
             $("#widget_uc_"+Global.users[user]).on("click",function () {
                 ucToggle(true,true);
+                ucToggle(false,false);
                 trendToggle(true);
-                //$("#usercard").show(500);
-                //refreshUC(Global.users[user]);
-                //console.log('обработчик на виджет: #widget_uc_'+Global.users[user]+' установлены');
             });
         }
     }

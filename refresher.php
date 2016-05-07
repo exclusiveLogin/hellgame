@@ -2,8 +2,9 @@
 include_once "dbsetting.php";
 $mysql= new mysqli($dbhost,$logindb,$passdb,$dbname);
 if($mysql->connect_errno)die("error db:".$mysql->connect_error);
-
-$query="SELECT `id_user`,`name`,`email`,`title`,`login`,`o_code`,`r_code`,`played`,`online`,`emotion`,`old_emotion`,`status_code`,`upd`,`code_msg`,`img_big`,`img_min` FROM `users`,`users_act` WHERE `users`.`id`=`users_act`.`id_user`";
+$mysql->query("SET time_zone = '+04:00'");
+$query="SELECT `id_user`,`name`,`email`,`title`,`login`,`o_code`,`r_code`,`played`,`online`,`emotion`,`old_emotion`,
+`status_code`,`status_msg`,`danger`,`upd`,`code_msg`,`img_big`,`img_min` FROM `users`,`users_act` WHERE `users`.`id`=`users_act`.`id_user`";
 
 $res = $mysql->query($query);
 $row = $res->fetch_assoc();
