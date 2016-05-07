@@ -43,9 +43,22 @@ if ($target_user){
         die('{"errors":true,"errormsg":"data prevEMO from DB is null"}');
     }
     $res->free();
-    $mysql->close();
 
-    echo '{"last_emo":'.$last_emo.',"prev_emo":'.$prev_emo.'}';
+    $query="SELECT DATE_FORMAT(`datetime`,'%Y,%m,%d,%H,%i,%S') AS `datetime`,`value` FROM `".$target_user."_emo` ORDER BY `datetime` ASC";
+    $res = $mysql->query($query);
+
+    $row = $res->fetch_assoc();
+    $arr = array();
+    while ($row){
+        $num_arr = array_push($arr,[$row['datetime'],$row['value']]);
+        //echo "var dump DT:".$row['datetime']."  -VAL: ".$row['value']."--new_num:".$num_arr."<br>";
+        $row = $res->fetch_assoc();
+    }
+    //echo var_dump($arr);
+    $res->free();
+    $mysql->close();
+    //echo "<br>";
+    echo '{"last_emo":'.$last_emo.',"prev_emo":'.$prev_emo.',"trend":'.json_encode($arr).'}';
 }
 else{
     die('{"errors":true,"errormsg":"target user is null"}');

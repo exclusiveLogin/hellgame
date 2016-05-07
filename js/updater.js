@@ -66,7 +66,17 @@ function globalUpdate(obj) {//сначала proto потом вне услов�
                 Global[obj.login].emotion = data.last_emo;
                 Global[obj.login].oldEmotion = data.prev_emo;
                 Global[obj.login].tendention = Global[obj.login].emotion - Global[obj.login].oldEmotion;
-
+                Global[obj.login].trend = [];
+                for(var snap in data.trend){
+                    var shot = data.trend[snap][0];
+                    var tempval = Number(data.trend[snap][1]);
+                    var utc_arr = [];
+                    utc_arr = shot.split(',');
+                    (utc_arr[1]>0)?utc_arr[1]-=1:utc_arr[1]=0;
+                    var utctime = Date.UTC(Number(utc_arr[0]),Number(utc_arr[1]),Number(utc_arr[2]),Number(utc_arr[3]),
+                        Number(utc_arr[4]),Number(utc_arr[5]));
+                    Global[obj.login].trend.push([utctime,tempval]);
+                }
             }
         },
         error:function(){

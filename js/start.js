@@ -26,6 +26,8 @@ function tooltipHandler() {
     });
 }
 $(document).ready(function(){
+    
+
     tooltipHandler();
     $('.uc_emo_slider').slider({
         range:false,
@@ -41,15 +43,12 @@ $(document).ready(function(){
         }
     });
     
-    
-    
     $.ajaxSetup({
         cache:false,
         async:false
     });
     updList();
     refreshAuth();
-    
 
     $('#btnloginenter').on('click',function(){
         Global.loginData.login = $('#loginName').val();

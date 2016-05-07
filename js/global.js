@@ -2,6 +2,7 @@ Global = {
     loggedAs:"",
     users:[],
     blank:{
+        trend:{},
         name:"",
         title:"",
         login:"",

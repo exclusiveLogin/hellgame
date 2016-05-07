@@ -53,5 +53,21 @@ function refresher() {
                 widget_obj.find(".glyphicon-triangle-bottom").addClass("emo_down");
             }
         }
+        /*trends
+        if(Global[user_name].trend){
+            Global.trend.series[0].setData(Global[user_name].trend);
+        }*/
+        
     }
+    Global.trend.series[0].setData(Global.ssv.trend);
+    for (var user in Global.users){
+        $("#widget_uc_"+Global.users[user]).on("click",function () {
+            $("#usercard").show();
+            refreshUC(Global.users[user]);
+            //console.log('обработчик на виджет: #widget_uc_'+Global.users[user]+' установлены');
+        });
+    }
+}
+function refreshUC(user) {
+    
 }

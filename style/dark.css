@@ -256,6 +256,7 @@ h3.card_status_off{
     padding-bottom: 15px;
     border-top: black solid 2px;
     font-family: 'Quicksand', sans-serif;
+    display: none;
 
 }
 .uc_col{
@@ -391,4 +392,7 @@ h3.card_status_off{
 }
 .label-disabled{
     opacity: 0.4;
+}
+.btn_clsuc{
+    margin-bottom: 15px;
 }
