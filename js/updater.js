@@ -63,17 +63,15 @@ function globalUpdate(obj) {//сначала proto потом вне услов�
         data:dataQueryEmocore,
         //data:Global.loginData,
         success:function(data){
-            //alert("load emocore ajax ok");
-            console.log("парсим json");
             if(data.errors){
                 console.log("есть ошибка:"+data.errormsg);
             }
             else {
-                console.log("нет ошибок, данные: "+data);
                 Global[obj.login].emotion = data.last_emo;
                 Global[obj.login].oldEmotion = data.prev_emo;
                 Global[obj.login].tendention = Global[obj.login].emotion - Global[obj.login].oldEmotion;
                 Global[obj.login].trend = [];
+                Global[obj.login].flags = [];
                 for(var snap in data.trend){
                     var shot = data.trend[snap][0];
                     var tempval = Number(data.trend[snap][1]);
@@ -83,6 +81,11 @@ function globalUpdate(obj) {//сначала proto потом вне услов�
                     var utctime = Date.UTC(Number(utc_arr[0]),Number(utc_arr[1]),Number(utc_arr[2]),Number(utc_arr[3]),
                         Number(utc_arr[4]),Number(utc_arr[5]));
                     Global[obj.login].trend.push([utctime,tempval]);
+                    var tempTitle = data.trend[snap][2];
+                    var tempDesc = data.trend[snap][3];
+                    if(tempTitle){
+                        Global[obj.login].flags.push({"x":utctime,"title":"Я в норме","text":tempDesc});
+                    }
                 }
             }
         },

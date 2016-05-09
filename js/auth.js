@@ -216,24 +216,21 @@ function renderCardFooter(cf){
 function refreshLogged() {
     for (var user in Global.users){
         $("#widget_uc_"+Global.users[user]).off("click");
-
-        $("#widget_uc_"+Global.users[user]).on("click",function () {
-            var id = $(this).attr("id").substr(-3);
-            refreshUC(id);
-        });
         
         if(Global.users[user] == Global.loggedAs){
             $("#widget_uc_"+Global.users[user]).on("click",function () {
                 ucToggle(false,true);
                 ucToggle(true,false);
-                trendToggle(true);
+                var id = $(this).attr("id").substr(-3);
+                refreshUC(id);
             });
         }
         else {
             $("#widget_uc_"+Global.users[user]).on("click",function () {
                 ucToggle(true,true);
                 ucToggle(false,false);
-                trendToggle(true);
+                var id = $(this).attr("id").substr(-3);
+                refreshUC(id);
             });
         }
     }
@@ -269,17 +266,24 @@ function setHandlers(){
         showSysMsg("Вы успешно вышли из системы",true);
     });
 }
-function trendToggle(state) {
+function trendToggle(state, user) {
     if(state){
-        $("#trend").fadeIn(500);
+        $("#trend").show(1000, function () {
+            Global.trend.reflow();
+            Global.trend.series[0].setData([]);
+            Global.trend.series[1].setData([]);
+
+            Global.trend.series[0].setData(Global[user].trend);
+            Global.trend.series[1].setData(Global[user].flags);
+        });
     }else {
-        $("#trend").fadeOut(500);
+        $("#trend").hide(500);
     }
 }
 function ucToggle(guest,state) {
     if(guest){
         if(state){
-            $("#usercard").show(500);
+            $("#usercard").show(500);            
         }
         else {
             $("#usercard").hide(500);

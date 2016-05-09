@@ -64,7 +64,10 @@ function refresher() {
 
 function refreshUC(user) {
     //trends
-    Global.trend.series[0].setData(Global[user].trend);
+    //Global.trend = {};
+    //Global.trend = new Highcharts.StockChart(Global.trendSetting);
+    //trendToggle(false);
+    trendToggle(true, user);
     //Left SIDE
     if(Number(Global[user].online)){
         $(".label-online").removeClass("label-disabled");

@@ -26,6 +26,8 @@ function tooltipHandler() {
     });
 }
 $(document).ready(function(){
+    $("#trend").hide(1000);
+    //Global.trend.reflow();
     $(".btn_clsuc").on("click",function () {
         //$("#usercard,#usercard-g").hide(500);
         ucToggle(false,false);
@@ -42,11 +44,18 @@ $(document).ready(function(){
         orientation:"vertical",
         slide:function(event,ui){
             $('.uc_emo_val').val(ui.value);
+            $('.btn_emo_submit').removeClass("disabled");
         },
         create:function(){
             $('.uc_emo_val').val("---");
         }
     });
+    
+    $(".btn_emo_submit").on("click", function () {
+        $(this).addClass("disabled");
+        var emoval = $(".uc_emo_val").val();
+        console.log("Передаваемое настроение:"+emoval);
+    })
     
     $.ajaxSetup({
         cache:false,

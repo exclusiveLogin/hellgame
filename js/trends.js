@@ -1,12 +1,13 @@
 /**
  * Created by alter on 06.05.2016.
  */
+
 $(document).ready(function () {
-    Highcharts.createElement('link', {
+    /*Highcharts.createElement('link', {
         href: 'https://fonts.googleapis.com/css?family=Unica+One',
         rel: 'stylesheet',
         type: 'text/css'
-    }, null, document.getElementsByTagName('head')[0]);
+    }, null, document.getElementsByTagName('head')[0]);*/
     Highcharts.theme = {
         colors: ["#2b908f", "#90ee7e", "#f45b5b", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
             "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
@@ -19,7 +20,7 @@ $(document).ready(function () {
                 ]
             },
             style: {
-                fontFamily: "'Unica One', sans-serif"
+                fontFamily: "'Arial', sans-serif"
             },
             plotBorderColor: '#606063'
         },
@@ -211,11 +212,13 @@ $(document).ready(function () {
 // Apply the theme
     Highcharts.setOptions(Highcharts.theme);
 
-    $('#trend').highcharts({
+    Global.container = $("#trend");
+    Global.trendSetting = {
         credits:{enabled:false},
         chart: {
             zoomType: 'x',
-            height:300
+            height:300,
+            renderTo:Global.container[0],            
         },
         title: {
             text: 'График эмоционального состояния'
@@ -252,7 +255,14 @@ $(document).ready(function () {
                 type:"all",
                 text:"Все"
             }],
-            selected:3
+            selected:3,
+            //inputEnabled:false
+        },
+        navigator:{
+            height:15
+        },
+        scrollbar:{
+            enabled:false
         },
         plotOptions: {
             series: {
@@ -267,14 +277,22 @@ $(document).ready(function () {
         series:[{
             type: 'areaspline',
             name: 'Эмоциональное состояние',
-            data:[0,90,78,89,98,39,32,56,78,12,35,78,98,49,67],
+            //data:[0,0],
             lineWidth: 4,
+            dataLabels:{
+                enabled:true,
+            },
             tooltip: {
                 valueDecimals: 0,
                 valueSuffix:' emo'
             }
+        },{
+            type: 'flags',
+            //data:[],
+            shape:'squarepin'
         }]
-    });
-    Global.trend = $('#trend').highcharts();
+    };
+    Global.trend = new Highcharts.StockChart(Global.trendSetting);
+    Global.trend.reflow();
     
 });

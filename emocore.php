@@ -44,15 +44,20 @@ if ($target_user){
     }
     $res->free();
 
+    //Если есть сеттер
+    
+
+
+
     $mysql->query("SET time_zone = '+04:00'");
 
-    $query="SELECT DATE_FORMAT(`datetime`,'%Y,%m,%d,%H,%i,%S') AS `datetime`,`value` FROM `".$target_user."_emo` ORDER BY `datetime` ASC";
+    $query="SELECT DATE_FORMAT(`datetime`,'%Y,%m,%d,%H,%i,%S') AS `datetime`,`value`,`emo_title`,`emo_desc` FROM `".$target_user."_emo` ORDER BY `datetime` ASC";
     $res = $mysql->query($query);
 
     $row = $res->fetch_assoc();
     $arr = array();
     while ($row){
-        $num_arr = array_push($arr,[$row['datetime'],$row['value']]);
+        $num_arr = array_push($arr,[$row['datetime'],$row['value'],$row['emo_title'],$row['emo_desc']]);
         //echo "var dump DT:".$row['datetime']."  -VAL: ".$row['value']."--new_num:".$num_arr."<br>";
         $row = $res->fetch_assoc();
     }

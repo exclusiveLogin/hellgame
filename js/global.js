@@ -4,7 +4,8 @@ Global = {
     blank:{
         danger:false,
         status_msg:"не определено",
-        trend:{},
+        //flags:[],
+        //trend:{},
         name:"",
         title:"",
         login:"",
@@ -24,7 +25,6 @@ Global = {
         img_min:""
     }
 };
-console.log("global created");
 
 
 

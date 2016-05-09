@@ -399,6 +399,6 @@ h3.card_status_off{
 .btn_clsuc{
     margin-bottom: 15px;
 }
-#trend{
-    display: none;
+#trend {
+    /*display: none;*/
 }
