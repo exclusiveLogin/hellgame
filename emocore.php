@@ -45,7 +45,17 @@ if ($target_user){
     $res->free();
 
     //Если есть сеттер
-    
+    if($_GET["setemo"]){
+        $newval = (int)$_GET["setemo"];
+        $emo_title = $_GET["emo_title"];
+        $emo_desc = $_GET["emo_desc"];
+        
+        $query='INSERT INTO `'.$target_user.'_emo` (`value`,`emo_title`,`emo_desc`) VALUES ('.$newval.',"'.$emo_title.'","'.$emo_desc.'")';
+
+        $msg = "Новое настроение ".$newval." для пользователя ".$target_user." установлено ";
+        
+        $mysql->query($query);
+    }
 
 
 
@@ -65,7 +75,7 @@ if ($target_user){
     $res->free();
     $mysql->close();
     //echo "<br>";
-    echo '{"last_emo":'.$last_emo.',"prev_emo":'.$prev_emo.',"trend":'.json_encode($arr).'}';
+    echo '{"last_emo":'.$last_emo.',"prev_emo":'.$prev_emo.',"trend":'.json_encode($arr).',"msg":"'.$msg.'"}';
 }
 else{
     die('{"errors":true,"errormsg":"target user is null"}');

@@ -1,5 +1,11 @@
 function refreshAuth(){
     if(Global.authkey){//************************Авторизован****************
+        var t_menu = false,
+            t_pmenu = false,
+            t_at = false,
+            t_acf = false,
+            t_amc = false;
+        
         $.ajax({
             url:"/components/menuadmin.html",
             mode:"html",
@@ -7,6 +13,8 @@ function refreshAuth(){
                 $('#menu').html(menu);
             },
             complete:function(){
+                t_menu = true;
+                checkT();
             },
             error:function(){
                 alert("error to load menuadmin ajax");
@@ -19,7 +27,8 @@ function refreshAuth(){
                 $('#menupda').html(menupda);
             },
             complete:function(){
-
+                t_pmenu = true;
+                checkT();
             },
             error:function(){
                 alert("error to load menuadmin ajax");
@@ -35,6 +44,8 @@ function refreshAuth(){
                 $('#admintools').on('click','#btn_addmc',function(){
                     $('#addmc').show(500)
                 });
+                t_at = true;
+                checkT();
             },
             error:function(){
                 alert("error to load menuadmin ajax");
@@ -47,6 +58,8 @@ function refreshAuth(){
                 renderCardFooter(cf);
             },
             complete:function(){
+                t_acf = true;
+                checkT();
             },
             error:function(){
                 alert("error to load cardfooteradmin ajax");
@@ -151,16 +164,32 @@ function refreshAuth(){
                         $('#mc_direction_val').val("Установите направление.");
                     }
                 });
+                t_amc = true;
+                checkT();
             },
             error:function(){
                 alert("error to load addmc ajax");
             }
         });
-        resetHandlers();
-        setHandlers();        
-        refreshLogged();
-    }
+        function checkT() {
+            if(t_acf && t_amc && t_at && t_menu && t_pmenu){
+                resetHandlers();
+                setHandlers();
+                refreshLogged();
+                t_acf = false;
+                t_amc = false;
+                t_at = false;
+                t_menu = false;
+                t_pmenu = false;
+            }
+        }
+        
+            }
     else{//************************Гость****************
+        var g_menu = false,
+            g_pmenu = false,
+            g_cf = false;
+            
         $.ajax({
             url:"/components/menu.html",
             mode:"html",
@@ -168,7 +197,8 @@ function refreshAuth(){
                 $('#menu').html(menu);
             },
             complete:function(){
-                setHandlers();
+                g_menu = true;
+                checkG();
             },
             error:function(){
                 alert("error to load menu ajax");
@@ -181,7 +211,8 @@ function refreshAuth(){
                 $('#menupda').html(menupda);
             },
             complete:function(){
-                setHandlers();
+                g_pmenu = true;
+                checkG();
             },
             error:function(){
                 alert("error to load menuadmin ajax");
@@ -192,6 +223,8 @@ function refreshAuth(){
             mode:"html",
             success:function(cf){
                 renderCardFooter(cf);
+                g_cf = true;
+                checkG();
             },
             error:function(){
                 alert("error to load cardfooter ajax");
@@ -199,8 +232,18 @@ function refreshAuth(){
         });
         $('#addmc').html('').hide(500);
         $('#admintools').html('').hide(500);
-        refreshLogged();
-
+        
+        
+        function checkG() {
+            if(g_cf && g_menu && g_pmenu){
+                resetHandlers();
+                setHandlers();
+                refreshLogged();
+                g_cf = false;
+                g_menu = false;
+                g_pmenu = false;
+            }
+        }
     }
 }
 function renderCardFooter(cf){

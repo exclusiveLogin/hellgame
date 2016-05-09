@@ -27,9 +27,7 @@ function tooltipHandler() {
 }
 $(document).ready(function(){
     $("#trend").hide(1000);
-    //Global.trend.reflow();
     $(".btn_clsuc").on("click",function () {
-        //$("#usercard,#usercard-g").hide(500);
         ucToggle(false,false);
         ucToggle(true,false);
         trendToggle(false);
@@ -53,13 +51,24 @@ $(document).ready(function(){
     
     $(".btn_emo_submit").on("click", function () {
         $(this).addClass("disabled");
-        var emoval = $(".uc_emo_val").val();
-        console.log("Передаваемое настроение:"+emoval);
-    })
+
+        var emoval = {};
+        emoval['n'] = Number($(".uc_emo_val").val());
+        emoval['title'] = $(".uc_emo_title").val();
+        emoval['desc'] = $(".uc_emo_description").val();
+        var temp = {};
+        temp['login'] = Global.loggedAs;
+        globalUpdate(temp,emoval);
+        var offset = new Date().getTimezoneOffset()*60000;
+        var now = Date.now();
+        utc = now - offset;
+        Global.trend.series[0].addPoint([utc,emoval.n]);
+        startUpdater();
+    });
     
     $.ajaxSetup({
         cache:false,
-        async:false
+        //async:false
     });
     updList();
     refreshAuth();

@@ -229,7 +229,7 @@ $(document).ready(function () {
         xAxis: {
             type: 'datetime',
             gridLineWidth:1,
-            ordinal:false,
+            //ordinal:false,
         },
         yAxis: {
             title: {
@@ -240,6 +240,14 @@ $(document).ready(function () {
         },
         rangeSelector:{
             buttons:[{
+                type:"hour",
+                count:1,
+                text:"1ч"
+            },{
+                type:"hour",
+                count:3,
+                text:"3ч"
+            },{
                 type:"hour",
                 count:8,
                 text:"8ч"

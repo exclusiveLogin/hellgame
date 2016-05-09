@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    startUpdater();
+
+});
+function startUpdater() {
     $.ajax({
         url:"/refresher.php",
         dataType:"json",
@@ -10,17 +14,16 @@ $(document).ready(function () {
             Global.users = [];
             for(uc in data.r_users){
                 globalUpdate(data.r_users[uc]);
-                refreshLogged();
             }
+            refreshLogged();
         },
         error:function(){
             alert("error to load refresher ajax");
         }
     });
+}
 
-});
-
-function globalUpdate(obj) {//сначала proto потом вне условия все остальное
+function globalUpdate(obj,newemo) {//сначала proto потом вне условия все остальное
     if(!Global[obj.login]){
         Global[obj.login] = {};
         for(var key in Global.blank){
@@ -28,40 +31,44 @@ function globalUpdate(obj) {//сначала proto потом вне услов�
         }
         
     }
-    Global.users.push(obj.login);
-    Global[obj.login].id = obj.id_user;
-    Global[obj.login].name = obj.name;
-    Global[obj.login].email = obj.email;
-    Global[obj.login].title = obj.title;
-    Global[obj.login].o_code = obj.o_code;
-    Global[obj.login].r_code = obj.r_code;
-    Global[obj.login].played = obj.played;
-    Global[obj.login].online = obj.online;
-    //Global[obj.login].emotion = obj.emotion;
-    if(obj.status_code){
-        Global[obj.login].status_code = obj.status_code;
+    if(!newemo){
+        Global.users.push(obj.login);
+        Global[obj.login].id = obj.id_user;
+        Global[obj.login].name = obj.name;
+        Global[obj.login].email = obj.email;
+        Global[obj.login].title = obj.title;
+        Global[obj.login].o_code = obj.o_code;
+        Global[obj.login].r_code = obj.r_code;
+        Global[obj.login].played = obj.played;
+        Global[obj.login].online = obj.online;
+        if(obj.status_code){
+            Global[obj.login].status_code = obj.status_code;
+        }
+        if(obj.danger){
+            Global[obj.login].danger = obj.danger;
+        }
+        if(obj.status_msg){
+            Global[obj.login].status_msg = obj.status_msg;
+        }
+        Global[obj.login].upd = obj.upd;
+        Global[obj.login].msg_code = obj.msg_code;
+        Global[obj.login].login = obj.login;
+        Global[obj.login].img_big = obj.img_big;
+        Global[obj.login].img_min = obj.img_min;
+
     }
-    if(obj.danger){
-        Global[obj.login].danger = obj.danger;
-    }
-    if(obj.status_msg){
-        Global[obj.login].status_msg = obj.status_msg;
-    }
-    Global[obj.login].upd = obj.upd;
-    //Global[obj.login].oldEmotion = obj.old_emotion;
-    //Global[obj.login].tendention = Number(obj.old_emotion) - Number(obj.emotion);
-    Global[obj.login].msg_code = obj.msg_code;
-    Global[obj.login].login = obj.login;
-    Global[obj.login].img_big = obj.img_big;
-    Global[obj.login].img_min = obj.img_min;
     var dataQueryEmocore = {};
     dataQueryEmocore['t_user'] = Global[obj.login].login;
+    if(newemo){
+        dataQueryEmocore['setemo'] = newemo.n;
+        dataQueryEmocore['emo_title'] = newemo.title;
+        dataQueryEmocore['emo_desc'] = newemo.desc;
+    }
     $.ajax({
         url:"/emocore.php",
         dataType:"json",
         method:'GET',
         data:dataQueryEmocore,
-        //data:Global.loginData,
         success:function(data){
             if(data.errors){
                 console.log("есть ошибка:"+data.errormsg);
@@ -84,15 +91,21 @@ function globalUpdate(obj) {//сначала proto потом вне услов�
                     var tempTitle = data.trend[snap][2];
                     var tempDesc = data.trend[snap][3];
                     if(tempTitle){
-                        Global[obj.login].flags.push({"x":utctime,"title":"Я в норме","text":tempDesc});
+                        Global[obj.login].flags.push({"x":utctime,"title":tempTitle,"text":tempDesc});
                     }
+                }
+                if(data.msg){
+                    showSysMsg(data.msg,true);
                 }
             }
         },
         error:function(){
             alert("error to load emocore ajax");
+        },
+        complete:function () {
+            refresher();
         }
     });
     
-    refresher();
+    //refresher();
 }
