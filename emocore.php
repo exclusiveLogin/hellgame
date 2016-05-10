@@ -33,7 +33,7 @@ if ($target_user){
     $row = null;
     //-----определяем предпоследнее настроение----
 
-    $query="SELECT  `value` FROM  `".$target_user."_emo` WHERE id < (SELECT MAX( `id`) FROM `".$target_user."_emo`  LIMIT 1 ORDER BY `id` DESC)";
+    $query="SELECT  `value` FROM  `".$target_user."_emo` WHERE id < (SELECT MAX( `id`) FROM `".$target_user."_emo`  LIMIT 1) ORDER BY `id` DESC";
     $res = $mysql->query($query);
 
     $row = $res->fetch_assoc();

@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="717fb80b-d7c5-46a3-8a22-d602fe74b980" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backup.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/menupda.html" afterPath="$PROJECT_DIR$/components/menupda.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/menupdaadmin.html" afterPath="$PROJECT_DIR$/components/menupdaadmin.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emocore.php" afterPath="$PROJECT_DIR$/emocore.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/refresher.js" afterPath="$PROJECT_DIR$/js/refresher.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/start.js" afterPath="$PROJECT_DIR$/js/start.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/updater.js" afterPath="$PROJECT_DIR$/js/updater.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/refresher.php" afterPath="$PROJECT_DIR$/refresher.php" />
     </list>
     <ignored path="hellgame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,29 +63,30 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="22" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
-              <folding>
-                <marker date="1462883553000" expanded="true" signature="21:1956" placeholder="{...}" />
-                <marker date="1462883553000" expanded="true" signature="448:583" placeholder="{...}" />
-                <marker date="1462883553000" expanded="true" signature="738:812" placeholder="{...}" />
-                <marker date="1462883553000" expanded="true" signature="973:1050" placeholder="{...}" />
-                <marker date="1462883553000" expanded="true" signature="1112:1315" placeholder="{...}" />
-                <marker date="1462883553000" expanded="true" signature="1329:1540" placeholder="{...}" />
-                <marker date="1462883553000" expanded="true" signature="1597:1728" placeholder="{...}" />
-                <marker date="1462883553000" expanded="true" signature="1791:1930" placeholder="{...}" />
-                <marker date="1462883553000" expanded="true" signature="4980:5037" placeholder="{...}" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="emocore.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="emocore.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/emocore.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1292">
-              <caret line="76" column="33" selection-start-line="76" selection-start-column="33" selection-end-line="76" selection-end-column="33" />
+            <state relative-caret-position="391">
+              <caret line="35" column="145" selection-start-line="35" selection-start-column="145" selection-end-line="35" selection-end-column="145" />
               <folding>
-                <marker date="1462875588000" expanded="true" signature="88:3832" placeholder="..." />
-                <marker date="1462875588000" expanded="true" signature="177:264" placeholder="..." />
+                <marker date="1462901989254" expanded="true" signature="361:422" placeholder="SELECT `id` users" />
+                <marker date="1462901989254" expanded="true" signature="723:827" placeholder="SELECT `valu... ${$target_user}_emo" />
+                <marker date="1462901989254" expanded="true" signature="780:825" placeholder="SELECT MAX( ${$target_user}_emo" />
+                <marker date="1462901989254" expanded="true" signature="1141:1253" placeholder="SELECT `valu... ${$target_user}_emo" />
+                <marker date="1462901989254" expanded="true" signature="1141:1272" placeholder="SELECT `valu... ${$target_user}_emo" />
+                <marker date="1462901989254" expanded="true" signature="1708:1829" placeholder="INSERT INTO `${$target_user}_emo`... " />
+                <marker date="1462901989254" expanded="true" signature="2260:2388" placeholder="UPDATE `user... " />
+                <marker date="1462901989254" expanded="true" signature="2330:2387" placeholder="SELECT `id` users" />
+                <marker date="1462901989254" expanded="true" signature="2438:2559" placeholder="UPDATE `user... " />
+                <marker date="1462901989254" expanded="true" signature="2501:2558" placeholder="SELECT `id` users" />
+                <marker date="1462901989254" expanded="true" signature="2609:2740" placeholder="UPDATE `user... " />
+                <marker date="1462901989254" expanded="true" signature="2682:2739" placeholder="SELECT `id` users" />
+                <marker date="1462901989254" expanded="true" signature="3109:3256" placeholder="SELECT DATE_... ${$target_user}_emo" />
               </folding>
             </state>
           </provider>
@@ -102,22 +95,21 @@
       <file leaf-file-name="updater.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/updater.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1190">
+            <state relative-caret-position="1683">
               <caret line="99" column="30" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
               <folding>
                 <marker date="1462880586000" expanded="true" signature="30:52" placeholder="{...}" />
                 <marker date="1462880586000" expanded="true" signature="3150:3157" placeholder="{...}" />
-                <marker date="1462880586000" expanded="true" signature="3150:4905" placeholder="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="start.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="start.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/start.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="81" column="35" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
+            <state relative-caret-position="-68">
+              <caret line="59" column="40" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
               <folding>
                 <element signature="n#!!block;n#tooltipHandler#0" expanded="false" />
                 <element signature="n#!!block;n#showSysMsg#0" expanded="false" />
@@ -215,9 +207,9 @@
         <option value="$PROJECT_DIR$/js/trends.js" />
         <option value="$PROJECT_DIR$/js/auth.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/emocore.php" />
         <option value="$PROJECT_DIR$/js/updater.js" />
         <option value="$PROJECT_DIR$/js/start.js" />
+        <option value="$PROJECT_DIR$/emocore.php" />
       </list>
     </option>
   </component>
@@ -261,6 +253,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -285,8 +279,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -381,7 +373,8 @@
       <workItem from="1462699508769" duration="7486000" />
       <workItem from="1462735766305" duration="24052000" />
       <workItem from="1462816102385" duration="9647000" />
-      <workItem from="1462896826473" duration="700000" />
+      <workItem from="1462896826473" duration="837000" />
+      <workItem from="1462901819338" duration="268000" />
     </task>
     <task id="LOCAL-00001" summary="first commit of HG">
       <created>1461670165519</created>
@@ -495,11 +488,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462825815786</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Запущен обмен статусами, запущена система подсчета времени устаревания информации , исправлены мелкие баги в тренде.">
+      <created>1462898100896</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1462898100896</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178620000" />
+    <option name="totallyTimeSpent" value="179025000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -512,10 +512,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22890624" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22890624" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1554054" sideWeight="0.509693" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34087238" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -563,7 +563,8 @@
     <MESSAGE value="Предрелиз FrontEnd v 0.9.2" />
     <MESSAGE value="trend render bugs fixed, trend object style code refactoring" />
     <MESSAGE value="trend render bugs fixed, acync ajax added&#10;acync style &#10;emocore ver 0.1 beta" />
-    <option name="LAST_COMMIT_MESSAGE" value="trend render bugs fixed, acync ajax added&#10;acync style &#10;emocore ver 0.1 beta" />
+    <MESSAGE value="Запущен обмен статусами, запущена система подсчета времени устаревания информации , исправлены мелкие баги в тренде." />
+    <option name="LAST_COMMIT_MESSAGE" value="Запущен обмен статусами, запущена система подсчета времени устаревания информации , исправлены мелкие баги в тренде." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -869,13 +870,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="261" column="7" selection-start-line="261" selection-start-column="7" selection-end-line="261" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/backup.html" />
     <entry file="file://$PROJECT_DIR$/style/dark.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6834">
@@ -888,17 +883,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="22" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
-          <folding>
-            <marker date="1462883553000" expanded="true" signature="21:1956" placeholder="{...}" />
-            <marker date="1462883553000" expanded="true" signature="448:583" placeholder="{...}" />
-            <marker date="1462883553000" expanded="true" signature="738:812" placeholder="{...}" />
-            <marker date="1462883553000" expanded="true" signature="973:1050" placeholder="{...}" />
-            <marker date="1462883553000" expanded="true" signature="1112:1315" placeholder="{...}" />
-            <marker date="1462883553000" expanded="true" signature="1329:1540" placeholder="{...}" />
-            <marker date="1462883553000" expanded="true" signature="1597:1728" placeholder="{...}" />
-            <marker date="1462883553000" expanded="true" signature="1791:1930" placeholder="{...}" />
-            <marker date="1462883553000" expanded="true" signature="4980:5037" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -949,33 +934,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/emocore.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="76" column="33" selection-start-line="76" selection-start-column="33" selection-end-line="76" selection-end-column="33" />
-          <folding>
-            <marker date="1462875588000" expanded="true" signature="88:3832" placeholder="..." />
-            <marker date="1462875588000" expanded="true" signature="177:264" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/updater.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
+        <state relative-caret-position="1683">
           <caret line="99" column="30" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
           <folding>
             <marker date="1462880586000" expanded="true" signature="30:52" placeholder="{...}" />
             <marker date="1462880586000" expanded="true" signature="3150:3157" placeholder="{...}" />
-            <marker date="1462880586000" expanded="true" signature="3150:4905" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/start.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="81" column="35" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
+        <state relative-caret-position="-68">
+          <caret line="59" column="40" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
           <folding>
             <element signature="n#!!block;n#tooltipHandler#0" expanded="false" />
             <element signature="n#!!block;n#showSysMsg#0" expanded="false" />
@@ -983,6 +956,28 @@
             <element signature="n#!!block;n#updList#0" expanded="false" />
             <element signature="n#!!block;n#user#0" expanded="false" />
             <element signature="n#!!block;n#createcard#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/emocore.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="35" column="145" selection-start-line="35" selection-start-column="145" selection-end-line="35" selection-end-column="145" />
+          <folding>
+            <marker date="1462901989254" expanded="true" signature="361:422" placeholder="SELECT `id` users" />
+            <marker date="1462901989254" expanded="true" signature="723:827" placeholder="SELECT `valu... ${$target_user}_emo" />
+            <marker date="1462901989254" expanded="true" signature="780:825" placeholder="SELECT MAX( ${$target_user}_emo" />
+            <marker date="1462901989254" expanded="true" signature="1141:1253" placeholder="SELECT `valu... ${$target_user}_emo" />
+            <marker date="1462901989254" expanded="true" signature="1141:1272" placeholder="SELECT `valu... ${$target_user}_emo" />
+            <marker date="1462901989254" expanded="true" signature="1708:1829" placeholder="INSERT INTO `${$target_user}_emo`... " />
+            <marker date="1462901989254" expanded="true" signature="2260:2388" placeholder="UPDATE `user... " />
+            <marker date="1462901989254" expanded="true" signature="2330:2387" placeholder="SELECT `id` users" />
+            <marker date="1462901989254" expanded="true" signature="2438:2559" placeholder="UPDATE `user... " />
+            <marker date="1462901989254" expanded="true" signature="2501:2558" placeholder="SELECT `id` users" />
+            <marker date="1462901989254" expanded="true" signature="2609:2740" placeholder="UPDATE `user... " />
+            <marker date="1462901989254" expanded="true" signature="2682:2739" placeholder="SELECT `id` users" />
+            <marker date="1462901989254" expanded="true" signature="3109:3256" placeholder="SELECT DATE_... ${$target_user}_emo" />
           </folding>
         </state>
       </provider>
