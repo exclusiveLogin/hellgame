@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <!--meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>DRXT Project HELL GAME</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -165,7 +165,7 @@
                         <h2 class="weather_title">{WEATHER.title}</h2>
                         <p class="weather-label-dng"></p>
                         <p class="weather_time">Получено:<span class="weather_time_val">{date}{time}</span></p>
-                        <p>данные возможно устарели</p>
+                        <p class="label label-warning label-dataold">данные возможно устарели</p>
                         <p class="emo_title">Настроение:</p>
                         <h2>
                             <span class="emo_val">{lastEMO}</span>
@@ -225,30 +225,30 @@
                 <div class="uc_col uc_col_weather col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
                     <div class="uc_weather">Сообщаю</div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
-                        <button class="btn btn-success btn-block disabled"><span class="fa fa-lg fa-fw fa-sun-o"></span><span class="hidden-md hidden-sm">Солнечно</span></button>
-                        <button class="btn btn-danger btn-block disabled"><span class="fa fa-lg fa-fw fa-bolt"></span><span class="hidden-md hidden-sm">Гроза</span></button>
-                        <button class="btn btn-danger btn-block disabled"><span class="fa fa-lg fa-fw fa-heartbeat"></span><span class="hidden-md hidden-sm">Страх</span></button>
-                        <button class="btn btn-success btn-block disabled"><span class="fa fa-lg fa-fw fa-bus"></span><span class="hidden-md hidden-sm">Автобус</span></button>
-                        <button class="btn btn-warning btn-block disabled"><span class="fa fa-lg fa-fw fa-calendar"></span><span class="hidden-md hidden-sm">Дела</span></button>
-                        <button class="btn btn-success btn-block disabled"><span class="fa fa-lg fa-fw fa-industry"></span><span class="hidden-md hidden-sm">Работа</span></button>
+                        <button class="btn btn-success btn-block btn_status_submit" data-danger="false"><span class="fa fa-lg fa-fw fa-sun-o"></span><span class="hidden-md hidden-sm status_msg_val">Солнечно</span></button>
+                        <button class="btn btn-danger btn-block btn_status_submit" data-danger="true"><span class="fa fa-lg fa-fw fa-bolt"></span><span class="hidden-md hidden-sm status_msg_val">Гроза</span></button>
+                        <button class="btn btn-danger btn-block btn_status_submit" data-danger="true"><span class="fa fa-lg fa-fw fa-heartbeat"></span><span class="hidden-md hidden-sm status_msg_val">Страх</span></button>
+                        <button class="btn btn-success btn-block btn_status_submit" data-danger="false"><span class="fa fa-lg fa-fw fa-bus"></span><span class="hidden-md hidden-sm status_msg_val">Автобус</span></button>
+                        <button class="btn btn-warning btn-block btn_status_submit" data-danger="false"><span class="fa fa-lg fa-fw fa-calendar"></span><span class="hidden-md hidden-sm status_msg_val">Дела</span></button>
+                        <button class="btn btn-success btn-block btn_status_submit" data-danger="false"><span class="fa fa-lg fa-fw fa-industry"></span><span class="hidden-md hidden-sm status_msg_val">Работа</span></button>
 
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
-                        <button class="btn btn-success btn-block disabled"><span class="fa fa-lg fa-fw fa-cloud"></span><span class="hidden-md hidden-sm">Облачно</span></button>
-                        <button class="btn btn-danger btn-block disabled"><span class="fa fa-lg fa-fw fa-soundcloud"></span><span class="hidden-md hidden-sm">Туман</span></button>
-                        <button class="btn btn-success btn-block disabled"><span class="fa fa-lg fa-fw fa-home"></span><span class="hidden-md hidden-sm">Дома</span></button>
-                        <button class="btn btn-warning btn-block disabled"><span class="fa fa-lg fa-fw fa-cab"></span><span class="hidden-md hidden-sm">Такси</span></button>
-                        <button class="btn btn-success btn-block disabled"><span class="fa fa-lg fa-fw fa-commenting"></span><span class="hidden-md hidden-sm">Свободен</span></button>
-                        <button class="btn btn-success btn-block disabled"><span class="fa fa-lg fa-fw fa-coffee"></span><span class="hidden-md hidden-sm">Перерыв</span></button>
+                        <button class="btn btn-success btn-block btn_status_submit" data-danger="false"><span class="fa fa-lg fa-fw fa-cloud"></span><span class="hidden-md hidden-sm status_msg_val">Облачно</span></button>
+                        <button class="btn btn-danger btn-block btn_status_submit" data-danger="true"><span class="fa fa-lg fa-fw fa-soundcloud"></span><span class="hidden-md hidden-sm status_msg_val">Туман</span></button>
+                        <button class="btn btn-success btn-block btn_status_submit" data-danger="false"><span class="fa fa-lg fa-fw fa-home"></span><span class="hidden-md hidden-sm status_msg_val">Дома</span></button>
+                        <button class="btn btn-warning btn-block btn_status_submit" data-danger="false"><span class="fa fa-lg fa-fw fa-cab"></span><span class="hidden-md hidden-sm status_msg_val">Такси</span></button>
+                        <button class="btn btn-success btn-block btn_status_submit" data-danger="false"><span class="fa fa-lg fa-fw fa-commenting"></span><span class="hidden-md hidden-sm status_msg_val">Свободен</span></button>
+                        <button class="btn btn-success btn-block btn_status_submit" data-danger="false"><span class="fa fa-lg fa-fw fa-coffee"></span><span class="hidden-md hidden-sm status_msg_val">Перерыв</span></button>
 
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
-                        <button class="btn btn-warning btn-block disabled"><span class="fa fa-lg fa-fw fa-deaf"></span><span class="hidden-md hidden-sm">Шумно</span></button>
-                        <button class="btn btn-danger btn-block disabled"><span class="fa fa-lg fa-fw fa-asterisk"></span><span class="hidden-md hidden-sm">Снег</span></button>
-                        <button class="btn btn-warning btn-block disabled"><span class="fa fa-lg fa-fw fa-car"></span><span class="hidden-md hidden-sm">Машина</span></button>
-                        <button class="btn btn-warning btn-block disabled"><span class="fa fa-lg fa-fw fa-map"></span><span class="hidden-md hidden-sm">Поездка</span></button>
-                        <button class="btn btn-success btn-block disabled"><span class="fa fa-lg fa-fw fa-cutlery"></span><span class="hidden-md hidden-sm">Ем</span></button>
-                        <button class="btn btn-success btn-block disabled"><span class="fa fa-lg fa-fw fa-hotel"></span><span class="hidden-md hidden-sm">Сплю</span></button>
+                        <button class="btn btn-warning btn-block btn_status_submit" data-danger="true"><span class="fa fa-lg fa-fw fa-deaf"></span><span class="hidden-md hidden-sm status_msg_val">Шумно</span></button>
+                        <button class="btn btn-danger btn-block btn_status_submit" data-danger="true"><span class="fa fa-lg fa-fw fa-asterisk"></span><span class="hidden-md hidden-sm status_msg_val">Снег</span></button>
+                        <button class="btn btn-warning btn-block btn_status_submit" data-danger="false"><span class="fa fa-lg fa-fw fa-car"></span><span class="hidden-md hidden-sm status_msg_val">Машина</span></button>
+                        <button class="btn btn-warning btn-block btn_status_submit" data-danger="false"><span class="fa fa-lg fa-fw fa-map"></span><span class="hidden-md hidden-sm status_msg_val">Поездка</span></button>
+                        <button class="btn btn-success btn-block btn_status_submit" data-danger="false"><span class="fa fa-lg fa-fw fa-cutlery"></span><span class="hidden-md hidden-sm status_msg_val">Ем</span></button>
+                        <button class="btn btn-success btn-block btn_status_submit" data-danger="false"><span class="fa fa-lg fa-fw fa-hotel"></span><span class="hidden-md hidden-sm status_msg_val">Сплю</span></button>
                     </div>
                 </div>
             </div>

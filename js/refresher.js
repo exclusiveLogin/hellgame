@@ -43,7 +43,7 @@ function refresher() {
             widget_obj.find(".uc_status_code").html('<i class="fa '+Global[user_name].status_code+'" aria-hidden="true"></i>');
         }
         //emo
-        if(Global[user_name].emotion){
+        if(Number(Global[user_name].emotion)>=0 && Number(Global[user_name].emotion)<=100){
             widget_obj.find(".emo_n").text(Global[user_name].tendention);
             if(Global[user_name].tendention>0){
                 widget_obj.find(".glyphicon-triangle-top").addClass("emo_up");
@@ -52,6 +52,11 @@ function refresher() {
                 widget_obj.find(".glyphicon-triangle-top").removeClass("emo_up");
                 widget_obj.find(".glyphicon-triangle-bottom").addClass("emo_down");
             }
+        }
+        if(Global[user_name].status_msg){
+            widget_obj.find(".uc_status_code").attr("data-tooltip", Global[user_name].status_msg);
+        }else {
+            widget_obj.find(".uc_status_code").attr("data-tooltip", Global[user_name].status_msg);
         }
         /*trends
         if(Global[user_name].trend){
@@ -108,12 +113,17 @@ function refreshUC(user) {
     }else {
         $(".weather-label-dng").html('<i class="label label-success">не опасно</i>');
     }
-    if(Global[user].danger){
+    if(Global[user].upd){
         $(".weather_time_val").text(Global[user].upd);
     }else {
         $(".weather_time_val").text(Global[user].upd);
     }
-    if(Global[user].emotion){
+    if(Global[user].dataold){
+        $(".label-dataold").show();
+    }else {
+        $(".label-dataold").hide();
+    }
+    if(Number(Global[user].emotion)>=0 && Number(Global[user].emotion)<=100){
         $(".emo_val").text(Global[user].emotion);
     }else {
         $(".emo_val").text("---");

@@ -1,5 +1,6 @@
 $(document).ready(function () {
     startUpdater();
+    setInterval(startUpdater,10000);
 
 });
 function startUpdater() {
@@ -13,7 +14,7 @@ function startUpdater() {
             var uc;
             Global.users = [];
             for(uc in data.r_users){
-                globalUpdate(data.r_users[uc]);
+                globalUpdate(data.r_users[uc],false,true);
             }
             refreshLogged();
         },
@@ -23,7 +24,7 @@ function startUpdater() {
     });
 }
 
-function globalUpdate(obj,newemo) {//сначала proto потом вне условия все остальное
+function globalUpdate(obj,newemo,refresh) {//сначала proto потом вне условия все остальное
     if(!Global[obj.login]){
         Global[obj.login] = {};
         for(var key in Global.blank){
@@ -31,7 +32,7 @@ function globalUpdate(obj,newemo) {//сначала proto потом вне ус
         }
         
     }
-    if(!newemo){
+    if(refresh){
         Global.users.push(obj.login);
         Global[obj.login].id = obj.id_user;
         Global[obj.login].name = obj.name;
@@ -51,6 +52,29 @@ function globalUpdate(obj,newemo) {//сначала proto потом вне ус
             Global[obj.login].status_msg = obj.status_msg;
         }
         Global[obj.login].upd = obj.upd;
+        // debug
+        var xtime = new Date(Date.parse(Global[obj.login].upd));
+        var t_year = xtime.getFullYear();
+        var t_month = xtime.getMonth();
+        var t_day = xtime.getDate();
+        var t_hour = xtime.getHours();
+        var t_minute = xtime.getMinutes();
+        var t_second = xtime.getSeconds();
+        var offset = new Date().getTimezoneOffset()*60000;
+        var utctime = Date.UTC(t_year,t_month,t_day,t_hour,t_minute,t_second);
+        var nowt = Date.now();
+        var now = nowt - offset;
+        var compare_t = now-utctime;
+        console.log("now:"+now+" utc:"+utctime+" compare:"+compare_t);
+        if ((compare_t/60000)>30){
+            Global[obj.login].dataold = true;
+        }
+        else {
+            Global[obj.login].dataold = false;
+        }
+        
+        
+        //-------
         Global[obj.login].msg_code = obj.msg_code;
         Global[obj.login].login = obj.login;
         Global[obj.login].img_big = obj.img_big;
@@ -63,6 +87,11 @@ function globalUpdate(obj,newemo) {//сначала proto потом вне ус
         dataQueryEmocore['setemo'] = newemo.n;
         dataQueryEmocore['emo_title'] = newemo.title;
         dataQueryEmocore['emo_desc'] = newemo.desc;
+    }
+    if(obj.newstatus){
+        dataQueryEmocore['status_code'] = obj.newstatus.code;
+        dataQueryEmocore['danger'] = obj.newstatus.danger;
+        dataQueryEmocore['status_msg'] = obj.newstatus.status_msg;
     }
     $.ajax({
         url:"/emocore.php",

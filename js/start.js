@@ -66,6 +66,22 @@ $(document).ready(function(){
         startUpdater();
     });
     
+    $(".btn_status_submit").on("click",function () {
+        var thisobj = $(this);
+        var st_danger = thisobj.data("danger");
+        var icoobj = thisobj.find(".fa");
+        var status = icoobj[0].classList[3];
+        var msg = icoobj.next().text();
+        console.log("status:"+status+" danger:"+st_danger);
+        var temp = {};
+        temp['login'] = Global.loggedAs;
+        temp['newstatus'] = {};
+        temp.newstatus['code'] = status;
+        temp.newstatus['danger'] = st_danger;
+        temp.newstatus['status_msg'] = msg;
+        globalUpdate(temp);        
+    });
+    
     $.ajaxSetup({
         cache:false,
         //async:false
