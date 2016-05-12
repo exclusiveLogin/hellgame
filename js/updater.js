@@ -1,9 +1,16 @@
 $(document).ready(function () {
-    startUpdater();
+    //startUpdater();
+    setTimeout(startUpdater, 2000);
     setInterval(startUpdater,10000);
 
 });
 function startUpdater() {
+    Global.emer = {
+        state:false,
+        color:"green",
+        msg:"",
+        users:[]
+    };
     $.ajax({
         url:"/refresher.php",
         dataType:"json",
@@ -19,7 +26,8 @@ function startUpdater() {
             refreshLogged();
         },
         error:function(){
-            alert("error to load refresher ajax");
+            //alert("error to load refresher ajax");
+            console.log("error to load refresher ajax");
         }
     });
 }
@@ -40,6 +48,21 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
         Global[obj.login].title = obj.title;
         Global[obj.login].o_code = obj.o_code;
         Global[obj.login].r_code = obj.r_code;
+
+        if(Number(Global[obj.login].o_code)){
+            Global.emer.state = true;
+            Global.emer.color = "orange";
+            Global.emer.msg = "Пользователем "+Global[obj.login].login+" введен ОРАНЖЕВЫЙ КОД";
+        }
+        if(Number(Global[obj.login].r_code)){
+            Global.emer.state = true;
+            Global.emer.color = "orange";
+            Global.emer.msg = "Пользователем "+Global[obj.login].login+" введен КРАСНЫЙ КОД";
+        }
+        if(Number(Global[obj.login].o_code)||Number(Global[obj.login].r_code)){
+            Global.emer.users.push(obj.login);
+        }
+        
         Global[obj.login].played = obj.played;
         Global[obj.login].online = obj.online;
         if(obj.status_code){
@@ -65,7 +88,7 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
         var nowt = Date.now();
         var now = nowt - offset;
         var compare_t = now-utctime;
-        console.log("now:"+now+" utc:"+utctime+" compare:"+compare_t);
+        //console.log("now:"+now+" utc:"+utctime+" compare:"+compare_t);
         if ((compare_t/60000)>30){
             Global[obj.login].dataold = true;
         }
@@ -93,6 +116,15 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
         dataQueryEmocore['danger'] = obj.newstatus.danger;
         dataQueryEmocore['status_msg'] = obj.newstatus.status_msg;
     }
+    if(obj.newplayed){
+        dataQueryEmocore['played'] = obj.newplayed.state;
+    }
+    if(obj.newcode_o){
+        dataQueryEmocore['o_code'] = obj.newcode_o.state;
+    }
+    if(obj.newcode_r){
+        dataQueryEmocore['r_code'] = obj.newcode_r.state;
+    }
     $.ajax({
         url:"/emocore.php",
         dataType:"json",
@@ -105,7 +137,14 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
             else {
                 Global[obj.login].emotion = data.last_emo;
                 Global[obj.login].oldEmotion = data.prev_emo;
-                Global[obj.login].tendention = Global[obj.login].emotion - Global[obj.login].oldEmotion;
+                var tend = Global[obj.login].emotion - Global[obj.login].oldEmotion;
+                if (tend>0){
+                    Global[obj.login].tendention = "+"+tend;
+                }
+                else if(tend<0){
+                    Global[obj.login].tendention = tend;
+                }
+                
                 Global[obj.login].trend = [];
                 Global[obj.login].flags = [];
                 for(var snap in data.trend){
@@ -129,7 +168,8 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
             }
         },
         error:function(){
-            alert("error to load emocore ajax");
+            //alert("error to load emocore ajax");
+            console.log("error to load emocore ajax");
         },
         complete:function () {
             refresher();

@@ -265,6 +265,7 @@ function refreshLogged() {
                 ucToggle(false,true);
                 ucToggle(true,false);
                 var id = $(this).attr("id").substr(-3);
+                Global.opened = id;
                 refreshUC(id);
             });
         }
@@ -273,6 +274,7 @@ function refreshLogged() {
                 ucToggle(true,true);
                 ucToggle(false,false);
                 var id = $(this).attr("id").substr(-3);
+                Global.opened = id;
                 refreshUC(id);
             });
         }

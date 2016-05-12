@@ -1,5 +1,12 @@
 Global = {
+    emer:{
+        state:false,
+        color:"",
+        msg:"",
+        users:[]
+    },
     loggedAs:"",
+    opened:false,
     users:[],
     blank:{
         danger:false,
@@ -16,7 +23,7 @@ Global = {
         played:false,
         online:false,
         emotion:0,
-        status_code:"fa-terminal",//придумать иконку на недоступную эмоцию
+        status_code:"fa-refresh",//придумать иконку на недоступную эмоцию
         upd:0,
         code_msg:"",
         oldEmotion:0,

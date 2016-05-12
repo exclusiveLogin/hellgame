@@ -266,6 +266,7 @@ h3.card_status_off{
     color: whitesmoke;
     line-height: 20px;
     padding: 0px;
+    padding-bottom: 15px;
 }
 .uc_wrapper{
     height: 100%;
@@ -343,7 +344,7 @@ h3.card_status_off{
 .uc_login, .uc_name, .uc_title{
     text-transform: uppercase;
 }
-#sysmsg{
+#sysmsg, #emer_code{
     color: white;
     text-align: center;
     font-size: 12px;
@@ -401,4 +402,12 @@ h3.card_status_off{
 }
 #trend {
     /*display: none;*/
+}
+.status_msg_val{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 80%;
+}
+.uc_col_weather{
+    max-height: 318px;
+    overflow-y: scroll;
 }

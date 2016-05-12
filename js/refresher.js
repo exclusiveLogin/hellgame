@@ -1,4 +1,12 @@
 function refresher() {
+    if(Global.emer.state){
+        $('#emer_code').removeClass("myhide").css({"backgroundColor":Global.emer.color,"color":"white","font-weight":"bold"});
+        $('#emer_code_msg').text(Global.emer.msg);
+    }
+    else {
+        $('#emer_code').addClass("myhide").css({"backgroundColor":Global.emer.color,"color":"white","font-weight":"bold"});
+        $('#emer_code_msg').text(Global.emer.msg);
+    }
     var user;
     for (user in Global.users){
         var user_name = Global.users[user];
@@ -58,20 +66,20 @@ function refresher() {
         }else {
             widget_obj.find(".uc_status_code").attr("data-tooltip", Global[user_name].status_msg);
         }
-        /*trends
-        if(Global[user_name].trend){
-            Global.trend.series[0].setData(Global[user_name].trend);
-        }*/
+        
+        
+        if(Global.opened){
+            refreshUC(Global.opened);
+        }
+        
+        
         
     }
-    //Global.trend.series[0].setData(Global.ssv.trend);    
+    
 }
 
 function refreshUC(user) {
-    //trends
-    //Global.trend = {};
-    //Global.trend = new Highcharts.StockChart(Global.trendSetting);
-    //trendToggle(false);
+    
     trendToggle(true, user);
     //Left SIDE
     if(Number(Global[user].online)){
@@ -89,13 +97,17 @@ function refreshUC(user) {
     }
     if(Number(Global[user].r_code)){
         $(".label-rc").removeClass("label-disabled");
+        $('.btn-red-code').addClass("active");
     }else {
         $(".label-rc").addClass("label-disabled");
+        $('.btn-red-code').removeClass("active");
     }
     if(Number(Global[user].o_code)){
         $(".label-oc").removeClass("label-disabled");
+        $('.btn-orange-code').addClass("active");
     }else {
         $(".label-oc").addClass("label-disabled");
+        $('.btn-orange-code').removeClass("active");
     }
     //Right SIDE
     if(Global[user].status_code){
@@ -113,6 +125,15 @@ function refreshUC(user) {
     }else {
         $(".weather-label-dng").html('<i class="label label-success">не опасно</i>');
     }
+    //---------------played----------------------------------
+    if(Number(Global[user].played)){
+        $("span.btn-played[data-played='true']").addClass("disabled");
+        $("span.btn-played[data-played='false']").removeClass("disabled");
+    }else {
+        $("span.btn-played[data-played='true']").removeClass("disabled");
+        $("span.btn-played[data-played='false']").addClass("disabled");
+    }
+    //-------------------------------------------------------
     if(Global[user].upd){
         $(".weather_time_val").text(Global[user].upd);
     }else {
@@ -130,7 +151,7 @@ function refreshUC(user) {
     }
     if(Global[user].tendention){
         if(Global[user].tendention>=0){
-            $(".emo_val_tend").html('<div class="glyphicon glyphicon-triangle-top emo_up"></div> +'+Global[user].tendention);
+            $(".emo_val_tend").html('<div class="glyphicon glyphicon-triangle-top emo_up"></div> '+Global[user].tendention);
         }
         else {
             $(".emo_val_tend").html('<div class="glyphicon glyphicon-triangle-bottom emo_down"></div> '+Global[user].tendention);

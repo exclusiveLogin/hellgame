@@ -4,6 +4,13 @@
     <list default="true" id="717fb80b-d7c5-46a3-8a22-d602fe74b980" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emocore.php" afterPath="$PROJECT_DIR$/emocore.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/auth.js" afterPath="$PROJECT_DIR$/js/auth.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/global.js" afterPath="$PROJECT_DIR$/js/global.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/refresher.js" afterPath="$PROJECT_DIR$/js/refresher.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/start.js" afterPath="$PROJECT_DIR$/js/start.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/updater.js" afterPath="$PROJECT_DIR$/js/updater.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/dark.css" afterPath="$PROJECT_DIR$/style/dark.css" />
     </list>
     <ignored path="hellgame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,8 +49,10 @@
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
-              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-              <folding />
+              <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+              <folding>
+                <marker date="1463052141000" expanded="true" signature="23899:23925" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,9 +60,11 @@
       <file leaf-file-name="dark.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style/dark.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6834">
-              <caret line="402" column="22" selection-start-line="402" selection-start-column="22" selection-end-line="402" selection-end-column="22" />
-              <folding />
+            <state relative-caret-position="6987">
+              <caret line="411" column="22" selection-start-line="411" selection-start-column="22" selection-end-line="411" selection-end-column="22" />
+              <folding>
+                <marker date="1463052640000" expanded="true" signature="5694:5778" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,7 +74,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="22" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
-              <folding />
+              <folding>
+                <marker date="1463052497000" expanded="true" signature="21:27" placeholder="{...}" />
+                <marker date="1463052497000" expanded="true" signature="6122:6159" placeholder="{...}" />
+                <marker date="1463052497000" expanded="true" signature="6122:6599" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -71,22 +86,28 @@
       <file leaf-file-name="emocore.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/emocore.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="35" column="145" selection-start-line="35" selection-start-column="145" selection-end-line="35" selection-end-column="145" />
+            <state relative-caret-position="1037">
+              <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
               <folding>
-                <marker date="1462901989254" expanded="true" signature="361:422" placeholder="SELECT `id` users" />
-                <marker date="1462901989254" expanded="true" signature="723:827" placeholder="SELECT `valu... ${$target_user}_emo" />
-                <marker date="1462901989254" expanded="true" signature="780:825" placeholder="SELECT MAX( ${$target_user}_emo" />
-                <marker date="1462901989254" expanded="true" signature="1141:1253" placeholder="SELECT `valu... ${$target_user}_emo" />
-                <marker date="1462901989254" expanded="true" signature="1141:1272" placeholder="SELECT `valu... ${$target_user}_emo" />
-                <marker date="1462901989254" expanded="true" signature="1708:1829" placeholder="INSERT INTO `${$target_user}_emo`... " />
-                <marker date="1462901989254" expanded="true" signature="2260:2388" placeholder="UPDATE `user... " />
-                <marker date="1462901989254" expanded="true" signature="2330:2387" placeholder="SELECT `id` users" />
-                <marker date="1462901989254" expanded="true" signature="2438:2559" placeholder="UPDATE `user... " />
-                <marker date="1462901989254" expanded="true" signature="2501:2558" placeholder="SELECT `id` users" />
-                <marker date="1462901989254" expanded="true" signature="2609:2740" placeholder="UPDATE `user... " />
-                <marker date="1462901989254" expanded="true" signature="2682:2739" placeholder="SELECT `id` users" />
-                <marker date="1462901989254" expanded="true" signature="3109:3256" placeholder="SELECT DATE_... ${$target_user}_emo" />
+                <marker date="1463049322000" expanded="true" signature="361:422" placeholder="SELECT `id` users" />
+                <marker date="1463049322000" expanded="true" signature="723:827" placeholder="SELECT `valu... ${$target_user}_emo" />
+                <marker date="1463049322000" expanded="true" signature="780:825" placeholder="SELECT MAX( ${$target_user}_emo" />
+                <marker date="1463049322000" expanded="true" signature="1141:1253" placeholder="SELECT `valu... ${$target_user}_emo" />
+                <marker date="1463049322000" expanded="true" signature="1141:1272" placeholder="SELECT `valu... ${$target_user}_emo" />
+                <marker date="1463049322000" expanded="true" signature="1708:1829" placeholder="INSERT INTO `${$target_user}_emo`... " />
+                <marker date="1463049322000" expanded="true" signature="2137:2265" placeholder="UPDATE `user... " />
+                <marker date="1463049322000" expanded="true" signature="2207:2264" placeholder="SELECT `id` users" />
+                <marker date="1463049322000" expanded="true" signature="2315:2436" placeholder="UPDATE `user... " />
+                <marker date="1463049322000" expanded="true" signature="2378:2435" placeholder="SELECT `id` users" />
+                <marker date="1463049322000" expanded="true" signature="2486:2617" placeholder="UPDATE `user... " />
+                <marker date="1463049322000" expanded="true" signature="2559:2616" placeholder="SELECT `id` users" />
+                <marker date="1463049322000" expanded="true" signature="2999:3120" placeholder="UPDATE `user... " />
+                <marker date="1463049322000" expanded="true" signature="3062:3119" placeholder="SELECT `id` users" />
+                <marker date="1463049322000" expanded="true" signature="3477:3597" placeholder="UPDATE `user... " />
+                <marker date="1463049322000" expanded="true" signature="3539:3596" placeholder="SELECT `id` users" />
+                <marker date="1463049322000" expanded="true" signature="3963:4083" placeholder="UPDATE `user... " />
+                <marker date="1463049322000" expanded="true" signature="4025:4082" placeholder="SELECT `id` users" />
+                <marker date="1463049322000" expanded="true" signature="4440:4587" placeholder="SELECT DATE_... ${$target_user}_emo" />
               </folding>
             </state>
           </provider>
@@ -95,11 +116,10 @@
       <file leaf-file-name="updater.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/updater.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1683">
-              <caret line="99" column="30" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
+            <state relative-caret-position="2227">
+              <caret line="131" column="30" selection-start-line="131" selection-start-column="30" selection-end-line="131" selection-end-column="30" />
               <folding>
-                <marker date="1462880586000" expanded="true" signature="30:52" placeholder="{...}" />
-                <marker date="1462880586000" expanded="true" signature="3150:3157" placeholder="{...}" />
+                <marker date="1463056859000" expanded="true" signature="30:36" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -108,8 +128,8 @@
       <file leaf-file-name="start.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/start.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-68">
-              <caret line="59" column="40" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
+            <state relative-caret-position="1377">
+              <caret line="102" column="29" selection-start-line="102" selection-start-column="29" selection-end-line="102" selection-end-column="29" />
               <folding>
                 <element signature="n#!!block;n#tooltipHandler#0" expanded="false" />
                 <element signature="n#!!block;n#showSysMsg#0" expanded="false" />
@@ -117,6 +137,7 @@
                 <element signature="n#!!block;n#updList#0" expanded="false" />
                 <element signature="n#!!block;n#user#0" expanded="false" />
                 <element signature="n#!!block;n#createcard#0" expanded="false" />
+                <marker date="1463049231000" expanded="true" signature="697:792" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -145,7 +166,7 @@
         <entry file="file://$PROJECT_DIR$/js/auth.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="3332">
-              <caret line="293" column="59" selection-start-line="293" selection-start-column="59" selection-end-line="293" selection-end-column="59" />
+              <caret line="295" column="59" selection-start-line="295" selection-start-column="59" selection-end-line="295" selection-end-column="59" />
               <folding>
                 <element signature="e#2293#2355#0" expanded="false" />
                 <element signature="e#2420#2517#0" expanded="false" />
@@ -160,6 +181,9 @@
                 <element signature="n#!!block;n#resetHandlers#0" expanded="false" />
                 <element signature="n#!!block;n#loginToggle#0" expanded="false" />
                 <element signature="n#!!block;n#addmcformToggle#0" expanded="false" />
+                <marker date="1463031915000" expanded="true" signature="8667:8890" placeholder="{...}" />
+                <marker date="1463031915000" expanded="true" signature="8740:8890" placeholder="{...}" />
+                <marker date="1463031915000" expanded="true" signature="9221:9267" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -213,10 +237,11 @@
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" />
-  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpServers">
     <servers />
@@ -253,7 +278,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -279,6 +303,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -374,7 +399,9 @@
       <workItem from="1462735766305" duration="24052000" />
       <workItem from="1462816102385" duration="9647000" />
       <workItem from="1462896826473" duration="837000" />
-      <workItem from="1462901819338" duration="268000" />
+      <workItem from="1462901819338" duration="922000" />
+      <workItem from="1463064402116" duration="87000" />
+      <workItem from="1463064792002" duration="156000" />
     </task>
     <task id="LOCAL-00001" summary="first commit of HG">
       <created>1461670165519</created>
@@ -495,11 +522,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462898100896</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="исправена ошибка определения предыдушего настроения">
+      <created>1462902149682</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1462902149682</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179025000" />
+    <option name="totallyTimeSpent" value="179922000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -512,10 +546,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22890624" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22890624" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1554054" sideWeight="0.509693" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34087238" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -564,7 +598,8 @@
     <MESSAGE value="trend render bugs fixed, trend object style code refactoring" />
     <MESSAGE value="trend render bugs fixed, acync ajax added&#10;acync style &#10;emocore ver 0.1 beta" />
     <MESSAGE value="Запущен обмен статусами, запущена система подсчета времени устаревания информации , исправлены мелкие баги в тренде." />
-    <option name="LAST_COMMIT_MESSAGE" value="Запущен обмен статусами, запущена система подсчета времени устаревания информации , исправлены мелкие баги в тренде." />
+    <MESSAGE value="исправена ошибка определения предыдушего настроения" />
+    <option name="LAST_COMMIT_MESSAGE" value="исправена ошибка определения предыдушего настроения" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -598,6 +633,9 @@
             <element signature="n#!!block;n#resetHandlers#0" expanded="false" />
             <element signature="n#!!block;n#loginToggle#0" expanded="false" />
             <element signature="n#!!block;n#addmcformToggle#0" expanded="false" />
+            <marker date="1463031915000" expanded="true" signature="8667:8890" placeholder="{...}" />
+            <marker date="1463031915000" expanded="true" signature="8740:8890" placeholder="{...}" />
+            <marker date="1463031915000" expanded="true" signature="9221:9267" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -613,7 +651,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1463052141000" expanded="true" signature="23899:23925" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -642,7 +682,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="45" column="10" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
-          <folding />
+          <folding>
+            <marker date="1463052141000" expanded="true" signature="23899:23925" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -671,7 +713,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="81" column="18" selection-start-line="48" selection-start-column="12" selection-end-line="81" selection-end-column="18" />
-          <folding />
+          <folding>
+            <marker date="1463052141000" expanded="true" signature="23899:23925" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -700,7 +744,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="42" column="93" selection-start-line="42" selection-start-column="93" selection-end-line="42" selection-end-column="93" />
-          <folding />
+          <folding>
+            <marker date="1463052141000" expanded="true" signature="23899:23925" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -708,7 +754,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1463052141000" expanded="true" signature="23899:23925" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -724,7 +772,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1463052141000" expanded="true" signature="23899:23925" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -873,9 +923,11 @@
     <entry file="file://$PROJECT_DIR$/backup.html" />
     <entry file="file://$PROJECT_DIR$/style/dark.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6834">
-          <caret line="402" column="22" selection-start-line="402" selection-start-column="22" selection-end-line="402" selection-end-column="22" />
-          <folding />
+        <state relative-caret-position="6987">
+          <caret line="411" column="22" selection-start-line="411" selection-start-column="22" selection-end-line="411" selection-end-column="22" />
+          <folding>
+            <marker date="1463052640000" expanded="true" signature="5694:5778" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -883,7 +935,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="22" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
-          <folding />
+          <folding>
+            <marker date="1463052497000" expanded="true" signature="21:27" placeholder="{...}" />
+            <marker date="1463052497000" expanded="true" signature="6122:6159" placeholder="{...}" />
+            <marker date="1463052497000" expanded="true" signature="6122:6599" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -907,7 +963,7 @@
     <entry file="file://$PROJECT_DIR$/js/auth.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3332">
-          <caret line="293" column="59" selection-start-line="293" selection-start-column="59" selection-end-line="293" selection-end-column="59" />
+          <caret line="295" column="59" selection-start-line="295" selection-start-column="59" selection-end-line="295" selection-end-column="59" />
           <folding>
             <element signature="e#2293#2355#0" expanded="false" />
             <element signature="e#2420#2517#0" expanded="false" />
@@ -922,6 +978,9 @@
             <element signature="n#!!block;n#resetHandlers#0" expanded="false" />
             <element signature="n#!!block;n#loginToggle#0" expanded="false" />
             <element signature="n#!!block;n#addmcformToggle#0" expanded="false" />
+            <marker date="1463031915000" expanded="true" signature="8667:8890" placeholder="{...}" />
+            <marker date="1463031915000" expanded="true" signature="8740:8890" placeholder="{...}" />
+            <marker date="1463031915000" expanded="true" signature="9221:9267" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -929,26 +988,27 @@
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
-          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-          <folding />
+          <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+          <folding>
+            <marker date="1463052141000" expanded="true" signature="23899:23925" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/updater.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="99" column="30" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
+        <state relative-caret-position="2227">
+          <caret line="131" column="30" selection-start-line="131" selection-start-column="30" selection-end-line="131" selection-end-column="30" />
           <folding>
-            <marker date="1462880586000" expanded="true" signature="30:52" placeholder="{...}" />
-            <marker date="1462880586000" expanded="true" signature="3150:3157" placeholder="{...}" />
+            <marker date="1463056859000" expanded="true" signature="30:36" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/start.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
-          <caret line="59" column="40" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
+        <state relative-caret-position="1377">
+          <caret line="102" column="29" selection-start-line="102" selection-start-column="29" selection-end-line="102" selection-end-column="29" />
           <folding>
             <element signature="n#!!block;n#tooltipHandler#0" expanded="false" />
             <element signature="n#!!block;n#showSysMsg#0" expanded="false" />
@@ -956,28 +1016,35 @@
             <element signature="n#!!block;n#updList#0" expanded="false" />
             <element signature="n#!!block;n#user#0" expanded="false" />
             <element signature="n#!!block;n#createcard#0" expanded="false" />
+            <marker date="1463049231000" expanded="true" signature="697:792" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/emocore.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="35" column="145" selection-start-line="35" selection-start-column="145" selection-end-line="35" selection-end-column="145" />
+        <state relative-caret-position="1037">
+          <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
           <folding>
-            <marker date="1462901989254" expanded="true" signature="361:422" placeholder="SELECT `id` users" />
-            <marker date="1462901989254" expanded="true" signature="723:827" placeholder="SELECT `valu... ${$target_user}_emo" />
-            <marker date="1462901989254" expanded="true" signature="780:825" placeholder="SELECT MAX( ${$target_user}_emo" />
-            <marker date="1462901989254" expanded="true" signature="1141:1253" placeholder="SELECT `valu... ${$target_user}_emo" />
-            <marker date="1462901989254" expanded="true" signature="1141:1272" placeholder="SELECT `valu... ${$target_user}_emo" />
-            <marker date="1462901989254" expanded="true" signature="1708:1829" placeholder="INSERT INTO `${$target_user}_emo`... " />
-            <marker date="1462901989254" expanded="true" signature="2260:2388" placeholder="UPDATE `user... " />
-            <marker date="1462901989254" expanded="true" signature="2330:2387" placeholder="SELECT `id` users" />
-            <marker date="1462901989254" expanded="true" signature="2438:2559" placeholder="UPDATE `user... " />
-            <marker date="1462901989254" expanded="true" signature="2501:2558" placeholder="SELECT `id` users" />
-            <marker date="1462901989254" expanded="true" signature="2609:2740" placeholder="UPDATE `user... " />
-            <marker date="1462901989254" expanded="true" signature="2682:2739" placeholder="SELECT `id` users" />
-            <marker date="1462901989254" expanded="true" signature="3109:3256" placeholder="SELECT DATE_... ${$target_user}_emo" />
+            <marker date="1463049322000" expanded="true" signature="361:422" placeholder="SELECT `id` users" />
+            <marker date="1463049322000" expanded="true" signature="723:827" placeholder="SELECT `valu... ${$target_user}_emo" />
+            <marker date="1463049322000" expanded="true" signature="780:825" placeholder="SELECT MAX( ${$target_user}_emo" />
+            <marker date="1463049322000" expanded="true" signature="1141:1253" placeholder="SELECT `valu... ${$target_user}_emo" />
+            <marker date="1463049322000" expanded="true" signature="1141:1272" placeholder="SELECT `valu... ${$target_user}_emo" />
+            <marker date="1463049322000" expanded="true" signature="1708:1829" placeholder="INSERT INTO `${$target_user}_emo`... " />
+            <marker date="1463049322000" expanded="true" signature="2137:2265" placeholder="UPDATE `user... " />
+            <marker date="1463049322000" expanded="true" signature="2207:2264" placeholder="SELECT `id` users" />
+            <marker date="1463049322000" expanded="true" signature="2315:2436" placeholder="UPDATE `user... " />
+            <marker date="1463049322000" expanded="true" signature="2378:2435" placeholder="SELECT `id` users" />
+            <marker date="1463049322000" expanded="true" signature="2486:2617" placeholder="UPDATE `user... " />
+            <marker date="1463049322000" expanded="true" signature="2559:2616" placeholder="SELECT `id` users" />
+            <marker date="1463049322000" expanded="true" signature="2999:3120" placeholder="UPDATE `user... " />
+            <marker date="1463049322000" expanded="true" signature="3062:3119" placeholder="SELECT `id` users" />
+            <marker date="1463049322000" expanded="true" signature="3477:3597" placeholder="UPDATE `user... " />
+            <marker date="1463049322000" expanded="true" signature="3539:3596" placeholder="SELECT `id` users" />
+            <marker date="1463049322000" expanded="true" signature="3963:4083" placeholder="UPDATE `user... " />
+            <marker date="1463049322000" expanded="true" signature="4025:4082" placeholder="SELECT `id` users" />
+            <marker date="1463049322000" expanded="true" signature="4440:4587" placeholder="SELECT DATE_... ${$target_user}_emo" />
           </folding>
         </state>
       </provider>

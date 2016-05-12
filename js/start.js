@@ -31,6 +31,7 @@ $(document).ready(function(){
         ucToggle(false,false);
         ucToggle(true,false);
         trendToggle(false);
+        Global.opened = false;
     });
 
     tooltipHandler();
@@ -65,7 +66,49 @@ $(document).ready(function(){
         Global.trend.series[0].addPoint([utc,emoval.n]);
         startUpdater();
     });
-    
+    $('.btn-played').on("click",function () {
+        var played = $(this).data("played");
+        var req = {};
+        req['newplayed'] = {};
+        req.newplayed['state']= played;
+        req['login']= Global.loggedAs;
+        globalUpdate(req);
+    });
+    $('.btn-red-code').on("click",function () {
+        var oldState;
+        var newState;
+        if($(this).hasClass("active")){
+            oldState = true;
+            newState = !oldState;
+        }
+        else {
+            oldState = false;
+            newState = !oldState;
+        }
+        var req = {};
+        req['login']= Global.loggedAs;
+        req['newcode_r'] = {};
+        req.newcode_r.state = newState;
+        globalUpdate(req);
+        
+    });
+    $('.btn-orange-code').on("click",function () {
+        var oldState;
+        var newState;
+        if($(this).hasClass("active")){
+            oldState = true;
+            newState = !oldState;
+        }
+        else {
+            oldState = false;
+            newState = !oldState;
+        }
+        var req = {};
+        req['login']= Global.loggedAs;
+        req['newcode_o'] = {};
+        req.newcode_o.state = newState;
+        globalUpdate(req);
+    });
     $(".btn_status_submit").on("click",function () {
         var thisobj = $(this);
         var st_danger = thisobj.data("danger");

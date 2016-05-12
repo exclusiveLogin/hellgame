@@ -62,7 +62,6 @@ if ($target_user){
         $status = $_GET['status_code'];
         $danger = $_GET['danger'];
         $status_msg = $_GET['status_msg'];
-        //$blank = 'UPDATE `users_act` SET `danger` = "1" WHERE `id_user`=(SELECT `id` FROM `users` WHERE `login`="ssv")';
         $query='UPDATE `users_act` SET `status_code` = "'.$status.'" WHERE `id_user`=(SELECT `id` FROM `users` WHERE `login`="'.$target_user.'")';
         $mysql->query($query);
         $query='UPDATE `users_act` SET `danger` = '.$danger.' WHERE `id_user`=(SELECT `id` FROM `users` WHERE `login`="'.$target_user.'")';
@@ -78,7 +77,45 @@ if ($target_user){
         }
         $msg = "Новый статус пользователя ".$target_user." : ".$status." установлен Класс опасности: ".$dng_msn;
     }
-
+    if($_GET['played']){
+        $played = $_GET['played'];
+        $query='UPDATE `users_act` SET `played` = '.$played.' WHERE `id_user`=(SELECT `id` FROM `users` WHERE `login`="'.$target_user.'")';
+        $mysql->query($query);
+        $pl_msn = "";
+        if ($played=="true"){
+            $pl_msn="Играет";
+        }
+        else if($played=="false"){
+            $pl_msn="Не играет";
+        }
+        $msg='Игровой статус пользователя('.$target_user.'): '.$pl_msn;
+    }
+    if($_GET['r_code']){
+        $state = $_GET['r_code'];
+        $query='UPDATE `users_act` SET `r_code` = '.$state.' WHERE `id_user`=(SELECT `id` FROM `users` WHERE `login`="'.$target_user.'")';
+        $mysql->query($query);
+        $code_msn = "";
+        if ($state=="true"){
+            $code_msn="установил";
+        }
+        else if($state=="false"){
+            $code_msn="снял";
+        }
+        $msg='Пользователь '.$target_user.' '.$code_msn.' статус Красный код';
+    }
+    if($_GET['o_code']){
+        $state = $_GET['o_code'];
+        $query='UPDATE `users_act` SET `o_code` = '.$state.' WHERE `id_user`=(SELECT `id` FROM `users` WHERE `login`="'.$target_user.'")';
+        $mysql->query($query);
+        $code_msn = "";
+        if ($played=="true"){
+            $code_msn="установил";
+        }
+        else if($played=="false"){
+            $code_msn="снял";
+        }
+        $msg='Пользователь '.$target_user.' '.$code_msn.' статус Оранжевый код';
+    }
 
 
     $mysql->query("SET time_zone = '+04:00'");
