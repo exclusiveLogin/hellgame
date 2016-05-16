@@ -5,7 +5,7 @@
       <webServer id="1ebcbb58-fc06-41bb-aeac-81af71ccbb8d" name="hg" url="http://hell.loveslife.biz">
         <fileTransfer host="ftp.byethost33.com" port="21" rootFolder="/hell.loveslife.biz/htdocs" password="dfd8dfcfdfdbdfdfdfcfdfd9dfde" username="b33_11934654">
           <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" />
+            <advancedOptions compatibilityMode="true" dataProtectionLevel="Private" passiveMode="true" />
           </advancedOptions>
           <option name="port" value="21" />
         </fileTransfer>

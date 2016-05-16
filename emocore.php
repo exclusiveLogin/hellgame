@@ -89,10 +89,13 @@ if ($target_user){
             $pl_msn="Не играет";
         }
         $msg='Игровой статус пользователя('.$target_user.'): '.$pl_msn;
-    }
-    if($_GET['r_code']){
-        $state = $_GET['r_code'];
-        $query='UPDATE `users_act` SET `r_code` = '.$state.' WHERE `id_user`=(SELECT `id` FROM `users` WHERE `login`="'.$target_user.'")';
+    }    
+    if($_GET['o_code']){
+        $state = $_GET['o_code'];
+        $code_msg = $_GET['code_msg'];
+        $query='UPDATE `users_act` SET `o_code` = '.$state.' WHERE `id_user`=(SELECT `id` FROM `users` WHERE `login`="'.$target_user.'")';
+        $mysql->query($query);
+        $query='UPDATE `users_act` SET `code_msg` = "'.$code_msg.'" WHERE `id_user`=(SELECT `id` FROM `users` WHERE `login`="'.$target_user.'")';
         $mysql->query($query);
         $code_msn = "";
         if ($state=="true"){
@@ -100,21 +103,46 @@ if ($target_user){
         }
         else if($state=="false"){
             $code_msn="снял";
+            $query='UPDATE `users_act` SET `code_msg` = "" WHERE `id_user`=(SELECT `id` FROM `users` WHERE `login`="'.$target_user.'")';
+            $mysql->query($query);
+        }
+        $msg='Пользователь '.$target_user.' '.$code_msn.' статус Оранжевый код';
+    }
+    if($_GET['r_code']){
+        $state = $_GET['r_code'];
+        $code_msg = $_GET['code_msg'];
+        $query='UPDATE `users_act` SET `r_code` = '.$state.' WHERE `id_user`=(SELECT `id` FROM `users` WHERE `login`="'.$target_user.'")';
+        $mysql->query($query);
+        $query='UPDATE `users_act` SET `code_msg` = "'.$code_msg.'" WHERE `id_user`=(SELECT `id` FROM `users` WHERE `login`="'.$target_user.'")';
+        $mysql->query($query);
+        $code_msn;
+        if ($state=="true"){
+            $code_msn="установил";
+        }
+        else if($state=="false"){
+            $code_msn="снял";
+            $query='UPDATE `users_act` SET `code_msg` = "" WHERE `id_user`=(SELECT `id` FROM `users` WHERE `login`="'.$target_user.'")';
+            $mysql->query($query);
         }
         $msg='Пользователь '.$target_user.' '.$code_msn.' статус Красный код';
     }
-    if($_GET['o_code']){
-        $state = $_GET['o_code'];
-        $query='UPDATE `users_act` SET `o_code` = '.$state.' WHERE `id_user`=(SELECT `id` FROM `users` WHERE `login`="'.$target_user.'")';
+    if($_GET['g_code']){
+        $state = $_GET['g_code'];
+        $code_msg = $_GET['code_msg'];
+        //$query='UPDATE `users_act` SET `r_code` = '.$state.' WHERE `id_user`=(SELECT `id` FROM `users` WHERE `login`="'.$target_user.'")';
+        //$mysql->query($query);
+        $query='UPDATE `users_act` SET `code_msg` = "'.$code_msg.'" WHERE `id_user`=(SELECT `id` FROM `users` WHERE `login`="'.$target_user.'")';
         $mysql->query($query);
-        $code_msn = "";
-        if ($played=="true"){
+        $code_msn;
+        if ($state=="true"){
             $code_msn="установил";
         }
-        else if($played=="false"){
+        else if($state=="false"){
             $code_msn="снял";
+            $query='UPDATE `users_act` SET `code_msg` = "" WHERE `id_user`=(SELECT `id` FROM `users` WHERE `login`="'.$target_user.'")';
+            $mysql->query($query);
         }
-        $msg='Пользователь '.$target_user.' '.$code_msn.' статус Оранжевый код';
+        $msg='Пользователь '.$target_user.' '.$code_msn.' новый статус';
     }
 
 

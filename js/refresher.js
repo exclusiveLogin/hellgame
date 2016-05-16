@@ -1,7 +1,22 @@
 function refresher() {
     if(Global.emer.state){
         $('#emer_code').removeClass("myhide").css({"backgroundColor":Global.emer.color,"color":"white","font-weight":"bold"});
-        $('#emer_code_msg').text(Global.emer.msg);
+        var temp_msg = Global.emer.msg;
+        var t_users = "Пользователем ";
+
+        if(Global.emer.users.length>1){
+            t_users = "Пользователями ";
+            for(var key in Global.emer.users){
+                t_users+=Global.emer.users[key]+" ";
+                if(key<Global.emer.users.length-1){
+                    t_users+="и ";
+                }
+            }
+
+        }else {
+            t_users+=Global.emer.users[0]+" ";
+        }
+        $('#emer_code_msg').text(t_users+temp_msg);
     }
     else {
         $('#emer_code').addClass("myhide").css({"backgroundColor":Global.emer.color,"color":"white","font-weight":"bold"});
@@ -33,6 +48,15 @@ function refresher() {
         else {
             widget_obj.find(".orange_code").addClass("code_off");
         }
+        //----CODE MSG----
+        var planeobj = widget_obj.find('.code_msg');
+        if(Global[user_name].code_msg){
+            planeobj.css({'backgroundColor':Global.emer.color}).show(500).text(Global[user_name].code_msg);
+        }
+        else{
+            planeobj.hide(500);
+        }
+        //----------------
         //played
         if(Number(Global[user_name].played)){
             widget_obj.find(".uc_played").removeClass("emo_up emo_down").addClass("emo_up").data("tooltip","Сейчас играет").attr('data-tooltip',"Сейчас играет");

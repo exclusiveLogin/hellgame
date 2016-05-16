@@ -49,15 +49,15 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
         Global[obj.login].o_code = obj.o_code;
         Global[obj.login].r_code = obj.r_code;
 
-        if(Number(Global[obj.login].o_code)){
+        if(Number(Global[obj.login].o_code) && Global.emer.color!="red"){
             Global.emer.state = true;
             Global.emer.color = "orange";
-            Global.emer.msg = "Пользователем "+Global[obj.login].login+" введен ОРАНЖЕВЫЙ КОД";
+            Global.emer.msg = " введен ОРАНЖЕВЫЙ КОД";
         }
         if(Number(Global[obj.login].r_code)){
             Global.emer.state = true;
-            Global.emer.color = "orange";
-            Global.emer.msg = "Пользователем "+Global[obj.login].login+" введен КРАСНЫЙ КОД";
+            Global.emer.color = "red";
+            Global.emer.msg = " введен КРАСНЫЙ КОД";
         }
         if(Number(Global[obj.login].o_code)||Number(Global[obj.login].r_code)){
             Global.emer.users.push(obj.login);
@@ -75,7 +75,7 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
             Global[obj.login].status_msg = obj.status_msg;
         }
         Global[obj.login].upd = obj.upd;
-        // debug
+        // old data analizer
         var xtime = new Date(Date.parse(Global[obj.login].upd));
         var t_year = xtime.getFullYear();
         var t_month = xtime.getMonth();
@@ -98,12 +98,13 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
         
         
         //-------
-        Global[obj.login].msg_code = obj.msg_code;
+        Global[obj.login].code_msg = obj.code_msg;
         Global[obj.login].login = obj.login;
         Global[obj.login].img_big = obj.img_big;
         Global[obj.login].img_min = obj.img_min;
 
     }
+    //Setters---------
     var dataQueryEmocore = {};
     dataQueryEmocore['t_user'] = Global[obj.login].login;
     if(newemo){
@@ -121,10 +122,17 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
     }
     if(obj.newcode_o){
         dataQueryEmocore['o_code'] = obj.newcode_o.state;
+        dataQueryEmocore['code_msg'] = obj.newcode_o.user_msg
     }
     if(obj.newcode_r){
         dataQueryEmocore['r_code'] = obj.newcode_r.state;
+        dataQueryEmocore['code_msg'] = obj.newcode_r.user_msg
     }
+    if(obj.newcode_g){
+        dataQueryEmocore['g_code'] = obj.newcode_g.state;
+        dataQueryEmocore['code_msg'] = obj.newcode_g.user_msg
+    }
+    //---------------
     $.ajax({
         url:"/emocore.php",
         dataType:"json",

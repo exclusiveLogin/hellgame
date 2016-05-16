@@ -411,3 +411,8 @@ h3.card_status_off{
     max-height: 318px;
     overflow-y: scroll;
 }
+.code_msg{
+    text-align: center;
+    font-size: 80%;
+    color: white;
+}

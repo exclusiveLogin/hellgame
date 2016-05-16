@@ -89,6 +89,8 @@ $(document).ready(function(){
         req['login']= Global.loggedAs;
         req['newcode_r'] = {};
         req.newcode_r.state = newState;
+        var t_uc_msg = $('.uc_code_msg').val();
+        req.newcode_r.user_msg = t_uc_msg;
         globalUpdate(req);
         
     });
@@ -107,6 +109,27 @@ $(document).ready(function(){
         req['login']= Global.loggedAs;
         req['newcode_o'] = {};
         req.newcode_o.state = newState;
+        var t_uc_msg = $('.uc_code_msg').val();
+        req.newcode_o.user_msg = t_uc_msg;
+        globalUpdate(req);
+    });
+    $('.btn-green-code').on("click",function () {
+        var oldState;
+        var newState;
+        if($(this).hasClass("active")){
+            oldState = true;
+            newState = !oldState;
+        }
+        else {
+            oldState = false;
+            newState = !oldState;
+        }
+        var req = {};
+        req['login']= Global.loggedAs;
+        req['newcode_g'] = {};
+        req.newcode_g.state = newState;
+        var t_uc_msg = $('.uc_code_msg').val();
+        req.newcode_g.user_msg = t_uc_msg;
         globalUpdate(req);
     });
     $(".btn_status_submit").on("click",function () {

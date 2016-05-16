@@ -224,7 +224,7 @@ $(document).ready(function () {
             text: 'График эмоционального состояния'
         },
         legend: {
-            enabled: false
+            //enabled: true
         },
         xAxis: {
             type: 'datetime',
@@ -283,6 +283,7 @@ $(document).ready(function () {
             }
         },
         series:[{
+            id:'emo',
             type: 'areaspline',
             name: 'Эмоциональное состояние',
             //data:[0,0],
@@ -296,8 +297,11 @@ $(document).ready(function () {
             }
         },{
             type: 'flags',
+            linkedTo:':previous',
             //data:[],
-            shape:'squarepin'
+            shape:'squarepin',
+            onSeries:'emo',
+            y:-40
         }]
     };
     Global.trend = new Highcharts.StockChart(Global.trendSetting);

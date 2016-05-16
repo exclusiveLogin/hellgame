@@ -3,7 +3,8 @@ Global = {
         state:false,
         color:"",
         msg:"",
-        users:[]
+        users:[],
+        user_msg:[]
     },
     loggedAs:"",
     opened:false,
