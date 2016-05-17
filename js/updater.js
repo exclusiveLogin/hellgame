@@ -30,6 +30,23 @@ function startUpdater() {
             console.log("error to load refresher ajax");
         }
     });
+    var dataQueryLogin = {};
+    dataQueryLogin['t_user'] = Global.loggedAs;
+    $.ajax({
+        url:"/online.php",
+        //dataType:"json",
+        method:'GET',
+        data:dataQueryLogin,
+        success:function(data){
+            if(data.msg){
+                showSysMsg(data.msg);
+            }
+            //console.log("login data sended");
+        },
+        error:function(){
+            console.log("error to load refresher ajax");
+        }
+    });
 }
 
 function globalUpdate(obj,newemo,refresh) {//сначала proto потом вне условия все остальное
