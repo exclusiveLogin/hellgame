@@ -25,7 +25,8 @@ Global = {
         online:false,
         emotion:0,
         status_code:"fa-refresh",//придумать иконку на недоступную эмоцию
-        upd:0,
+        upd:"не получено",
+        upd_status:"не получено",
         code_msg:"",
         oldEmotion:0,
         tendention:0,

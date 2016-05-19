@@ -92,8 +92,9 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
             Global[obj.login].status_msg = obj.status_msg;
         }
         Global[obj.login].upd = obj.upd;
+        Global[obj.login].upd_status = obj.upd_status;
         // old data analizer
-        var xtime = new Date(Date.parse(Global[obj.login].upd));
+        var xtime = new Date(Date.parse(Global[obj.login].upd_status));
         var t_year = xtime.getFullYear();
         var t_month = xtime.getMonth();
         var t_day = xtime.getDate();
@@ -133,6 +134,12 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
         dataQueryEmocore['status_code'] = obj.newstatus.code;
         dataQueryEmocore['danger'] = obj.newstatus.danger;
         dataQueryEmocore['status_msg'] = obj.newstatus.status_msg;
+
+        if(obj.newstatus.old_emo){
+            dataQueryEmocore['setemo'] = obj.newstatus.old_emo;
+            dataQueryEmocore['emo_title'] = obj.newstatus.title;
+            dataQueryEmocore['emo_desc'] = obj.newstatus.desc;
+        }
     }
     if(obj.newplayed){
         dataQueryEmocore['played'] = obj.newplayed.state;
@@ -168,6 +175,9 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
                 }
                 else if(tend<0){
                     Global[obj.login].tendention = tend;
+                }
+                else{
+                    Global[obj.login].tendention = 0;
                 }
                 
                 Global[obj.login].trend = [];

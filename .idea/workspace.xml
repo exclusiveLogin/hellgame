@@ -3,7 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="717fb80b-d7c5-46a3-8a22-d602fe74b980" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emocore.php" afterPath="$PROJECT_DIR$/emocore.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/global.js" afterPath="$PROJECT_DIR$/js/global.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/refresher.js" afterPath="$PROJECT_DIR$/js/refresher.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/start.js" afterPath="$PROJECT_DIR$/js/start.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/updater.js" afterPath="$PROJECT_DIR$/js/updater.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/online.php" afterPath="$PROJECT_DIR$/online.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/refresher.php" afterPath="$PROJECT_DIR$/refresher.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/dark.css" afterPath="$PROJECT_DIR$/style/dark.css" />
     </list>
     <ignored path="hellgame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,16 +49,18 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="192" column="32" selection-start-line="192" selection-start-column="32" selection-end-line="192" selection-end-column="90" />
+            <state relative-caret-position="236">
+              <caret line="99" column="36" selection-start-line="99" selection-start-column="36" selection-end-line="99" selection-end-column="36" />
               <folding>
                 <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#10;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#2;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
@@ -60,9 +70,11 @@
       <file leaf-file-name="refresher.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/refresher.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="34" column="107" selection-start-line="34" selection-start-column="107" selection-end-line="34" selection-end-column="107" />
-              <folding />
+            <state relative-caret-position="1292">
+              <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
+              <folding>
+                <marker date="1463651300000" expanded="true" signature="7711:7740" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -70,8 +82,8 @@
       <file leaf-file-name="dark.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style/dark.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="371" column="9" selection-start-line="371" selection-start-column="1" selection-end-line="371" selection-end-column="9" />
+            <state relative-caret-position="6307">
+              <caret line="380" column="0" selection-start-line="371" selection-start-column="1" selection-end-line="371" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -83,7 +95,7 @@
             <state relative-caret-position="187">
               <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
               <folding>
-                <marker date="1462898011000" expanded="true" signature="242:489" placeholder="SELECT `id_u... users" />
+                <marker date="1463656199000" expanded="true" signature="242:541" placeholder="SELECT `id_u... users" />
               </folding>
             </state>
           </provider>
@@ -93,39 +105,41 @@
         <entry file="file://$PROJECT_DIR$/emocore.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" column="5" selection-start-line="6" selection-start-column="4" selection-end-line="9" selection-end-column="5" />
+              <caret line="12" column="5" selection-start-line="6" selection-start-column="4" selection-end-line="9" selection-end-column="5" />
               <folding>
-                <marker date="1463118861000" expanded="true" signature="361:422" placeholder="SELECT `id` users" />
-                <marker date="1463118861000" expanded="true" signature="723:827" placeholder="SELECT `valu... ${$target_user}_emo" />
-                <marker date="1463118861000" expanded="true" signature="780:825" placeholder="SELECT MAX( ${$target_user}_emo" />
-                <marker date="1463118861000" expanded="true" signature="1141:1253" placeholder="SELECT `valu... ${$target_user}_emo" />
-                <marker date="1463118861000" expanded="true" signature="1141:1272" placeholder="SELECT `valu... ${$target_user}_emo" />
-                <marker date="1463118861000" expanded="true" signature="1708:1829" placeholder="INSERT INTO `${$target_user}_emo`... " />
-                <marker date="1463118861000" expanded="true" signature="2137:2265" placeholder="UPDATE `user... " />
-                <marker date="1463118861000" expanded="true" signature="2207:2264" placeholder="SELECT `id` users" />
-                <marker date="1463118861000" expanded="true" signature="2315:2436" placeholder="UPDATE `user... " />
-                <marker date="1463118861000" expanded="true" signature="2378:2435" placeholder="SELECT `id` users" />
-                <marker date="1463118861000" expanded="true" signature="2486:2617" placeholder="UPDATE `user... " />
-                <marker date="1463118861000" expanded="true" signature="2559:2616" placeholder="SELECT `id` users" />
-                <marker date="1463118861000" expanded="true" signature="2999:3120" placeholder="UPDATE `user... " />
-                <marker date="1463118861000" expanded="true" signature="3062:3119" placeholder="SELECT `id` users" />
-                <marker date="1463118861000" expanded="true" signature="3520:3640" placeholder="UPDATE `user... " />
-                <marker date="1463118861000" expanded="true" signature="3582:3639" placeholder="SELECT `id` users" />
-                <marker date="1463118861000" expanded="true" signature="3690:3817" placeholder="UPDATE `user... " />
-                <marker date="1463118861000" expanded="true" signature="3759:3816" placeholder="SELECT `id` users" />
-                <marker date="1463118861000" expanded="true" signature="4033:4147" placeholder="UPDATE `user... " />
-                <marker date="1463118861000" expanded="true" signature="4089:4146" placeholder="SELECT `id` users" />
-                <marker date="1463118861000" expanded="true" signature="4396:4516" placeholder="UPDATE `user... " />
-                <marker date="1463118861000" expanded="true" signature="4458:4515" placeholder="SELECT `id` users" />
-                <marker date="1463118861000" expanded="true" signature="4566:4693" placeholder="UPDATE `user... " />
-                <marker date="1463118861000" expanded="true" signature="4635:4692" placeholder="SELECT `id` users" />
-                <marker date="1463118861000" expanded="true" signature="4904:5018" placeholder="UPDATE `user... " />
-                <marker date="1463118861000" expanded="true" signature="4960:5017" placeholder="SELECT `id` users" />
-                <marker date="1463118861000" expanded="true" signature="5439:5566" placeholder="UPDATE `user... " />
-                <marker date="1463118861000" expanded="true" signature="5508:5565" placeholder="SELECT `id` users" />
-                <marker date="1463118861000" expanded="true" signature="5777:5891" placeholder="UPDATE `user... " />
-                <marker date="1463118861000" expanded="true" signature="5833:5890" placeholder="SELECT `id` users" />
-                <marker date="1463118861000" expanded="true" signature="6080:6227" placeholder="SELECT DATE_... ${$target_user}_emo" />
+                <marker date="1463550911000" expanded="true" signature="361:422" placeholder="SELECT `id` users" />
+                <marker date="1463550911000" expanded="true" signature="723:827" placeholder="SELECT `valu... ${$target_user}_emo" />
+                <marker date="1463550911000" expanded="true" signature="780:825" placeholder="SELECT MAX( ${$target_user}_emo" />
+                <marker date="1463550911000" expanded="true" signature="1141:1253" placeholder="SELECT `valu... ${$target_user}_emo" />
+                <marker date="1463550911000" expanded="true" signature="1141:1272" placeholder="SELECT `valu... ${$target_user}_emo" />
+                <marker date="1463550911000" expanded="true" signature="1708:1829" placeholder="INSERT INTO `${$target_user}_emo`... " />
+                <marker date="1463550911000" expanded="true" signature="2137:2265" placeholder="UPDATE `user... " />
+                <marker date="1463550911000" expanded="true" signature="2207:2264" placeholder="SELECT `id` users" />
+                <marker date="1463550911000" expanded="true" signature="2315:2436" placeholder="UPDATE `user... " />
+                <marker date="1463550911000" expanded="true" signature="2378:2435" placeholder="SELECT `id` users" />
+                <marker date="1463550911000" expanded="true" signature="2486:2617" placeholder="UPDATE `user... " />
+                <marker date="1463550911000" expanded="true" signature="2559:2616" placeholder="SELECT `id` users" />
+                <marker date="1463550911000" expanded="true" signature="2872:2912" placeholder="..." />
+                <marker date="1463550911000" expanded="true" signature="2928:2971" placeholder="..." />
+                <marker date="1463550911000" expanded="true" signature="3168:3289" placeholder="UPDATE `user... " />
+                <marker date="1463550911000" expanded="true" signature="3231:3288" placeholder="SELECT `id` users" />
+                <marker date="1463550911000" expanded="true" signature="3689:3809" placeholder="UPDATE `user... " />
+                <marker date="1463550911000" expanded="true" signature="3751:3808" placeholder="SELECT `id` users" />
+                <marker date="1463550911000" expanded="true" signature="3859:3986" placeholder="UPDATE `user... " />
+                <marker date="1463550911000" expanded="true" signature="3928:3985" placeholder="SELECT `id` users" />
+                <marker date="1463550911000" expanded="true" signature="4202:4316" placeholder="UPDATE `user... " />
+                <marker date="1463550911000" expanded="true" signature="4258:4315" placeholder="SELECT `id` users" />
+                <marker date="1463550911000" expanded="true" signature="4565:4685" placeholder="UPDATE `user... " />
+                <marker date="1463550911000" expanded="true" signature="4627:4684" placeholder="SELECT `id` users" />
+                <marker date="1463550911000" expanded="true" signature="4735:4862" placeholder="UPDATE `user... " />
+                <marker date="1463550911000" expanded="true" signature="4804:4861" placeholder="SELECT `id` users" />
+                <marker date="1463550911000" expanded="true" signature="5073:5187" placeholder="UPDATE `user... " />
+                <marker date="1463550911000" expanded="true" signature="5129:5186" placeholder="SELECT `id` users" />
+                <marker date="1463550911000" expanded="true" signature="5608:5735" placeholder="UPDATE `user... " />
+                <marker date="1463550911000" expanded="true" signature="5677:5734" placeholder="SELECT `id` users" />
+                <marker date="1463550911000" expanded="true" signature="5946:6060" placeholder="UPDATE `user... " />
+                <marker date="1463550911000" expanded="true" signature="6002:6059" placeholder="SELECT `id` users" />
+                <marker date="1463550911000" expanded="true" signature="6249:6396" placeholder="SELECT DATE_... ${$target_user}_emo" />
               </folding>
             </state>
           </provider>
@@ -134,21 +148,22 @@
       <file leaf-file-name="online.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/online.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="442">
+              <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
               <folding>
-                <marker date="1463504995380" expanded="true" signature="440:503" placeholder="UPDATE `user... " />
-                <marker date="1463504995380" expanded="true" signature="440:545" placeholder="UPDATE `user... " />
-                <marker date="1463504995380" expanded="true" signature="440:563" placeholder="UPDATE `user... " />
-                <marker date="1463504995380" expanded="true" signature="662:742" placeholder="DELETE FROM " />
-                <marker date="1463504995380" expanded="true" signature="668:742" placeholder="DELETE FROM " />
-                <marker date="1463504995380" expanded="true" signature="756:855" placeholder="UPDATE `user... " />
-                <marker date="1463504995380" expanded="true" signature="892:936" placeholder="DELETE FROM " />
-                <marker date="1463504995380" expanded="true" signature="973:1006" placeholder="UPDATE `user... " />
-                <marker date="1463504995380" expanded="true" signature="973:1133" placeholder="UPDATE `user... " />
-                <marker date="1463504995380" expanded="true" signature="1032:1131" placeholder="SELECT `id_u... users_session" />
-                <marker date="1463504995380" expanded="true" signature="1204:1360" placeholder="UPDATE `user... " />
-                <marker date="1463504995380" expanded="true" signature="1259:1358" placeholder="SELECT `id_u... users_session" />
+                <marker date="1463507273640" expanded="true" signature="440:503" placeholder="UPDATE `user... " />
+                <marker date="1463507273640" expanded="true" signature="440:545" placeholder="UPDATE `user... " />
+                <marker date="1463507273640" expanded="true" signature="440:563" placeholder="UPDATE `user... " />
+                <marker date="1463507273640" expanded="true" signature="662:742" placeholder="DELETE FROM " />
+                <marker date="1463507273640" expanded="true" signature="668:742" placeholder="DELETE FROM " />
+                <marker date="1463507273640" expanded="true" signature="756:856" placeholder="UPDATE `user... " />
+                <marker date="1463507273640" expanded="true" signature="893:936" placeholder="DELETE FROM " />
+                <marker date="1463507273640" expanded="true" signature="893:937" placeholder="DELETE FROM " />
+                <marker date="1463507273640" expanded="true" signature="974:1007" placeholder="UPDATE `user... " />
+                <marker date="1463507273640" expanded="true" signature="974:1134" placeholder="UPDATE `user... " />
+                <marker date="1463507273640" expanded="true" signature="1033:1132" placeholder="SELECT `id_u... users_session" />
+                <marker date="1463507273640" expanded="true" signature="1205:1361" placeholder="UPDATE `user... " />
+                <marker date="1463507273640" expanded="true" signature="1260:1359" placeholder="SELECT `id_u... users_session" />
               </folding>
             </state>
           </provider>
@@ -157,9 +172,32 @@
       <file leaf-file-name="updater.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/updater.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
-              <folding />
+            <state relative-caret-position="51">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding>
+                <marker date="1463655947000" expanded="true" signature="156:1292" placeholder="{...}" />
+                <marker date="1463655947000" expanded="true" signature="176:260" placeholder="{&quot;state&quot;: false...}" />
+                <marker date="1463655947000" expanded="true" signature="273:823" placeholder="{&quot;url&quot;: &quot;/refresher.php&quot;...}" />
+                <marker date="1463655947000" expanded="true" signature="415:670" placeholder="{...}" />
+                <marker date="1463655947000" expanded="true" signature="557:631" placeholder="{...}" />
+                <marker date="1463655947000" expanded="true" signature="696:817" placeholder="{...}" />
+                <marker date="1463655947000" expanded="true" signature="914:1288" placeholder="{&quot;url&quot;: &quot;/online.php&quot;...}" />
+                <marker date="1463655947000" expanded="true" signature="1051:1188" placeholder="{...}" />
+                <marker date="1463655947000" expanded="true" signature="1077:1130" placeholder="{...}" />
+                <marker date="1463655947000" expanded="true" signature="1214:1282" placeholder="{...}" />
+                <marker date="1463655947000" expanded="true" signature="1336:7380" placeholder="{...}" />
+                <marker date="1463655947000" expanded="true" signature="1411:1563" placeholder="{...}" />
+                <marker date="1463655947000" expanded="true" signature="1481:1548" placeholder="{...}" />
+                <marker date="1463655947000" expanded="true" signature="1579:2867" placeholder="{...}" />
+                <marker date="1463655947000" expanded="true" signature="1963:2109" placeholder="{...}" />
+                <marker date="1463655947000" expanded="true" signature="2154:2295" placeholder="{...}" />
+                <marker date="1463655947000" expanded="true" signature="2563:2635" placeholder="{...}" />
+                <marker date="1463655947000" expanded="true" signature="2658:2720" placeholder="{...}" />
+                <marker date="1463655947000" expanded="true" signature="2747:2817" placeholder="{...}" />
+                <marker date="1463655947000" expanded="true" signature="6037:6056" placeholder="{...}" />
+                <marker date="1463655947000" expanded="true" signature="6037:7126" placeholder="{...}" />
+                <marker date="1463655947000" expanded="true" signature="6037:7352" placeholder="{&quot;url&quot;: &quot;/emocore.php&quot;...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -167,8 +205,8 @@
       <file leaf-file-name="start.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/start.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+            <state relative-caret-position="255">
+              <caret line="171" column="61" selection-start-line="171" selection-start-column="61" selection-end-line="171" selection-end-column="61" />
               <folding>
                 <element signature="n#!!block;n#tooltipHandler#0" expanded="false" />
                 <element signature="n#!!block;n#showSysMsg#0" expanded="false" />
@@ -204,8 +242,11 @@
         <entry file="file://$PROJECT_DIR$/js/global.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-              <folding />
+              <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+              <folding>
+                <marker date="1463551080000" expanded="true" signature="20:120" placeholder="{&quot;state&quot;: false...}" />
+                <marker date="1463551080000" expanded="true" signature="181:718" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -249,12 +290,12 @@
         <option value="$PROJECT_DIR$/style/dark.css" />
         <option value="$PROJECT_DIR$/js/auth.js" />
         <option value="$PROJECT_DIR$/js/trends.js" />
-        <option value="$PROJECT_DIR$/js/start.js" />
         <option value="$PROJECT_DIR$/emocore.php" />
         <option value="$PROJECT_DIR$/js/global.js" />
         <option value="$PROJECT_DIR$/js/refresher.js" />
         <option value="$PROJECT_DIR$/js/updater.js" />
         <option value="$PROJECT_DIR$/online.php" />
+        <option value="$PROJECT_DIR$/js/start.js" />
         <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
@@ -300,6 +341,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -318,8 +360,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="hellgame" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.jetbrains.php.config.PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bootstrap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -329,30 +375,11 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="hellgame" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="style" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hellgame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hellgame" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -455,7 +482,9 @@
       <workItem from="1463333995736" duration="850000" />
       <workItem from="1463405920539" duration="64000" />
       <workItem from="1463407016952" duration="8165000" />
-      <workItem from="1463494036781" duration="10649000" />
+      <workItem from="1463494036781" duration="10747000" />
+      <workItem from="1463507087164" duration="618000" />
+      <workItem from="1463671911000" duration="1285000" />
     </task>
     <task id="LOCAL-00001" summary="first commit of HG">
       <created>1461670165519</created>
@@ -604,11 +633,18 @@
       <option name="project" value="LOCAL" />
       <updated>1463506022468</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="online label fix">
+      <created>1463506697456</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1463506697456</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="209731000" />
+    <option name="totallyTimeSpent" value="211732000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -677,7 +713,8 @@
     <MESSAGE value="версия 1.0 запущен обмен статусами, и настроением, исправлены ошибки" />
     <MESSAGE value="подготовка online движка. user_session" />
     <MESSAGE value="online отслеживание пользователей добавлено." />
-    <option name="LAST_COMMIT_MESSAGE" value="online отслеживание пользователей добавлено." />
+    <MESSAGE value="online label fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="online label fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -721,12 +758,14 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#10;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -759,12 +798,14 @@
           <caret line="45" column="10" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
           <folding>
             <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#10;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -797,12 +838,14 @@
           <caret line="81" column="18" selection-start-line="48" selection-start-column="12" selection-end-line="81" selection-end-column="18" />
           <folding>
             <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#10;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -835,12 +878,14 @@
           <caret line="42" column="93" selection-start-line="42" selection-start-column="93" selection-end-line="42" selection-end-column="93" />
           <folding>
             <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#10;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -852,12 +897,14 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#10;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -877,12 +924,14 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#10;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -1042,8 +1091,11 @@
     <entry file="file://$PROJECT_DIR$/js/global.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-          <folding />
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+          <folding>
+            <marker date="1463551080000" expanded="true" signature="20:120" placeholder="{&quot;state&quot;: false...}" />
+            <marker date="1463551080000" expanded="true" signature="181:718" placeholder="{&quot;name&quot;: &quot;&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1069,7 +1121,7 @@
         <state relative-caret-position="187">
           <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
           <folding>
-            <marker date="1462898011000" expanded="true" signature="242:489" placeholder="SELECT `id_u... users" />
+            <marker date="1463656199000" expanded="true" signature="242:541" placeholder="SELECT `id_u... users" />
           </folding>
         </state>
       </provider>
@@ -1077,47 +1129,110 @@
     <entry file="file://$PROJECT_DIR$/emocore.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="5" selection-start-line="6" selection-start-column="4" selection-end-line="9" selection-end-column="5" />
+          <caret line="12" column="5" selection-start-line="6" selection-start-column="4" selection-end-line="9" selection-end-column="5" />
           <folding>
-            <marker date="1463118861000" expanded="true" signature="361:422" placeholder="SELECT `id` users" />
-            <marker date="1463118861000" expanded="true" signature="723:827" placeholder="SELECT `valu... ${$target_user}_emo" />
-            <marker date="1463118861000" expanded="true" signature="780:825" placeholder="SELECT MAX( ${$target_user}_emo" />
-            <marker date="1463118861000" expanded="true" signature="1141:1253" placeholder="SELECT `valu... ${$target_user}_emo" />
-            <marker date="1463118861000" expanded="true" signature="1141:1272" placeholder="SELECT `valu... ${$target_user}_emo" />
-            <marker date="1463118861000" expanded="true" signature="1708:1829" placeholder="INSERT INTO `${$target_user}_emo`... " />
-            <marker date="1463118861000" expanded="true" signature="2137:2265" placeholder="UPDATE `user... " />
-            <marker date="1463118861000" expanded="true" signature="2207:2264" placeholder="SELECT `id` users" />
-            <marker date="1463118861000" expanded="true" signature="2315:2436" placeholder="UPDATE `user... " />
-            <marker date="1463118861000" expanded="true" signature="2378:2435" placeholder="SELECT `id` users" />
-            <marker date="1463118861000" expanded="true" signature="2486:2617" placeholder="UPDATE `user... " />
-            <marker date="1463118861000" expanded="true" signature="2559:2616" placeholder="SELECT `id` users" />
-            <marker date="1463118861000" expanded="true" signature="2999:3120" placeholder="UPDATE `user... " />
-            <marker date="1463118861000" expanded="true" signature="3062:3119" placeholder="SELECT `id` users" />
-            <marker date="1463118861000" expanded="true" signature="3520:3640" placeholder="UPDATE `user... " />
-            <marker date="1463118861000" expanded="true" signature="3582:3639" placeholder="SELECT `id` users" />
-            <marker date="1463118861000" expanded="true" signature="3690:3817" placeholder="UPDATE `user... " />
-            <marker date="1463118861000" expanded="true" signature="3759:3816" placeholder="SELECT `id` users" />
-            <marker date="1463118861000" expanded="true" signature="4033:4147" placeholder="UPDATE `user... " />
-            <marker date="1463118861000" expanded="true" signature="4089:4146" placeholder="SELECT `id` users" />
-            <marker date="1463118861000" expanded="true" signature="4396:4516" placeholder="UPDATE `user... " />
-            <marker date="1463118861000" expanded="true" signature="4458:4515" placeholder="SELECT `id` users" />
-            <marker date="1463118861000" expanded="true" signature="4566:4693" placeholder="UPDATE `user... " />
-            <marker date="1463118861000" expanded="true" signature="4635:4692" placeholder="SELECT `id` users" />
-            <marker date="1463118861000" expanded="true" signature="4904:5018" placeholder="UPDATE `user... " />
-            <marker date="1463118861000" expanded="true" signature="4960:5017" placeholder="SELECT `id` users" />
-            <marker date="1463118861000" expanded="true" signature="5439:5566" placeholder="UPDATE `user... " />
-            <marker date="1463118861000" expanded="true" signature="5508:5565" placeholder="SELECT `id` users" />
-            <marker date="1463118861000" expanded="true" signature="5777:5891" placeholder="UPDATE `user... " />
-            <marker date="1463118861000" expanded="true" signature="5833:5890" placeholder="SELECT `id` users" />
-            <marker date="1463118861000" expanded="true" signature="6080:6227" placeholder="SELECT DATE_... ${$target_user}_emo" />
+            <marker date="1463550911000" expanded="true" signature="361:422" placeholder="SELECT `id` users" />
+            <marker date="1463550911000" expanded="true" signature="723:827" placeholder="SELECT `valu... ${$target_user}_emo" />
+            <marker date="1463550911000" expanded="true" signature="780:825" placeholder="SELECT MAX( ${$target_user}_emo" />
+            <marker date="1463550911000" expanded="true" signature="1141:1253" placeholder="SELECT `valu... ${$target_user}_emo" />
+            <marker date="1463550911000" expanded="true" signature="1141:1272" placeholder="SELECT `valu... ${$target_user}_emo" />
+            <marker date="1463550911000" expanded="true" signature="1708:1829" placeholder="INSERT INTO `${$target_user}_emo`... " />
+            <marker date="1463550911000" expanded="true" signature="2137:2265" placeholder="UPDATE `user... " />
+            <marker date="1463550911000" expanded="true" signature="2207:2264" placeholder="SELECT `id` users" />
+            <marker date="1463550911000" expanded="true" signature="2315:2436" placeholder="UPDATE `user... " />
+            <marker date="1463550911000" expanded="true" signature="2378:2435" placeholder="SELECT `id` users" />
+            <marker date="1463550911000" expanded="true" signature="2486:2617" placeholder="UPDATE `user... " />
+            <marker date="1463550911000" expanded="true" signature="2559:2616" placeholder="SELECT `id` users" />
+            <marker date="1463550911000" expanded="true" signature="2872:2912" placeholder="..." />
+            <marker date="1463550911000" expanded="true" signature="2928:2971" placeholder="..." />
+            <marker date="1463550911000" expanded="true" signature="3168:3289" placeholder="UPDATE `user... " />
+            <marker date="1463550911000" expanded="true" signature="3231:3288" placeholder="SELECT `id` users" />
+            <marker date="1463550911000" expanded="true" signature="3689:3809" placeholder="UPDATE `user... " />
+            <marker date="1463550911000" expanded="true" signature="3751:3808" placeholder="SELECT `id` users" />
+            <marker date="1463550911000" expanded="true" signature="3859:3986" placeholder="UPDATE `user... " />
+            <marker date="1463550911000" expanded="true" signature="3928:3985" placeholder="SELECT `id` users" />
+            <marker date="1463550911000" expanded="true" signature="4202:4316" placeholder="UPDATE `user... " />
+            <marker date="1463550911000" expanded="true" signature="4258:4315" placeholder="SELECT `id` users" />
+            <marker date="1463550911000" expanded="true" signature="4565:4685" placeholder="UPDATE `user... " />
+            <marker date="1463550911000" expanded="true" signature="4627:4684" placeholder="SELECT `id` users" />
+            <marker date="1463550911000" expanded="true" signature="4735:4862" placeholder="UPDATE `user... " />
+            <marker date="1463550911000" expanded="true" signature="4804:4861" placeholder="SELECT `id` users" />
+            <marker date="1463550911000" expanded="true" signature="5073:5187" placeholder="UPDATE `user... " />
+            <marker date="1463550911000" expanded="true" signature="5129:5186" placeholder="SELECT `id` users" />
+            <marker date="1463550911000" expanded="true" signature="5608:5735" placeholder="UPDATE `user... " />
+            <marker date="1463550911000" expanded="true" signature="5677:5734" placeholder="SELECT `id` users" />
+            <marker date="1463550911000" expanded="true" signature="5946:6060" placeholder="UPDATE `user... " />
+            <marker date="1463550911000" expanded="true" signature="6002:6059" placeholder="SELECT `id` users" />
+            <marker date="1463550911000" expanded="true" signature="6249:6396" placeholder="SELECT DATE_... ${$target_user}_emo" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style/dark.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6307">
+          <caret line="380" column="0" selection-start-line="371" selection-start-column="1" selection-end-line="371" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/updater.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <marker date="1463655947000" expanded="true" signature="156:1292" placeholder="{...}" />
+            <marker date="1463655947000" expanded="true" signature="176:260" placeholder="{&quot;state&quot;: false...}" />
+            <marker date="1463655947000" expanded="true" signature="273:823" placeholder="{&quot;url&quot;: &quot;/refresher.php&quot;...}" />
+            <marker date="1463655947000" expanded="true" signature="415:670" placeholder="{...}" />
+            <marker date="1463655947000" expanded="true" signature="557:631" placeholder="{...}" />
+            <marker date="1463655947000" expanded="true" signature="696:817" placeholder="{...}" />
+            <marker date="1463655947000" expanded="true" signature="914:1288" placeholder="{&quot;url&quot;: &quot;/online.php&quot;...}" />
+            <marker date="1463655947000" expanded="true" signature="1051:1188" placeholder="{...}" />
+            <marker date="1463655947000" expanded="true" signature="1077:1130" placeholder="{...}" />
+            <marker date="1463655947000" expanded="true" signature="1214:1282" placeholder="{...}" />
+            <marker date="1463655947000" expanded="true" signature="1336:7380" placeholder="{...}" />
+            <marker date="1463655947000" expanded="true" signature="1411:1563" placeholder="{...}" />
+            <marker date="1463655947000" expanded="true" signature="1481:1548" placeholder="{...}" />
+            <marker date="1463655947000" expanded="true" signature="1579:2867" placeholder="{...}" />
+            <marker date="1463655947000" expanded="true" signature="1963:2109" placeholder="{...}" />
+            <marker date="1463655947000" expanded="true" signature="2154:2295" placeholder="{...}" />
+            <marker date="1463655947000" expanded="true" signature="2563:2635" placeholder="{...}" />
+            <marker date="1463655947000" expanded="true" signature="2658:2720" placeholder="{...}" />
+            <marker date="1463655947000" expanded="true" signature="2747:2817" placeholder="{...}" />
+            <marker date="1463655947000" expanded="true" signature="6037:6056" placeholder="{...}" />
+            <marker date="1463655947000" expanded="true" signature="6037:7126" placeholder="{...}" />
+            <marker date="1463655947000" expanded="true" signature="6037:7352" placeholder="{&quot;url&quot;: &quot;/emocore.php&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/online.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
+          <folding>
+            <marker date="1463507273640" expanded="true" signature="440:503" placeholder="UPDATE `user... " />
+            <marker date="1463507273640" expanded="true" signature="440:545" placeholder="UPDATE `user... " />
+            <marker date="1463507273640" expanded="true" signature="440:563" placeholder="UPDATE `user... " />
+            <marker date="1463507273640" expanded="true" signature="662:742" placeholder="DELETE FROM " />
+            <marker date="1463507273640" expanded="true" signature="668:742" placeholder="DELETE FROM " />
+            <marker date="1463507273640" expanded="true" signature="756:856" placeholder="UPDATE `user... " />
+            <marker date="1463507273640" expanded="true" signature="893:936" placeholder="DELETE FROM " />
+            <marker date="1463507273640" expanded="true" signature="893:937" placeholder="DELETE FROM " />
+            <marker date="1463507273640" expanded="true" signature="974:1007" placeholder="UPDATE `user... " />
+            <marker date="1463507273640" expanded="true" signature="974:1134" placeholder="UPDATE `user... " />
+            <marker date="1463507273640" expanded="true" signature="1033:1132" placeholder="SELECT `id_u... users_session" />
+            <marker date="1463507273640" expanded="true" signature="1205:1361" placeholder="UPDATE `user... " />
+            <marker date="1463507273640" expanded="true" signature="1260:1359" placeholder="SELECT `id_u... users_session" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/start.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+        <state relative-caret-position="255">
+          <caret line="171" column="61" selection-start-line="171" selection-start-column="61" selection-end-line="171" selection-end-column="61" />
           <folding>
             <element signature="n#!!block;n#tooltipHandler#0" expanded="false" />
             <element signature="n#!!block;n#showSysMsg#0" expanded="false" />
@@ -1129,63 +1244,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/style/dark.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="371" column="9" selection-start-line="371" selection-start-column="1" selection-end-line="371" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/refresher.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="34" column="107" selection-start-line="34" selection-start-column="107" selection-end-line="34" selection-end-column="107" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/updater.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/online.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="1292">
+          <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
           <folding>
-            <marker date="1463504995380" expanded="true" signature="440:503" placeholder="UPDATE `user... " />
-            <marker date="1463504995380" expanded="true" signature="440:545" placeholder="UPDATE `user... " />
-            <marker date="1463504995380" expanded="true" signature="440:563" placeholder="UPDATE `user... " />
-            <marker date="1463504995380" expanded="true" signature="662:742" placeholder="DELETE FROM " />
-            <marker date="1463504995380" expanded="true" signature="668:742" placeholder="DELETE FROM " />
-            <marker date="1463504995380" expanded="true" signature="756:855" placeholder="UPDATE `user... " />
-            <marker date="1463504995380" expanded="true" signature="892:936" placeholder="DELETE FROM " />
-            <marker date="1463504995380" expanded="true" signature="973:1006" placeholder="UPDATE `user... " />
-            <marker date="1463504995380" expanded="true" signature="973:1133" placeholder="UPDATE `user... " />
-            <marker date="1463504995380" expanded="true" signature="1032:1131" placeholder="SELECT `id_u... users_session" />
-            <marker date="1463504995380" expanded="true" signature="1204:1360" placeholder="UPDATE `user... " />
-            <marker date="1463504995380" expanded="true" signature="1259:1358" placeholder="SELECT `id_u... users_session" />
+            <marker date="1463651300000" expanded="true" signature="7711:7740" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="192" column="32" selection-start-line="192" selection-start-column="32" selection-end-line="192" selection-end-column="90" />
+        <state relative-caret-position="236">
+          <caret line="99" column="36" selection-start-line="99" selection-start-column="36" selection-end-line="99" selection-end-column="36" />
           <folding>
             <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#10;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>

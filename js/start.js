@@ -138,22 +138,34 @@ $(document).ready(function(){
         var icoobj = thisobj.find(".fa");
         var status = icoobj[0].classList[3];
         var msg = icoobj.next().text();
-        console.log("status:"+status+" danger:"+st_danger);
+        //console.log("status:"+status+" danger:"+st_danger);
         var temp = {};
         temp['login'] = Global.loggedAs;
         temp['newstatus'] = {};
         temp.newstatus['code'] = status;
         temp.newstatus['danger'] = st_danger;
         temp.newstatus['status_msg'] = msg;
-        globalUpdate(temp);        
+        
+        if(Global.loggedAs){
+            temp.newstatus['old_emo'] = Global[Global.loggedAs].emotion;
+            temp.newstatus['title'] = msg;
+            temp.newstatus['desc'] = "Установлен новый статус "+msg;
+        }
+        
+        var containerSt = thisobj.parentsUntil('.uc_col_weather').parent();
+        //var destination = containerSt.scrollTop();
+        containerSt.animate({"scrollTop":0},1000);
+        globalUpdate(temp);
     });
     
     $.ajaxSetup({
-        cache:false,
+        //cache:false,
         //async:false
     });
-    updList();
-    refreshAuth();
+    //updList();
+    setTimeout(updList,5000);
+    setTimeout(refreshAuth,5000);
+    //refreshAuth();
 
     $('#btnloginenter').on('click',function(){
         Global.loginData.login = $('#loginName').val();

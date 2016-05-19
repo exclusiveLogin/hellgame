@@ -80,9 +80,12 @@ function refresher() {
             if(Global[user_name].tendention>0){
                 widget_obj.find(".glyphicon-triangle-top").addClass("emo_up");
                 widget_obj.find(".glyphicon-triangle-bottom").removeClass("emo_down");
-            }else {
+            }else if(Global[user_name].tendention<0){
                 widget_obj.find(".glyphicon-triangle-top").removeClass("emo_up");
                 widget_obj.find(".glyphicon-triangle-bottom").addClass("emo_down");
+            }else{
+                widget_obj.find(".glyphicon-triangle-top").removeClass("emo_up");
+                widget_obj.find(".glyphicon-triangle-bottom").removeClass("emo_down");
             }
         }
         if(Global[user_name].status_msg){
@@ -95,11 +98,7 @@ function refresher() {
         if(Global.opened){
             refreshUC(Global.opened);
         }
-        
-        
-        
     }
-    
 }
 
 function refreshUC(user) {
@@ -108,8 +107,10 @@ function refreshUC(user) {
     //Left SIDE
     if(Number(Global[user].online)){
         $(".label-online").removeClass("label-disabled");
+        $(".beenonline").hide();
     }else {
         $(".label-online").addClass("label-disabled");
+        $(".beenonline").show();
     }
     $(".uc_login").text(Global[user].login);
     $(".uc_name").text(Global[user].name);
@@ -159,9 +160,14 @@ function refreshUC(user) {
     }
     //-------------------------------------------------------
     if(Global[user].upd){
-        $(".weather_time_val").text(Global[user].upd);
+        $(".beenonline_val").text(Global[user].upd);
     }else {
-        $(".weather_time_val").text(Global[user].upd);
+        $(".beenonline_val").text("данные не получены");
+    }
+    if(Global[user].upd_status && Global[user].upd_status!=="0000-00-00 00:00:00"){
+        $(".weather_time_val").text(" "+Global[user].upd_status);
+    }else {
+        $(".weather_time_val").text("данные не получены");
     }
     if(Global[user].dataold){
         $(".label-dataold").show();
@@ -173,12 +179,15 @@ function refreshUC(user) {
     }else {
         $(".emo_val").text("---");
     }
-    if(Global[user].tendention){
-        if(Global[user].tendention>=0){
+    if(Number(Global[user].tendention)>=0){
+        if(Global[user].tendention>0){
             $(".emo_val_tend").html('<div class="glyphicon glyphicon-triangle-top emo_up"></div> '+Global[user].tendention);
         }
-        else {
+        else if(Global[user].tendention<0){
             $(".emo_val_tend").html('<div class="glyphicon glyphicon-triangle-bottom emo_down"></div> '+Global[user].tendention);
+        }
+        else {
+            $(".emo_val_tend").html('<small style="color: white; font-size: 70%;">не изменилось</small>');
         }
     
     }else {

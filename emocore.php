@@ -68,6 +68,8 @@ if ($target_user){
         $mysql->query($query);
         $query='UPDATE `users_act` SET `status_msg` = "'.$status_msg.'" WHERE `id_user`=(SELECT `id` FROM `users` WHERE `login`="'.$target_user.'")';
         $mysql->query($query);
+        $query='UPDATE `users_act` SET `upd_status` = NOW() WHERE `id_user`=(SELECT `id` FROM `users` WHERE `login`="'.$target_user.'")';
+        $mysql->query($query);
         $dng_msn = "";
         if ($danger=="true"){
             $dng_msn="Опасно";

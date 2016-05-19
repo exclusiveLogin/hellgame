@@ -21,10 +21,10 @@ if($target_user){
 //делетим пользователей с таймаутом больше 10 минут
 //$query = 'DELETE FROM `users_session` WHERE `datetime` < ADDDATE(NOW(),INTERVAL -3 MINUTE)';
 
-$query = 'UPDATE `users_session` SET `demp` = `demp` + 1 WHERE `datetime` < ADDDATE(NOW(),INTERVAL -3 MINUTE)';
+$query = 'UPDATE `users_session` SET `demp` = `demp` + 1 WHERE `datetime` < ADDDATE(NOW(),INTERVAL -30 SECOND)';
 $mysql->query($query);
 
-$query = 'DELETE FROM `users_session` WHERE `demp` > 1';
+$query = 'DELETE FROM `users_session` WHERE `demp` > 0';
 $mysql->query($query);
 
 $query = 'UPDATE  `users_act` SET online =0 WHERE `id_user` NOT IN ( SELECT  `id_user` 

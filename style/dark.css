@@ -416,3 +416,11 @@ h3.card_status_off{
     font-size: 80%;
     color: white;
 }
+.beenonline{
+    font-size: 11px;
+    color: #aaa;
+}
+.weather_desc{
+    height: 50px;
+
+}
