@@ -7,5 +7,6 @@
     <orderEntry type="library" name="highcharts" level="application" />
     <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="highstock" level="application" />
+    <orderEntry type="library" name="highstock" level="application" />
   </component>
 </module>
