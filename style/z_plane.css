@@ -1,0 +1,102 @@
+.termo_top{
+    /*border: 2px outset #DCD8D8; */
+    /* border-radius: 10px; */
+    padding: 5px;
+    color: #FDFDFD;
+    text-shadow: 0 0 0 white;
+    background-color: #ccc;
+    box-shadow: 3px 3px 15px 3px grey;
+    /* background: linear-gradient(to top, #16A92F 0%, #83A8D6 60%, #21689A 70%, #12114C 100%); */
+}
+.wh_val{
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+}
+#wh_upd_val{
+    /*font-size: 10px;*/
+}
+.wh_label {
+    font-size: 11px;
+    display: block;
+    /*border: 1px red solid;*/
+    text-align: center;
+    font-weight: bold;
+    height: 25px;
+    line-height: 12px;
+    /* margin: 0 auto; */
+}
+div.h_led {
+    width: 10px;
+    height: 10px;
+    margin: 3px auto;
+    /* right: 5px; */
+    position: relative;
+    border-radius: 50%;
+    background-color: #555555;
+    box-shadow: 0 0 10px 0px #555555;
+}
+div.led_error {
+    background-color: red;
+    box-shadow: 0 0 10px 0px red;
+}
+div.led_red {
+    background-color: red;
+    box-shadow: 0 0 10px 0px red;
+}
+div.led_ok {
+    background-color: greenyellow !important;
+    box-shadow: 0 0 10px 0px greenyellow !important;
+}
+div.led_green {
+    background-color: greenyellow;
+    box-shadow: 0 0 10px 0px greenyellow;
+}
+div.led_orange {
+    background-color: orange;
+    box-shadow: 0 0 10px 0px orange;
+}
+div.led_yellow {
+    background-color: yellow;
+    box-shadow: 0 0 10px 0px yellow;
+}
+div.led_cyan {
+    background-color: cyan;
+    box-shadow: 0 0 10px 0px cyan;
+}
+div.led_blue {
+    background-color: blue;
+    box-shadow: 0 0 10px 0px blue;
+}
+g.highcharts-range-selector-buttons > text {
+    display: none;
+}
+.wh_icon{
+    height: 32px;
+    width: 32px;
+    margin: 0 auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+}
+#wh_icon_refresh{
+    background-image: url("http://zasyzran.ru/termo/pic/18833-refresh_icon.png");
+}
+#wh_icon_wind{
+    background-image: url("http://zasyzran.ru/termo/pic/windicon.png");
+}
+#wh_icon_temp0, #wh_icon_temp15, #wh_icon_temp60, #wh_icon_tempavg{
+    background-image: url("http://zasyzran.ru/termo/pic/temperature-2-xxl.png");
+    background-position: 2px;
+}
+.wh_suffix {
+    position: relative;
+    top: 18px;
+    left: 25px;
+    font-size: 10px;
+}
+.plane{
+    padding: 0;
+    border-top: 3px forestgreen solid;
+}

@@ -8,13 +8,14 @@ $mysql->query("SET NAMES 'UTF8';");
 $query = "SELECT `status` FROM `weather`";
 $res = $mysql->query($query);
 $path = $_SERVER['DOCUMENT_ROOT']."/temp";
-$file = $_SERVER['DOCUMENT_ROOT']."/temp/weather.json.";
+$file = $_SERVER['DOCUMENT_ROOT']."/temp/weather.json";
+$owm = "http://api.openweathermap.org/data/2.5/weather?q=syzran&appid=69e74215c599f98adce65d87e9fdb41c&lang=ru&units=metric";
 $row = $res->fetch_assoc();
 echo "{";
 if(!$row){
-    //echo "DB Empty";
+    echo '"debug":"db empty",';
     //качаем json и если все ок пишем файл и true в DB
-    $json = file_get_contents("http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=69e74215c599f98adce65d87e9fdb41c&lang=ru");
+    $json = file_get_contents($owm);
     //echo "текущий каталог: ".$_SERVER['DOCUMENT_ROOT']."<br>";
     if($json){
         //echo "<p>all ok file received</p>";        
@@ -53,7 +54,7 @@ if(!$row){
     }
 }
 else{
-    //echo "DB OK<br>";
+    echo '"debug":"db ok",';
     //проверяем дату и таймаут записи если все ок . читаем Файл и отдаем пользователю.
 
     //если нет скачиваем файл отдаем пользователю пишем в DB что все ок обновляем таймауты
@@ -62,14 +63,16 @@ else{
     $row = $res->fetch_assoc();
     if(row){
         $compare = strtotime($row['cur_time']) - strtotime($row['upd']);
+        echo '"compare":'.$compare.",";
         //echo "Данные из БД получены обновлены: ".$row['upd'].'<br> Cur:'.$row['cur_time'].'<br> прошло '.$compare."секунд";
-        if($compare>60){//качаем файл заново
-            $json = file_get_contents("http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=69e74215c599f98adce65d87e9fdb41c&lang=ru");
+        if($compare>1000){//качаем файл заново            
+            $json = file_get_contents($owm);
+            //echo "refresh";
             //echo "текущий каталог: ".$_SERVER['DOCUMENT_ROOT']."<br>";
             if($json){
                 //echo "<p>all ok file received</p>";
                 $path = $_SERVER['DOCUMENT_ROOT']."/temp";
-                $file = $_SERVER['DOCUMENT_ROOT']."/temp/weather.json.";
+                $file = $_SERVER['DOCUMENT_ROOT']."/temp/weather.json";
                 if(file_exists($file)){
                     $result = file_put_contents($file, $json);
                     //echo "<p>write to file ".$result."bytes</p>";
@@ -121,7 +124,7 @@ else{
                     echo 'error":true';
                 }
             }else {//если нет файла но запись есть
-                $json = file_get_contents("http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=69e74215c599f98adce65d87e9fdb41c&lang=ru");
+                $json = file_get_contents($owm);
                 if($json){
                     if(file_exists($path)){
                         $result = file_put_contents($file, $json);

@@ -314,15 +314,15 @@ function setHandlers(){
 function trendToggle(state, user) {
     if(state){
         $("#trend").show(1000, function () {
-            Global.trend.reflow();
+            Global.trend.reflow();						
+            $(this).removeClass("transparent");
             Global.trend.series[0].setData([]);
             Global.trend.series[1].setData([]);
 
             Global.trend.series[0].setData(Global[user].trend);
             Global.trend.series[1].setData(Global[user].flags);
         });
-    }else {
-        $("#trend").hide(500);
+    }else {       			$("#trend").hide(1000,function(){						$(this).addClass("transparent");					});			
     }
 }
 function ucToggle(guest,state) {

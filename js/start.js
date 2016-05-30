@@ -26,13 +26,16 @@ function tooltipHandler() {
     });
 }
 $(document).ready(function(){
-    $("#trend").hide(1000);
+    //$("#trend").hide(1000);
     $(".btn_clsuc").on("click",function () {
         ucToggle(false,false);
         ucToggle(true,false);
         trendToggle(false);
         Global.opened = false;
     });
+    $(".btn_clswc").on("click",function () {
+        $(this).closest("#weather_card").hide(500);
+    })
 
     tooltipHandler();
     $('.uc_emo_slider').slider({

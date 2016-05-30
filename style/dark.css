@@ -1,3 +1,5 @@
+@import "http://webfonts.ru/import/gardensc.css";
+
 .headerdark{
     background-color: #464646;
     margin-left: 0;
@@ -196,11 +198,13 @@ h2.card_title{
     text-transform: uppercase;
 }
 h3.card_status{
-    font-size: 15px;
+    font-size: 10px;
     line-height: 0px;
     margin: 0px;
     color: grey;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'GardensC';
+    text-transform: uppercase;
+    font-weight: bold;
 }
 h3.card_status_on{
     color: greenyellow;
@@ -400,9 +404,9 @@ h3.card_status_off{
 .btn_clsuc{
     margin-bottom: 15px;
 }
-#trend {
-    /*display: none;*/
-}
+#trend {	
+    display: none;	transition:opacity 1s ease;
+}.transparent{	opacity:0;}
 .status_msg_val{
     font-family: 'Quicksand', sans-serif;
     font-size: 80%;
@@ -423,4 +427,105 @@ h3.card_status_off{
 .weather_desc{
     height: 50px;
 
+}
+.weather_icon{
+    height: 100%;
+    width: 100%;
+    background-image: url("nophoto.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#weather_card{
+    display: none;
+    text-shadow: 5px 5px 20px black;
+}
+
+.wc_weather_icon{
+    position: relative;
+    height: 150px;
+    /* width: 150px; */
+    background-image: url("/weather/01.png");
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* margin: 0 auto; */
+}
+.wc_weather_desc {
+    font-size: 25px;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+.wc_temp_min{
+    background-image: url("/weather/tmin.png");
+    background-position: center center;
+    height: 48px;
+    width: 48px;
+}
+.wc_temp_max{
+    background-image: url("/weather/tmax.png");
+    background-position: center center;
+    height: 48px;
+    width: 48px;
+}
+.wc_t_big{
+    font-size: 28px;
+    font-weight: bold;
+    display: block;
+}
+.mydevider{
+    margin: 5px 0;
+    border-bottom: 1px grey solid;
+}
+.wc_sun_up{
+    background-image: url("/weather/36.png");
+    background-position: center center;
+    background-size: cover;
+    height: 48px;
+    width: 48px;
+}
+.wc_sun_down{
+    background-image: url("/weather/31.png");
+    background-position: center center;
+    background-size: cover;
+    height: 48px;
+    width: 48px;
+}
+.wc_drop{
+    background-image: url("/weather/humidity.png");
+    background-position: center center;
+    background-size: cover;
+    height: 48px;
+    width: 48px;
+}
+.wc_wind{
+    background-image: url("/weather/wind.png");
+    background-position: center center;
+    background-size: cover;
+    height: 48px;
+    width: 48px;
+}
+.wc_baro{
+    background-image: url("/weather/baro.png");
+    background-position: center center;
+    background-size: cover;
+    height: 48px;
+    width: 48px;
+}
+.wc_compass{
+    background-image: url("/weather/compass.png");
+    background-position: center center;
+    background-size: cover;
+    height: 48px;
+    width: 48px;
+}
+.wc_main_temp{
+    font-size: 4em;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+.row{
+    margin-left: 0;
+    margin-right: 0;
 }

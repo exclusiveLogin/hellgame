@@ -1,4 +1,7 @@
 Global = {
+    z_plane:{
+        
+    },    
     emer:{
         state:false,
         color:"",
@@ -6,7 +9,7 @@ Global = {
         users:[],
         user_msg:[]
     },
-    loggedAs:"",
+    loggedAs:"",		windcore_con:false,
     opened:false,
     users:[],
     blank:{
@@ -35,5 +38,12 @@ Global = {
     }
 };
 
-
+Global.z_plane["wind"]=888;
+Global.z_plane["temp0"]=888;
+Global.z_plane["temp15"]=888;
+Global.z_plane["temp60"]=888;
+Global.z_plane["tempavg"]=888;
+Global.z_plane["wind_p"]=888;
+Global.z_plane["windavg"]=888;
+Global.z_plane["upd"]="---";
 

@@ -107,7 +107,7 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
         var now = nowt - offset;
         var compare_t = now-utctime;
         //console.log("now:"+now+" utc:"+utctime+" compare:"+compare_t);
-        if ((compare_t/60000)>30){
+        if ((compare_t/60000)>180){
             Global[obj.login].dataold = true;
         }
         else {

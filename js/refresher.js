@@ -29,10 +29,10 @@ function refresher() {
         widget_obj.find(".card_title").text(Global[user_name].login);
         //online
         if(Number(Global[user_name].online)){
-            widget_obj.find(".card_status").text("online").removeClass("green_code red_code card_status_off").addClass("card_status_on");    
+            widget_obj.find(".card_status").text("в сети").removeClass("green_code red_code card_status_off").addClass("card_status_on");    
         }
         else {
-            widget_obj.find(".card_status").text("offline").removeClass("green_code red_code card_status_on").addClass("card_status_off");
+            widget_obj.find(".card_status").text("не в сети").removeClass("green_code red_code card_status_on").addClass("card_status_off");
         }
         //red code
         if(Number(Global[user_name].r_code)){

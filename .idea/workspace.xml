@@ -2,7 +2,92 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="717fb80b-d7c5-46a3-8a22-d602fe74b980" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/31.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/36.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/baro.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/02.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/05.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/06.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/07.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/08.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/09.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/10.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/11.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/12.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/13.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/14.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/15.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/16.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/17.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/18.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/19.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/20.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/202.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/21.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/211.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/22.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/23.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/24.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/25.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/26.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/27.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/28.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/29.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/30.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/31.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/32.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/33.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/34.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/35.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/36.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/37.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/38.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/39.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/40.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/41.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/42.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/43.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/44.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/45.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/46.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/47.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/backup/na.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/w1000.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/w200.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/w300.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/w500.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/w600.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/w700.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/w800.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/w801.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/w803.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/w804.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/w900.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/codes/w950.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/compass.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/humidity.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/temp.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/tmax.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/tmin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/wind.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/color_led.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/weatherparser.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/windcore.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/style/z_plane.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/temp/weather.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/temp/z_plane.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/zasyzran.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/Thumbs.db" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/auth.js" afterPath="$PROJECT_DIR$/js/auth.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/global.js" afterPath="$PROJECT_DIR$/js/global.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/refresher.js" afterPath="$PROJECT_DIR$/js/refresher.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/start.js" afterPath="$PROJECT_DIR$/js/start.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/trends.js" afterPath="$PROJECT_DIR$/js/trends.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/updater.js" afterPath="$PROJECT_DIR$/js/updater.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/dark.css" afterPath="$PROJECT_DIR$/style/dark.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weathercore.php" afterPath="$PROJECT_DIR$/weathercore.php" />
     </list>
     <ignored path="hellgame.iws" />
@@ -41,20 +126,31 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
+            <state relative-caret-position="1785">
+              <caret line="105" column="84" selection-start-line="105" selection-start-column="84" selection-end-line="105" selection-end-column="84" />
               <folding>
-                <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dark.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/style/dark.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="529" column="10" selection-start-line="529" selection-start-column="10" selection-end-line="529" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/auth.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="317" column="12" selection-start-line="317" selection-start-column="12" selection-end-line="317" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -63,38 +159,31 @@
         <entry file="file://$PROJECT_DIR$/weathercore.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
+              <caret line="74" column="71" selection-start-line="74" selection-start-column="71" selection-end-line="74" selection-end-column="71" />
               <folding>
-                <marker date="1463815425092" expanded="true" signature="245:275" placeholder="SELECT `stat... weather" />
-                <marker date="1463815425092" expanded="true" signature="1727:1769" placeholder="INSERT INTO `weather`... " />
-                <marker date="1463815425092" expanded="true" signature="1916:1958" placeholder="INSERT INTO `weather`... " />
-                <marker date="1463815425092" expanded="true" signature="2259:2300" placeholder="SELECT * FRO... weather" />
-                <marker date="1463815425092" expanded="true" signature="4272:4303" placeholder="UPDATE `weat... " />
-                <marker date="1463815425092" expanded="true" signature="4279:4303" placeholder="INSERT INTO `weather`... " />
-                <marker date="1463815425092" expanded="true" signature="4378:4410" placeholder="UPDATE `weat... " />
-                <marker date="1463815425092" expanded="true" signature="4648:4679" placeholder="UPDATE `weat... " />
-                <marker date="1463815425092" expanded="true" signature="4754:4786" placeholder="UPDATE `weat... " />
+                <marker date="1464547366576" expanded="true" signature="245:275" ph="SELECT `stat... weather" />
+                <marker date="1464547366576" expanded="true" signature="1755:1797" ph="INSERT INTO `weather`... " />
+                <marker date="1464547366576" expanded="true" signature="1944:1986" ph="INSERT INTO `weather`... " />
+                <marker date="1464547366576" expanded="true" signature="2292:2333" ph="SELECT * FRO... weather" />
+                <marker date="1464547366576" expanded="true" signature="4282:4313" ph="UPDATE `weat... " />
+                <marker date="1464547366576" expanded="true" signature="4289:4313" ph="INSERT INTO `weather`... " />
+                <marker date="1464547366576" expanded="true" signature="4388:4420" ph="UPDATE `weat... " />
+                <marker date="1464547366576" expanded="true" signature="4658:4689" ph="UPDATE `weat... " />
+                <marker date="1464547366576" expanded="true" signature="4764:4796" ph="UPDATE `weat... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="refresher.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/refresher.js">
+      <file leaf-file-name="weatherparser.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/weatherparser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1292">
-              <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dark.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/style/dark.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6460">
-              <caret line="380" column="0" selection-start-line="371" selection-start-column="1" selection-end-line="371" selection-end-column="9" />
-              <folding />
+            <state relative-caret-position="340">
+              <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+              <folding>
+                <element signature="n#!!block;n#refresh_z_plane#0" expanded="false" />
+                <element signature="n#!!block;n#refresh_widget#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -119,22 +208,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="online.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/online.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="updater.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/updater.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
               <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1464517346000" expanded="true" signature="3605:3662" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -143,33 +224,18 @@
         <entry file="file://$PROJECT_DIR$/js/start.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2550">
-              <caret line="171" column="61" selection-start-line="171" selection-start-column="61" selection-end-line="171" selection-end-column="61" />
+              <caret line="174" column="61" selection-start-line="174" selection-start-column="61" selection-end-line="174" selection-end-column="61" />
               <folding>
-                <element signature="n#!!block;n#tooltipHandler#0" expanded="false" />
                 <element signature="n#!!block;n#showSysMsg#0" expanded="false" />
                 <element signature="n#!!block;n#deletemc#0" expanded="false" />
                 <element signature="n#!!block;n#updList#0" expanded="false" />
                 <element signature="n#!!block;n#user#0" expanded="false" />
                 <element signature="n#!!block;n#createcard#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="trends.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/trends.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1445">
-              <caret line="287" column="21" selection-start-line="287" selection-start-column="21" selection-end-line="287" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#42#0" expanded="false" />
-                <element signature="e#317#5613#0" expanded="false" />
-                <element signature="e#2734#2971#0" expanded="false" />
-                <element signature="e#2990#3066#0" expanded="false" />
-                <element signature="e#3084#3163#0" expanded="false" />
-                <element signature="e#3185#3363#0" expanded="false" />
-                <element signature="e#3611#4560#0" expanded="false" />
-                <element signature="e#4995#5331#0" expanded="false" />
+                <marker date="1464374203000" expanded="false" signature="104:595" ph="{...}" />
+                <marker date="1464374203000" expanded="true" signature="163:420" ph="{...}" />
+                <marker date="1464374203000" expanded="true" signature="282:391" ph="{...}" />
+                <marker date="1464374203000" expanded="true" signature="443:591" ph="{...}" />
+                <marker date="1464374203000" expanded="true" signature="514:583" ph="{&quot;top&quot;: 0...}" />
               </folding>
             </state>
           </provider>
@@ -182,8 +248,8 @@
       <list>
         <option value="Html5" />
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -211,8 +277,6 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/refresher.php" />
         <option value="$PROJECT_DIR$/backup.html" />
-        <option value="$PROJECT_DIR$/style/dark.css" />
-        <option value="$PROJECT_DIR$/js/auth.js" />
         <option value="$PROJECT_DIR$/js/trends.js" />
         <option value="$PROJECT_DIR$/emocore.php" />
         <option value="$PROJECT_DIR$/js/global.js" />
@@ -221,6 +285,9 @@
         <option value="$PROJECT_DIR$/online.php" />
         <option value="$PROJECT_DIR$/js/start.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/auth.js" />
+        <option value="$PROJECT_DIR$/style/dark.css" />
+        <option value="$PROJECT_DIR$/js/weatherparser.js" />
         <option value="$PROJECT_DIR$/weathercore.php" />
       </list>
     </option>
@@ -266,7 +333,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -317,9 +383,52 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hellgame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hellgame" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="temp" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hellgame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hellgame" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="style" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hellgame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hellgame" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -427,7 +536,9 @@
       <workItem from="1463737075199" duration="7382000" />
       <workItem from="1463748623124" duration="17000" />
       <workItem from="1463748982524" duration="18858000" />
-      <workItem from="1463810474779" duration="1284000" />
+      <workItem from="1463810474779" duration="6140000" />
+      <workItem from="1464538131464" duration="15000" />
+      <workItem from="1464538359855" duration="8486000" />
     </task>
     <task id="LOCAL-00001" summary="first commit of HG">
       <created>1461670165519</created>
@@ -583,11 +694,18 @@
       <option name="project" value="LOCAL" />
       <updated>1463506697456</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="weathercore completed">
+      <created>1463815455103</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1463815455103</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="239273000" />
+    <option name="totallyTimeSpent" value="252630000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -600,10 +718,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23515625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23515625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1554054" sideWeight="0.509693" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34087238" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -657,7 +775,8 @@
     <MESSAGE value="подготовка online движка. user_session" />
     <MESSAGE value="online отслеживание пользователей добавлено." />
     <MESSAGE value="online label fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="online label fix" />
+    <MESSAGE value="weathercore completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="weathercore completed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -666,32 +785,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/style/dark.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="119" column="18" selection-start-line="119" selection-start-column="18" selection-end-line="119" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dbq.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -718,15 +811,6 @@
         <state relative-caret-position="0">
           <caret line="45" column="10" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
           <folding>
-            <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -758,15 +842,6 @@
         <state relative-caret-position="0">
           <caret line="81" column="18" selection-start-line="48" selection-start-column="12" selection-end-line="81" selection-end-column="18" />
           <folding>
-            <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -798,15 +873,6 @@
         <state relative-caret-position="0">
           <caret line="42" column="93" selection-start-line="42" selection-start-column="93" selection-end-line="42" selection-end-column="93" />
           <folding>
-            <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -817,15 +883,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -844,15 +901,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -987,13 +1035,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backup.html" />
-    <entry file="file://$PROJECT_DIR$/js/auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3366">
-          <caret line="295" column="59" selection-start-line="295" selection-start-column="59" selection-end-line="295" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/global.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1005,32 +1046,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1445">
           <caret line="287" column="21" selection-start-line="287" selection-start-column="21" selection-end-line="287" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-            <element signature="e#317#5613#0" expanded="false" />
-            <element signature="e#2734#2971#0" expanded="false" />
-            <element signature="e#2990#3066#0" expanded="false" />
-            <element signature="e#3084#3163#0" expanded="false" />
-            <element signature="e#3185#3363#0" expanded="false" />
-            <element signature="e#3611#4560#0" expanded="false" />
-            <element signature="e#4995#5331#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/style/dark.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6460">
-          <caret line="380" column="0" selection-start-line="371" selection-start-column="1" selection-end-line="371" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/updater.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1045,23 +1060,19 @@
     <entry file="file://$PROJECT_DIR$/js/start.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2550">
-          <caret line="171" column="61" selection-start-line="171" selection-start-column="61" selection-end-line="171" selection-end-column="61" />
+          <caret line="174" column="61" selection-start-line="174" selection-start-column="61" selection-end-line="174" selection-end-column="61" />
           <folding>
-            <element signature="n#!!block;n#tooltipHandler#0" expanded="false" />
             <element signature="n#!!block;n#showSysMsg#0" expanded="false" />
             <element signature="n#!!block;n#deletemc#0" expanded="false" />
             <element signature="n#!!block;n#updList#0" expanded="false" />
             <element signature="n#!!block;n#user#0" expanded="false" />
             <element signature="n#!!block;n#createcard#0" expanded="false" />
+            <marker date="1464374203000" expanded="false" signature="104:595" ph="{...}" />
+            <marker date="1464374203000" expanded="true" signature="163:420" ph="{...}" />
+            <marker date="1464374203000" expanded="true" signature="282:391" ph="{...}" />
+            <marker date="1464374203000" expanded="true" signature="443:591" ph="{...}" />
+            <marker date="1464374203000" expanded="true" signature="514:583" ph="{&quot;top&quot;: 0...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/refresher.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1081,21 +1092,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/updater.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <marker date="1464517346000" expanded="true" signature="3605:3662" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/refresher.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1713">
+          <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
+        <state relative-caret-position="1785">
+          <caret line="105" column="84" selection-start-line="105" selection-start-column="84" selection-end-line="105" selection-end-column="84" />
           <folding>
-            <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="317" column="12" selection-start-line="317" selection-start-column="12" selection-end-line="317" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style/dark.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="529" column="10" selection-start-line="529" selection-start-column="10" selection-end-line="529" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/windcore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/weatherparser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+          <folding>
+            <element signature="n#!!block;n#refresh_z_plane#0" expanded="false" />
+            <element signature="n#!!block;n#refresh_widget#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1103,17 +1157,17 @@
     <entry file="file://$PROJECT_DIR$/weathercore.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
+          <caret line="74" column="71" selection-start-line="74" selection-start-column="71" selection-end-line="74" selection-end-column="71" />
           <folding>
-            <marker date="1463815425092" expanded="true" signature="245:275" placeholder="SELECT `stat... weather" />
-            <marker date="1463815425092" expanded="true" signature="1727:1769" placeholder="INSERT INTO `weather`... " />
-            <marker date="1463815425092" expanded="true" signature="1916:1958" placeholder="INSERT INTO `weather`... " />
-            <marker date="1463815425092" expanded="true" signature="2259:2300" placeholder="SELECT * FRO... weather" />
-            <marker date="1463815425092" expanded="true" signature="4272:4303" placeholder="UPDATE `weat... " />
-            <marker date="1463815425092" expanded="true" signature="4279:4303" placeholder="INSERT INTO `weather`... " />
-            <marker date="1463815425092" expanded="true" signature="4378:4410" placeholder="UPDATE `weat... " />
-            <marker date="1463815425092" expanded="true" signature="4648:4679" placeholder="UPDATE `weat... " />
-            <marker date="1463815425092" expanded="true" signature="4754:4786" placeholder="UPDATE `weat... " />
+            <marker date="1464547366576" expanded="true" signature="245:275" ph="SELECT `stat... weather" />
+            <marker date="1464547366576" expanded="true" signature="1755:1797" ph="INSERT INTO `weather`... " />
+            <marker date="1464547366576" expanded="true" signature="1944:1986" ph="INSERT INTO `weather`... " />
+            <marker date="1464547366576" expanded="true" signature="2292:2333" ph="SELECT * FRO... weather" />
+            <marker date="1464547366576" expanded="true" signature="4282:4313" ph="UPDATE `weat... " />
+            <marker date="1464547366576" expanded="true" signature="4289:4313" ph="INSERT INTO `weather`... " />
+            <marker date="1464547366576" expanded="true" signature="4388:4420" ph="UPDATE `weat... " />
+            <marker date="1464547366576" expanded="true" signature="4658:4689" ph="UPDATE `weat... " />
+            <marker date="1464547366576" expanded="true" signature="4764:4796" ph="UPDATE `weat... " />
           </folding>
         </state>
       </provider>

@@ -305,6 +305,6 @@ $(document).ready(function () {
         }]
     };
     Global.trend = new Highcharts.StockChart(Global.trendSetting);
-    Global.trend.reflow();
+    //Global.trend.reflow();
     
 });

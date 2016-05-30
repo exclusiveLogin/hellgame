@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="style/dark.css">
+    <link rel="stylesheet" href="style/z_plane.css">
     <link rel="stylesheet" href="style/lightbox.css">
     <link rel="stylesheet" href="fancybox/jquery.fancybox.css">
     <link rel="stylesheet" href="jquery-ui-1.11.4/jquery-ui.css">
@@ -25,9 +26,12 @@
     <script src="/js/jquery-1.11.3.js"></script>
     <script src="jquery-ui-1.11.4/jquery-ui.js"></script>
     <script src="/js/auth.js"></script>
+	<script src="/js/windcore.js"></script>
     <script src="/js/updater.js"></script>
     <script src="/js/refresher.js"></script>
     <script src="/js/start.js"></script>
+    <script src="/js/weatherparser.js"></script>
+    <script src="/js/color_led.js"></script>
     <script src="/js/trends.js"></script>
     <script src="/js/lightbox.js"></script>
     <script src="/fancybox/jquery.fancybox.pack.js"></script>
@@ -48,7 +52,7 @@
         <div class="logo col-lg-2 col-md-2 hidden-sm hidden-xs">HELL GAME 2016</div>
         <div class="logo col-xs-12 visible-xs visible-sm text-center">HELL GAME 2016</div>
 
-        <div id="widget_uc_ssv" class="user_card_wrapper col-lg-3 col-md-3 col-sm-3 col-xs-6">
+        <div id="widget_uc_ssv" class="user_card_wrapper col-lg-3 col-md-3 col-sm-3 col-xs-5">
             <div class="ssv_card user_card container-fluid">
                 <div class="user_card_photo col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
                 <div class="user_card_desc col-lg-8 col-md-8 col-sm-8 col-xs-8">
@@ -71,7 +75,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 code_msg"></div>
             </div>
         </div>
-        <div id="widget_uc_msn" class="user_card_wrapper col-lg-3 col-md-3 col-sm-3 col-xs-6">
+        <div id="widget_uc_msn" class="user_card_wrapper col-lg-3 col-md-3 col-sm-3 col-xs-5">
             <div class="ssv_card user_card container-fluid">
                 <div class="user_card_photo msn_photo_min col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
                 <div class="user_card_desc col-lg-8 col-md-8 col-sm-8 col-xs-8">
@@ -94,11 +98,12 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 code_msg"></div>
             </div>
         </div>
-        <div id="widget_weather" class="user_card_wrapper col-lg-1 col-md-1 col-sm-1 col-xs-6 col-lg-offset-0 col-md-offset-0 col-sm-offset-0 col-xs-offset-3">
+        <div id="widget_weather" class="user_card_wrapper col-lg-1 col-md-1 col-sm-1 col-xs-2 col-lg-offset-0 col-md-offset-0 col-sm-offset-0 col-xs-offset-0">
             <div class="weather_card user_card container-fluid">
                 <div class="weather_desc">
-                    тут будет погода
+                    <div class="weather_icon"></div>
                 </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 code_msg"></div>
             </div>
         </div>
 
@@ -307,7 +312,134 @@
             </div>
         </div>
 
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center"><div id="trend" class="uc_trends"></div></div>
+        <div id="weather_card" class="uc_col col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+            <div class="row">
+                <div class="uc_col col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+                    <div class="uc_card">Текущая</div>
+                    <button class="btn btn-danger btn_clswc"><i class="fa fa-close"></i>Закрыть</button>
+                    <div class="wc_weather_icon">
+                        <div class="wc_main_temp">{main.temp}</div>
+                    </div>
+                    <div class="wc_weather_desc">{WeatherDESC}</div>										<div class="wc_upd"></div>
+                    <div class="wc_weather_dng"><span class="label label-danger">{danger}</span></div>
+                    <!--div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
+                            <div class="wc_temp_min" style="display: inline-block;"></div>
+                            <span class="wc_temp_min_val wc_t_big">{temp.min}</span>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
+                            <div class="wc_temp_max" style="display: inline-block;"></div>
+                            <span class="wc_temp_max_val wc_t_big">{temp.max}</span>
+                        </div>
+                    </div-->
+                    <div class="mydevider"></div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
+                            <div class="wc_sun_up" style="display: inline-block;"></div>
+                            <span class="wc_sun_up_val wc_t_big">{sunset}</span>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
+                            <div class="wc_sun_down" style="display: inline-block;"></div>
+                            <span class="wc_sun_down_val wc_t_big">{dawn}</span>
+                        </div>
+                    </div>
+                    <div class="mydevider"></div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
+                            <div class="wc_drop" style="display: inline-block;"></div>
+                            <span class="wc_drop_val wc_t_big">{humidity}</span>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
+                            <div class="wc_wind" style="display: inline-block;"></div>
+                            <span class="wc_wind_val wc_t_big">{wind}</span>
+                        </div>
+                    </div>
+                    <div class="mydevider"></div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
+                            <div class="wc_baro" style="display: inline-block;"></div>
+                            <span class="wc_baro_val wc_t_big">{pressure}</span>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
+                            <div class="wc_compass" style="display: inline-block;"></div>
+                            <span class="wc_wind_dir_val wc_t_big">{wind.dir}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uc_col col-lg-8 col-md-8 col-sm-8 col-xs-12 text-center">
+                    <div class="uc_emo">Прогнозируемая</div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="uc_weather">Телеметрия</div>
+                <div class="container-fluid">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                        <div class="wh_icon" id="wh_icon_refresh"></div>
+                        <div class="h_led" id="wh_refresh_led"></div>
+                        <div>
+                            <div class="wh_updated wh_label wh_val hidden hidden-sm hidden-xs">Обновлено:</div>
+                            <div class="wh_val"><span id="wh_upd_val">---</span></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                        <div class="wh_icon" id="wh_icon_wind"></div>
+                        <div class="h_led" id="wh_wind_led"></div>
+                        <div id="wh_wind">
+                            <div class="wh_label hidden hidden-sm hidden-xs">Скорость ветра</div>
+                            <div class="wh_val"><span id="wh_wind_val">---</span> м/c</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                        <div class="wh_icon" id="wh_icon_temp0">
+                            <div class="wh_suffix">Воздух</div>
+                        </div>
+                        <div class="h_led" id="wh_temp0_led"></div>
+                        <div id="wh_temp1">
+                            <div class="wh_label hidden hidden-sm hidden-xs">Температура воздуха</div>
+                            <div class="wh_val"><span id="wh_temp1_val">---</span> &deg;C</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                        <div class="wh_icon" id="wh_icon_tempavg">
+                            <div class="wh_suffix">Средняя</div>
+                        </div>
+                        <div class="h_led" id="wh_tempavg_led"></div>
+                        <div id="wh_tempavg">
+                            <div class="wh_label hidden hidden-sm hidden-xs">Средняя темпаратура воздуха</div>
+                            <div class="wh_val"><span id="wh_tempavg_val">---</span> &deg;C</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                        <div class="wh_icon" id="wh_icon_temp15">
+                            <div class="wh_suffix">15см</div>
+                        </div>
+                        <div class="h_led" id="wh_temp15_led"></div>
+                        <div id="wh_temp2">
+                            <div class="wh_label hidden hidden-sm hidden-xs">Т. земли 15см</div>
+                            <div class="wh_val"><span id="wh_temp2_val">---</span> &deg;C</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                        <div class="wh_icon" id="wh_icon_temp60">
+                            <div class="wh_suffix">60см</div>
+                        </div>
+                        <div class="h_led" id="wh_temp60_led"></div>
+                        <div id="wh_temp3">
+                            <div class="wh_label hidden hidden-sm hidden-xs">Т. земли 60см</div>
+                            <div class="wh_val"><span id="wh_temp3_val">---</span> &deg;C</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center"><div id="trend" class="uc_trends transparent"></div></div>
 
     </div>
     <div id="fancytemp" class="container"></div>
