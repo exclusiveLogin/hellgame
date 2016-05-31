@@ -31,7 +31,7 @@ function refreshAuth(){
                 checkT();
             },
             error:function(){
-                alert("error to load menuadmin ajax");
+                console.log("error to load menuadmin ajax");
             }
         });
         $.ajax({
@@ -48,7 +48,7 @@ function refreshAuth(){
                 checkT();
             },
             error:function(){
-                alert("error to load menuadmin ajax");
+                console.log("error to load menuadmin ajax");
             }
         });
         $.ajax({
@@ -62,7 +62,7 @@ function refreshAuth(){
                 checkT();
             },
             error:function(){
-                alert("error to load cardfooteradmin ajax");
+                console.log("error to load cardfooteradmin ajax");
             }
         });
         $.ajax({
@@ -168,7 +168,7 @@ function refreshAuth(){
                 checkT();
             },
             error:function(){
-                alert("error to load addmc ajax");
+                console.log("error to load addmc ajax");
             }
         });
         function checkT() {
@@ -201,7 +201,7 @@ function refreshAuth(){
                 checkG();
             },
             error:function(){
-                alert("error to load menu ajax");
+                console.log("error to load menu ajax");
             }
         });
         $.ajax({
@@ -215,7 +215,7 @@ function refreshAuth(){
                 checkG();
             },
             error:function(){
-                alert("error to load menuadmin ajax");
+                console.log("error to load menuadmin ajax");
             }
         });
         $.ajax({
@@ -227,7 +227,7 @@ function refreshAuth(){
                 checkG();
             },
             error:function(){
-                alert("error to load cardfooter ajax");
+                console.log("error to load cardfooter ajax");
             }
         });
         $('#addmc').html('').hide(500);

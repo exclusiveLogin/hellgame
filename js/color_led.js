@@ -26,15 +26,15 @@ function RefreshColor(){
         $('#wh_temp0_led').removeClass();
         $('#wh_temp0_led').addClass('h_led led_cyan');
     }
-    if(Global.z_plane.temp0 >= 0 && Global.z_plane.temp0 < 10){
+    if(Global.z_plane.temp0 >= 0 && Global.z_plane.temp0 < 25){
         $('#wh_temp0_led').removeClass();
         $('#wh_temp0_led').addClass('h_led led_green');
     }
-    if(Global.z_plane.temp0 >= 10 && Global.z_plane.temp0 < 20){
+    if(Global.z_plane.temp0 >= 25 && Global.z_plane.temp0 < 28){
         $('#wh_temp0_led').removeClass();
         $('#wh_temp0_led').addClass('h_led led_yellow');
     }
-    if(Global.z_plane.temp0 >= 20 && Global.z_plane.temp0 < 30){
+    if(Global.z_plane.temp0 >= 28 && Global.z_plane.temp0 < 30){
         $('#wh_temp0_led').removeClass();
         $('#wh_temp0_led').addClass('h_led led_orange');
     }

@@ -234,7 +234,7 @@ function refresh_weather() {
             }
         },
         error:function () {
-            alert("Проблема получения AJAX с погодой")
+            console.log("Проблема получения AJAX с погодой");
         }
     });
 }
@@ -253,7 +253,7 @@ function refresh_z_plane() {
             Global.z_plane.windavg = (Global.z_plane.wind + Global.z_plane.wind_p)/2;
         },
         error:function () {
-            alert("Проблема получения AJAX с zasyzran.ru");
+            console.log("Проблема получения AJAX с zasyzran.ru");
         },
         complete:function(){
             refresh_widget();

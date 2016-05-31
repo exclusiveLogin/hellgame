@@ -193,7 +193,7 @@ $(document).ready(function(){
                 refreshAuth();
             },
             error:function(){
-                alert("error to load auth ajax");
+                console.log("error to load auth ajax");
             }
         });
     });

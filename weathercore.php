@@ -65,7 +65,7 @@ else{
         $compare = strtotime($row['cur_time']) - strtotime($row['upd']);
         echo '"compare":'.$compare.",";
         //echo "Данные из БД получены обновлены: ".$row['upd'].'<br> Cur:'.$row['cur_time'].'<br> прошло '.$compare."секунд";
-        if($compare>1000){//качаем файл заново            
+        if($compare>300){//качаем файл заново            
             $json = file_get_contents($owm);
             //echo "refresh";
             //echo "текущий каталог: ".$_SERVER['DOCUMENT_ROOT']."<br>";

@@ -405,8 +405,12 @@ h3.card_status_off{
     margin-bottom: 15px;
 }
 #trend {	
-    display: none;	transition:opacity 1s ease;
-}.transparent{	opacity:0;}
+    display: none;
+    transition:opacity 1s ease;
+}
+.transparent{
+    opacity:0;
+}
 .status_msg_val{
     font-family: 'Quicksand', sans-serif;
     font-size: 80%;
@@ -445,7 +449,7 @@ h3.card_status_off{
     position: relative;
     height: 150px;
     /* width: 150px; */
-    background-image: url("/weather/01.png");
+    /*background-image: url("/weather/01.png");*/
     background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -528,4 +532,117 @@ h3.card_status_off{
 .row{
     margin-left: 0;
     margin-right: 0;
+}
+.forecast_container {
+    overflow: hidden;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+    background: #333;
+}
+::-webkit-scrollbar-thumb {
+    background: #111;
+    -webkit-border-radius: 1ex;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+::-webkit-scrollbar-corner {
+    background: #000;
+}
+
+.forecast_item {
+    width: 130px;
+    border: 2px grey outset;
+    border-radius: 10px;
+    padding: 10px 5px;
+    background: #4c4c4c;
+    background: -moz-linear-gradient(top, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%);
+    background: -webkit-linear-gradient(top, #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%);
+    background: linear-gradient(to bottom, #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=0 );
+    box-shadow: 4px 4px 20px 0 rgba(0,0,0,0.6);
+    margin: 0px 5px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.f_item_icon{
+    position: relative;
+    height: 50px;
+    /* width: 150px; */
+    background-image: url("/weather/36.png");
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* margin: 0 auto; */
+    left: -38px;
+}
+.f_item_temperature {
+    font-size: 1.6em;
+    position: relative;
+    top: -33px;
+    right: -24px;
+}
+.f_item_humidity_i{
+    background-image: url("/weather/humidity.png");
+    background-position: center center;
+    background-size: cover;
+}
+
+.f_item_wind_i{
+    background-image: url("/weather/wind.png");
+    background-position: center center;
+    background-size: cover;
+}
+
+.f_item_winddir_i{
+    background-image: url("/weather/compass.png");
+    background-position: center center;
+    background-size: cover;
+}
+
+.f_item_baro_i{
+    background-image: url("/weather/baro.png");
+    background-position: center center;
+    background-size: cover;
+}
+.f_item_humidity_i,.f_item_wind_i,.f_item_winddir_i,.f_item_baro_i{
+    height: 24px;
+    width: 24px;
+    margin: 10px 0px;
+    /*display: inline-block;*/
+}
+.f_item_humidity_val,.f_item_wind_val,.f_item_winddir_val,.f_item_baro_val{
+    /*display: inline;*/
+    position: relative;
+    top: 0px;
+    line-height: 36px;
+
+}
+.f_item_left{
+    width: 15%;
+    float: left;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+.f_item_right{
+    width: 70%;
+    float: right;
+}
+.f_item_desc_val {
+    font-size: 18px;
+    position: relative;
+    top: -20px;
+    text-transform: uppercase;
+}
+.f_item_header {
+    height: 10px;
+    background-color: grey;
+    position: relative;
+    z-index: 9999;
+    width: 111%;
+    left: -6px;
+    top: -11px;
+    border-radius: 30px 30px 0 0;
 }
