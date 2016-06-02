@@ -1,7 +1,6 @@
 Global = {
-    z_plane:{
-        
-    },    
+    z_plane:{},   
+    forecast:{},
     emer:{
         state:false,
         color:"",

@@ -1,15 +1,101 @@
 $(document).ready(function () {
     refresh_weather();
     refresh_z_plane();
-    setInterval(refresh_weather,30000);
-    setInterval(refresh_z_plane,10000);
+    setInterval(refresh_weather,120000);
+    setInterval(refresh_z_plane,30000);
 });
+
+function w_code2img(weather_code) {
+    var weather_c = (weather_code/100)-((weather_code/100)%1);
+    var path_code_img = "/weather/codes/";
+    var ret = {
+        img:{},
+        dng:false,
+        warn:false
+    };
+    switch (weather_c){
+        case 2:
+            ret.img = {
+                'backgroundImage':'url("'+path_code_img+'w200.png")'
+            };
+            ret.dng = true;
+            ret.warn = false;
+            break;
+        case 3:
+            ret.img = {
+                'backgroundImage':'url("'+path_code_img+'w300.png")'
+            };
+            ret.dng = true;
+            ret.warn = false;
+            break;
+
+        case 5:
+            ret.img = {
+                'backgroundImage':'url("'+path_code_img+'w500.png")'
+            };
+            ret.dng = false;
+            ret.warn = true;
+            break;
+        case 6:
+            ret.img = {
+                'backgroundImage':'url("'+path_code_img+'w600.png")'
+            };
+            ret.dng = true;
+            ret.warn = false;
+            break;
+        case 7:
+            ret.img = {
+                'backgroundImage':'url("'+path_code_img+'w700.png")'
+            };
+            ret.dng = true;
+            ret.warn = false;
+            break;
+        case 8:
+            if(weather_code==800){
+                ret.img = {
+                    'backgroundImage':'url("'+path_code_img+'w800.png")'
+                };
+            }
+            else if(weather_code>800&&weather_code<803){
+                ret.img = {
+                    'backgroundImage':'url("'+path_code_img+'w801.png")'
+                };
+            }
+            else if(weather_code==803){
+                ret.img = {
+                    'backgroundImage':'url("'+path_code_img+'w803.png")'
+                };
+            }
+            else{
+                ret.img = {
+                    'backgroundImage':'url("'+path_code_img+'w804.png")'
+                };
+            }
+            ret.dng = false;
+            break;
+        case 9:
+            ret.img = {
+                'backgroundImage':'url("'+path_code_img+'w900.png")'
+            };
+            ret.dng = true;
+            break;
+        default:
+            ret.img = {
+                'backgroundImage':'url("'+path_code_img+'w1000.png")'
+            };
+            ret.dng = false;
+            ret.warn = true;
+            break;
+    }
+    return ret;
+}
 function refresh_weather() {
     $.ajax({
         url:"/weathercore.php",
         dataType:"json",
         success:function (data) {
             if(data.weather.cod == 200){
+                console.log("compare:"+data.compare);
                 var icon = {
                     code:data.weather.weather[0].icon,
                     url:"http://openweathermap.org/img/w/",
@@ -47,79 +133,10 @@ function refresh_weather() {
 
                 //Высчисляем код погоды
                 var weather_code = data.weather.weather[0].id;
-                var weather_c = (weather_code/100)-((weather_code/100)%1);
-                var path_code_img = "/weather/codes/";
-                switch (weather_c){
-                    case 2:
-                        wc.find(".wc_weather_icon").css({
-                            'backgroundImage':'url("'+path_code_img+'w200.png")'
-                        });
-                        wc.find(".wc_weather_dng").show(500);
-                        break;
-                    case 3:
-                        wc.find(".wc_weather_icon").css({
-                            'backgroundImage':'url("'+path_code_img+'w300.png")'
-                        });
-                        wc.find(".wc_weather_dng").show(500);
-                        break;
+                var weather_icon_obj = w_code2img(weather_code);
+                wc.find(".wc_weather_icon").css(weather_icon_obj.img);
+                (weather_icon_obj.dng)?wc.find(".wc_weather_dng").show(500):wc.find(".wc_weather_dng").hide(500);
 
-                    case 5:
-                        wc.find(".wc_weather_icon").css({
-                            'backgroundImage':'url("'+path_code_img+'w500.png")'
-                        });
-                        wc.find(".wc_weather_dng").hide(500);
-                        break;
-                    case 6:
-                        wc.find(".wc_weather_icon").css({
-                            'backgroundImage':'url("'+path_code_img+'w600.png")'
-                        });
-                        wc.find(".wc_weather_dng").show(500);
-                        break;
-                    case 7:
-                        wc.find(".wc_weather_icon").css({
-                            'backgroundImage':'url("'+path_code_img+'w700.png")'
-                        });
-                        wc.find(".wc_weather_dng").show(500);
-                        break;
-
-                    case 8:
-                        if(weather_code==800){
-                            wc.find(".wc_weather_icon").css({
-                                'backgroundImage':'url("'+path_code_img+'w800.png")'
-                            });
-                        }
-                        else if(weather_code>800&&weather_code<803){
-                            wc.find(".wc_weather_icon").css({
-                                'backgroundImage':'url("'+path_code_img+'w801.png")'
-                            });
-                        }
-                        else if(weather_code==803){
-                            wc.find(".wc_weather_icon").css({
-                                'backgroundImage':'url("'+path_code_img+'w803.png")'
-                            });
-                        }
-                        else{
-                            wc.find(".wc_weather_icon").css({
-                                'backgroundImage':'url("'+path_code_img+'w804.png")'
-                            });
-                        }
-                        wc.find(".wc_weather_dng").hide(500);
-
-                        break;
-
-                    case 9:
-                        wc.find(".wc_weather_icon").css({
-                            'backgroundImage':'url("'+path_code_img+'w900.png")'
-                        });
-                        wc.find(".wc_weather_dng").show(500);
-                        break;
-                    default:
-                        wc.find(".wc_weather_icon").css({
-                            'backgroundImage':'url("'+path_code_img+'w1000.png")'
-                        });
-                        wc.find(".wc_weather_dng").hide(500);
-                        break;
-                }
                 wc.find(".wc_weather_desc").text(icon.desc);
 
                 wc.find(".wc_main_temp").html(weather_data.temp_main_val+" C&deg;");
@@ -226,11 +243,106 @@ function refresh_weather() {
                     wc.find(".wc_wind_dir_val").html(dir_temp.wind_direction_deg+" &deg;"+"("+dir_temp.wind_direction_str_ru+")");
                 }else wc.find(".wc_wind_dir_val").html(weather_data.wind_direction+" &deg;");
 
-                //console.log("debug stop");
-
+                
             }
             else {
                 console.log("погода по данному запросу не найдена");
+            }
+            Global.forecast = data.forecast;
+            if(Number(Global.forecast.cod)==200){
+                var forecast_container = $(".forecast_container");
+                var blnk;
+                
+                $.ajax({
+                    async:false,
+                    url:"/components/forecastItem_blnk.html",
+                    dataType:"html",
+                    success:function (blank) {
+                        blnk = blank;
+                    },
+                    error:function () {
+                        console.log("Не удалось загрузить шаблон");
+                    }
+                });
+                forecast_container.empty();//чистим старые данные с контейнера
+                for(var item in Global.forecast.list){
+                    var tmp_item = {
+                        temperature:0,
+                        desc:"",
+                        humidity:0,
+                        windval:0,
+                        winddir:0,
+                        baro:0,
+                        dt:0,
+                        id:0
+                    };
+                    var tmp_dt = {
+                        utc:{},
+                        hour:0,
+                        minutes:0,
+                        year:0,
+                        month:0,
+                        date:0
+                    };
+                    tmp_item.temperature = Global.forecast.list[item].main.temp.toFixed(1);
+                    tmp_item.desc = Global.forecast.list[item].weather[0].description;
+                    tmp_item.humidity = Global.forecast.list[item].main.humidity;
+                    tmp_item.windval = Global.forecast.list[item].wind.speed.toFixed(1);
+                    tmp_item.winddir = Global.forecast.list[item].wind.deg.toFixed(0);
+                    tmp_item.baro = Math.round(Global.forecast.list[item].main.pressure*0.75006375541921).toFixed(0);
+                    tmp_item.dt = Global.forecast.list[item].dt;
+                    tmp_item.id = Global.forecast.list[item].weather[0].id;
+
+                    tmp_dt.utc = new Date(Number(tmp_item.dt)*1000);
+                    tmp_dt.year = tmp_dt.utc.getFullYear();
+                    tmp_dt.month = tmp_dt.utc.getMonth()+1;
+                    tmp_dt.date = tmp_dt.utc.getDate();
+                    tmp_dt.hour = tmp_dt.utc.getHours();
+                    tmp_dt.minutes = tmp_dt.utc.getMinutes();
+                    //fix null
+                    if(tmp_dt.hour<10){
+                        tmp_dt.hour="0"+tmp_dt.hour;
+                    }
+                    if(tmp_dt.minutes<10){
+                        tmp_dt.minutes="0"+tmp_dt.minutes;
+                    }
+                    if(tmp_dt.seconds<10){
+                        tmp_dt.seconds = "0"+tmp_dt.seconds;
+                    }
+                    if(tmp_dt.month<10){
+                        tmp_dt.month = "0"+tmp_dt.month;
+                    }
+                    if(tmp_dt.date<10){
+                        tmp_dt.date = "0"+tmp_dt.date;
+                    }
+
+                    
+                    var obj = $(blnk).appendTo(".forecast_container");
+                    console.log("item:"+item);
+
+                    if(Global.windcore_con){
+                        dir_temp = windparser(tmp_item.winddir);
+                        obj.find(".f_item_winddir_val").html(dir_temp.wind_direction_deg+" &deg;"+"("+dir_temp.wind_direction_str_ru+")");
+                    }else obj.find(".f_item_winddir_val").html(tmp_item.winddir+" &deg;");
+
+                    var tmp_icon_obj = w_code2img(tmp_item.id);
+                    obj.find(".f_item_icon").css(tmp_icon_obj.img);
+                    if(tmp_icon_obj.dng)obj.addClass("forecast_item_dng");
+                    if(tmp_icon_obj.dng)obj.find(".f_item_header").addClass("f_item_header_dng");
+                    if(tmp_icon_obj.warn)obj.addClass("forecast_item_warn");
+                    if(tmp_icon_obj.warn)obj.find(".f_item_header").addClass("f_item_header_warn");
+
+                    obj.find(".f_item_desc_val").text(tmp_item.desc);
+                    obj.find(".f_item_temperature").html(tmp_item.temperature+"<span class='f_t_small'>&deg;C</span>");
+                    obj.find(".f_item_humidity_val").html(tmp_item.humidity+"<small> %</small>");
+                    obj.find(".f_item_wind_val").html(tmp_item.windval+"<small> м/с</small>");
+                    //obj.find(".f_item_winddir_val").html(tmp_item.winddir+"<small> &deg;</small>");
+                    obj.find(".f_item_baro_val").html(tmp_item.baro+"<small> мм.рт.ст</small>");
+                    obj.find(".f_item_timestamp_val").html(tmp_dt.hour+":"+tmp_dt.minutes);
+                    obj.find(".f_item_header").html(tmp_dt.date+"."+tmp_dt.month+"."+tmp_dt.year);
+
+                }
+                //console.log("debug stop");
             }
         },
         error:function () {

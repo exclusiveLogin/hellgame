@@ -103,7 +103,10 @@ function refresher() {
 
 function refreshUC(user) {
     
-    trendToggle(true, user);
+    if(Global.authkey){
+        trendToggle(true, user);
+    }
+    
     //Left SIDE
     if(Number(Global[user].online)){
         $(".label-online").removeClass("label-disabled");

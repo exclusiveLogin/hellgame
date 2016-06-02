@@ -322,7 +322,10 @@ function trendToggle(state, user) {
             Global.trend.series[0].setData(Global[user].trend);
             Global.trend.series[1].setData(Global[user].flags);
         });
-    }else {       			$("#trend").hide(1000,function(){						$(this).addClass("transparent");					});			
+    }else {       			
+        $("#trend").hide(1000,function(){						
+            $(this).addClass("transparent");					
+        });			
     }
 }
 function ucToggle(guest,state) {

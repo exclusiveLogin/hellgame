@@ -537,6 +537,7 @@ h3.card_status_off{
     overflow: hidden;
     overflow-x: scroll;
     white-space: nowrap;
+    /*display: none;*/
 }
 ::-webkit-scrollbar {
     height: 12px;
@@ -551,7 +552,10 @@ h3.card_status_off{
 ::-webkit-scrollbar-corner {
     background: #000;
 }
-
+.f_t_small{
+    font-size: 10px;
+    color: darkgrey;
+}
 .forecast_item {
     width: 130px;
     border: 2px grey outset;
@@ -566,6 +570,22 @@ h3.card_status_off{
     margin: 0px 5px;
     margin-bottom: 10px;
     display: inline-block;
+}
+.forecast_item_warn{
+    border: 2px #54403a outset;
+    background: #54403a; /* Old browsers */
+    background: -moz-linear-gradient(top, #54403a 0%, #bf742a 45%, #894d04 53%, #b5631c 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #54403a 0%,#bf742a 45%,#894d04 53%,#b5631c 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #54403a 0%,#bf742a 45%,#894d04 53%,#b5631c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54403a', endColorstr='#b5631c',GradientType=0 ); /* IE6-9 */
+}
+.forecast_item_dng{
+    border: 2px #3a0000 outset;
+    background: #3a0000; /* Old browsers */
+    background: -moz-linear-gradient(top, #3a0000 0%, #ba211b 46%, #7a0303 52%, #70191b 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #3a0000 0%,#ba211b 46%,#7a0303 52%,#70191b 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #3a0000 0%,#ba211b 46%,#7a0303 52%,#70191b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a0000', endColorstr='#70191b',GradientType=0 ); /* IE6-9 */
 }
 .f_item_icon{
     position: relative;
@@ -633,16 +653,36 @@ h3.card_status_off{
 .f_item_desc_val {
     font-size: 18px;
     position: relative;
-    top: -20px;
+    /*top: -20px;*/
     text-transform: uppercase;
+    height: 45px;
+    width: 100%;
+    display: inline-block;
+    white-space: initial;
 }
 .f_item_header {
-    height: 10px;
+    height: 16px;
     background-color: grey;
     position: relative;
     z-index: 9999;
-    width: 111%;
+    width: 109%;
     left: -6px;
     top: -11px;
-    border-radius: 30px 30px 0 0;
+    border-radius: 10px 10px 0px 0px;
+    font-size: 70%;
+    line-height: 107%;
+    padding: 2px;
+}
+.f_item_header_warn{
+    background-color: #C38701;
+}
+.f_item_header_dng{
+    background-color: #c30003;
+}
+.f_item_timestamp_val{
+    background-color: #404040;
+    border-radius: 5px;
+    font-size: 70%;
+    line-height: 105%;
+    padding: 2px;
 }
