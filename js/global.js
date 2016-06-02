@@ -1,4 +1,8 @@
 Global = {
+    trend_temp:[],
+    trend_humidity:[],
+    trend_rain:[],
+    trend_pressure:[],
     z_plane:{},   
     forecast:{},
     emer:{

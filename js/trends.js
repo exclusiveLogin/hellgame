@@ -3,11 +3,6 @@
  */
 
 $(document).ready(function () {
-    /*Highcharts.createElement('link', {
-        href: 'https://fonts.googleapis.com/css?family=Unica+One',
-        rel: 'stylesheet',
-        type: 'text/css'
-    }, null, document.getElementsByTagName('head')[0]);*/
     Highcharts.theme = {
         colors: ["#2b908f", "#90ee7e", "#f45b5b", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
             "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
@@ -85,9 +80,7 @@ $(document).ready(function () {
                 },
                 marker: {
                     lineColor: '#333'
-                },
-                threshold:40,
-                negativeColor:'red'
+                }
             },
             boxplot: {
                 fillColor: '#505053'
@@ -213,6 +206,7 @@ $(document).ready(function () {
     Highcharts.setOptions(Highcharts.theme);
 
     Global.container = $("#trend");
+    Global.container_forecast = $(".forecast_trend");
     Global.trendSetting = {
         credits:{enabled:false},
         chart: {
@@ -274,6 +268,8 @@ $(document).ready(function () {
         },
         plotOptions: {
             series: {
+                threshold:40,
+                negativeColor:'red',
                 states: {
                     hover: {
                         enabled: true,
@@ -304,7 +300,87 @@ $(document).ready(function () {
             y:-40
         }]
     };
+    Global.trendForecastSetting = {
+        //credits:{enabled:false},
+        chart: {
+            zoomType: 'x',
+            height:270,
+            renderTo:Global.container_forecast[0],
+        },
+        title: {
+            text: 'Прогноз'
+        },
+        legend: {
+            //enabled: true
+        },
+        credits:{
+            enabled:false
+        },
+        xAxis: {
+            type: 'datetime',
+            gridLineWidth:1,
+            //ordinal:false,
+        },
+        yAxis: [{
+            lineWidth:1,
+            title: {
+                text: 'Температура'
+            }
+        },{
+            lineWidth:1,
+            title: {
+                text: 'Влажность'
+            },
+            floor:0,
+            ceiling:100,
+            opposite:true
+        }],
+        tooltip:{
+            shared:true
+        },
+        plotOptions: {
+            series: {
+                states: {
+                    hover: {
+                        enabled: true,
+                        lineWidth: 4
+                    }
+                }
+            }
+        },
+        series:[{
+            id:'temperature',
+            type: 'spline',
+            name: 'Температура',
+            //data:[1,2,3,4,5,6,7,8,69],
+            lineWidth: 2,
+            dataLabels:{
+                //enabled:true,
+            },
+            tooltip: {
+                valueDecimals: 1,
+                valueSuffix:" C"
+            }
+        },{
+            id:'humidity',
+            type: 'spline',
+            name: 'Влажность',
+            //data:[1,2,3,4,5,6,7,8,69],
+            lineWidth: 2,
+            dataLabels:{
+                //enabled:true,
+            },
+            tooltip: {
+                valueDecimals: 0,
+                valueSuffix:" %"
+            },
+            ceiling:100,
+            floor:0,
+            color:"cyan",
+            yAxis:1
+        }]
+    };
     Global.trend = new Highcharts.StockChart(Global.trendSetting);
-    //Global.trend.reflow();
+    Global.trend_forecast = new Highcharts.Chart(Global.trendForecastSetting);
     
 });
