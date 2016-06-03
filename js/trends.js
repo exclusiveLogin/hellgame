@@ -184,6 +184,14 @@ $(document).ready(function () {
     };
 // Apply the theme
     Highcharts.setOptions(Highcharts.theme);
+    var G_Setting = {
+        global:{
+            getTimezoneOffset:function () {
+                var offset = new Date().getTimezoneOffset();
+                return offset;
+        }}
+    };
+    Highcharts.setOptions(G_Setting);
 
     Global.container = $("#trend");
     Global.container_forecast = $(".forecast_trend");

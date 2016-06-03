@@ -148,7 +148,7 @@ if ($target_user){
     }
 
 
-    $mysql->query("SET time_zone = '+04:00'");
+    $mysql->query("SET time_zone = '+00:00'");
 
     $query="SELECT DATE_FORMAT(`datetime`,'%Y,%m,%d,%H,%i,%S') AS `datetime`,`value`,`emo_title`,`emo_desc` FROM `".$target_user."_emo` ORDER BY `datetime` ASC";
     $res = $mysql->query($query);
