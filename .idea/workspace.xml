@@ -2,18 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="717fb80b-d7c5-46a3-8a22-d602fe74b980" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/temp/forecast.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/auth.js" afterPath="$PROJECT_DIR$/js/auth.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/global.js" afterPath="$PROJECT_DIR$/js/global.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/refresher.js" afterPath="$PROJECT_DIR$/js/refresher.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/trends.js" afterPath="$PROJECT_DIR$/js/trends.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/weatherparser.js" afterPath="$PROJECT_DIR$/js/weatherparser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/online.php" afterPath="$PROJECT_DIR$/online.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/dark.css" afterPath="$PROJECT_DIR$/style/dark.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/forecast.json" afterPath="$PROJECT_DIR$/temp/forecast.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/weather.json" afterPath="$PROJECT_DIR$/temp/weather.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/z_plane.json" afterPath="$PROJECT_DIR$/temp/z_plane.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weathercore.php" afterPath="$PROJECT_DIR$/weathercore.php" />
     </list>
     <ignored path="hellgame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,20 +49,17 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="110" column="73" selection-start-line="110" selection-start-column="73" selection-end-line="110" selection-end-column="73" />
+            <state relative-caret-position="419">
+              <caret line="376" column="51" selection-start-line="376" selection-start-column="40" selection-end-line="376" selection-end-column="51" />
               <folding>
                 <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
@@ -84,12 +79,10 @@
       <file leaf-file-name="weatherparser.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/weatherparser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
+            <state relative-caret-position="278">
+              <caret line="316" column="81" selection-start-line="316" selection-start-column="81" selection-end-line="316" selection-end-column="81" />
               <folding>
                 <element signature="n#!!block;n#w_code2img#0" expanded="false" />
-                <element signature="e#2816#3011#0" expanded="false" />
-                <element signature="e#9304#9388#0" expanded="false" />
                 <element signature="n#!!block;n#refresh_z_plane#0" expanded="false" />
                 <element signature="n#!!block;n#refresh_widget#0" expanded="false" />
               </folding>
@@ -100,20 +93,32 @@
       <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/auth.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
+            <state relative-caret-position="5321">
               <caret line="313" column="16" selection-start-line="313" selection-start-column="16" selection-end-line="313" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="refresher.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="refresher.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/refresher.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="103" column="26" selection-start-line="103" selection-start-column="26" selection-end-line="103" selection-end-column="26" />
+            <state relative-caret-position="33">
+              <caret line="90" column="41" selection-start-line="90" selection-start-column="41" selection-end-line="90" selection-end-column="41" />
               <folding>
-                <marker date="1464870837392" expanded="true" signature="7752:7781" ph="..." />
+                <marker date="1464900359000" expanded="true" signature="7734:7763" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="trends.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/trends.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="458">
+              <caret line="273" column="29" selection-start-line="273" selection-start-column="29" selection-end-line="273" selection-end-column="29" />
+              <folding>
+                <element signature="e#7265#9416#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -132,8 +137,8 @@
       <file leaf-file-name="dark.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style/dark.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="656" column="30" selection-start-line="656" selection-start-column="30" selection-end-line="656" selection-end-column="30" />
+            <state relative-caret-position="11152">
+              <caret line="672" column="17" selection-start-line="672" selection-start-column="17" selection-end-line="672" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -143,7 +148,7 @@
         <entry file="file://$PROJECT_DIR$/js/global.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+              <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -152,7 +157,7 @@
       <file leaf-file-name="start.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/start.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
+            <state relative-caret-position="2890">
               <caret line="170" column="20" selection-start-line="170" selection-start-column="20" selection-end-line="170" selection-end-column="20" />
               <folding>
                 <element signature="n#!!block;n#showSysMsg#0" expanded="false" />
@@ -201,7 +206,6 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/refresher.php" />
         <option value="$PROJECT_DIR$/backup.html" />
-        <option value="$PROJECT_DIR$/js/trends.js" />
         <option value="$PROJECT_DIR$/emocore.php" />
         <option value="$PROJECT_DIR$/js/updater.js" />
         <option value="$PROJECT_DIR$/js/start.js" />
@@ -212,9 +216,10 @@
         <option value="$PROJECT_DIR$/js/global.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/style/dark.css" />
-        <option value="$PROJECT_DIR$/js/weatherparser.js" />
         <option value="$PROJECT_DIR$/js/auth.js" />
         <option value="$PROJECT_DIR$/js/refresher.js" />
+        <option value="$PROJECT_DIR$/js/weatherparser.js" />
+        <option value="$PROJECT_DIR$/js/trends.js" />
       </list>
     </option>
   </component>
@@ -259,6 +264,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -354,7 +360,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -472,7 +477,8 @@
       <workItem from="1464756234559" duration="6497000" />
       <workItem from="1464771853636" duration="2333000" />
       <workItem from="1464776738052" duration="8761000" />
-      <workItem from="1464840420363" duration="23572000" />
+      <workItem from="1464840420363" duration="23656000" />
+      <workItem from="1464927810837" duration="8091000" />
     </task>
     <task id="LOCAL-00001" summary="first commit of HG">
       <created>1461670165519</created>
@@ -642,11 +648,18 @@
       <option name="project" value="LOCAL" />
       <updated>1464698610402</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="forecast module completed. trend auth fixed, some bugs fixed">
+      <created>1464871703007</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1464871703007</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="311931000" />
+    <option name="totallyTimeSpent" value="320106000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -659,10 +672,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="26" width="1288" height="1002" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17609046" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17851374" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1554054" sideWeight="0.509693" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34087238" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -718,7 +731,8 @@
     <MESSAGE value="online label fix" />
     <MESSAGE value="weathercore completed" />
     <MESSAGE value="forecast subsystem dev started" />
-    <option name="LAST_COMMIT_MESSAGE" value="forecast subsystem dev started" />
+    <MESSAGE value="forecast module completed. trend auth fixed, some bugs fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="forecast module completed. trend auth fixed, some bugs fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -742,14 +756,11 @@
             <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -784,14 +795,11 @@
             <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -826,14 +834,11 @@
             <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -847,14 +852,11 @@
             <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -876,14 +878,11 @@
             <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -1011,13 +1010,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backup.html" />
-    <entry file="file://$PROJECT_DIR$/js/trends.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="287" column="21" selection-start-line="287" selection-start-column="21" selection-end-line="287" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/emocore.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1049,7 +1041,7 @@
     <entry file="file://$PROJECT_DIR$/js/global.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1058,24 +1050,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="333">
           <caret line="141" column="70" selection-start-line="141" selection-start-column="70" selection-end-line="141" selection-end-column="70" />
-          <folding>
-            <marker date="1464841545857" expanded="true" signature="1367:1409" ph="INSERT INTO `weather`... " />
-            <marker date="1464841545857" expanded="true" signature="1919:1961" ph="INSERT INTO `weather`... " />
-            <marker date="1464841545857" expanded="true" signature="2011:2041" ph="SELECT `stat... weather" />
-            <marker date="1464841545857" expanded="true" signature="2431:2473" ph="INSERT INTO `weather`... " />
-            <marker date="1464841545857" expanded="true" signature="2632:2674" ph="INSERT INTO `weather`... " />
-            <marker date="1464841545857" expanded="true" signature="2939:2981" ph="INSERT INTO `weather`... " />
-            <marker date="1464841545857" expanded="true" signature="3142:3184" ph="INSERT INTO `weather`... " />
-            <marker date="1464841545857" expanded="true" signature="3538:3579" ph="SELECT *,NOW... weather" />
-            <marker date="1464841545857" expanded="true" signature="4246:4277" ph="UPDATE `weat... " />
-            <marker date="1464841545857" expanded="true" signature="4352:4384" ph="UPDATE `weat... " />
-            <marker date="1464841545857" expanded="true" signature="4641:4672" ph="UPDATE `weat... " />
-            <marker date="1464841545857" expanded="true" signature="4747:4779" ph="UPDATE `weat... " />
-            <marker date="1464841545857" expanded="true" signature="5100:5131" ph="UPDATE `weat... " />
-            <marker date="1464841545857" expanded="true" signature="5206:5238" ph="UPDATE `weat... " />
-            <marker date="1464841545857" expanded="true" signature="5512:5543" ph="UPDATE `weat... " />
-            <marker date="1464841545857" expanded="true" signature="5618:5650" ph="UPDATE `weat... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1089,7 +1063,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/start.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
+        <state relative-caret-position="2890">
           <caret line="170" column="20" selection-start-line="170" selection-start-column="20" selection-end-line="170" selection-end-column="20" />
           <folding>
             <element signature="n#!!block;n#showSysMsg#0" expanded="false" />
@@ -1113,7 +1087,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="81" selection-start-line="4" selection-start-column="81" selection-end-line="4" selection-end-column="81" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1121,56 +1094,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="27" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="110" column="73" selection-start-line="110" selection-start-column="73" selection-end-line="110" selection-end-column="73" />
-          <folding>
-            <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/style/dark.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="656" column="30" selection-start-line="656" selection-start-column="30" selection-end-line="656" selection-end-column="30" />
+        <state relative-caret-position="11152">
+          <caret line="672" column="17" selection-start-line="672" selection-start-column="17" selection-end-line="672" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/weatherparser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
-          <folding>
-            <element signature="n#!!block;n#w_code2img#0" expanded="false" />
-            <element signature="e#2816#3011#0" expanded="false" />
-            <element signature="e#9304#9388#0" expanded="false" />
-            <element signature="n#!!block;n#refresh_z_plane#0" expanded="false" />
-            <element signature="n#!!block;n#refresh_widget#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/auth.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
+        <state relative-caret-position="5321">
           <caret line="313" column="16" selection-start-line="313" selection-start-column="16" selection-end-line="313" selection-end-column="16" />
           <folding />
         </state>
@@ -1178,10 +1115,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/refresher.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="103" column="26" selection-start-line="103" selection-start-column="26" selection-end-line="103" selection-end-column="26" />
+        <state relative-caret-position="33">
+          <caret line="90" column="41" selection-start-line="90" selection-start-column="41" selection-end-line="90" selection-end-column="41" />
           <folding>
-            <marker date="1464870837392" expanded="true" signature="7752:7781" ph="..." />
+            <marker date="1464900359000" expanded="true" signature="7734:7763" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="376" column="51" selection-start-line="376" selection-start-column="40" selection-end-line="376" selection-end-column="51" />
+          <folding>
+            <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#15;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/weatherparser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="316" column="81" selection-start-line="316" selection-start-column="81" selection-end-line="316" selection-end-column="81" />
+          <folding>
+            <element signature="n#!!block;n#w_code2img#0" expanded="false" />
+            <element signature="n#!!block;n#refresh_z_plane#0" expanded="false" />
+            <element signature="n#!!block;n#refresh_widget#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/trends.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="273" column="29" selection-start-line="273" selection-start-column="29" selection-end-line="273" selection-end-column="29" />
+          <folding>
+            <element signature="e#7265#9416#0" expanded="false" />
           </folding>
         </state>
       </provider>

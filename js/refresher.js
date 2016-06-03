@@ -93,8 +93,6 @@ function refresher() {
         }else {
             widget_obj.find(".uc_status_code").attr("data-tooltip", Global[user_name].status_msg);
         }
-        
-        
         if(Global.opened){
             refreshUC(Global.opened);
         }

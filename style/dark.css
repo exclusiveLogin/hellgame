@@ -523,6 +523,21 @@ h3.card_status_off{
     height: 48px;
     width: 48px;
 }
+.wc_clouds{
+    background-image: url("/weather/cloud.png");
+    background-position: center center;
+    background-size: cover;
+    height: 48px;
+    width: 48px;
+}
+.wc_wind_dir{
+    background-image: url("/images/wind_arrow_w.png");
+    background-position: center center;
+    background-size: cover;
+    height: 90px;
+    width: 90px;
+    transform: rotate;
+}
 .wc_main_temp{
     font-size: 4em;
     position: absolute;

@@ -95,7 +95,7 @@ function refresh_weather() {
         dataType:"json",
         success:function (data) {
             if(data.weather.cod == 200){
-                console.log("compare:"+data.compare);
+                //console.log("compare:"+data.compare);
                 var icon = {
                     code:data.weather.weather[0].icon,
                     url:"http://openweathermap.org/img/w/",
@@ -111,7 +111,8 @@ function refresh_weather() {
                     wind_force:data.weather.wind.speed,
                     wind_direction:data.weather.wind.deg,
                     pressure:Math.round(data.weather.main.pressure*0.75006375541921),
-                    upd:data.weather.dt*1000
+                    upd:data.weather.dt*1000,
+                    clouds:data.weather.clouds.all
                 };
                 //console.log("compare:"+data.compare);
                 var widget = $("#widget_weather");
@@ -124,7 +125,9 @@ function refresh_weather() {
                         $(this).find(".code_msg").stop().hide(500);
                     });
                 widget.click(function () {
-                    $("#weather_card").show(500);
+                    $("#weather_card").show(500,function(){
+                        Global.trend_forecast.reflow();
+                    });
                 });
                 widget.find(".weather_icon").css({
                     'backgroundImage':'url("'+icon.url+icon.code+'.png")'
@@ -143,6 +146,10 @@ function refresh_weather() {
 
                 wc.find(".wc_temp_min_val").html(weather_data.temp_min_val+" C&deg;");
                 wc.find(".wc_temp_max_val").html(weather_data.temp_max_val+" C&deg;");
+                var tmp_css_rotate = {
+                    "transform":"rotate("+(weather_data.wind_direction+180)+"deg)"
+                };
+                wc.find(".wc_wind_dir").css(tmp_css_rotate);
 
                 //парсинг даты и времени
                 var sunrise_daytime = {
@@ -231,11 +238,13 @@ function refresh_weather() {
                 wc.find(".wc_drop_val").text(weather_data.humidity+" %");
                 wc.find(".wc_wind_val").text(weather_data.wind_force+" м/с");
                 wc.find(".wc_baro_val").text(weather_data.pressure+" мм.рт.ст");
+                wc.find(".wc_clouds_val").text(weather_data.clouds+" %");
+
 
                 var dir_temp = {
                     wind_direction_deg : "",
                     wind_direction_str_en : "",
-                    wind_direction_str_ru : "",
+                    wind_direction_str_ru : ""
                 };
 
                 if(Global.windcore_con){
@@ -250,6 +259,10 @@ function refresh_weather() {
             }
             Global.forecast = data.forecast;
             if(Number(Global.forecast.cod)==200){
+                Global.trend_temp = [];
+                Global.trend_humidity = [];
+                Global.trend_pressure = [];
+                Global.trend_rain = [];
                 var forecast_container = $(".forecast_container");
                 var blnk;
                 
@@ -274,7 +287,8 @@ function refresh_weather() {
                         winddir:0,
                         baro:0,
                         dt:0,
-                        id:0
+                        id:0,
+                        rain:0
                     };
                     var tmp_dt = {
                         utc:{},
@@ -292,6 +306,18 @@ function refresh_weather() {
                     tmp_item.baro = Math.round(Global.forecast.list[item].main.pressure*0.75006375541921).toFixed(0);
                     tmp_item.dt = Global.forecast.list[item].dt;
                     tmp_item.id = Global.forecast.list[item].weather[0].id;
+                    if("rain" in Global.forecast.list[item]){
+                        tmp_item.rain = Global.forecast.list[item].rain["3h"];
+                    }
+                    
+                    
+                    Global.trend_temp.push([tmp_item.dt*1000,Number(tmp_item.temperature)]);
+                    Global.trend_humidity.push([tmp_item.dt*1000,Number(tmp_item.humidity)]);
+                    if("rain" in Global.forecast.list[item]){
+                        Global.trend_rain.push([tmp_item.dt*1000,tmp_item.rain]);
+                    }
+                    
+                    Global.trend_pressure.push([tmp_item.dt*1000,tmp_item.baro]);
 
                     tmp_dt.utc = new Date(Number(tmp_item.dt)*1000);
                     tmp_dt.year = tmp_dt.utc.getFullYear();
@@ -318,7 +344,7 @@ function refresh_weather() {
 
                     
                     var obj = $(blnk).appendTo(".forecast_container");
-                    console.log("item:"+item);
+                    //console.log("item:"+item);
 
                     if(Global.windcore_con){
                         dir_temp = windparser(tmp_item.winddir);
@@ -342,6 +368,12 @@ function refresh_weather() {
                     obj.find(".f_item_header").html(tmp_dt.date+"."+tmp_dt.month+"."+tmp_dt.year);
 
                 }
+                Global.trend_forecast.series[0].setData([]);
+                Global.trend_forecast.series[0].setData(Global.trend_temp);
+                Global.trend_forecast.series[1].setData([]);
+                Global.trend_forecast.series[1].setData(Global.trend_humidity);
+                Global.trend_forecast.series[2].setData([]);
+                Global.trend_forecast.series[2].setData(Global.trend_rain);
                 //console.log("debug stop");
             }
         },

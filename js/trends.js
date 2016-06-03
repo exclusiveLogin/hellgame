@@ -3,11 +3,6 @@
  */
 
 $(document).ready(function () {
-    /*Highcharts.createElement('link', {
-        href: 'https://fonts.googleapis.com/css?family=Unica+One',
-        rel: 'stylesheet',
-        type: 'text/css'
-    }, null, document.getElementsByTagName('head')[0]);*/
     Highcharts.theme = {
         colors: ["#2b908f", "#90ee7e", "#f45b5b", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
             "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
@@ -75,28 +70,6 @@ $(document).ready(function () {
             backgroundColor: 'rgba(0, 0, 0, 0.85)',
             style: {
                 color: '#F0F0F0'
-            }
-        },
-        plotOptions: {
-            series: {
-                color:'orange',
-                dataLabels: {
-                    color: '#B0B0B3'
-                },
-                marker: {
-                    lineColor: '#333'
-                },
-                threshold:40,
-                negativeColor:'red'
-            },
-            boxplot: {
-                fillColor: '#505053'
-            },
-            candlestick: {
-                lineColor: 'white'
-            },
-            errorbar: {
-                color: 'white'
             }
         },
         legend: {
@@ -213,6 +186,7 @@ $(document).ready(function () {
     Highcharts.setOptions(Highcharts.theme);
 
     Global.container = $("#trend");
+    Global.container_forecast = $(".forecast_trend");
     Global.trendSetting = {
         credits:{enabled:false},
         chart: {
@@ -274,6 +248,8 @@ $(document).ready(function () {
         },
         plotOptions: {
             series: {
+                threshold:40,
+                negativeColor:'red',
                 states: {
                     hover: {
                         enabled: true,
@@ -294,7 +270,8 @@ $(document).ready(function () {
             tooltip: {
                 valueDecimals: 0,
                 valueSuffix:' emo'
-            }
+            },
+            color:"lightgreen"
         },{
             type: 'flags',
             linkedTo:':previous',
@@ -304,7 +281,99 @@ $(document).ready(function () {
             y:-40
         }]
     };
+    Global.trendForecastSetting = {
+        chart: {
+            zoomType: 'x',
+            height:270,
+            renderTo:Global.container_forecast[0],
+        },
+        title: {
+            text: 'Прогноз'
+        },
+        credits:{
+            enabled:false
+        },
+        xAxis: {
+            type: 'datetime',
+            crosshair: true
+            //ordinal:false,
+        },
+        yAxis:[{
+            title: {
+                text: 'Температура'
+            }
+        },{
+            title: {
+                text: 'Влажность'
+            },
+            floor:0,
+            ceiling:100,
+            opposite:true
+        },{
+            title: {
+                text: 'Дождь'
+            },
+            floor:0,
+            opposite:true
+        }],        
+        tooltip:{
+            shared:true
+        },
+        plotOptions: {
+            column:{
+                states:{
+                    hover:{
+                        brightness:-0.5,
+                        color:"grey"
+                    }
+                }
+            },
+            spline:{
+                states:{
+                    hover:{
+                        lineWidth: 5
+                    }
+                }
+            }
+        },
+        series:[{
+            type: 'spline',
+            name: 'Температура',
+            //data:[1,2,3,4,5,6,7,8,69],
+            lineWidth: 2,
+            color:"orange",
+            tooltip: {
+                valueDecimals: 1,
+                valueSuffix:" C"
+            },
+            zIndex:4
+        },{
+            type: 'spline',
+            name: 'Влажность',
+            //data:[1,2,3,4,5,6,7,8,69],
+            lineWidth: 2,
+            tooltip: {
+                valueDecimals: 0,
+                valueSuffix:" %"
+            },
+            color:"cyan",
+            yAxis:1,
+            zIndex:3
+        },{
+            type: 'column',
+            name: 'Дождь',
+            //data:[1,2,3,4,5,6,7,8,69],
+            tooltip: {
+                valueDecimals: 2,
+                valueSuffix:" мм"
+            },
+            color:"darkgrey",
+            yAxis:2,
+            linkedTo:":previous",
+            zIndex:2
+        }]
+    };
     Global.trend = new Highcharts.StockChart(Global.trendSetting);
-    //Global.trend.reflow();
+    Global.trend_forecast = new Highcharts.Chart(Global.trendForecastSetting);
     
 });
