@@ -536,7 +536,6 @@ h3.card_status_off{
     background-size: cover;
     height: 90px;
     width: 90px;
-    transform: rotate;
 }
 .wc_main_temp{
     font-size: 4em;
@@ -700,4 +699,8 @@ h3.card_status_off{
     font-size: 70%;
     line-height: 105%;
     padding: 2px;
+}
+.btn_f_item_more{
+    position: absolute;
+    right: 0px;
 }

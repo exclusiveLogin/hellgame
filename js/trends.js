@@ -72,26 +72,6 @@ $(document).ready(function () {
                 color: '#F0F0F0'
             }
         },
-        plotOptions: {
-            series: {
-                color:'orange',
-                dataLabels: {
-                    color: '#B0B0B3'
-                },
-                marker: {
-                    lineColor: '#333'
-                }
-            },
-            boxplot: {
-                fillColor: '#505053'
-            },
-            candlestick: {
-                lineColor: 'white'
-            },
-            errorbar: {
-                color: 'white'
-            }
-        },
         legend: {
             itemStyle: {
                 color: '#E0E0E3'
@@ -204,6 +184,14 @@ $(document).ready(function () {
     };
 // Apply the theme
     Highcharts.setOptions(Highcharts.theme);
+    var G_Setting = {
+        global:{
+            getTimezoneOffset:function () {
+                var offset = new Date().getTimezoneOffset();
+                return offset;
+        }}
+    };
+    Highcharts.setOptions(G_Setting);
 
     Global.container = $("#trend");
     Global.container_forecast = $(".forecast_trend");
@@ -290,7 +278,8 @@ $(document).ready(function () {
             tooltip: {
                 valueDecimals: 0,
                 valueSuffix:' emo'
-            }
+            },
+            color:"lightgreen"
         },{
             type: 'flags',
             linkedTo:':previous',
@@ -301,7 +290,6 @@ $(document).ready(function () {
         }]
     };
     Global.trendForecastSetting = {
-        //credits:{enabled:false},
         chart: {
             zoomType: 'x',
             height:270,
@@ -310,74 +298,94 @@ $(document).ready(function () {
         title: {
             text: 'Прогноз'
         },
-        legend: {
-            //enabled: true
-        },
         credits:{
             enabled:false
         },
         xAxis: {
             type: 'datetime',
-            gridLineWidth:1,
+            crosshair: true
             //ordinal:false,
         },
-        yAxis: [{
-            lineWidth:1,
+        yAxis:[{
+            tickLength:0,
+            //gridLineWidth: 0,
+            lineWidth:0,
             title: {
                 text: 'Температура'
             }
         },{
-            lineWidth:1,
+            tickLength:0,
+            gridLineWidth: 1,
             title: {
                 text: 'Влажность'
             },
             floor:0,
             ceiling:100,
             opposite:true
-        }],
+        },{
+            tickLength:0,
+            gridLineWidth: 0,
+            title: {
+                text: 'Дождь'
+            },
+            floor:0,
+            opposite:true
+        }],        
         tooltip:{
             shared:true
         },
         plotOptions: {
-            series: {
-                states: {
-                    hover: {
-                        enabled: true,
-                        lineWidth: 4
+            column:{
+                states:{
+                    hover:{
+                        brightness:-0.5,
+                        color:"grey"
+                    }
+                }
+            },
+            spline:{
+                states:{
+                    hover:{
+                        lineWidth: 5
                     }
                 }
             }
         },
         series:[{
-            id:'temperature',
             type: 'spline',
             name: 'Температура',
             //data:[1,2,3,4,5,6,7,8,69],
             lineWidth: 2,
-            dataLabels:{
-                //enabled:true,
-            },
+            color:"orange",
             tooltip: {
                 valueDecimals: 1,
                 valueSuffix:" C"
-            }
+            },
+            zIndex:4
         },{
-            id:'humidity',
             type: 'spline',
             name: 'Влажность',
             //data:[1,2,3,4,5,6,7,8,69],
             lineWidth: 2,
-            dataLabels:{
-                //enabled:true,
-            },
             tooltip: {
                 valueDecimals: 0,
                 valueSuffix:" %"
             },
-            ceiling:100,
-            floor:0,
             color:"cyan",
-            yAxis:1
+            yAxis:1,
+            zIndex:3
+        },{
+            type: 'column',
+            name: 'Дождь',
+            //data:[1,2,3,4,5,6,7,8,69],
+            tooltip: {
+                valueDecimals: 2,
+                valueSuffix:" мм"
+            },
+            color:"darkgrey",
+            yAxis:2,
+            linkedTo:":previous",
+            zIndex:2
         }]
     };
     Global.trend = new Highcharts.StockChart(Global.trendSetting);

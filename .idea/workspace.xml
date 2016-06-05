@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="717fb80b-d7c5-46a3-8a22-d602fe74b980" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/wind_arrow.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/wind_arrow_w.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weather/cloud.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emocore.php" afterPath="$PROJECT_DIR$/emocore.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/auth.js" afterPath="$PROJECT_DIR$/js/auth.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/global.js" afterPath="$PROJECT_DIR$/js/global.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/refresher.js" afterPath="$PROJECT_DIR$/js/refresher.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/start.js" afterPath="$PROJECT_DIR$/js/start.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/trends.js" afterPath="$PROJECT_DIR$/js/trends.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/weatherparser.js" afterPath="$PROJECT_DIR$/js/weatherparser.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/dark.css" afterPath="$PROJECT_DIR$/style/dark.css" />
@@ -52,12 +51,11 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="390" column="62" selection-start-line="390" selection-start-column="62" selection-end-line="390" selection-end-column="62" />
+            <state relative-caret-position="217">
+              <caret line="321" column="73" selection-start-line="321" selection-start-column="58" selection-end-line="321" selection-end-column="73" />
               <folding>
                 <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -70,38 +68,68 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="updater.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/updater.js">
+      <file leaf-file-name="forecastItem_blnk.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/forecastItem_blnk.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1451">
-              <caret line="182" column="16" selection-start-line="182" selection-start-column="16" selection-end-line="182" selection-end-column="16" />
+            <state relative-caret-position="85">
+              <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="weatherparser.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="updater.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/updater.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+              <folding>
+                <element signature="n#!!block;n#startUpdater#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="weatherparser.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/weatherparser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="365" column="77" selection-start-line="365" selection-start-column="77" selection-end-line="365" selection-end-column="77" />
+            <state relative-caret-position="289">
+              <caret line="128" column="44" selection-start-line="128" selection-start-column="44" selection-end-line="128" selection-end-column="44" />
               <folding>
                 <element signature="n#!!block;n#w_code2img#0" expanded="false" />
                 <element signature="e#2818#3013#0" expanded="false" />
-                <element signature="e#9718#9802#0" expanded="false" />
+                <element signature="e#3050#3753#0" expanded="false" />
+                <element signature="n#!!block;n#refresh_z_plane#0" expanded="false" />
                 <element signature="n#!!block;n#refresh_widget#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="trends.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="trends.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/trends.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="374" column="32" selection-start-line="374" selection-start-column="32" selection-end-line="374" selection-end-column="32" />
+            <state relative-caret-position="136">
+              <caret line="192" column="6" selection-start-line="192" selection-start-column="6" selection-end-line="192" selection-end-column="6" />
               <folding>
-                <element signature="e#99#5328#0" expanded="false" />
+                <element signature="e#99#4836#0" expanded="false" />
+                <element signature="e#4922#5093#0" expanded="false" />
+                <element signature="e#5250#7460#0" expanded="false" />
+                <element signature="e#7496#9842#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="refresher.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/refresher.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-170">
+              <caret line="62" column="29" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
+              <folding>
+                <element signature="e#699#881#0" expanded="false" />
+                <element signature="n#!!block;n#refreshUC#0" expanded="false" />
+                <marker date="1464892625610" expanded="true" signature="7734:7763" ph="..." />
               </folding>
             </state>
           </provider>
@@ -110,31 +138,21 @@
       <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/auth.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="318" column="47" selection-start-line="318" selection-start-column="47" selection-end-line="318" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="refresher.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/refresher.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="8" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="8" />
+            <state relative-caret-position="204">
+              <caret line="320" column="34" selection-start-line="320" selection-start-column="34" selection-end-line="320" selection-end-column="34" />
               <folding>
-                <marker date="1464892625610" expanded="true" signature="7734:7763" ph="..." />
+                <element signature="n#!!block;n#refreshAuth#0" expanded="false" />
+                <element signature="e#46#6463#0" expanded="false" />
+                <element signature="e#6472#8159#0" expanded="false" />
+                <element signature="n#!!block;n#renderCardFooter#0" expanded="false" />
+                <element signature="n#!!block;n#refreshLogged#0" expanded="false" />
+                <element signature="n#!!block;n#resetHandlers#0" expanded="false" />
+                <element signature="n#!!block;n#setHandlers#0" expanded="false" />
+                <element signature="n#!!block;n#trendToggle#0" expanded="false" />
+                <element signature="n#!!block;n#ucToggle#0" expanded="false" />
+                <element signature="n#!!block;n#loginToggle#0" expanded="false" />
+                <element signature="n#!!block;n#addmcformToggle#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="windcore.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/windcore.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -142,18 +160,8 @@
       <file leaf-file-name="dark.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style/dark.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="538" column="21" selection-start-line="538" selection-start-column="21" selection-end-line="538" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="global.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/global.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+            <state relative-caret-position="375">
+              <caret line="706" column="0" selection-start-line="706" selection-start-column="0" selection-end-line="706" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -162,15 +170,35 @@
       <file leaf-file-name="start.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/start.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-576">
-              <caret line="133" column="47" selection-start-line="133" selection-start-column="47" selection-end-line="133" selection-end-column="47" />
+            <state relative-caret-position="176">
+              <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
               <folding>
+                <element signature="n#!!block;n#tooltipHandler#0" expanded="false" />
+                <element signature="e#669#796#0" expanded="false" />
+                <element signature="e#842#901#0" expanded="false" />
+                <element signature="e#1449#1980#0" expanded="false" />
+                <element signature="e#2027#2238#0" expanded="false" />
+                <element signature="e#2287#2799#0" expanded="false" />
+                <element signature="e#2851#3354#0" expanded="false" />
+                <element signature="e#3405#3908#0" expanded="false" />
+                <element signature="e#3962#4914#0" expanded="false" />
+                <element signature="e#5066#5896#0" expanded="false" />
                 <element signature="n#!!block;n#showSysMsg#0" expanded="false" />
                 <element signature="n#!!block;n#deletemc#0" expanded="false" />
                 <element signature="n#!!block;n#updList#0" expanded="false" />
                 <element signature="n#!!block;n#user#0" expanded="false" />
                 <element signature="n#!!block;n#createcard#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="global.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/global.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -212,19 +240,19 @@
         <option value="$PROJECT_DIR$/refresher.php" />
         <option value="$PROJECT_DIR$/backup.html" />
         <option value="$PROJECT_DIR$/emocore.php" />
-        <option value="$PROJECT_DIR$/js/updater.js" />
-        <option value="$PROJECT_DIR$/js/start.js" />
         <option value="$PROJECT_DIR$/js/color_led.js" />
         <option value="$PROJECT_DIR$/components/forecastItem_blnk.html" />
         <option value="$PROJECT_DIR$/online.php" />
         <option value="$PROJECT_DIR$/weathercore.php" />
-        <option value="$PROJECT_DIR$/js/auth.js" />
-        <option value="$PROJECT_DIR$/style/dark.css" />
         <option value="$PROJECT_DIR$/js/refresher.js" />
-        <option value="$PROJECT_DIR$/js/global.js" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/weatherparser.js" />
         <option value="$PROJECT_DIR$/js/trends.js" />
+        <option value="$PROJECT_DIR$/js/updater.js" />
+        <option value="$PROJECT_DIR$/style/dark.css" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/start.js" />
+        <option value="$PROJECT_DIR$/js/auth.js" />
+        <option value="$PROJECT_DIR$/js/global.js" />
+        <option value="$PROJECT_DIR$/js/weatherparser.js" />
       </list>
     </option>
   </component>
@@ -270,6 +298,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -364,7 +393,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -380,6 +408,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/alter/PhpstormProjects/hellgame/js/global.js&#10;setTimeout&#9;null&#9;null&#10;widget_weather&#9;null&#9;null" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -484,7 +513,10 @@
       <workItem from="1464776738052" duration="8761000" />
       <workItem from="1464840420363" duration="23572000" />
       <workItem from="1464884724997" duration="4488000" />
-      <workItem from="1464894438933" duration="5941000" />
+      <workItem from="1464894438933" duration="6724000" />
+      <workItem from="1464968366414" duration="561000" />
+      <workItem from="1464970511841" duration="1216000" />
+      <workItem from="1465119717075" duration="20569000" />
     </task>
     <task id="LOCAL-00001" summary="first commit of HG">
       <created>1461670165519</created>
@@ -654,11 +686,18 @@
       <option name="project" value="LOCAL" />
       <updated>1464698610402</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="forecast trend added">
+      <created>1464900512481</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1464900512481</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="322360000" />
+    <option name="totallyTimeSpent" value="345489000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -671,10 +710,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17578125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17578125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1554054" sideWeight="0.509693" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34087238" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -730,7 +769,8 @@
     <MESSAGE value="online label fix" />
     <MESSAGE value="weathercore completed" />
     <MESSAGE value="forecast subsystem dev started" />
-    <option name="LAST_COMMIT_MESSAGE" value="forecast subsystem dev started" />
+    <MESSAGE value="forecast trend added" />
+    <option name="LAST_COMMIT_MESSAGE" value="forecast trend added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -739,13 +779,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/style/dark.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="117" column="18" selection-start-line="117" selection-start-column="18" selection-end-line="117" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -753,7 +786,6 @@
           <folding>
             <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -793,7 +825,6 @@
           <folding>
             <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -833,7 +864,6 @@
           <folding>
             <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -852,7 +882,6 @@
           <folding>
             <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -879,7 +908,6 @@
           <folding>
             <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -1055,13 +1083,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/forecastItem_blnk.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/windcore.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1070,14 +1091,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/amqp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="490" column="20" selection-start-line="490" selection-start-column="20" selection-end-line="490" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/updater.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!block;n#startUpdater#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/refresher.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-170">
+          <caret line="62" column="29" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
+          <folding>
+            <element signature="e#699#881#0" expanded="false" />
+            <element signature="n#!!block;n#refreshUC#0" expanded="false" />
+            <marker date="1464892625610" expanded="true" signature="7734:7763" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style/dark.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="706" column="0" selection-start-line="706" selection-start-column="0" selection-end-line="706" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/trends.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="192" column="6" selection-start-line="192" selection-start-column="6" selection-end-line="192" selection-end-column="6" />
+          <folding>
+            <element signature="e#99#4836#0" expanded="false" />
+            <element signature="e#4922#5093#0" expanded="false" />
+            <element signature="e#5250#7460#0" expanded="false" />
+            <element signature="e#7496#9842#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/forecastItem_blnk.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="390" column="62" selection-start-line="390" selection-start-column="62" selection-end-line="390" selection-end-column="62" />
+        <state relative-caret-position="217">
+          <caret line="321" column="73" selection-start-line="321" selection-start-column="58" selection-end-line="321" selection-end-column="73" />
           <folding>
             <element signature="n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#11;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#12;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#13;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -1089,35 +1168,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/style/dark.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="538" column="21" selection-start-line="538" selection-start-column="21" selection-end-line="538" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/updater.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1451">
-          <caret line="182" column="16" selection-start-line="182" selection-start-column="16" selection-end-line="182" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/global.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/start.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-576">
-          <caret line="133" column="47" selection-start-line="133" selection-start-column="47" selection-end-line="133" selection-end-column="47" />
+        <state relative-caret-position="176">
+          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
           <folding>
+            <element signature="n#!!block;n#tooltipHandler#0" expanded="false" />
+            <element signature="e#669#796#0" expanded="false" />
+            <element signature="e#842#901#0" expanded="false" />
+            <element signature="e#1449#1980#0" expanded="false" />
+            <element signature="e#2027#2238#0" expanded="false" />
+            <element signature="e#2287#2799#0" expanded="false" />
+            <element signature="e#2851#3354#0" expanded="false" />
+            <element signature="e#3405#3908#0" expanded="false" />
+            <element signature="e#3962#4914#0" expanded="false" />
+            <element signature="e#5066#5896#0" expanded="false" />
             <element signature="n#!!block;n#showSysMsg#0" expanded="false" />
             <element signature="n#!!block;n#deletemc#0" expanded="false" />
             <element signature="n#!!block;n#updList#0" expanded="false" />
@@ -1129,41 +1194,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/auth.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="318" column="47" selection-start-line="318" selection-start-column="47" selection-end-line="318" selection-end-column="47" />
-          <folding />
+        <state relative-caret-position="204">
+          <caret line="320" column="34" selection-start-line="320" selection-start-column="34" selection-end-line="320" selection-end-column="34" />
+          <folding>
+            <element signature="n#!!block;n#refreshAuth#0" expanded="false" />
+            <element signature="e#46#6463#0" expanded="false" />
+            <element signature="e#6472#8159#0" expanded="false" />
+            <element signature="n#!!block;n#renderCardFooter#0" expanded="false" />
+            <element signature="n#!!block;n#refreshLogged#0" expanded="false" />
+            <element signature="n#!!block;n#resetHandlers#0" expanded="false" />
+            <element signature="n#!!block;n#setHandlers#0" expanded="false" />
+            <element signature="n#!!block;n#trendToggle#0" expanded="false" />
+            <element signature="n#!!block;n#ucToggle#0" expanded="false" />
+            <element signature="n#!!block;n#loginToggle#0" expanded="false" />
+            <element signature="n#!!block;n#addmcformToggle#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/refresher.js">
+    <entry file="file://$PROJECT_DIR$/js/global.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="8" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="8" />
-          <folding>
-            <marker date="1464892625610" expanded="true" signature="7734:7763" ph="..." />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/weatherparser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="365" column="77" selection-start-line="365" selection-start-column="77" selection-end-line="365" selection-end-column="77" />
+        <state relative-caret-position="289">
+          <caret line="128" column="44" selection-start-line="128" selection-start-column="44" selection-end-line="128" selection-end-column="44" />
           <folding>
             <element signature="n#!!block;n#w_code2img#0" expanded="false" />
             <element signature="e#2818#3013#0" expanded="false" />
-            <element signature="e#9718#9802#0" expanded="false" />
+            <element signature="e#3050#3753#0" expanded="false" />
+            <element signature="n#!!block;n#refresh_z_plane#0" expanded="false" />
             <element signature="n#!!block;n#refresh_widget#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/trends.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="374" column="32" selection-start-line="374" selection-start-column="32" selection-end-line="374" selection-end-column="32" />
-          <folding>
-            <element signature="e#99#5328#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -311,6 +311,23 @@ function setHandlers(){
         showSysMsg("Вы успешно вышли из системы",true);
     });
 }
+function f_moreToggle(state) {
+    var width_obj = Global.trend_forecast.options.chart.renderTo.offsetWidth;
+    if(state){
+        $(".btn_f_item_more").addClass("active");
+        $(".forecast_item").find(".row").show(500);
+        $(".forecast_item").find(".f_item_desc_val").show(500);
+        Global.trend_forecast.setSize(width_obj,300);
+        Global.f_more_min = false;
+    }
+    else {
+        $(".btn_f_item_more").removeClass("active");
+        $(".forecast_item").find(".row").hide(500);
+        $(".forecast_item").find(".f_item_desc_val").hide(500);
+        Global.trend_forecast.setSize(width_obj,450);
+        Global.f_more_min = true;
+    }
+}
 function trendToggle(state, user) {
     if(state){
         $("#trend").show(1000, function () {

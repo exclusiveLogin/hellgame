@@ -5,6 +5,7 @@ Global = {
     trend_pressure:[],
     z_plane:{},   
     forecast:{},
+    f_more_min:true,
     emer:{
         state:false,
         color:"",

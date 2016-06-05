@@ -26,7 +26,6 @@ function tooltipHandler() {
     });
 }
 $(document).ready(function(){
-    //$("#trend").hide(1000);
     $(".btn_clsuc").on("click",function () {
         ucToggle(false,false);
         ucToggle(true,false);
@@ -35,7 +34,11 @@ $(document).ready(function(){
     });
     $(".btn_clswc").on("click",function () {
         $(this).closest("#weather_card").hide(500);
-    })
+    });
+
+    $(".btn_f_item_more").on("click",function(){
+        f_moreToggle(Global.f_more_min);
+    });
 
     tooltipHandler();
     $('.uc_emo_slider').slider({
@@ -160,11 +163,7 @@ $(document).ready(function(){
         containerSt.animate({"scrollTop":0},1000);
         globalUpdate(temp);
     });
-    
-    $.ajaxSetup({
-        //cache:false,
-        //async:false
-    });
+
     //updList();
     setTimeout(updList,5000);
     setTimeout(refreshAuth,5000);

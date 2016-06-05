@@ -114,7 +114,6 @@ function refresh_weather() {
                     upd:data.weather.dt*1000,
                     clouds:data.weather.clouds.all
                 };
-                //console.log("compare:"+data.compare);
                 var widget = $("#widget_weather");
                 var wc = $("#weather_card");
                 widget.hover(
@@ -124,9 +123,10 @@ function refresh_weather() {
                     function () {
                         $(this).find(".code_msg").stop().hide(500);
                     });
-                widget.click(function () {
-                    $("#weather_card").show(500,function(){
-                        Global.trend_forecast.reflow();
+                widget.off("click");
+                widget.on("click",function () {
+                    wc.show(500,function(){
+                        f_moreToggle(false);
                     });
                 });
                 widget.find(".weather_icon").css({
@@ -147,7 +147,7 @@ function refresh_weather() {
                 wc.find(".wc_temp_min_val").html(weather_data.temp_min_val+" C&deg;");
                 wc.find(".wc_temp_max_val").html(weather_data.temp_max_val+" C&deg;");
                 var tmp_css_rotate = {
-                    "transform":"rotate("+weather_data.wind_direction+"deg)"
+                    "transform":"rotate("+(weather_data.wind_direction+180)+"deg)"
                 };
                 wc.find(".wc_wind_dir").css(tmp_css_rotate);
 
@@ -287,7 +287,8 @@ function refresh_weather() {
                         winddir:0,
                         baro:0,
                         dt:0,
-                        id:0
+                        id:0,
+                        rain:0
                     };
                     var tmp_dt = {
                         utc:{},
@@ -305,10 +306,17 @@ function refresh_weather() {
                     tmp_item.baro = Math.round(Global.forecast.list[item].main.pressure*0.75006375541921).toFixed(0);
                     tmp_item.dt = Global.forecast.list[item].dt;
                     tmp_item.id = Global.forecast.list[item].weather[0].id;
+                    if("rain" in Global.forecast.list[item]){
+                        tmp_item.rain = Global.forecast.list[item].rain["3h"];
+                    }
+                    
                     
                     Global.trend_temp.push([tmp_item.dt*1000,Number(tmp_item.temperature)]);
                     Global.trend_humidity.push([tmp_item.dt*1000,Number(tmp_item.humidity)]);
-                    //Global.trend_rain.push([tmp_item.dt*1000,tmp_item.]);
+                    if("rain" in Global.forecast.list[item]){
+                        Global.trend_rain.push([tmp_item.dt*1000,tmp_item.rain]);
+                    }
+                    
                     Global.trend_pressure.push([tmp_item.dt*1000,tmp_item.baro]);
 
                     tmp_dt.utc = new Date(Number(tmp_item.dt)*1000);
@@ -336,6 +344,10 @@ function refresh_weather() {
 
                     
                     var obj = $(blnk).appendTo(".forecast_container");
+                    if(Global.f_more_min){
+                        obj.find(".row").hide();
+                        obj.find(".f_item_desc_val").hide();
+                    }
                     //console.log("item:"+item);
 
                     if(Global.windcore_con){
@@ -364,6 +376,8 @@ function refresh_weather() {
                 Global.trend_forecast.series[0].setData(Global.trend_temp);
                 Global.trend_forecast.series[1].setData([]);
                 Global.trend_forecast.series[1].setData(Global.trend_humidity);
+                Global.trend_forecast.series[2].setData([]);
+                Global.trend_forecast.series[2].setData(Global.trend_rain);
                 //console.log("debug stop");
             }
         },
