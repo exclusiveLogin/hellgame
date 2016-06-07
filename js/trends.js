@@ -301,6 +301,7 @@ $(document).ready(function () {
         credits:{
             enabled:false
         },
+        reflow:true,
         xAxis: {
             type: 'datetime',
             crosshair: true
