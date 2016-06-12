@@ -19,8 +19,8 @@ if(!file_exists($path)){
 
 $w_file = $_SERVER['DOCUMENT_ROOT']."/temp/weather.json";
 $f_file = $_SERVER['DOCUMENT_ROOT']."/temp/forecast.json";
-$owm_current = "http://api.openweathermap.org/data/2.5/weather?q=syzran&appid=69e74215c599f98adce65d87e9fdb41c&lang=ru&units=metric";
-$owm_forecast = "http://api.openweathermap.org/data/2.5/forecast?q=syzran&appid=69e74215c599f98adce65d87e9fdb41c&lang=ru&units=metric";
+$owm_current = "http://api.openweathermap.org/data/2.5/weather?id=484972&appid=69e74215c599f98adce65d87e9fdb41c&lang=ru&units=metric";
+$owm_forecast = "http://api.openweathermap.org/data/2.5/forecast?id=484972&appid=69e74215c599f98adce65d87e9fdb41c&lang=ru&units=metric";
 
 //если не было скачанных с owm файлов в tmp
 if(!file_exists($w_file)){
@@ -39,6 +39,7 @@ if(!file_exists($w_file)){
     //пишем в БД новую запись
     $query = "INSERT INTO `weather`(`status`) VALUES (1)";
     $res = $mysql->query($query);
+    echo '"req_cur":"'.$owm_current.'",';
 }
 if(!file_exists($f_file)){
     $query = "TRUNCATE TABLE `weather`";
@@ -56,6 +57,7 @@ if(!file_exists($f_file)){
     //пишем в БД новую запись
     $query = "INSERT INTO `weather`(`status`) VALUES (1)";
     $res = $mysql->query($query);
+    echo '"req_forecast":"'.$owm_forecast.'",';
 }
 
 $query = "SELECT `status` FROM `weather`";

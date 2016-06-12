@@ -1,4 +1,21 @@
 Global = {
+    private_data:{
+        user:"",
+        ip:"",
+        user_agent:"",
+        geo:{
+            lon:0,
+            lat:0,
+            accuracy:9999,
+            alt:0,
+            status:false,
+            nav:false
+        },
+        ipinfo:{},
+        token:0,
+        sended:false
+    },
+    private_complete:false,
     trend_temp:[],
     trend_humidity:[],
     trend_rain:[],
@@ -13,14 +30,13 @@ Global = {
         users:[],
         user_msg:[]
     },
-    loggedAs:"",		windcore_con:false,
+    loggedAs:"",		
+    windcore_con:false,
     opened:false,
     users:[],
     blank:{
         danger:false,
         status_msg:"не определено",
-        //flags:[],
-        //trend:{},
         name:"",
         title:"",
         login:"",

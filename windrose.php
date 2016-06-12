@@ -103,12 +103,14 @@ if($tmp_w->wind->deg){
     $tmp_dir_str_en = $tmp_wind_arr["wind_direction_str_en"];
 }
 
-
-foreach ($tmp_z->widget as $name => $key){
-    if($tmp_z->widget[$name]->name=="wind"){
-        $tmp_real_speed = $tmp_z->widget[$name]->value;
+if($tmp_z->widget){
+    foreach ($tmp_z->widget as $name => $key){
+        if($tmp_z->widget[$name]->name=="wind"){
+            $tmp_real_speed = $tmp_z->widget[$name]->value;
+        }
     }
 }
+
 
 
 if($tmp_real_speed && $tmp_current_speed && $tmp_accum && $tmp_dir_deg && $tmp_dir_str_en && $tmp_dir_str_ru){

@@ -39,6 +39,9 @@ $(document).ready(function(){
     $(".btn_f_item_more").on("click",function(){
         f_moreToggle(Global.f_more_min);
     });
+    $(".btn_f_wind").on("click",function () {
+        console.log("btn_f_wind ok");
+    })
 
     tooltipHandler();
     $('.uc_emo_slider').slider({
@@ -163,6 +166,20 @@ $(document).ready(function(){
         containerSt.animate({"scrollTop":0},1000);
         globalUpdate(temp);
     });
+    var widget = $("#widget_weather");
+    var wc = $("#weather_card");
+    widget.hover(
+        function () {
+            $(this).find(".code_msg").stop().show(500);
+        },
+        function () {
+            $(this).find(".code_msg").stop().hide(500);
+        });
+    widget.on("click",function () {
+        wc.show(500,function(){
+            f_moreToggle(false);
+        });
+    });
 
     //updList();
     setTimeout(updList,5000);
@@ -186,6 +203,7 @@ $(document).ready(function(){
                     if(data.auth){
                         state=true;
                         Global.loggedAs = data.login;
+                        privateDetail();
                     } 
                     showSysMsg(data.msg,state);
                 }
@@ -208,7 +226,7 @@ function showSysMsg(msg,state) {
     }
     //$("#sysmsg").show();
     $("#sysmsg").removeClass("myhide");
-    $("#sysmsg_val").text(msg);
+    $("#sysmsg_val").html(msg);
     setTimeout(hideSysMsg,5000);
     function hideSysMsg() {
         $("#sysmsg").addClass("myhide");

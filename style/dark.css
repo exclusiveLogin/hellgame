@@ -388,7 +388,7 @@ h3.card_status_off{
     color: white;
 }
 #tooltip {
-    z-index: 9999;
+    z-index: 10000;
     position: absolute;
     display: none;
     top:0px;
@@ -435,7 +435,7 @@ h3.card_status_off{
 .weather_icon{
     height: 100%;
     width: 100%;
-    background-image: url("nophoto.png");
+    background-image: url("/weather/codes/w1000.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -449,7 +449,7 @@ h3.card_status_off{
     position: relative;
     height: 150px;
     /* width: 150px; */
-    /*background-image: url("/weather/01.png");*/
+    background-image: url("/weather/codes/w1000.png");
     background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -703,4 +703,20 @@ h3.card_status_off{
 .btn_f_item_more{
     position: absolute;
     right: 0px;
+    width: 36px;
+    z-index: 9999;
+}
+.btn_f_wind{
+    position: absolute;
+    right: 0px;
+    top: 60px;
+    width: 36px;
+    z-index: 9999;
+}
+.btn_f_metar{
+    position: absolute;
+    right: 0px;
+    top: 100px;
+    width: 36px;
+    z-index: 9999;
 }
