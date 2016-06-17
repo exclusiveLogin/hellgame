@@ -15,6 +15,18 @@
     /*transform: translate(0,-100px);*/
     margin-top: -100px;
 }
+.hideconsole{
+    /*transform: translate(0,-100px);*/
+    margin-top: -450px;
+}
+#console{
+    height: 350px;
+    color: white;
+    background-color: #2b2b2b;
+    font-family: monospace;
+    transition: all 1s ease;
+    text-align: left;
+}
 body{
     margin: 0;
     background-color: #919191;
@@ -28,23 +40,9 @@ body{
 #container{
     height: 90%;
     padding-top: 10px;
+    min-height: 500px;
+    display: none;
 }
-/*.card{
-    border: outset 2px lightcyan;
-    border-radius: 15px;
-    background-color: #ccc;
-    margin-top:10px;
-}
-.headermc{
-    border: solid 1px yellow;
-}
-.headermctext{
-    text-align: center;
-}
-
-.rightmc{
-    border: solid 1px lightseagreen;
-}*/
 .photomc{
     border-radius: 5px;
     box-shadow: 0 0 10px 0px rgba(0,0,0,0.4);
@@ -249,7 +247,7 @@ h3.card_status_off{
     margin-top: 15px;
     padding-right: 0px;
     padding-left: 0px;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
     border-top: black solid 2px;
     font-family: 'Quicksand', sans-serif;
     display: none;
@@ -388,7 +386,7 @@ h3.card_status_off{
     color: white;
 }
 #tooltip {
-    z-index: 9999;
+    z-index: 10000;
     position: absolute;
     display: none;
     top:0px;
@@ -415,8 +413,8 @@ h3.card_status_off{
     font-family: 'Quicksand', sans-serif;
     font-size: 80%;
 }
-.uc_col_weather{
-    max-height: 318px;
+.uc_col_weather_g{
+    max-height: 380px;
     overflow-y: scroll;
 }
 .code_msg{
@@ -435,7 +433,7 @@ h3.card_status_off{
 .weather_icon{
     height: 100%;
     width: 100%;
-    background-image: url("nophoto.png");
+    background-image: url("/weather/codes/w1000.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -449,7 +447,7 @@ h3.card_status_off{
     position: relative;
     height: 150px;
     /* width: 150px; */
-    /*background-image: url("/weather/01.png");*/
+    background-image: url("/weather/codes/w1000.png");
     background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -536,7 +534,6 @@ h3.card_status_off{
     background-size: cover;
     height: 90px;
     width: 90px;
-    transform: rotate;
 }
 .wc_main_temp{
     font-size: 4em;
@@ -700,4 +697,56 @@ h3.card_status_off{
     font-size: 70%;
     line-height: 105%;
     padding: 2px;
+}
+.btn_f_item_more{
+    position: absolute;
+    right: 0px;
+    width: 36px;
+    z-index: 9999;
+}
+.btn_f_wind{
+    position: absolute;
+    right: 0px;
+    top: 60px;
+    width: 36px;
+    z-index: 9999;
+}
+.btn_f_metar{
+    position: absolute;
+    right: 0px;
+    top: 100px;
+    width: 36px;
+    z-index: 9999;
+}
+#privatelog{
+    overflow-x: auto;
+}
+#log_private_list{
+    font-size: 10px;
+    color: #fff;
+}
+#privatelog tr:nth-of-type(odd){
+    background-color: gray;
+    color: wheat;
+}
+a{
+    font-weight: bold;
+    color: orange;
+}
+a:hover{
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #bfd255;
+}
+.uc_col_weather_g p.emo_title + h2{
+    margin-bottom: 100px;
+}
+.uc_msg_container{
+    display: none;
+}
+#usermap {
+    height: 300px;
+    width: 100%;
+    border-radius:10px;
+    border: 3px grey outset;
 }

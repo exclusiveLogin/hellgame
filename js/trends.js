@@ -301,16 +301,22 @@ $(document).ready(function () {
         credits:{
             enabled:false
         },
+        reflow:true,
         xAxis: {
             type: 'datetime',
             crosshair: true
             //ordinal:false,
         },
         yAxis:[{
+            tickLength:0,
+            //gridLineWidth: 0,
+            lineWidth:0,
             title: {
                 text: 'Температура'
             }
         },{
+            tickLength:0,
+            gridLineWidth: 1,
             title: {
                 text: 'Влажность'
             },
@@ -318,6 +324,8 @@ $(document).ready(function () {
             ceiling:100,
             opposite:true
         },{
+            tickLength:0,
+            gridLineWidth: 0,
             title: {
                 text: 'Дождь'
             },

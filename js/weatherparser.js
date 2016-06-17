@@ -94,6 +94,8 @@ function refresh_weather() {
         url:"/weathercore.php",
         dataType:"json",
         success:function (data) {
+            var wc = $("#weather_card");
+            var widget = $("#widget_weather");
             if(data.weather.cod == 200){
                 //console.log("compare:"+data.compare);
                 var icon = {
@@ -114,21 +116,6 @@ function refresh_weather() {
                     upd:data.weather.dt*1000,
                     clouds:data.weather.clouds.all
                 };
-                //console.log("compare:"+data.compare);
-                var widget = $("#widget_weather");
-                var wc = $("#weather_card");
-                widget.hover(
-                    function () {
-                        $(this).find(".code_msg").stop().show(500);
-                    },
-                    function () {
-                        $(this).find(".code_msg").stop().hide(500);
-                    });
-                widget.click(function () {
-                    $("#weather_card").show(500,function(){
-                        Global.trend_forecast.reflow();
-                    });
-                });
                 widget.find(".weather_icon").css({
                     'backgroundImage':'url("'+icon.url+icon.code+'.png")'
                 });
@@ -255,7 +242,29 @@ function refresh_weather() {
                 
             }
             else {
-                console.log("погода по данному запросу не найдена");
+                var str = "Данные не получены";
+                var str_empty = "---";
+                console.log("Ошибка:",data.weather.message);
+                wc.find(".wc_weather_dng").hide(500);
+
+                wc.find(".wc_weather_desc").text(data.weather.message);
+
+                wc.find(".wc_main_temp").html("");
+
+                wc.find(".wc_temp_min_val").html(str_empty);
+                wc.find(".wc_temp_max_val").html(str_empty);
+                wc.find(".wc_upd").text(str);
+
+                wc.find(".wc_sun_up_val").text(str_empty);
+                wc.find(".wc_sun_down_val").text(str_empty);
+
+
+                wc.find(".wc_drop_val").text(str_empty);
+                wc.find(".wc_wind_val").text(str_empty);
+                wc.find(".wc_baro_val").text(str_empty);
+                wc.find(".wc_clouds_val").text(str_empty);
+                
+                wc.find(".wc_wind_dir_val").html(str_empty);
             }
             Global.forecast = data.forecast;
             if(Number(Global.forecast.cod)==200){
@@ -344,6 +353,10 @@ function refresh_weather() {
 
                     
                     var obj = $(blnk).appendTo(".forecast_container");
+                    if(Global.f_more_min){
+                        obj.find(".row").hide();
+                        obj.find(".f_item_desc_val").hide();
+                    }
                     //console.log("item:"+item);
 
                     if(Global.windcore_con){
@@ -357,6 +370,10 @@ function refresh_weather() {
                     if(tmp_icon_obj.dng)obj.find(".f_item_header").addClass("f_item_header_dng");
                     if(tmp_icon_obj.warn)obj.addClass("forecast_item_warn");
                     if(tmp_icon_obj.warn)obj.find(".f_item_header").addClass("f_item_header_warn");
+                    
+                    //при высокой т
+                    if(tmp_item.temperature>=30)obj.addClass("forecast_item_dng");
+                    if(tmp_item.temperature>=30)obj.find(".f_item_header").addClass("f_item_header_dng");
 
                     obj.find(".f_item_desc_val").text(tmp_item.desc);
                     obj.find(".f_item_temperature").html(tmp_item.temperature+"<span class='f_t_small'>&deg;C</span>");
@@ -376,6 +393,11 @@ function refresh_weather() {
                 Global.trend_forecast.series[2].setData(Global.trend_rain);
                 //console.log("debug stop");
             }
+            else {
+                console.log("Ошибка:",data.forecast.message);
+                var forecast_container = $(".forecast_container");
+                forecast_container.append("<div class='error_txt_big'>Данные с сервера не получены Описание ошибки:"+data.forecast.message+"</div>");
+            }
         },
         error:function () {
             console.log("Проблема получения AJAX с погодой");
@@ -394,6 +416,8 @@ function refresh_z_plane() {
             Global.z_plane.tempavg = Number(data.plane.avg.value);
             Global.z_plane.wind_p = Number(data.plane.widget[4].value);
             Global.z_plane.upd = data.plane.widget[5].value.substring(11);
+            if(Global.z_plane.wind == 0){Global.z_plane.wind = Global.z_plane.wind_p}
+            if(Global.z_plane.wind_p == 0){Global.z_plane.wind_p = Global.z_plane.wind}
             Global.z_plane.windavg = (Global.z_plane.wind + Global.z_plane.wind_p)/2;
         },
         error:function () {

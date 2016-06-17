@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    //startUpdater();
-    setTimeout(startUpdater, 2000);
-    setInterval(startUpdater,10000);
+    startUpdater();
+    //setTimeout(startUpdater, 2000);
+    setInterval(startUpdater,20000);
 
 });
 function startUpdater() {
@@ -15,9 +15,7 @@ function startUpdater() {
         url:"/refresher.php",
         dataType:"json",
         method:'GET',
-        //data:Global.loginData,
         success:function(data){
-            //console.log("refresher data received");
             var uc;
             Global.users = [];
             for(uc in data.r_users){
@@ -26,7 +24,6 @@ function startUpdater() {
             refreshLogged();
         },
         error:function(){
-            //alert("error to load refresher ajax");
             console.log("error to load refresher ajax");
         }
     });
@@ -34,14 +31,12 @@ function startUpdater() {
     dataQueryLogin['t_user'] = Global.loggedAs;
     $.ajax({
         url:"/online.php",
-        //dataType:"json",
         method:'GET',
         data:dataQueryLogin,
         success:function(data){
             if(data.msg){
                 showSysMsg(data.msg);
             }
-            //console.log("login data sended");
         },
         error:function(){
             console.log("error to load refresher ajax");
@@ -53,7 +48,14 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
     if(!Global[obj.login]){
         Global[obj.login] = {};
         for(var key in Global.blank){
-            Global[obj.login][key] = Global.blank[key];
+            if(typeof(Global.blank[key]) == 'object'){
+                for(var key2 in Global.blank[key]){
+                    Global[obj.login][key]={};
+                    Global[obj.login][key][key2] = Global.blank[key][key2];
+                }
+            }else {
+                Global[obj.login][key] = Global.blank[key];
+            }
         }
         
     }
@@ -120,6 +122,36 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
         Global[obj.login].login = obj.login;
         Global[obj.login].img_big = obj.img_big;
         Global[obj.login].img_min = obj.img_min;
+
+        var getLastPrivateResponse = {
+            "last_private_user":obj.login
+        };
+        $.ajax({
+            url:"/getlastprivate.php",
+            dataType:"json",
+            method:'GET',
+            data:getLastPrivateResponse,
+            success:function(privatejson){
+                if(privatejson.errors){
+                    console.log("есть ошибка:"+data.errormsg);
+                }
+                else {
+                    if(privatejson.lat)Global[obj.login].privatedata.lat = Number(privatejson.lat);
+                    if(privatejson.lon)Global[obj.login].privatedata.lon = Number(privatejson.lon);
+                    if(privatejson.ip)Global[obj.login].privatedata.ip = privatejson.ip;
+                    if(privatejson.user_agent)Global[obj.login].privatedata.user_agent = privatejson.user_agent;
+                    if(privatejson.accuracy)Global[obj.login].privatedata.accuracy = Number(privatejson.accuracy);
+                    if(privatejson.alt)Global[obj.login].privatedata.alt = Number(privatejson.alt);
+                    if(privatejson.datetime)Global[obj.login].privatedata.datetime = privatejson.datetime;
+                    if(privatejson.region)Global[obj.login].privatedata.region = privatejson.region;
+                    if(privatejson.city)Global[obj.login].privatedata.city = privatejson.city;
+                    if(privatejson.provider)Global[obj.login].privatedata.provider = privatejson.provider;
+                }
+            },
+            error:function(){
+                console.log("error to load last private data ajax");
+            }
+        });
 
     }
     //Setters---------
@@ -201,15 +233,11 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
                     showSysMsg(data.msg,true);
                 }
             }
+            refresher();
         },
         error:function(){
-            //alert("error to load emocore ajax");
             console.log("error to load emocore ajax");
-        },
-        complete:function () {
-            refresher();
         }
     });
-    
-    //refresher();
+
 }

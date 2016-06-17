@@ -1,10 +1,28 @@
 Global = {
+    private_data:{
+        user:"",
+        ip:"",
+        user_agent:"",
+        geo:{
+            lon:0,
+            lat:0,
+            accuracy:30000,
+            alt:0,
+            status:false,
+            nav:false
+        },
+        ipinfo:{},
+        token:0,
+        sended:false
+    },
+    private_complete:false,
     trend_temp:[],
     trend_humidity:[],
     trend_rain:[],
     trend_pressure:[],
     z_plane:{},   
     forecast:{},
+    f_more_min:true,
     emer:{
         state:false,
         color:"",
@@ -12,14 +30,13 @@ Global = {
         users:[],
         user_msg:[]
     },
-    loggedAs:"",		windcore_con:false,
+    loggedAs:"",		
+    windcore_con:false,
     opened:false,
     users:[],
     blank:{
         danger:false,
         status_msg:"не определено",
-        //flags:[],
-        //trend:{},
         name:"",
         title:"",
         login:"",
@@ -37,7 +54,19 @@ Global = {
         oldEmotion:0,
         tendention:0,
         img_big:"",
-        img_min:""
+        img_min:"",
+        privatedata:{
+            lat:0,
+            lon:0,
+            ip:"",
+            user_agent:"",
+            accuracy:0,
+            alt:0,
+            datetime:"",
+            region:"",
+            city:"",
+            provider:""
+        }
     }
 };
 

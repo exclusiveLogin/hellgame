@@ -3,6 +3,8 @@ Global.loginData={
     "login":"",
     "password":""
 };
+Global.bugFixEv = new Event("resize");
+
 function tooltipHandler() {
     $("[data-tooltip]").mousemove(function (eventObject) {
 
@@ -26,7 +28,10 @@ function tooltipHandler() {
     });
 }
 $(document).ready(function(){
-    //$("#trend").hide(1000);
+    $.ajaxSetup({
+        cache:false
+    });
+    
     $(".btn_clsuc").on("click",function () {
         ucToggle(false,false);
         ucToggle(true,false);
@@ -35,7 +40,14 @@ $(document).ready(function(){
     });
     $(".btn_clswc").on("click",function () {
         $(this).closest("#weather_card").hide(500);
-    })
+    });
+
+    $(".btn_f_item_more").on("click",function(){
+        f_moreToggle(Global.f_more_min);
+    });
+    $(".btn_f_wind").on("click",function () {
+        console.log("btn_f_wind ok");
+    });
 
     tooltipHandler();
     $('.uc_emo_slider').slider({
@@ -52,7 +64,6 @@ $(document).ready(function(){
             $('.uc_emo_val').val("---");
         }
     });
-    
     $(".btn_emo_submit").on("click", function () {
         $(this).addClass("disabled");
 
@@ -155,20 +166,31 @@ $(document).ready(function(){
             temp.newstatus['desc'] = "Установлен новый статус "+msg;
         }
         
-        var containerSt = thisobj.parentsUntil('.uc_col_weather').parent();
+        var containerSt = thisobj.parent().parent();
         //var destination = containerSt.scrollTop();
         containerSt.animate({"scrollTop":0},1000);
         globalUpdate(temp);
     });
-    
-    $.ajaxSetup({
-        //cache:false,
-        //async:false
+    var widget = $("#widget_weather");
+    var wc = $("#weather_card");
+    widget.hover(
+        function () {
+            $(this).find(".code_msg").stop().show(500);
+        },
+        function () {
+            $(this).find(".code_msg").stop().hide(500);
+        });
+    widget.on("click",function () {
+        wc.show(500,function(){
+            f_moreToggle(false);
+        });
     });
+
     //updList();
-    setTimeout(updList,5000);
-    setTimeout(refreshAuth,5000);
-    //refreshAuth();
+    //setTimeout(updList,5000);
+    //setTimeout(refreshAuth,5000);
+    refreshAuth();
+    
 
     $('#btnloginenter').on('click',function(){
         Global.loginData.login = $('#loginName').val();
@@ -187,6 +209,7 @@ $(document).ready(function(){
                     if(data.auth){
                         state=true;
                         Global.loggedAs = data.login;
+                        privateDetail();
                     } 
                     showSysMsg(data.msg,state);
                 }
@@ -209,7 +232,7 @@ function showSysMsg(msg,state) {
     }
     //$("#sysmsg").show();
     $("#sysmsg").removeClass("myhide");
-    $("#sysmsg_val").text(msg);
+    $("#sysmsg_val").html(msg);
     setTimeout(hideSysMsg,5000);
     function hideSysMsg() {
         $("#sysmsg").addClass("myhide");

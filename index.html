@@ -34,6 +34,13 @@
     <script src="/js/color_led.js"></script>
     <script src="/js/trends.js"></script>
     <script src="/js/lightbox.js"></script>
+    <script src="/js/private.js"></script>
+    <script src="/js/detect.js"></script>
+
+    <!--Google Maps-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGc1IlCuJd173d1Q1685Eya-Cs7NJ5HOU"></script>
+    <script src="/js/maps.js"></script>
+
     <script src="/fancybox/jquery.fancybox.pack.js"></script>
     <script src="/fancybox/jquery.fancybox.js"></script>
 
@@ -41,13 +48,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="http://code.highcharts.com/stock/highstock.js"></script>
 
-
 </head>
 <body>
     <div id="tooltip"></div>
     <div id="header" class="container-fluid headerdark">
         <div id="sysmsg" class="col-xs-12 col-md-12 col-sm-12 col-lg-12 text-center myhide">Системное сообщение: <span id="sysmsg_val"></span></div>
         <div id="emer_code" class="col-xs-12 col-md-12 col-sm-12 col-lg-12 text-center myhide">ВНИМАНИЕ!!! <span id="emer_code_msg"></span></div>
+        <div id="console" class="col-xs-12 col-md-12 col-sm-12 col-lg-12 text-center hideconsole">console started...<br>Loading sources...<br></div>
 
         <div class="logo col-lg-2 col-md-2 hidden-sm hidden-xs">HELL GAME 2016</div>
         <div class="logo col-xs-12 visible-xs visible-sm text-center">HELL GAME 2016</div>
@@ -110,6 +117,8 @@
         <div id="menu" class="col-lg-3 col-md-3 col-sm-5 text-right hidden-xs"></div>
         <div id="menupda" class="col-xs-12 visible-xs text-center"></div>
 
+        <div id="privatelog" class="col-xs-12 text-center"></div>
+
         <div id="admintools" class="col-xs-12 text-center"></div>
 
         <div id="addmc" class="col-xs-12 text-center"></div>
@@ -161,9 +170,9 @@
                     </div>
                 </div>
                 <div class="uc_col col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-                    <div class="uc_emo">Сообщение пользователю</div>
+                    <div class="uc_emo">Дополнительно</div>
                     <div class="container-fluid">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center uc_msg_container">
                             <div class="form-group">
                                 <input type="text" class="uc_email_title form-control" maxlength="20" placeholder="Тема" disabled>
                             </div>
@@ -172,6 +181,11 @@
                                 <textarea class="uc_email_body form-control" rows="5" placeholder="Введите текст сообщения" disabled></textarea>
                             </div>
                             <button class="btn btn-success disabled">Отправить письмо</button>
+                            <button class="btn btn-default disabled">Карта</button>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center uc_map_container">
+                            <div id="usermap"></div>
+                            <button class="btn btn-default disabled">Сообщение</button>
                         </div>
                     </div>
                 </div>
@@ -243,7 +257,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="uc_col uc_col_weather col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+                <div class="uc_col uc_col_weather_g col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
                     <div class="uc_weather">Сообщаю</div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                         <div class="uc_weather_icon"><i class="fa fa-bolt fa-5x"></i></div>
@@ -319,10 +333,14 @@
                 <div class="uc_col col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
                     <div class="uc_card">Текущая</div>
                     <button class="btn btn-danger btn_clswc"><i class="fa fa-close"></i>Закрыть</button>
+                    <button class="btn btn-default active btn_f_item_more" data-tooltip="Прогноз подробнее"><i class="fa fa-th-list"></i></button>
+                    <button class="btn btn-default btn_f_wind disabled" data-tooltip="Сводка по ветру"><i class="fa fa-pie-chart"></i></button>
+                    <button class="btn btn-default btn_f_metar disabled" data-tooltip="METAR сводка"><i class="fa fa-plane"></i></button>
                     <div class="wc_weather_icon">
                         <div class="wc_main_temp">{main.temp}</div>
                     </div>
-                    <div class="wc_weather_desc">{WeatherDESC}</div>										<div class="wc_upd"></div>
+                    <div class="wc_weather_desc">{WeatherDESC}</div>
+                    <div class="wc_upd"></div>
                     <div class="wc_weather_dng"><span class="label label-danger">{danger}</span></div>
                     <!--div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
@@ -377,6 +395,12 @@
                             <div class="wc_wind_dir" style="display: inline-block;"></div>
                         </div>
                     </div>
+                    <div class="mydevider"></div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                            <div class="wind_rose_trend"></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="uc_col col-lg-8 col-md-8 col-sm-8 col-xs-12 text-center">
@@ -389,6 +413,9 @@
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                             <div class="forecast_trend"></div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                            <div class="wind_trend"></div>
                         </div>
                     </div>
                 </div>

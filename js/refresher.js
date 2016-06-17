@@ -199,5 +199,20 @@ function refreshUC(user) {
     }else {
         $(".uc_photo").css({"backgroundImage":'url("/style/nophoto.png")'});
     }
-    
+    if(Global[user].privatedata){
+        window.dispatchEvent(Global.bugFixEv);
+        if(Global[user].privatedata.lat && Global[user].privatedata.lon){
+            map.setCenter({lat: Global[user].privatedata.lat, lng: Global[user].privatedata.lon});
+            marker.setPosition({lat: Global[user].privatedata.lat, lng: Global[user].privatedata.lon});
+        }
+        if(Global[user].privatedata.accuracy<15000){
+            map.setZoom(15);
+        }
+        else if(Global[user].privatedata.accuracy<1000){
+            map.setZoom(16);
+        }
+        else {
+            map.setZoom(12);
+        }                
+    }      
 }

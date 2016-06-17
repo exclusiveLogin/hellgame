@@ -262,20 +262,18 @@ function refreshLogged() {
         
         if(Global.users[user] == Global.loggedAs){
             $("#widget_uc_"+Global.users[user]).on("click",function () {
-                ucToggle(false,true);
-                ucToggle(true,false);
                 var id = $(this).attr("id").substr(-3);
                 Global.opened = id;
-                refreshUC(id);
+                ucToggle(false,true,refreshUC,id);
+                ucToggle(true,false,refreshUC,id);
             });
         }
         else {
             $("#widget_uc_"+Global.users[user]).on("click",function () {
-                ucToggle(true,true);
-                ucToggle(false,false);
                 var id = $(this).attr("id").substr(-3);
                 Global.opened = id;
-                refreshUC(id);
+                ucToggle(true,true,refreshUC,id);
+                ucToggle(false,false,refreshUC,id);
             });
         }
     }
@@ -311,6 +309,23 @@ function setHandlers(){
         showSysMsg("Вы успешно вышли из системы",true);
     });
 }
+function f_moreToggle(state) {
+    var width_obj = Global.trend_forecast.options.chart.renderTo.offsetWidth;
+    if(state){
+        $(".btn_f_item_more").addClass("active");
+        $(".forecast_item").find(".row").show(500);
+        $(".forecast_item").find(".f_item_desc_val").show(500);
+        Global.trend_forecast.setSize(width_obj,300);
+        Global.f_more_min = false;
+    }
+    else {
+        $(".btn_f_item_more").removeClass("active");
+        $(".forecast_item").find(".row").hide(500);
+        $(".forecast_item").find(".f_item_desc_val").hide(500);
+        Global.trend_forecast.setSize(width_obj,450);
+        Global.f_more_min = true;
+    }
+}
 function trendToggle(state, user) {
     if(state){
         $("#trend").show(1000, function () {
@@ -328,20 +343,28 @@ function trendToggle(state, user) {
         });			
     }
 }
-function ucToggle(guest,state) {
+function ucToggle(guest,state,callback,id) {
     if(guest){
         if(state){
-            $("#usercard").show(500);            
+            $("#usercard").fadeIn(500,function () {
+                if(callback && id){
+                    callback(id);
+                }                
+            });            
         }
         else {
-            $("#usercard").hide(500);
+            $("#usercard").fadeOut(500);
         }
     }else {
         if(state){
-            $("#usercard-g").show(500);
+            $("#usercard-g").fadeIn(500,function () {
+                if(callback && id){
+                    callback(id);
+                }
+            });
         }
         else {
-            $("#usercard-g").hide(500);
+            $("#usercard-g").fadeOut(500);
         }
     }
 }
