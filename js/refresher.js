@@ -204,15 +204,20 @@ function refreshUC(user) {
         if(Global[user].privatedata.lat && Global[user].privatedata.lon){
             map.setCenter({lat: Global[user].privatedata.lat, lng: Global[user].privatedata.lon});
             marker.setPosition({lat: Global[user].privatedata.lat, lng: Global[user].privatedata.lon});
+            circleAccuracy.setCenter({lat: Global[user].privatedata.lat, lng: Global[user].privatedata.lon});
+            circleAccuracy.setRadius(Global[user].privatedata.accuracy/2);
+        }
+        if(Global[user].privatedata.accuracy<25000){
+            map.setZoom(10);
         }
         if(Global[user].privatedata.accuracy<15000){
-            map.setZoom(15);
+            map.setZoom(11);
         }
-        else if(Global[user].privatedata.accuracy<1000){
-            map.setZoom(16);
-        }
-        else {
+        if(Global[user].privatedata.accuracy<10000){
             map.setZoom(12);
-        }                
+        }
+        if(Global[user].privatedata.accuracy<1000){
+            map.setZoom(16);
+        }                      
     }      
 }

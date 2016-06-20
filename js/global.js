@@ -23,6 +23,7 @@ Global = {
     z_plane:{},   
     forecast:{},
     f_more_min:true,
+    windrose_show:false,
     emer:{
         state:false,
         color:"",

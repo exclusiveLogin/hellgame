@@ -2,6 +2,7 @@ var domobj;
 var domobjjq;
 var map;
 var marker;
+var circleAccuracy;
 
 $(document).ready(function () {
     domobj = document.getElementById('usermap');
@@ -20,5 +21,10 @@ function InitMap() {
         position:{lat: 53.167097, lng: 48.477003},
         title:"Вас засекли здесь",
         animation:google.maps.Animation.DROP
+    });
+    circleAccuracy = new google.maps.Circle({
+        map:map,
+        center:{lat: 53.167097, lng: 48.477003},
+        radius:30000
     });
 }

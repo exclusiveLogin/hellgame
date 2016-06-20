@@ -46,7 +46,8 @@ $(document).ready(function(){
         f_moreToggle(Global.f_more_min);
     });
     $(".btn_f_wind").on("click",function () {
-        console.log("btn_f_wind ok");
+        windroseToggle(!Global.windrose_show);
+        console.log("windrose:"+Global.windrose_show);
     });
 
     tooltipHandler();
@@ -187,9 +188,9 @@ $(document).ready(function(){
     });
 
     //updList();
-    //setTimeout(updList,5000);
-    //setTimeout(refreshAuth,5000);
-    refreshAuth();
+    setTimeout(updList,10000);
+    setTimeout(refreshAuth,5000);
+    //refreshAuth();
     
 
     $('#btnloginenter').on('click',function(){
