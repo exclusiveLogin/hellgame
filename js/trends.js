@@ -195,6 +195,7 @@ $(document).ready(function () {
 
     Global.container = $("#trend");
     Global.container_forecast = $(".forecast_trend");
+    Global.container_windrose = $(".wind_rose_trend");
     Global.trendSetting = {
         credits:{enabled:false},
         chart: {
@@ -389,7 +390,58 @@ $(document).ready(function () {
             zIndex:2
         }]
     };
+    Global.trendWindroseSetting = {
+        legend:{
+            enabled:false
+        },
+        chart: {
+            zoomType: 'x',
+            renderTo:Global.container_windrose[0],
+            polar:true
+        },
+        title: {
+            text: 'Роза ветров'
+        },
+        credits:{
+            enabled:false
+        },
+        xAxis: {
+            crosshair: true,
+            categories:["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WWN","NW","NNW"]
+            //ordinal:false,
+        },
+        yAxis:{
+            labels:{
+                enabled:false
+            }
+        },
+        tooltip:{
+            
+        },
+        plotOptions: {
+            column:{
+                states:{
+                    hover:{
+                        brightness:-0.5,
+                        color:"white"
+                    }
+                }
+            }
+        },
+        series:[{
+            //stacking:'percent',
+            type: 'column',
+            name: 'Частота',
+            color:"orange",
+            pointPlacement: 'on',
+            tooltip: {
+                valueDecimals: 0,
+                valueSuffix:" раз"
+            }
+        }]
+    };
     Global.trend = new Highcharts.StockChart(Global.trendSetting);
     Global.trend_forecast = new Highcharts.Chart(Global.trendForecastSetting);
+    Global.trend_windrose_obj = new Highcharts.Chart(Global.trendWindroseSetting);
     
 });

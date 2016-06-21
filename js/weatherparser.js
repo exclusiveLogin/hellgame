@@ -3,6 +3,7 @@ $(document).ready(function () {
     refresh_z_plane();
     setInterval(refresh_weather,120000);
     setInterval(refresh_z_plane,30000);
+    refresh_windcore();
 });
 
 function w_code2img(weather_code) {
@@ -451,4 +452,24 @@ function refresh_widget(){
         setTimeout(refresh,500);
     };
     start();
+}
+function refresh_windcore() {
+    $.ajax({
+        url:"/getwindrose.php",
+        dataType:"json",
+        success:function (data) {
+            if(data.summary){
+                Global.trend_windrose = [data.summary.N, data.summary.NNE, data.summary.NE, data.summary.ENE, data.summary.E,
+                    data.summary.ESE, data.summary.SE, data.summary.SSE, data.summary.S, data.summary.SSW, data.summary.SW,
+                    data.summary.WSW, data.summary.W, data.summary.WWN, data.summary.NW, data.summary.NNW];
+                Global.trend_windrose_obj.series[0].setData([]);
+                Global.trend_windrose_obj.series[0].setData(Global.trend_windrose);
+            }else{
+                console.log("Данные с розой ветров получены но некорректны");
+            }
+        },
+        error:function () {
+            console.log("Проблема получения AJAX с розой ветров");
+        }
+    });
 }

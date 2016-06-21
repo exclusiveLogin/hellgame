@@ -136,6 +136,9 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
                     console.log("есть ошибка:"+data.errormsg);
                 }
                 else {
+                    Global[obj.login].privatedata.oldLat = Global[obj.login].privatedata.lat;
+                    Global[obj.login].privatedata.oldLon = Global[obj.login].privatedata.lon;
+
                     if(privatejson.lat)Global[obj.login].privatedata.lat = Number(privatejson.lat);
                     if(privatejson.lon)Global[obj.login].privatedata.lon = Number(privatejson.lon);
                     if(privatejson.ip)Global[obj.login].privatedata.ip = privatejson.ip;
@@ -146,6 +149,17 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
                     if(privatejson.region)Global[obj.login].privatedata.region = privatejson.region;
                     if(privatejson.city)Global[obj.login].privatedata.city = privatejson.city;
                     if(privatejson.provider)Global[obj.login].privatedata.provider = privatejson.provider;
+                    
+                    if(Global[obj.login].privatedata.oldLat == Global[obj.login].privatedata.lat){
+                        
+                    }else{
+                        Global.georefresh = true;
+                    }
+                    if(Global[obj.login].privatedata.oldLon == Global[obj.login].privatedata.lon){
+
+                    }else{
+                        Global.georefresh = true;
+                    }
                 }
             },
             error:function(){

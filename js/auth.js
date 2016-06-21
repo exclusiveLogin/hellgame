@@ -330,17 +330,17 @@ function windroseToggle(state) {
     //var width_obj = Global.trend_forecast.options.chart.renderTo.offsetWidth;
     if(state){
         $(".btn_f_wind").addClass("active");
-        //$(".forecast_item").find(".row").show(500);
-        //$(".forecast_item").find(".f_item_desc_val").show(500);
-        //Global.trend_forecast.setSize(width_obj,300);
         Global.windrose_show = true;
+        $(".wind_rose_trend").show(function () {
+            Global.trend_windrose_obj.reflow();
+        });
+        $(".main_weather").hide();
     }
     else {
         $(".btn_f_wind").removeClass("active");
-        //$(".forecast_item").find(".row").hide(500);
-        //$(".forecast_item").find(".f_item_desc_val").hide(500);
-        //Global.trend_forecast.setSize(width_obj,450);
         Global.windrose_show = false;
+        $(".wind_rose_trend").hide();
+        $(".main_weather").show();
     }
 }
 function trendToggle(state, user) {
@@ -361,6 +361,7 @@ function trendToggle(state, user) {
     }
 }
 function ucToggle(guest,state,callback,id) {
+    if(state)Global.georefresh = true;
     if(guest){
         if(state){
             $("#usercard").fadeIn(500,function () {
