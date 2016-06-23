@@ -6,6 +6,7 @@ if($mysql->connect_errno){
     die('{"errors":true,"errormsg":"error db":"'.$mysql->connect_error.'"}');
 }
 $mysql->query("SET NAMES 'UTF8';");
+$mysql->query("SET time_zone = '+04:00'");
 
 $query = "SELECT * FROM `private_data` ORDER BY `id` DESC LIMIT 20";
 $result = $mysql->query($query);

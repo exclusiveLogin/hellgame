@@ -1,4 +1,5 @@
 Global = {
+    georefresh:true,
     private_data:{
         user:"",
         ip:"",
@@ -20,10 +21,18 @@ Global = {
     trend_humidity:[],
     trend_rain:[],
     trend_pressure:[],
+    trend_windrose:[],
+    trend_windrose_obj:[],
+    trend_windobj:{},
+    trend_wind_dir:[],
+    trend_wind_real:[],
+    trend_wind_current:[],
+    trend_wind_dataok:false,
     z_plane:{},   
     forecast:{},
     f_more_min:true,
     windrose_show:false,
+    windanalytics_show:false,
     emer:{
         state:false,
         color:"",
@@ -36,6 +45,7 @@ Global = {
     opened:false,
     users:[],
     blank:{
+        refresh:true,//now is unused value
         danger:false,
         status_msg:"не определено",
         name:"",
@@ -57,6 +67,8 @@ Global = {
         img_big:"",
         img_min:"",
         privatedata:{
+            oldLat:0,
+            oldLon:0,
             lat:0,
             lon:0,
             ip:"",

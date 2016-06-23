@@ -189,6 +189,8 @@ function refreshAuth(){
         var g_menu = false,
             g_pmenu = false,
             g_cf = false;
+        ucmapToggle(false);
+        ucmapLock(true);
             
         $.ajax({
             url:"/components/menu.html",
@@ -284,8 +286,17 @@ function resetHandlers() {
     $('.btnlogin').off('click');
     $('.btnlogincl').off('click');
     $('.btnlogout').off('click');
+    $('.btn-hgmap').off('click');
 }
 function setHandlers(){
+    $('.btn-hgmap').on('click',function () {
+        if($(this).hasClass('disabled')){
+            
+        }else{
+            $(this).addClass('disabled active');
+            $('#hgmap').show(500);
+        }        
+    });
     $('.btnadmintools').on('click',function(){
         $(this).addClass('disabled active');
         $('#admintools').show(500);
@@ -327,26 +338,90 @@ function f_moreToggle(state) {
     }
 }
 function windroseToggle(state) {
-    //var width_obj = Global.trend_forecast.options.chart.renderTo.offsetWidth;
     if(state){
         $(".btn_f_wind").addClass("active");
-        //$(".forecast_item").find(".row").show(500);
-        //$(".forecast_item").find(".f_item_desc_val").show(500);
-        //Global.trend_forecast.setSize(width_obj,300);
         Global.windrose_show = true;
+        $(".wind_rose_trend").show(function () {
+            Global.trend_windrose_obj.reflow();
+        });
+        $(".main_weather").hide();
     }
     else {
         $(".btn_f_wind").removeClass("active");
-        //$(".forecast_item").find(".row").hide(500);
-        //$(".forecast_item").find(".f_item_desc_val").hide(500);
-        //Global.trend_forecast.setSize(width_obj,450);
         Global.windrose_show = false;
+        $(".wind_rose_trend").hide();
+        $(".main_weather").show();
+    }
+}
+function windToggle(state) {
+    var width_forecast = Global.trend_forecast.options.chart.renderTo.offsetWidth;
+    if(state){
+        f_moreToggle(false);
+        $(".btn_f_wind_a").addClass("active");
+        $(".btn_f_item_more").addClass("disabled");
+        Global.windanalytics_show = true;
+        $(".wind_trend").show(function () {
+            var width_wind = Global.trend_windobj.options.chart.renderTo.offsetWidth;
+            if(Global.trend_wind_dataok){
+                //set data для тренда аналитики ветра
+                Global.trend_windobj.series[0].setData([],false);
+                Global.trend_windobj.series[0].setData(Global.trend_wind_real,false);
+                Global.trend_windobj.series[1].setData([],false);
+                Global.trend_windobj.series[1].setData(Global.trend_wind_current,false);
+                Global.trend_windobj.series[2].setData([],false);
+                Global.trend_windobj.series[2].setData(Global.trend_wind_dir,false);
+                Global.trend_wind_dataok = false;
+            }
+            else {
+                //alert("Данные аналитики ветра еще не получены попробуйте еще раз");
+            }
+            Global.trend_windobj.redraw();
+            Global.trend_windobj.setSize(width_forecast,300);
+        });
+        $(".forecast_container").hide();
+        Global.trend_forecast.setSize(width_forecast,300);
+
+    }
+    else {
+        $(".btn_f_wind_a").removeClass("active");
+        $(".btn_f_item_more").removeClass("disabled");
+        Global.windanalytics_show = false;
+        $(".wind_trend").hide();
+        $(".forecast_container").show();
+        Global.trend_forecast.setSize(width_forecast,450);
+    }
+}
+function ucmapLock(state) {
+    if(state){//блокируем кнопку
+        $(".btn_uc_map").addClass("disabled");
+        $(".btn_uc_msg").addClass("disabled");
+    }else {
+        $(".btn_uc_map").removeClass("disabled");
+        $(".btn_uc_msg").removeClass("disabled");
+    }
+}
+function ucmapToggle(state) {
+    if(state){//показать
+        $(".uc_map_container").show(500,function () {
+            window.dispatchEvent(Global.bugFixEv);
+            Global.georefresh = true;
+        });
+        $(".uc_msg_container").hide(500);
+        if($(".btn_uc_map").hasClass("active disabled")){
+
+        }else {
+            $(".btn_uc_map").addClass("active disabled");
+        }
+    }else {//скрыть
+        $(".uc_map_container").hide(500);
+        $(".uc_msg_container").show(500);
+        $(".btn_uc_map").removeClass("active disabled");
     }
 }
 function trendToggle(state, user) {
     if(state){
         $("#trend").show(1000, function () {
-            Global.trend.reflow();						
+            Global.trend.reflow();
             $(this).removeClass("transparent");
             Global.trend.series[0].setData([]);
             Global.trend.series[1].setData([]);
@@ -354,20 +429,21 @@ function trendToggle(state, user) {
             Global.trend.series[0].setData(Global[user].trend);
             Global.trend.series[1].setData(Global[user].flags);
         });
-    }else {       			
-        $("#trend").hide(1000,function(){						
-            $(this).addClass("transparent");					
-        });			
+    }else {
+        $("#trend").hide(1000,function(){
+            $(this).addClass("transparent");
+        });
     }
 }
 function ucToggle(guest,state,callback,id) {
+    if(state)Global.georefresh = true;
     if(guest){
         if(state){
             $("#usercard").fadeIn(500,function () {
                 if(callback && id){
                     callback(id);
-                }                
-            });            
+                }
+            });
         }
         else {
             $("#usercard").fadeOut(500);

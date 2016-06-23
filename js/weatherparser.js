@@ -3,6 +3,7 @@ $(document).ready(function () {
     refresh_z_plane();
     setInterval(refresh_weather,120000);
     setInterval(refresh_z_plane,30000);
+    refresh_windcore();
 });
 
 function w_code2img(weather_code) {
@@ -310,8 +311,13 @@ function refresh_weather() {
                     tmp_item.temperature = Global.forecast.list[item].main.temp.toFixed(1);
                     tmp_item.desc = Global.forecast.list[item].weather[0].description;
                     tmp_item.humidity = Global.forecast.list[item].main.humidity;
-                    tmp_item.windval = Global.forecast.list[item].wind.speed.toFixed(1);
-                    tmp_item.winddir = Global.forecast.list[item].wind.deg.toFixed(0);
+                    if(Global.forecast.list[item].wind){
+                        tmp_item.windval = Global.forecast.list[item].wind.speed.toFixed(1);
+                        tmp_item.winddir = Global.forecast.list[item].wind.deg.toFixed(0);
+                    }else {
+                        tmp_item.windval = "---";
+                        tmp_item.winddir = "---";
+                    }
                     tmp_item.baro = Math.round(Global.forecast.list[item].main.pressure*0.75006375541921).toFixed(0);
                     tmp_item.dt = Global.forecast.list[item].dt;
                     tmp_item.id = Global.forecast.list[item].weather[0].id;
@@ -451,4 +457,47 @@ function refresh_widget(){
         setTimeout(refresh,500);
     };
     start();
+}
+function refresh_windcore() {
+    $.ajax({
+        url:"/getwindrose.php",
+        dataType:"json",
+        success:function (data) {
+            if(data.summary && data.trend_dir_deg && data.trend_real_speed && data.trend_current_speed && data.trend_timestamps){
+                //summary данные для розы ветров
+                Global.trend_windrose = [data.summary.N, data.summary.NNE, data.summary.NE, data.summary.ENE, data.summary.E,
+                    data.summary.ESE, data.summary.SE, data.summary.SSE, data.summary.S, data.summary.SSW, data.summary.SW,
+                    data.summary.WSW, data.summary.W, data.summary.WWN, data.summary.NW, data.summary.NNW];
+                Global.trend_windrose_obj.series[0].setData([]);
+                Global.trend_windrose_obj.series[0].setData(Global.trend_windrose);
+                
+                //данные трендов для графиков ветровой активности
+                for(var index in data.trend_dir_deg){
+                    var shot = data.trend_timestamps[index];
+                    var utc_arr = [];
+                    utc_arr = shot.split(',');
+                    (utc_arr[1]>0)?utc_arr[1]-=1:utc_arr[1]=0;
+                    var utctime = Date.UTC(Number(utc_arr[0]),Number(utc_arr[1]),Number(utc_arr[2]),Number(utc_arr[3]),
+                        Number(utc_arr[4]),Number(utc_arr[5]));
+                    Global.trend_wind_dir.push([utctime,Number(data.trend_dir_deg[index])]);
+                    Global.trend_wind_real.push([utctime,Number(data.trend_real_speed[index])]);
+                    Global.trend_wind_current.push([utctime,Number(data.trend_current_speed[index])]);   
+                    Global.trend_wind_dataok = true;
+                    
+                    //set data для тренда аналитики ветра
+                    //Global.trend_windobj.series[0].setData([]);
+                    //Global.trend_windobj.series[0].setData(Global.trend_wind_real);
+                    //Global.trend_windobj.series[1].setData([]);
+                    //Global.trend_windobj.series[1].setData(Global.trend_wind_current);
+                    //Global.trend_windobj.series[2].setData([]);
+                    //Global.trend_windobj.series[2].setData(Global.trend_wind_dir);
+                }                
+            }else{
+                console.log("Данные с розой ветров получены но некорректны");
+            }
+        },
+        error:function () {
+            console.log("Проблема получения AJAX с розой ветров");
+        }
+    });
 }
