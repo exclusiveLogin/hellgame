@@ -81,13 +81,13 @@ g.highcharts-range-selector-buttons > text {
 
 }
 #wh_icon_refresh{
-    background-image: url("http://zasyzran.ru/termo/pic/18833-refresh_icon.png");
+    background-image: url("/style/pic/18833-refresh_icon.png");
 }
 #wh_icon_wind{
-    background-image: url("http://zasyzran.ru/termo/pic/windicon.png");
+    background-image: url("/style/pic/windicon.png");
 }
 #wh_icon_temp0, #wh_icon_temp15, #wh_icon_temp60, #wh_icon_tempavg{
-    background-image: url("http://zasyzran.ru/termo/pic/temperature-2-xxl.png");
+    background-image: url("/style/pic/temperature-2-xxl.png");
     background-position: 2px;
 }
 .wh_suffix {

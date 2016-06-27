@@ -1,7 +1,3 @@
-/**
- * Created by alter on 06.05.2016.
- */
-
 $(document).ready(function () {
     Highcharts.theme = {
         colors: ["#2b908f", "#90ee7e", "#f45b5b", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
@@ -196,6 +192,7 @@ $(document).ready(function () {
     Global.container = $("#trend");
     Global.container_forecast = $(".forecast_trend");
     Global.container_windrose = $(".wind_rose_trend");
+    Global.container_wind = $(".wind_trend");
     Global.trendSetting = {
         credits:{enabled:false},
         chart: {
@@ -390,6 +387,91 @@ $(document).ready(function () {
             zIndex:2
         }]
     };
+    Global.trendWindSetting = {
+        chart: {
+            zoomType: 'x',
+            //width:1000,
+            renderTo:Global.container_wind[0],
+        },
+        title: {
+            text: 'Анализ ветра'
+        },
+        credits:{
+            enabled:false
+        },
+        xAxis: {
+            type: 'datetime',
+            crosshair: true
+            //ordinal:false,
+        },
+        yAxis:[{
+            tickLength:0,
+            //gridLineWidth: 0,
+            lineWidth:0,
+            title: {
+                text: 'Скрость ветра'
+            }
+        },{
+            tickLength:0,
+            gridLineWidth: 0,
+            title: {
+                text: 'Направление'
+            },
+            floor:0,
+            ceiling:360,
+            opposite:true
+        }],
+        tooltip:{
+            shared:true
+        },
+        plotOptions: {
+            spline:{
+                states:{
+                    hover:{
+                        //lineWidth: 5
+                    }
+                }
+            }
+        },
+        navigator:{
+            height:10
+        },
+        scrollbar:{
+            enabled:false
+        },
+        series:[{
+            type: 'spline',
+            name: 'Реальная скорость',
+            lineWidth: 2,
+            color:"orange",
+            tooltip: {
+                valueDecimals: 1,
+                valueSuffix:" м/с"
+            },
+            zIndex:4
+        },{
+            type: 'spline',
+            name: 'Прогнозируемая скорость',
+            lineWidth: 2,
+            tooltip: {
+                valueDecimals: 1,
+                valueSuffix:" м/с"
+            },
+            color:"cyan",
+            zIndex:4
+        },{
+            type: 'areaspline',
+            name: 'Направление ветра',
+            lineWidth: 2,
+            tooltip: {
+                valueDecimals: 0,
+                valueSuffix:' °'
+            },
+            color:"grey",
+            yAxis:1,
+            zIndex:3
+        }]
+    };
     Global.trendWindroseSetting = {
         legend:{
             enabled:false
@@ -440,8 +522,9 @@ $(document).ready(function () {
             }
         }]
     };
+    
     Global.trend = new Highcharts.StockChart(Global.trendSetting);
     Global.trend_forecast = new Highcharts.Chart(Global.trendForecastSetting);
     Global.trend_windrose_obj = new Highcharts.Chart(Global.trendWindroseSetting);
-    
+    Global.trend_windobj = new Highcharts.StockChart(Global.trendWindSetting);    
 });

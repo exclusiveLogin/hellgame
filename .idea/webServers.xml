@@ -10,6 +10,14 @@
           <option name="port" value="21" />
         </fileTransfer>
       </webServer>
+      <webServer id="1eb764f2-b612-491c-9f5c-dcac797cb8a6" name="hellgame24" url="https://hellgame24.ru">
+        <fileTransfer host="ftp63.hostland.ru" port="21" rootFolder="/hellgame24.ru/htdocs/www" password="dfcbdf92dfccdfcedfccdf98df9cdf9f" username="host1490316">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>

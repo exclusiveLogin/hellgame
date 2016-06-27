@@ -31,7 +31,8 @@ $(document).ready(function(){
     $.ajaxSetup({
         cache:false
     });
-    
+    $("#hgmap").delay(1000).hide(500);
+    ucmapToggle(false);
     $(".btn_clsuc").on("click",function () {
         ucToggle(false,false);
         ucToggle(true,false);
@@ -41,13 +42,29 @@ $(document).ready(function(){
     $(".btn_clswc").on("click",function () {
         $(this).closest("#weather_card").hide(500);
     });
+    $(".btn_uc_map").on("click",function () {
+        if($(this).hasClass("disabled")){
+            
+        }else {
+            console.log("test");
+        }        
+    });
+
+    $(".btn_clshgmap").on("click",function () {
+        $(this).closest("#hgmap").hide(500);
+        $('.btn-hgmap').removeClass('disabled active');
+    });
 
     $(".btn_f_item_more").on("click",function(){
         f_moreToggle(Global.f_more_min);
     });
     $(".btn_f_wind").on("click",function () {
         windroseToggle(!Global.windrose_show);
-        console.log("windrose:"+Global.windrose_show);
+        //console.log("windrose:"+Global.windrose_show);
+    });
+    $(".btn_f_wind_a").on("click",function () {
+        windToggle(!Global.windanalytics_show);
+        //console.log("windrose:"+Global.windrose_show);
     });
 
     tooltipHandler();
@@ -211,6 +228,8 @@ $(document).ready(function(){
                         state=true;
                         Global.loggedAs = data.login;
                         privateDetail();
+                        ucmapToggle(true);
+                        createNotify("Новый визит","Пользователь "+Global.loggedAs+" зашел на сайт","ok");
                     } 
                     showSysMsg(data.msg,state);
                 }

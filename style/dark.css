@@ -1,4 +1,4 @@
-@import "http://webfonts.ru/import/gardensc.css";
+@import "/style/garden/gardensc.css";
 
 .headerdark{
     background-color: #313131;
@@ -415,8 +415,14 @@ h3.card_status_off{
     display: none;
     transition:opacity 1s ease;
 }
+#hgmap{
+    /*display: none;*/
+}
 .wind_rose_trend{
     height: 366px;
+    display: none;
+}
+.wind_trend{
     display: none;
 }
 .transparent{
@@ -724,7 +730,7 @@ h3.card_status_off{
     width: 36px;
     z-index: 9999;
 }
-.btn_f_metar{
+.btn_f_wind_a{
     position: absolute;
     right: 0px;
     top: 100px;

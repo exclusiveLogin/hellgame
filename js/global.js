@@ -1,4 +1,5 @@
 Global = {
+    notifyallow:false,
     georefresh:true,
     private_data:{
         user:"",
@@ -23,10 +24,16 @@ Global = {
     trend_pressure:[],
     trend_windrose:[],
     trend_windrose_obj:[],
+    trend_windobj:{},
+    trend_wind_dir:[],
+    trend_wind_real:[],
+    trend_wind_current:[],
+    trend_wind_dataok:false,
     z_plane:{},   
     forecast:{},
     f_more_min:true,
     windrose_show:false,
+    windanalytics_show:false,
     emer:{
         state:false,
         color:"",

@@ -78,7 +78,7 @@ function check_nav() {
     }
 }
 function ip2c() {
-    $.ajax({
+    /*$.ajax({
         url:"http://ipinfo.io",
         dataType:"json",
         success:function (data) {
@@ -102,7 +102,9 @@ function ip2c() {
             Global.private_complete = true;
             check_private();
         }
-    });
+    });*/
+    Global.private_complete = true;
+    check_private();
 }
 function privateSend(){
     request = forming_request();

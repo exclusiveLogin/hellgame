@@ -1,6 +1,6 @@
 <?php
-$logindb="b33_11934654";
-$passdb="request";
-$dbhost="sql107.byethost33.com";
-$dbname="b33_11934654_hell";
+$logindb="host1490316";
+$passdb="ea8160c0";
+$dbhost="localhost";
+$dbname="host1490316";
 
