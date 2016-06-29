@@ -43,7 +43,11 @@ $(document).ready(function(){
         $(this).closest("#weather_card").hide(500);
     });
     $(".btn_uc_map").on("click",function () {
-        console.log("test");
+        if($(this).hasClass("disabled")){
+            
+        }else {
+            console.log("test");
+        }        
     });
 
     $(".btn_clshgmap").on("click",function () {
@@ -210,13 +214,17 @@ $(document).ready(function(){
         Global.loginData.login = $('#loginName').val();
         Global.loginData.password = $('#passwordName').val();
         $.ajax({
-            url:"/login.php",
+            url:"/enter.php",
             dataType:"json",
             method:'GET',
             data:Global.loginData,
-            success:function(data){
-                Global.authkey=data.auth;
-                
+            success:function(data){                
+                if(data.auth){
+                    Global.authkey=data.auth;
+                    showSysMsg("all ok",true);
+                }else{
+                    showSysMsg("error");
+                }
                 loginToggle(0);
                 if(data.msg){
                     var state = false;
@@ -225,6 +233,7 @@ $(document).ready(function(){
                         Global.loggedAs = data.login;
                         privateDetail();
                         ucmapToggle(true);
+                        createNotify("Новый визит","Пользователь "+Global.loggedAs+" зашел на сайт","ok");
                     } 
                     showSysMsg(data.msg,state);
                 }

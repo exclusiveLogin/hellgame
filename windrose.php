@@ -118,7 +118,7 @@ if($tmp_real_speed && $tmp_current_speed && $tmp_dir_deg && $tmp_dir_str_en && $
     $query = "INSERT INTO `windrose`(`dir_str_ru`,`dir_str_en`,`dir_deg`,`real_speed`,`current_speed`) VALUES 
 (\"$tmp_dir_str_ru\",\"$tmp_dir_str_en\",$tmp_dir_deg,$tmp_real_speed,$tmp_current_speed)";
     $result = $mysql->query($query);
-    //echo $query;
+    echo $query;
     //echo "<br>";
     //echo "result:".$result;
     echo '{"error":false,"error_msg":"No errors, data added into db"}';

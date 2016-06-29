@@ -1,4 +1,5 @@
 Global = {
+    notifyallow:false,
     georefresh:true,
     private_data:{
         user:"",

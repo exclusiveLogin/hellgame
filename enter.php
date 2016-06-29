@@ -23,6 +23,8 @@ if($_GET["login"]=="ssv"){
 $res = $mysql->query($query);
 $row = $res->fetch_assoc();
 $pass = null;
+$user_id=0;
+$user_title="";
 while($row){
     $pass = $row['password'];
     $email = $row['email'];
