@@ -1,11 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alter
- * Date: 23.06.2016
- * Time: 21:46
- */
-$arr = array();
+/*$arr = array();
 for ($i=0;$i<10;$i++){
     array_push($arr,$i);
 }
@@ -17,4 +11,7 @@ for ($i=0;$i<10;$i++){
 
 var_dump($arr);
 echo "<br>";
-echo json_encode($arr);
+echo json_encode($arr);*/
+
+$result = mail("alter4444@gmail.com","test","Very short msg is done");
+if($result)echo "msg sended";

@@ -416,7 +416,7 @@ h3.card_status_off{
     transition:opacity 1s ease;
 }
 #hgmap{
-    /*display: none;*/
+    display: none;
 }
 .wind_rose_trend{
     height: 366px;

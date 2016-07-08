@@ -31,7 +31,7 @@ $(document).ready(function(){
     $.ajaxSetup({
         cache:false
     });
-    $("#hgmap").delay(1000).hide(500);
+    //$("#hgmap").delay(1000).hide(500);
     ucmapToggle(false);
     $(".btn_clsuc").on("click",function () {
         ucToggle(false,false);
@@ -40,7 +40,8 @@ $(document).ready(function(){
         Global.opened = false;
     });
     $(".btn_clswc").on("click",function () {
-        $(this).closest("#weather_card").hide(500);
+        //$(this).closest("#weather_card").hide(500);
+        wcToggle(false);
     });
     $(".btn_uc_map").on("click",function () {
         if($(this).hasClass("disabled")){
@@ -97,6 +98,7 @@ $(document).ready(function(){
         utc = now - offset;
         Global.trend.series[0].addPoint([utc,emoval.n]);
         startUpdater();
+        createEvent("all","Пользователь "+Global.loggedAs+" настроение: "+emoval['n'],emoval["title"]+" "+emoval["desc"]);
     });
     $('.btn-played').on("click",function () {
         var played = $(this).data("played");
@@ -104,7 +106,14 @@ $(document).ready(function(){
         req['newplayed'] = {};
         req.newplayed['state']= played;
         req['login']= Global.loggedAs;
+        var tmp_str;
+        if(played){
+            tmp_str = " начал игру ";
+        }else {
+            tmp_str = " больше не играет ";
+        }
         globalUpdate(req);
+        createEvent("all","Пользователь "+Global.loggedAs+tmp_str,"для подробностей посетите сайт игры");
     });
     $('.btn-red-code').on("click",function () {
         var oldState;
@@ -124,7 +133,17 @@ $(document).ready(function(){
         var t_uc_msg = $('.uc_code_msg').val();
         req.newcode_r.user_msg = t_uc_msg;
         globalUpdate(req);
-        
+        var tmp_str;
+        if(newState){
+            tmp_str = " ввел ";
+        }else {
+            tmp_str = " отменил ";
+        }
+        var tmp_code = "";
+        if(t_uc_msg){
+            tmp_code = " с сообщением "+t_uc_msg;
+        }
+        createEvent("all","Пользователь "+Global.loggedAs+tmp_str+"Красный код",tmp_code+" Для подробностей посетите сайт игры","red");
     });
     $('.btn-orange-code').on("click",function () {
         var oldState;
@@ -144,6 +163,17 @@ $(document).ready(function(){
         var t_uc_msg = $('.uc_code_msg').val();
         req.newcode_o.user_msg = t_uc_msg;
         globalUpdate(req);
+        var tmp_str;
+        if(newState){
+            tmp_str = " ввел ";
+        }else {
+            tmp_str = " отменил ";
+        }
+        var tmp_code = "";
+        if(t_uc_msg){
+            tmp_code = " с сообщением "+t_uc_msg;
+        }
+        createEvent("all","Пользователь "+Global.loggedAs+tmp_str+"Оранжевый код",tmp_code+" Для подробностей посетите сайт игры","orange");
     });
     $('.btn-green-code').on("click",function () {
         var oldState;
@@ -163,6 +193,11 @@ $(document).ready(function(){
         var t_uc_msg = $('.uc_code_msg').val();
         req.newcode_g.user_msg = t_uc_msg;
         globalUpdate(req);
+        var tmp_code = "";
+        if(t_uc_msg){
+            tmp_code = "Пользователь "+Global.loggedAs+" сообщает: "+t_uc_msg;
+        }
+        createEvent("all",tmp_code,"Для подробностей посетите сайт игры","ok");
     });
     $(".btn_status_submit").on("click",function () {
         var thisobj = $(this);
@@ -182,6 +217,9 @@ $(document).ready(function(){
             temp.newstatus['old_emo'] = Global[Global.loggedAs].emotion;
             temp.newstatus['title'] = msg;
             temp.newstatus['desc'] = "Установлен новый статус "+msg;
+            var tmp_str_dng = "ok";
+            if(st_danger)tmp_str_dng = "danger";
+            createEvent("all","Пользователь "+Global.loggedAs," Установлен новый статус "+msg,tmp_str_dng)
         }
         
         var containerSt = thisobj.parent().parent();
@@ -189,8 +227,8 @@ $(document).ready(function(){
         containerSt.animate({"scrollTop":0},1000);
         globalUpdate(temp);
     });
+    
     var widget = $("#widget_weather");
-    var wc = $("#weather_card");
     widget.hover(
         function () {
             $(this).find(".code_msg").stop().show(500);
@@ -199,9 +237,7 @@ $(document).ready(function(){
             $(this).find(".code_msg").stop().hide(500);
         });
     widget.on("click",function () {
-        wc.show(500,function(){
-            f_moreToggle(false);
-        });
+        wcToggle(true);
     });
 
     //updList();
@@ -233,7 +269,10 @@ $(document).ready(function(){
                         Global.loggedAs = data.login;
                         privateDetail();
                         ucmapToggle(true);
-                        createNotify("Новый визит","Пользователь "+Global.loggedAs+" зашел на сайт","ok");
+                        ucmapLock(false);
+                        ucMsgLock(false);
+                        createEvent("all","Пользователь "+Global.loggedAs+" зашел на сайт","Для подробностей посетите сайт игры","ok");
+                        //createNotify("Новый визит","Пользователь "+Global.loggedAs+" зашел на сайт","ok");
                     } 
                     showSysMsg(data.msg,state);
                 }

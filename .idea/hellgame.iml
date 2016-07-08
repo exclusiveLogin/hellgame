@@ -9,5 +9,8 @@
     <orderEntry type="library" name="highstock" level="application" />
     <orderEntry type="library" name="highstock" level="application" />
     <orderEntry type="library" name="highcharts-more" level="application" />
+    <orderEntry type="library" name="jQueryUI" level="application" />
+    <orderEntry type="library" name="bootstrap-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
   </component>
 </module>

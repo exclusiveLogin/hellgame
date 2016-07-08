@@ -1,5 +1,6 @@
 <?php
 require_once "dbsetting_n_connect.php";
+$mysql->query("SET time_zone = '+00:00'");
 
 $windrose_summary = array("N"=>0,"NNE"=>0,"NE"=>0,"ENE"=>0,"E"=>0,"ESE"=>0,"SE"=>0,"SSE"=>0,"S"=>0,"SSW"=>0,"SW"=>0,"WSW"=>0,
     "W"=>0,"WWN"=>0,"NW"=>0,"NNW"=>0);

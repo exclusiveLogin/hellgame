@@ -1,18 +1,37 @@
 if("Notification" in window){
-    navigator.serviceWorker.register('/js/sw.js').then(function (seviceWorker) {
-        Global.SW = seviceWorker;
-    });
+    if("serviceWorker" in navigator){
+        navigator.serviceWorker.register('/sw.js').then(function (seviceWorker) {
+            Global.SW = seviceWorker;
+            navigator.serviceWorker.ready.then(function (swreg) {
+                console.log("SW ready");
+                //navigator.serviceWorker.controller.postMessage({"data":{"login":"test"}})
+                swreg.active.postMessage({"data":{"login":"test"}})
+            });
+            seviceWorker.pushManager.getSubscription().then(function (pmsub) {
+                console.log(pmsub);
+                if(pmsub){
+
+                }else {
+                    seviceWorker.pushManager.subscribe({userVisibleOnly: true}).then(function (pmsubscribe) {
+                        console.log(pmsubscribe);
+                    });
+                }
+            });
+        }); 
+    }
     Notification.requestPermission(function (permission) {
         if(permission == "granted"){
             Global.notifyallow = true;
-            createNotify("Добро пожаловать на HellGame24","Игра начинается","ok");
+            //createNotify("Добро пожаловать на HellGame24","Игра начинается","ok");
         }else {
         }
     });
 }
 else {
 }
- 
+function sendUserName(user) {
+    
+}
 
 function createNotify(title,msg,status) {
     var options = {
@@ -41,8 +60,15 @@ function createNotify(title,msg,status) {
                 break;
         }
         if(title){
-            //var noty = new Notification(title,options);
-            Global.SW.showNotification(title,options);
+            var ua = detect.parse(Global.private_data.user_agent);
+            if(ua.device.type == "Mobile"){
+                Global.SW.showNotification(title,options);
+            }else {
+                var noty = new Notification(title,options);
+                noty.onclick = function () {
+                    this.close();
+                }
+            }            
         }     
     }
     

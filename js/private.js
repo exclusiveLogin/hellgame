@@ -1,6 +1,4 @@
 $(document).ready(function () {
-    var tmp_str = 'Модуль private.js загружен';
-    showSysMsg(tmp_str,true);
     if(navigator.geolocation){
         var tmp_str = 'Пытаемся получить ваше местоположение';
         showSysMsg(tmp_str,true);

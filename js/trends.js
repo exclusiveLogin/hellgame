@@ -292,6 +292,7 @@ $(document).ready(function () {
             zoomType: 'x',
             height:270,
             renderTo:Global.container_forecast[0],
+            alignTicks:false
         },
         title: {
             text: 'Прогноз'
@@ -372,7 +373,12 @@ $(document).ready(function () {
             },
             color:"cyan",
             yAxis:1,
-            zIndex:3
+            zIndex:3,
+            max:100,
+            ceiling:100,
+            min:0,
+            floor:0,
+            tickInterval:20
         },{
             type: 'column',
             name: 'Дождь',
@@ -392,6 +398,7 @@ $(document).ready(function () {
             zoomType: 'x',
             //width:1000,
             renderTo:Global.container_wind[0],
+            alignTicks:false
         },
         title: {
             text: 'Анализ ветра'
@@ -419,7 +426,8 @@ $(document).ready(function () {
             },
             floor:0,
             ceiling:360,
-            opposite:true
+            opposite:true,
+            tickInterval:20
         }],
         tooltip:{
             shared:true
@@ -469,7 +477,9 @@ $(document).ready(function () {
             },
             color:"grey",
             yAxis:1,
-            zIndex:3
+            zIndex:3,
+            max:360,
+            min:0,
         }]
     };
     Global.trendWindroseSetting = {

@@ -191,6 +191,7 @@ function refreshAuth(){
             g_cf = false;
         ucmapToggle(false);
         ucmapLock(true);
+        ucMsgLock(true);
             
         $.ajax({
             url:"/components/menu.html",
@@ -321,21 +322,31 @@ function setHandlers(){
     });
 }
 function f_moreToggle(state) {
-    var width_obj = Global.trend_forecast.options.chart.renderTo.offsetWidth;
-    if(state){
-        $(".btn_f_item_more").addClass("active");
-        $(".forecast_item").find(".row").show(500);
-        $(".forecast_item").find(".f_item_desc_val").show(500);
-        Global.trend_forecast.setSize(width_obj,300);
-        Global.f_more_min = false;
-    }
-    else {
-        $(".btn_f_item_more").removeClass("active");
-        $(".forecast_item").find(".row").hide(500);
-        $(".forecast_item").find(".f_item_desc_val").hide(500);
-        Global.trend_forecast.setSize(width_obj,450);
-        Global.f_more_min = true;
-    }
+    var pr_moreToggle = new Promise(function(complete,error){
+        var width_obj = Global.trend_forecast.options.chart.renderTo.offsetWidth;
+        if(state){
+            $(".btn_f_item_more").addClass("active");
+            $(".forecast_item").find(".row").show(500);
+            $(".forecast_item").find(".f_item_desc_val").show(500);
+            Global.trend_forecast.setSize(width_obj,300);
+            Global.f_more_min = false;
+        }
+        else {
+            $(".btn_f_item_more").removeClass("active");
+            $(".forecast_item").find(".row").hide(500);
+            $(".forecast_item").find(".f_item_desc_val").hide(500);
+            Global.trend_forecast.setSize(width_obj,450);
+            Global.f_more_min = true;
+        }
+        setTimeout(function () {
+            complete();
+        },1000);
+    });
+    pr_moreToggle.then(function () {
+        Global.trend_forecast.reflow();
+        Global.trend_forecast.redraw();
+    });
+    
 }
 function windroseToggle(state) {
     if(state){
@@ -395,9 +406,35 @@ function ucmapLock(state) {
     if(state){//блокируем кнопку
         $(".btn_uc_map").addClass("disabled");
         $(".btn_uc_msg").addClass("disabled");
+        $(".btn_uc_map").off("click");
+        $(".btn_uc_msg").off("click");
     }else {
         $(".btn_uc_map").removeClass("disabled");
         $(".btn_uc_msg").removeClass("disabled");
+        $(".btn_uc_map").on("click",function () {
+            ucmapToggle(true);
+        });
+        $(".btn_uc_msg").on("click",function () {
+            ucmapToggle(false);
+        });
+    }
+}
+function ucMsgLock(state) {
+    if(!state){//блокируем панель ввода сообщения
+        $(".btn_ucmsg_submit").on("click",function () {
+            //получаем данные с FrontEnd
+            var tmp_title = $(".uc_email_title").val();
+            $(".uc_email_title").val("");
+            var tmp_desc = $(".uc_email_body").val();
+            $(".uc_email_body").val("");
+            var tmp_user = Global.opened;
+            createEvent(tmp_user,tmp_title,tmp_desc);
+            showSysMsg("Ваше cообщение отправлено",true);
+        });
+        $(".btn_ucmsg_submit").removeClass("disabled");
+    }else {
+        $(".btn_ucmsg_submit").off("click");
+        $(".btn_ucmsg_submit").addClass("disabled");
     }
 }
 function ucmapToggle(state) {
@@ -477,5 +514,18 @@ function addmcformToggle(state){
     }
     else{
         $("#addmc").hide(500);
+    }
+}
+function wcToggle(state) {
+    var wc = $("#weather_card");
+    if(state){
+        wc.show(500,function(){
+            //f_moreToggle(false);
+            history.pushState("","","#meteo");
+            f_moreToggle(false);
+        });
+    }else {
+        wc.hide(500);
+        history.pushState("","","/");
     }
 }
