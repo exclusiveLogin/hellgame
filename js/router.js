@@ -13,3 +13,5 @@ $(document).ready(function () {
         
     }
 });
+con.addstr("router.js подключен");
+con.work();

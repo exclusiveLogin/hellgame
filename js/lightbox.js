@@ -1,3 +1,5 @@
+con.addstr("lightbox.js подключен");
+con.work();
 /*!
  * Lightbox v2.8.2
  * by Lokesh Dhakar

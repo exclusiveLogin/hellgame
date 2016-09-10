@@ -26,16 +26,17 @@ try {
     }
 
     if ($response->getFailureCount() > 0) {
-        $invalidRegistrationIds = $GCMresponse->getInvalidRegistrationIds();
+        $invalidRegistrationIds = $response->getInvalidRegistrationIds();
         foreach($invalidRegistrationIds as $invalidRegistrationId) {
             //Remove $invalidRegistrationId from DB
-            echo $invalidRegistrationId."<br>";
-            //TODO
+            echo "invalidRegistrationId:".$invalidRegistrationId."<br>";
         }
 
         //Schedule to resend messages to unavailable devices
         $unavailableIds = $response->getUnavailableRegistrationIds();
-        //TODO
+        if($unavailableIds){
+            //echo "Имеются недействительные токены<br>";
+        }
     }
 } catch (myException $e) {
 

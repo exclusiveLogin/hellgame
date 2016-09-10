@@ -28,6 +28,7 @@ function tooltipHandler() {
     });
 }
 $(document).ready(function(){
+    checkLastLogin();
     $.ajaxSetup({
         cache:false
     });
@@ -57,14 +58,20 @@ $(document).ready(function(){
     });
 
     $(".btn_f_item_more").on("click",function(){
-        f_moreToggle(Global.f_more_min);
+        if(!$(this).hasClass("disabled")){
+            f_moreToggle(Global.f_more_min);
+        }        
     });
     $(".btn_f_wind").on("click",function () {
-        windroseToggle(!Global.windrose_show);
+        if(!$(this).hasClass("disabled")){
+            windroseToggle(!Global.windrose_show);
+        }
         //console.log("windrose:"+Global.windrose_show);
     });
     $(".btn_f_wind_a").on("click",function () {
-        windToggle(!Global.windanalytics_show);
+        if(!$(this).hasClass("disabled")){
+            windToggle(!Global.windanalytics_show);
+        }        
         //console.log("windrose:"+Global.windrose_show);
     });
 
@@ -254,25 +261,13 @@ $(document).ready(function(){
             dataType:"json",
             method:'GET',
             data:Global.loginData,
-            success:function(data){                
-                if(data.auth){
-                    Global.authkey=data.auth;
-                    showSysMsg("all ok",true);
-                }else{
-                    showSysMsg("error");
-                }
+            success:function(data){
+                if(data.auth)userEnter(data.login);
                 loginToggle(0);
                 if(data.msg){
                     var state = false;
                     if(data.auth){
                         state=true;
-                        Global.loggedAs = data.login;
-                        privateDetail();
-                        ucmapToggle(true);
-                        ucmapLock(false);
-                        ucMsgLock(false);
-                        createEvent("all","Пользователь "+Global.loggedAs+" зашел на сайт","Для подробностей посетите сайт игры","ok");
-                        //createNotify("Новый визит","Пользователь "+Global.loggedAs+" зашел на сайт","ok");
                     } 
                     showSysMsg(data.msg,state);
                 }
@@ -284,6 +279,18 @@ $(document).ready(function(){
         });
     });
 });
+function userEnter(user) {
+    Global.authkey=true;
+    Global.loggedAs = user;
+    privateDetail();
+    ucmapToggle(true);
+    ucmapLock(false);
+    ucMsgLock(false);
+    createEvent("all","Пользователь "+Global.loggedAs+" зашел на сайт","Для подробностей посетите сайт игры","ok");
+    addUserToLocalStorage(user);
+    sendUserName(user);
+    refreshAuth();
+}
 function showSysMsg(msg,state) {
     if(state){
         $("#sysmsg").removeClass("sys_err");
@@ -403,3 +410,6 @@ function createcard(card){
         $('#monstermc'+card.id).find('.clearskymc').removeClass('wactmc');
     }
 }
+
+con.addstr("start.js подключен");
+con.work();

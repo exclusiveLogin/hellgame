@@ -43,3 +43,5 @@ function checkFormAddmc(){
         }
     });
 }
+con.addstr("checkform.js подключен");
+con.work();

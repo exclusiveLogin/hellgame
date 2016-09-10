@@ -119,3 +119,5 @@ function RefreshColor(){
         $('#wh_tempavg_led').addClass('h_led led_red');
     }
 }
+con.addstr("color_led.js подключен");
+con.work();

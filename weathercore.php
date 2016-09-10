@@ -3,7 +3,7 @@ include_once ("dbsetting.php");
 echo "{";
 $mysql= new mysqli($dbhost,$logindb,$passdb,$dbname);
 if($mysql->connect_errno){
-    die('{"errors":true,"errormsg":"error db":"'.$mysql->connect_error.'"}');
+    die('{"errors":true,"errormsg":"error db -'.$mysql->connect_error.'"}');
 }
 $mysql->query("SET NAMES 'UTF8';");
 
@@ -45,6 +45,7 @@ if(!file_exists($f_file)){
     $query = "TRUNCATE TABLE `weather`";
     $res = $mysql->query($query);
     $json_forecast = file_get_contents($owm_forecast);
+    //echo "forecast:".file_get_contents($owm_forecast);
     if(!$json_forecast){
         echo '"error":true, "error_desc":"owm not answered"}';
         die();

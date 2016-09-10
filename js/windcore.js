@@ -81,3 +81,5 @@ function windparser(deg){
 	
 	return wind;
 }
+con.addstr("windcore.js подключен");
+con.work();

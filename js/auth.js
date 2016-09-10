@@ -318,6 +318,7 @@ function setHandlers(){
         Global.authkey = false;
         Global.loggedAs = "";
         refreshAuth();
+        deleteUserFromLocalStorage();
         showSysMsg("Вы успешно вышли из системы",true);
     });
 }
@@ -523,9 +524,13 @@ function wcToggle(state) {
             //f_moreToggle(false);
             history.pushState("","","#meteo");
             f_moreToggle(false);
+            windToggle(false);
         });
     }else {
         wc.hide(500);
         history.pushState("","","/");
     }
 }
+con.addstr("auth.js подключен");
+con.work();
+//con.scheduller();

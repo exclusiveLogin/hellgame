@@ -517,3 +517,5 @@ function refresh_windcore() {
         }
     });
 }
+con.addstr("weatherparser.js подключен");
+con.work();

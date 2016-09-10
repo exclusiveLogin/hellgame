@@ -4,6 +4,9 @@ var map;
 var marker;
 var circleAccuracy;
 
+con.addstr("maps.js подключен");
+con.work();
+
 $(document).ready(function () {
     domobj = document.getElementById('usermap');
     domobjjq = $("#usermap");
@@ -11,6 +14,8 @@ $(document).ready(function () {
 });
 
 function InitMap() {
+    con.addstr("Система геопозиционирования активирована");
+    con.work();
     map = new google.maps.Map(domobjjq[0], {
         center: {lat: 53.167097, lng: 48.477003},
         zoom: 15        

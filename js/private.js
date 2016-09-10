@@ -4,6 +4,10 @@ $(document).ready(function () {
         showSysMsg(tmp_str,true);
         
         if("getCurrentPosition" in navigator.geolocation.__proto__){
+            var options = {
+                enableHighAccuracy : true,
+                timeout : 300000
+            };
             navigator.geolocation.getCurrentPosition(
                 function (position) {
                     tmp_str = 'Данные получены';
@@ -23,7 +27,7 @@ $(document).ready(function () {
                     showSysMsg(tmp_str,false);
                     //console.log(tmp_str);
                     Global.private_data.geo.nav = true;
-                });
+                },options);
         }else{
             var tmp_str = 'Ваш браузер не поддерживает Geolocation.getCurrentPosition';
             showSysMsg(tmp_str);
@@ -200,3 +204,5 @@ function randomInteger(min, max) {
     rand = Math.round(rand);
     return rand;
 }
+con.addstr("private.js подключен");
+con.work();

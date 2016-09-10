@@ -229,3 +229,6 @@ function refreshUC(user) {
 
     }      
 }
+
+con.addstr("refresher.js подключен");
+con.work();

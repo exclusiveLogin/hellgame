@@ -378,7 +378,7 @@ $(document).ready(function () {
             ceiling:100,
             min:0,
             floor:0,
-            tickInterval:20
+            //tickInterval:20
         },{
             type: 'column',
             name: 'Дождь',
@@ -538,3 +538,5 @@ $(document).ready(function () {
     Global.trend_windrose_obj = new Highcharts.Chart(Global.trendWindroseSetting);
     Global.trend_windobj = new Highcharts.StockChart(Global.trendWindSetting);    
 });
+con.addstr("trends.js подключен");
+con.work();

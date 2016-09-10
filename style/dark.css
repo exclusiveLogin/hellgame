@@ -24,10 +24,10 @@
 }
 .hideconsole{
     /*transform: translate(0,-100px);*/
-    margin-top: -450px;
+    margin-top: -9999px;
+    opacity: 0;
 }
 #console{
-    height: 350px;
     color: white;
     background-color: #2b2b2b;
     font-family: monospace;
@@ -37,6 +37,15 @@
 body{
     margin: 0;
     background-color: #919191;
+    background-image: url(bglogo.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-size: 25%;
+	background-attachment:fixed;
+}
+html{
+	height:100%;
 }
 #admintools{
     margin-top: 10px;
