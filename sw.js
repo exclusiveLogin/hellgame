@@ -5,39 +5,63 @@ GlobalSW = {};
 GlobalSW.user = 'once';
 GlobalSW.allowNoty = false;
 
-/*Clients.matchAll().then(function (clients) {
-    console.log(clients);
-});*/
-//console.log(Clients);
+//Clients.matchAll().then(function (clients) {
+//    console.log(clients);
+//});
 
 self.addEventListener('push', function(event) {
-    //console.log("all ok push received");
-    //console.log(Global.loggedAs);
+    console.log("all ok push received");
+    console.log(GlobalSW.user);
+
 });
+function pushEvents() {
+    fetch("pmcore.php",{
+        method:"POST",
+        body:"getlast=1&getfor="+encodeURIComponent(GlobalSW.user),
+        headers: {
+            "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+        }
+    }).then(function (response) {
+        if(response.status == 200){
+            return response.json();
+        }
+    }).then(function (data) {
+        console.log(data);
+    }).catch(function (e) {
+        console.log("pmcore вернул ошибку");
+        console.log(e);
+    });
+}
 self.addEventListener('activate', function(event) {
     console.log("SW activated");
-    //console.log(Global.loggedAs);
-
 });
 
 self.addEventListener('install', function(event) {
-    /*var pr_test = fetch("/test.json");
-    pr_test.then(function (data) {
-        console.log("status:"+data.status);
-        return data.json();
-    }).then(function (data) {
-        console.log("data:"+data.test);
-        */
     console.log("install:");
     GlobalSW.regtime = new Date().getTime();
     console.log(GlobalSW.regtime);
 });
+channel = new MessageChannel();
+channel.port1.onmessage = function (e) {
+    console.log("SW port 1 msg");
+};
+channel.port2.onmessage = function (e) {
+    console.log("SW port 2 msg");
+};
 self.addEventListener('message', function(event) {
     console.log("sw message received:");
-    //console.log(event);
+    channel.port2.postMessage("SW обратка");
+    console.log(event);
+    if(event.ports[0]){
+        GlobalSW.extPort = event.ports[0];
+        GlobalSW.extPort.postMessage({"data":"first test msg"});
+    }else {
+        console.log("ports empty");
+    }
+
     if(event.data.data.login){
         GlobalSW.user = event.data.data.login;
-        event.ports[0].postMessage("пользователь "+event.data.data.login+" успешно установлен SW");
+        GlobalSW.extPort.postMessage("пользователь успешно установлен SW");
     }
     if(event.data.data.noty){
         GlobalSW.allowNoty = event.data.data.noty;
@@ -47,11 +71,4 @@ self.addEventListener('message', function(event) {
         };
         self.registration.showNotification("Связь с Вашим устройством установлена",options);
     }
-    //GlobalSW.MC.port1.postMessage("test");
-    //event.ports[0].postMessage("djdjdjdjdff");
-    //console.log(event);
-    //console.log(GlobalSW);
-    //clients.matchAll().then(function (cl) {
-    //    console.log(cl);
-    //});
 });

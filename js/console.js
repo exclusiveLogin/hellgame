@@ -30,7 +30,7 @@ HGConsole = function(){
             var wrp = this.printLetter.bind(this);
             setTimeout(function () {//запускаем обертку
                 wrp();
-            },50);
+            },10);
         }
     }
     this.printLetter = function (letter) {

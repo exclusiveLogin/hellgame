@@ -3,6 +3,9 @@ require_once "GCM/Sender.php";
 require_once "GCM/Exception.php";
 require_once "GCM/Message.php";
 require_once "GCM/Response.php";
+require_once "dbsetting_n_connect.php";
+
+
 
 
 $sender = new Sender("AIzaSyCDV_cGYt4mHY0kGg6_4vvsvMc41Fw5g3c");

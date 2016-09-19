@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="hellgame24" uploadOnCheckin="1ebcbb58-fc06-41bb-aeac-81af71ccbb8d">
+  <component name="PublishConfigData" serverName="hellgame24" uploadOnCheckin="5ea55e48-6cfa-4737-bcae-27427bbb4bb5">
     <serverData>
       <paths name="hellgame24">
         <serverdata>
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="hellhost">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
@@ -31,6 +24,6 @@
         </serverdata>
       </paths>
     </serverData>
-    <option name="myUploadOnCheckinName" value="hg" />
+    <option name="myUploadOnCheckinName" value="hellgame24" />
   </component>
 </project>

@@ -81,6 +81,5 @@ function createEvent(user,title,desc,status) {
         });
     }
 }
-con.addstr("events.js подключен");
 con.addstr("Система событий включена на портале");
 con.work();

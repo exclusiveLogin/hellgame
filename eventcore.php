@@ -70,7 +70,6 @@ if($_GET["getlast"]){
     if($_GET["getfor"]){
         $tmp_user = $_GET["getfor"];
         $query = "SELECT * FROM `events` WHERE `for`=\"$tmp_user\"";
-        //echo $query."<br>";
         $result = $mysql->query($query);
         $row = $result->fetch_assoc();
         $tmp_last_ev = array();

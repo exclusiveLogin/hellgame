@@ -79,7 +79,7 @@ class Sender
         $this->validatePayloadSize($rawData, 'data', 4096);
         $this->validatePayloadSize($rawData, 'notification', 2048);
         $data = json_encode($rawData);
-        echo $data;
+        //echo $data;
 
         $headers = array(
             'Authorization: key='.$this->serverApiKey,
