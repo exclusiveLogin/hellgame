@@ -134,7 +134,7 @@ else{
                 $res = $mysql->query($query);
                 $query = "UPDATE `weather` SET `upd`=NOW()";
                 $res = $mysql->query($query);
-                echo '"forecast":'.$json_forecast.',"errror":false';
+                echo '"forecast":'.$json_forecast.',"error":false';
                 file_put_contents($f_file,$json_forecast);
             }
             else{//если не удалось получить данные с OWM

@@ -1,85 +1,39 @@
 function refreshAuth(){
     if(Global.authkey){//************************Авторизован****************
-        var t_menu = false,
-            t_pmenu = false,
-            t_at = false,
-            t_acf = false,
-            t_amc = false;
-        
-        $.ajax({
-            url:"/components/menuadmin.html",
-            mode:"html",
-            success:function(menu){
+        var pr_menuADM = fetch("/components/menuadmin.html").then(
+            function (response) {
+                return response.text();
+            }
+        ).then(
+            function (menu) {
                 $('#menu').html(menu);
-            },
-            complete:function(){
-                t_menu = true;
-                checkT();
-            },
-            error:function(){
-                alert("error to load menuadmin ajax");
             }
-        });
-        $.ajax({
-            url:"/components/menupdaadmin.html",
-            mode:"html",
-            success:function(menupda){
+        );
+        var pr_menuPDAADM = fetch("/components/menupdaadmin.html").then(
+            function (response) {
+                return response.text();
+            }
+        ).then(
+            function (menupda) {
                 $('#menupda').html(menupda);
-            },
-            complete:function(){
-                t_pmenu = true;
-                checkT();
-            },
-            error:function(){
-                console.log("error to load menuadmin ajax");
             }
-        });
-        $.ajax({
-            url:"/components/admintools.html",
-            mode:"html",
-            success:function(at){
-                $('#admintools').html(at);
-            },
-            complete:function(){
-                $('#admintools').on('click','#btn_addmc',function(){
-                    $('#addmc').show(500)
-                });
-                t_at = true;
-                checkT();
-            },
-            error:function(){
-                console.log("error to load menuadmin ajax");
+        );
+        var pr_cfADM = fetch("/components/cardfooteradmin.html").then(
+            function (response) {
+                return response.text();
             }
-        });
-        $.ajax({
-            url:"/components/cardfooteradmin.html",
-            mode:"html",
-            success:function(cf){
+        ).then(
+            function (cf) {
                 renderCardFooter(cf);
-            },
-            complete:function(){
-                t_acf = true;
-                checkT();
-            },
-            error:function(){
-                console.log("error to load cardfooteradmin ajax");
             }
-        });
-        $.ajax({
-            url:"/components/addmc.html",
-            mode:"html",
-            success:function(addmc){
+        );
+        var pr_amc = fetch("/components/addmc.html").then(
+            function (response) {
+                return response.text();
+            }
+        ).then(
+            function (addmc) {
                 $('#addmc').html(addmc);
-            },
-            complete:function(){
-                $('#addmc').off('click');
-                $('#addmc').on('click','#mc_btncancel',function(){
-                    $('#addmc').hide(500);
-                });
-                $('#addmc').on('click','#mc_btnsub',function(){
-                    checkFormAddmc();
-                    addmcformToggle(0);
-                });
                 $('#mc_temp').slider({
                     range:true,
                     min:-30,
@@ -89,7 +43,7 @@ function refreshAuth(){
                         $('#mc_temp_val').val("От "+ui.values[0]+" до "+ui.values[1]+" градусов Цельсия");
                     },
                     create:function(){
-                        $('#mc_temp_val').val("Установите температуру");
+                        $('#mc_temp_val').val("Установите температуру (1-15)");
                     }
                 });
                 $('#mc_wind_speed').slider({
@@ -98,46 +52,46 @@ function refreshAuth(){
                     max:150,
                     values:[0,15],
                     slide:function(event,ui){
-                        $('#mc_wind_speed_val').val("От "+ui.values[0]+" до "+ui.values[1]+" километров в час");
+                        $('#mc_wind_speed_val').val("От "+ui.values[0]+" до "+ui.values[1]+" м/с.");
                     },
                     create:function(){
-                        $('#mc_wind_speed_val').val("Установите скорость ветра");
+                        $('#mc_wind_speed_val').val("Установите скорость ветра(0-15)");
                     }
                 });
                 $('#mc_speed').slider({
                     range:false,
                     min:0,
-                    max:15000,
+                    max:5000,
                     value:100,
                     slide:function(event,ui){
                         $('#mc_speed_val').val("Скорость:"+ui.value+" м/ч.");
                     },
                     create:function(){
-                        $('#mc_speed_val').val("Установите скорость");
+                        $('#mc_speed_val').val("Установите скорость (100м/ч)");
                     }
                 });
-                $('#mc_distance').slider({
-                    range:false,
-                    min:1,
-                    max:500,
-                    value:15,
-                    slide:function(event,ui){
-                        $('#mc_distance_val').val("Расстояние:"+ui.value+" км.");
-                    },
-                    create:function(){
-                        $('#mc_distance_val').val("Установите расстояние");
-                    }
-                });
+                // $('#mc_distance').slider({
+                //     range:false,
+                //     min:1,
+                //     max:500,
+                //     value:15,
+                //     slide:function(event,ui){
+                //         $('#mc_distance_val').val("Расстояние:"+ui.value+" км.");
+                //     },
+                //     create:function(){
+                //         $('#mc_distance_val').val("Установите расстояние");
+                //     }
+                // });
                 $('#mc_respawn').slider({
                     range:false,
                     min:0,
-                    max:8760,
-                    value:0,
+                    max:500,
+                    value:24,
                     slide:function(event,ui){
                         $('#mc_respawn_val').val("Воскр. через:"+ui.value+" час.");
                     },
                     create:function(){
-                        $('#mc_respawn_val').val("Установите время воскр.");
+                        $('#mc_respawn_val').val("Установите время воскр.(24)");
                     }
                 });
                 $('#mc_livetime').slider({
@@ -149,104 +103,69 @@ function refreshAuth(){
                         $('#mc_livetime_val').val("Живет:"+ui.value+" час.");
                     },
                     create:function(){
-                        $('#mc_livetime_val').val("Установите время жизни.");
+                        $('#mc_livetime_val').val("Установите время жизни. (1час)");
                     }
                 });
-                $('#mc_direction').slider({
-                    range:false,
-                    min:1,
-                    max:360,
-                    value:1,
-                    slide:function(event,ui){
-                        $('#mc_direction_val').val("Цель на:"+ui.value+" градусов.");
-                    },
-                    create:function(){
-                        $('#mc_direction_val').val("Установите направление.");
-                    }
-                });
-                t_amc = true;
-                checkT();
-            },
-            error:function(){
-                console.log("error to load addmc ajax");
+                // $('#mc_direction').slider({
+                //     range:false,
+                //     min:1,
+                //     max:360,
+                //     value:1,
+                //     slide:function(event,ui){
+                //         $('#mc_direction_val').val("Цель на:"+ui.value+" градусов.");
+                //     },
+                //     create:function(){
+                //         $('#mc_direction_val').val("Установите направление.");
+                //     }
+                // });
             }
+        );
+
+        Promise.all([pr_menuADM,pr_menuPDAADM,pr_amc,pr_cfADM]).then(function () {
+            resetHandlers();
+            setHandlers();
+            refreshLogged();
         });
-        function checkT() {
-            if(t_acf && t_amc && t_at && t_menu && t_pmenu){
-                resetHandlers();
-                setHandlers();
-                refreshLogged();
-                t_acf = false;
-                t_amc = false;
-                t_at = false;
-                t_menu = false;
-                t_pmenu = false;
-            }
-        }
         
-            }
-    else{//************************Гость****************
-        var g_menu = false,
-            g_pmenu = false,
-            g_cf = false;
+    }else{//************************Гость****************
         ucmapToggle(false);
         ucmapLock(true);
         ucMsgLock(true);
-            
-        $.ajax({
-            url:"/components/menu.html",
-            mode:"html",
-            success:function(menu){
+
+        var pr_menu = fetch("/components/menu.html").then(
+            function (response) {
+                return response.text();
+            }
+        ).then(
+            function (menu) {
                 $('#menu').html(menu);
-            },
-            complete:function(){
-                g_menu = true;
-                checkG();
-            },
-            error:function(){
-                console.log("error to load menu ajax");
             }
-        });
-        $.ajax({
-            url:"/components/menupda.html",
-            mode:"html",
-            success:function(menupda){
+        );
+        var pr_menuPDA = fetch("/components/menupda.html").then(
+            function (response) {
+                return response.text();
+            }
+        ).then(
+            function (menupda) {
                 $('#menupda').html(menupda);
-            },
-            complete:function(){
-                g_pmenu = true;
-                checkG();
-            },
-            error:function(){
-                console.log("error to load menuadmin ajax");
             }
-        });
-        $.ajax({
-            url:"/components/cardfooter.html",
-            mode:"html",
-            success:function(cf){
+        );
+        var pr_cf = fetch("/components/cardfooter.html").then(
+            function (response) {
+                return response.text();
+            }
+        ).then(
+            function (cf) {
                 renderCardFooter(cf);
-                g_cf = true;
-                checkG();
-            },
-            error:function(){
-                console.log("error to load cardfooter ajax");
             }
+        );
+
+        Promise.all([pr_menu, pr_menuPDA, pr_cf]).then(function () {
+            $('#addmc').html('').hide(500);
+            resetHandlers();
+            setHandlers();
+            refreshLogged();
         });
-        $('#addmc').html('').hide(500);
-        $('#admintools').html('').hide(500);
-        
-        
-        function checkG() {
-            if(g_cf && g_menu && g_pmenu){
-                resetHandlers();
-                setHandlers();
-                refreshLogged();
-                g_cf = false;
-                g_menu = false;
-                g_pmenu = false;
-            }
-        }
     }
 }
 function renderCardFooter(cf){
@@ -285,6 +204,7 @@ function resetHandlers() {
     $('.btnadmintools').off('click');
     $('.btnadmintoolscl').off('click');
     $('.btnlogin').off('click');
+    $('.btnfx95').off('click');
     $('.btnlogincl').off('click');
     $('.btnlogout').off('click');
     $('.btn-hgmap').off('click');
@@ -295,7 +215,10 @@ function setHandlers(){
             
         }else{
             $(this).addClass('disabled active');
-            $('#hgmap').show(500);
+            $('#hgmap').show(500,function(){
+				window.dispatchEvent(Global.bugFixEv);
+				Global.HgMap.HGmapObj.panTo(Global.HgMap.markerHome.getPosition());
+			});
         }        
     });
     $('.btnadmintools').on('click',function(){
@@ -309,6 +232,9 @@ function setHandlers(){
     $('.btnlogin').on('click',function(){
         $(this).addClass('disabled active');
         $('#loginform').show(500);
+    });
+    $('.btnfx95').on('click',function(){
+        window.open("/3d/index.html");
     });
     $('.btnlogincl').on('click',function(){
         $('.btnlogin').removeClass('disabled active');
@@ -512,9 +438,15 @@ function loginToggle(state){
 function addmcformToggle(state){
     if(state){
         $("#addmc").show(500);
+        $(".btn_addmonsterHgmap").addClass("hidden");
+        $("#mc_btnsub").removeClass("hidden");
     }
     else{
         $("#addmc").hide(500);
+        $('#hgmap').hide(500);
+        $('.btn-hgmap').removeClass('disabled active');
+        $(".btn_addmonsterHgmap").removeClass("hidden");
+        $("#mc_btnsub").addClass("hidden");
     }
 }
 function wcToggle(state) {
@@ -531,6 +463,6 @@ function wcToggle(state) {
         history.pushState("","","/");
     }
 }
-con.addstr("auth.js подключен");
-con.work();
+//con.addstr("auth.js подключен");
+//con.work();
 //con.scheduller();

@@ -1,3 +1,5 @@
+Global.SWversion = "0.3.2";
+
 if("Notification" in window){
     if("serviceWorker" in navigator){
         Global.pr_readySW = navigator.serviceWorker.getRegistration();
@@ -14,6 +16,7 @@ if("Notification" in window){
                 console.log("Регистрация SW");
                 con.addstr("Регистрируем Service Worker");
                 con.work();
+                /*
                 navigator.serviceWorker.register('/sw.js').then(function (seviceWorker) {
                     console.log("Регистрация SW успешна");
                     Global.SW = seviceWorker;
@@ -66,11 +69,15 @@ if("Notification" in window){
                             });
                         }
                     });
-                });
+                });*/
+                SWRegister();
             }
             //Регистрация получена
             if(reg){
-                //кидаем порт,
+                //кидаем порт, запрашиваем версию SW
+                Global.SW.active.postMessage({"data":{"ver":true}},[channel.port2]);
+                con.addstr("Запрос версии ServiceWorker...");
+                con.work();
             }
         });
     }else {
@@ -85,7 +92,7 @@ if("Notification" in window){
             con.work();
             Global.pr_readySW.then(function () {
                 if(Global.swready){
-                    //Global.SW.active.postMessage({"data":{"noty":true}},[channel.port2]);
+                    Global.SW.active.postMessage({"data":{"noty":true}});
                 }
             });
             //createNotify("Добро пожаловать на HellGame24","Игра начинается","ok");
@@ -96,30 +103,110 @@ if("Notification" in window){
             con.work();
             Global.pr_readySW.then(function () {
                 if(Global.swready) {
-                    //Global.SW.active.postMessage({"data": {"noty": false}}, [channel.port2]);
+                    Global.SW.active.postMessage({"data": {"noty": false}});
                 }
             });
         }
     });
 }
+
 else {
     con.addstr("Notification НЕ установлен в системе");
     con.work();
 }
+function SWRegister(){
+    navigator.serviceWorker.register('/sw.js').then(function (seviceWorker) {
+        console.log("Регистрация SW успешна");
+        Global.SW = seviceWorker;
+        seviceWorker.pushManager.getSubscription().then(function (pmsub) {
+            if(pmsub){
+                console.log("старая регистрация PM");
+                //console.log(pmsub);
+                con.addstr("На компьютере найдена подписка на уведомления");
+                con.work();
+            }else {
+                seviceWorker.pushManager.subscribe({userVisibleOnly: true}).then(function (pmsubscribe) {
+                    console.log("новая регистрация PM");
+                    //console.log(pmsubscribe);
+                    var url = document.createElement('a');
+                    url.href = pmsubscribe.endpoint;
+
+                    //console.log(url.pathname);
+                    var tmpUrl = [];
+                    tmpUrl = url.pathname.split("/");
+                    //console.log("tokken:"+tmpUrl[tmpUrl.length-1]);
+                    //console.log("user:"+Global.loggedAs);
+                    var pmtokken = tmpUrl[tmpUrl.length-1];
+                    if(pmtokken && Global.loggedAs){
+                        var data = "pmtokken="+encodeURIComponent(pmtokken)+"&pmuser="+
+                            encodeURIComponent(Global.loggedAs)+"&pmadd=1";
+                        //console.log(data);
+                        fetch("/pmcollector.php",{
+                            headers: {
+                                "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+                            },
+                            method:"POST",
+                            body:data
+                        }).then(function (data) {
+                            //console.log("fetch успешен");
+                            //console.log(data);
+                            if(data.status==200){
+                                console.log("status 200 успешен");
+                                return data.text();
+                            }
+                        }).then(function (dataResp) {
+                            console.log("response получен");
+                            console.log(dataResp);
+                        }).catch(function (e) {
+                            console.log("fetch с ошибкой");
+                            console.log(e);
+                        });
+                    }
+                    con.addstr("Новая регистрация PushManager");
+                    con.work();
+                });
+            }
+        });
+    });
+}
+function SWRegisterLight() {
+    navigator.serviceWorker.register('/sw.js').then(function (seviceWorker) {
+        console.log("SW успешно обновлен на версию :"+Global.SWversion);
+        Global.SW = seviceWorker;
+        Global.SW.update();
+    });
+}
 function sendUserName(user) {
     if(Global.swready){
-        //Global.SW.active.postMessage({"data":{"login":JSON.stringify(user)}},[channel.port2]);
+        Global.SW.active.postMessage({"data":{"login":user}});
     }
 }
 var channel = new MessageChannel();
 channel.port1.onmessage = function (e) {
     console.log("сообщение получено port1:");
+    //интерфейс с SW
     console.log(e);
+    if(e.data.data){
+        if(e.data.data.ver){
+            if(e.data.data.ver == Global.SWversion){//Установлена актуальная версия SW
+                con.addstr("ServiceWorker version:"+e.data.data.ver+" [Актуальна]");
+                con.work();
+                console.log("ServiceWorker version:"+e.data.data.ver+" [Актуальна]");
+            }else{//Установленая версия SW не актуальна
+                con.addstr("ServiceWorker version:"+e.data.data.ver+" [НЕ Актуальна]");
+                con.addstr("ServiceWorker требует версию:"+Global.SWversion);
+                con.work();
+                console.log("ServiceWorker version:"+e.data.data.ver+" [НЕ Актуальна]");
+
+                //Install new version of SW
+                //SWRegisterLight();
+                SWRegister();
+            }
+        }
+    }
+
 };
-channel.port2.onmessage = function (e) {
-    console.log("сообщение получено port2:");
-    console.log(e);
-};
+
 
 
 function createNotify(title,msg,status) {

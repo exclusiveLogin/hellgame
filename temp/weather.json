@@ -1,1 +1,1 @@
-{"cod":"404","message":"Error: Not found city"}
+{"coord":{"lon":48.47,"lat":53.16},"weather":[{"id":500,"main":"Rain","description":"легкий дождь","icon":"10n"}],"base":"stations","main":{"temp":2.66,"pressure":999.99,"humidity":97,"temp_min":2.66,"temp_max":2.66,"sea_level":1016.62,"grnd_level":999.99},"wind":{"speed":1.41,"deg":183},"rain":{"3h":0.1475},"clouds":{"all":92},"dt":1492879340,"sys":{"message":0.0302,"country":"RU","sunrise":1492824603,"sunset":1492876806},"id":484972,"name":"Syzran","cod":200}

@@ -111,16 +111,16 @@ class Sender
         switch ($resultHttpCode) {
             case "200":
                 //All fine. Continue response processing.
-                echo "cod200";
+                //echo "cod200";
                 break;
 
             case "400":
-                echo "cod400";
+                //echo "cod400";
                 throw new myException('Malformed request. '.$resultBody, myException::MALFORMED_REQUEST);
                 break;
 
             case "401":
-                echo "cod401";
+                //echo "cod401";
                 throw new myException('Authentication Error. '.$resultBody, myException::AUTHENTICATION_ERROR);
                 break;
 

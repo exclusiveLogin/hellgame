@@ -17,7 +17,7 @@ echo json_encode($arr);*/
 //if($result)echo "msg sended";
 
 $one = "one";
-$two = null;
+$two = false;
 if($one)$result = $one;
 if($two)$result = $two;
 

@@ -4,8 +4,8 @@ $(document).ready(function () {
     setInterval(startUpdater,20000);
 
 });
-con.addstr("updater.js подключен");
-con.work();
+//con.addstr("updater.js подключен");
+//con.work();
 function startUpdater() {
     Global.emer = {
         state:false,

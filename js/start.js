@@ -10,12 +10,26 @@ function tooltipHandler() {
 
         var data_tooltip = $(this).attr("data-tooltip");
 
-        $("#tooltip").text(data_tooltip)
-            .css({
-                "top" : eventObject.pageY + 5,
-                "left" : eventObject.pageX + 5
-            })
-            .show();
+        var tmpoffset = $("#tooltip").offset().left;
+        var tmpw = $("#tooltip").width();
+        var tmppanelw = $("body").outerWidth();
+        console.log("offset:"+tmpoffset+"width:"+tmpw+"bodywidth:"+tmppanelw);
+
+        if((tmpoffset+tmpw+100)>tmppanelw){
+            $("#tooltip").text(data_tooltip)
+                .css({
+                    "top" : eventObject.pageY + 10,
+                    "left" : eventObject.pageX - 10 - tmpw
+                })
+                .show();
+        }else {
+            $("#tooltip").text(data_tooltip)
+                .css({
+                    "top" : eventObject.pageY + 10,
+                    "left" : eventObject.pageX + 10
+                })
+                .show();
+        }
 
     }).mouseout(function () {
 
@@ -51,10 +65,25 @@ $(document).ready(function(){
             console.log("test");
         }        
     });
-
-    $(".btn_clshgmap").on("click",function () {
-        $(this).closest("#hgmap").hide(500);
-        $('.btn-hgmap').removeClass('disabled active');
+    $('#mc_btncancel').on('click',function(){
+        addmcformToggle(false);
+    });
+	$(".btn_addmonsterHgmap").on("click",function () {
+        if($(this).hasClass("disabled")){
+            
+        }else {
+            addmcformToggle(true);
+        }        
+    });
+	$("#mc_btnsub").on("click",function () {
+        checkFormAddmc();
+    });
+	$(".btn_delmonsterHgmap").on("click",function () {
+        if($(this).hasClass("disabled")){
+            
+        }else {
+            
+        }        
     });
 
     $(".btn_f_item_more").on("click",function(){
@@ -282,7 +311,11 @@ $(document).ready(function(){
 function userEnter(user) {
     Global.authkey=true;
     Global.loggedAs = user;
-    privateDetail();
+    if(Global.simplePrivateEnded){
+        privateDetail();
+    }else{
+        setTimeout(privateDetail,10000);
+    }
     ucmapToggle(true);
     ucmapLock(false);
     ucMsgLock(false);
@@ -411,5 +444,5 @@ function createcard(card){
     }
 }
 
-con.addstr("start.js подключен");
-con.work();
+//con.addstr("start.js подключен");
+//con.work();

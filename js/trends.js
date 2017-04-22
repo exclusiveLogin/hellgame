@@ -456,7 +456,8 @@ $(document).ready(function () {
                 valueDecimals: 1,
                 valueSuffix:" м/с"
             },
-            zIndex:4
+            zIndex:4,
+			visible:false
         },{
             type: 'spline',
             name: 'Прогнозируемая скорость',
@@ -538,5 +539,5 @@ $(document).ready(function () {
     Global.trend_windrose_obj = new Highcharts.Chart(Global.trendWindroseSetting);
     Global.trend_windobj = new Highcharts.StockChart(Global.trendWindSetting);    
 });
-con.addstr("trends.js подключен");
-con.work();
+//con.addstr("trends.js подключен");
+//con.work();

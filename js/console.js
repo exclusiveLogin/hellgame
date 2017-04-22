@@ -35,17 +35,16 @@ HGConsole = function(){
     }
     this.printLetter = function (letter) {
         if(this.buffer.length && this.HGconsoleObj){
-            this.openconsole();
             this.HGconsoleObj.append(this.buffer.shift());//изымаем элемент
             if(this.buffer.length){
                 this.scheduller();
             }else {
-                console.log("вывод console завершен");
+                //console.log("вывод console завершен");
                 var wrp = this.closeconsole.bind(this);
-                setTimeout(wrp,2000);
+                setTimeout(wrp,5000);
             }
         }else {
-            console.log("вывод console завершился ошибкой");
+            //console.log("вывод console завершился ошибкой");
         }
     };
 
@@ -62,5 +61,8 @@ HGConsole = function(){
 con = new HGConsole();
 $(document).ready(function () {
     con.initiate("console");
+	con.openconsole();
+	con.addstr(">>>>>>>>>>>>>");
+	con.work();
     con.scheduller();
 });

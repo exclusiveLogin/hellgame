@@ -431,16 +431,13 @@ function refresh_z_plane() {
         url:"/zasyzran.php",
         dataType:"json",
         success:function (data) {
-            Global.z_plane.wind = Number(data.plane.widget[0].value);
+            Global.z_plane.humidity = Number(data.plane.widget[4].value);
             Global.z_plane.temp0 = Number(data.plane.widget[1].value);
             Global.z_plane.temp15 = Number(data.plane.widget[2].value);
             Global.z_plane.temp60 = Number(data.plane.widget[3].value);
             Global.z_plane.tempavg = Number(data.plane.avg.value);
-            Global.z_plane.wind_p = Number(data.plane.widget[4].value);
-            Global.z_plane.upd = data.plane.widget[5].value.substring(11);
-            if(Global.z_plane.wind == 0){Global.z_plane.wind = Global.z_plane.wind_p}
-            if(Global.z_plane.wind_p == 0){Global.z_plane.wind_p = Global.z_plane.wind}
-            Global.z_plane.windavg = (Global.z_plane.wind + Global.z_plane.wind_p)/2;
+            Global.z_plane.pressure = Number(data.plane.widget[0].value);
+            Global.z_plane.upd = data.plane.widget[5].datetimecor;
         },
         error:function () {
             console.log("Проблема получения AJAX с zasyzran.ru");
@@ -457,12 +454,13 @@ function refresh_widget(){
         $('#wh_refresh_led').addClass('led_ok');
     };
     var refresh = function () {
-        $('#w_wind_val, #wh_wind_val').text(Global.z_plane.windavg.toFixed(1));
-        $('#w_temp1_val, #wh_temp1_val').text(Global.z_plane.temp0);
-        $('#w_temp2_val, #wh_temp2_val').text(Global.z_plane.temp15);
-        $('#w_temp3_val, #wh_temp3_val').text(Global.z_plane.temp60);
-        $('#w_tempavg_val, #wh_tempavg_val').text(Global.z_plane.tempavg);
-        $('#w_upd_val, #wh_upd_val').text(Global.z_plane.upd);
+        $('#wh_humidity_val').text(Global.z_plane.humidity);
+		$('#wh_pressure_val').text(Global.z_plane.pressure);
+        $('#wh_temp1_val').text(Global.z_plane.temp0);
+        $('#wh_temp2_val').text(Global.z_plane.temp15);
+        $('#wh_temp3_val').text(Global.z_plane.temp60);
+        $('#wh_tempavg_val').text(Global.z_plane.tempavg);
+        $('#wh_upd_val').text(Global.z_plane.upd);
 
         $('.refresh_led').removeClass('refresh_led_ok');
         $('#wh_refresh_led').removeClass('led_ok');
@@ -517,5 +515,5 @@ function refresh_windcore() {
         }
     });
 }
-con.addstr("weatherparser.js подключен");
-con.work();
+//con.addstr("weatherparser.js подключен");
+//con.work();

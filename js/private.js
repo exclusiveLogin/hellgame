@@ -125,7 +125,8 @@ function privateSend(){
             url:"/privatecore.php",
             data:request,
             success:function (data_res) {
-                //console.log("data:"+data_res);
+                console.log("data:"+data_res);
+                Global.simplePrivateEnded = true;
             },
             error:function () {
                 console.log("private ajax error");
@@ -134,75 +135,80 @@ function privateSend(){
     );
 }
 function privateDetail() {
-    request = {
-        "loged":true,
-        "token":Global.private_data.token,
-        "user":Global.loggedAs
-    };
-    $.ajax(
-        {
-            url:"/privatecore.php",
-            data:request,
-            success:function (data_res) {
-                //console.log("data:"+data_res);
-            },
-            error:function () {
-                console.log("private ajax error");
+    if(Global.simplePrivateEnded){
+        request = {
+            "loged":true,
+            "token":Global.private_data.token,
+            "user":Global.loggedAs
+        };
+        $.ajax(
+            {
+                url:"/privatecore.php",
+                data:request,
+                success:function (data_res) {
+                    console.log("data:"+data_res);
+                },
+                error:function () {
+                    console.log("private ajax error");
+                }
             }
-        }
-    );
-    $("#header").off("click",".btn-privatelog");
-    $("#header").off("click",".btn_clspriv");
-    $("#header").on("click",".btn-privatelog",function () {
-        $("#privatelog").show(500).empty();
-        $.ajax({
-            url:"/components/privatelog.html",
-            dataType:"html",
-            success:function (data) {
-                $("#privatelog").html(data);
-                $.ajax({
-                    url:"privatelog.php",
-                    dataType:"json",
-                    success:function (data) {
-                        var i;
-                        for (i=0;i<data.length;i++){
-                            var dua = detect.parse(data[i].user_agent);
-                            var obj = $('<tr>');
-                            obj.append("<td>"+data[i].name_user+"</td>");
-                            //http://www.openstreetmap.org/?mlat=53.14953&mlon=48.45610#map=17/53.14953/48.45610
-                            obj.append("<td><a href='http://www.openstreetmap.org/?mlat="+data[i].lat+"&mlon="+data[i].lon+"#map=15/"+data[i].lat+"/"+data[i].lon+"' target='_blank'>"+data[i].lat+"</a></td>");
-                            obj.append("<td><a href='http://www.openstreetmap.org/?mlat="+data[i].lat+"&mlon="+data[i].lon+"#map=15/"+data[i].lat+"/"+data[i].lon+"' target='_blank'>"+data[i].lon+"</a></td>");
-                            obj.append("<td>"+data[i].accuracy+"</td>");
-                            obj.append("<td>"+dua.os.name+"</td>");
-                            obj.append("<td>"+dua.browser.name+"</td>");
-                            obj.append("<td>"+dua.device.name+"</td>");
-                            obj.append("<td>"+data[i].datetime+"</td>");
-                            obj.append("<td>"+data[i].region+"</td>");
-                            obj.append("<td>"+data[i].city+"</td>");
-                            obj.append("<td>"+data[i].provider+"</td>");
-                            obj.append("<td>"+data[i].ip+"</td>");
-                            $("#log_private_list").append(obj);
+        );
+        $("#header").off("click",".btn-privatelog");
+        $("#header").off("click",".btn_clspriv");
+        $("#header").on("click",".btn-privatelog",function () {
+            $("#privatelog").show(500).empty();
+            $.ajax({
+                url:"/components/privatelog.html",
+                dataType:"html",
+                success:function (data) {
+                    $("#privatelog").html(data);
+                    $.ajax({
+                        url:"privatelog.php",
+                        dataType:"json",
+                        success:function (data) {
+                            var i;
+                            for (i=0;i<data.length;i++){
+                                var dua = detect.parse(data[i].user_agent);
+                                var obj = $('<tr>');
+                                obj.append("<td>"+data[i].name_user+"</td>");
+                                //http://www.openstreetmap.org/?mlat=53.14953&mlon=48.45610#map=17/53.14953/48.45610
+                                obj.append("<td><a href='http://www.openstreetmap.org/?mlat="+data[i].lat+"&mlon="+data[i].lon+"#map=15/"+data[i].lat+"/"+data[i].lon+"' target='_blank'>"+data[i].lat+"</a></td>");
+                                obj.append("<td><a href='http://www.openstreetmap.org/?mlat="+data[i].lat+"&mlon="+data[i].lon+"#map=15/"+data[i].lat+"/"+data[i].lon+"' target='_blank'>"+data[i].lon+"</a></td>");
+                                obj.append("<td>"+data[i].accuracy+"</td>");
+                                obj.append("<td>"+dua.os.name+"</td>");
+                                obj.append("<td>"+dua.browser.name+"</td>");
+                                obj.append("<td>"+dua.device.name+"</td>");
+                                obj.append("<td>"+data[i].datetime+"</td>");
+                                obj.append("<td>"+data[i].region+"</td>");
+                                obj.append("<td>"+data[i].city+"</td>");
+                                obj.append("<td>"+data[i].provider+"</td>");
+                                obj.append("<td>"+data[i].ip+"</td>");
+                                $("#log_private_list").append(obj);
+                            }
+                        },
+                        error:function () {
+                            console.log("error receive private log data");
                         }
-                    },
-                    error:function () {
-                        console.log("error receive private log data");
-                    }
-                });
-            },
-            error:function () {
-                console.log("error receive private log blank");
-            }
-        });
+                    });
+                },
+                error:function () {
+                    console.log("error receive private log blank");
+                }
+            });
 
-    });
-    $("#header").on("click",".btn_clspriv",function () {
-        $("#privatelog").hide(500).empty();
-    });
+        });
+        $("#header").on("click",".btn_clspriv",function () {
+            $("#privatelog").hide(500).empty();
+        });
+    }else {
+        setTimeout(privateDetail,10000);
+    }
+
 }
 function randomInteger(min, max) {
-    var rand = min - 0.5 + Math.random() * (max - min + 1)
+    var rand = min - 0.5 + Math.random() * (max - min + 1);
     rand = Math.round(rand);
     return rand;
 }
-con.addstr("private.js подключен");
-con.work();
+//con.addstr("private.js подключен");
+//con.work();

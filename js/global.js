@@ -1,4 +1,5 @@
 Global = {
+	hgmapsrc:{},
     swready:false,
     notifyallow:false,
     georefresh:true,
@@ -85,7 +86,8 @@ Global = {
     }
 };
 
-Global.z_plane["wind"]=888;
+Global.z_plane["pressure"]=888;
+Global.z_plane["humidity"]=888;
 Global.z_plane["temp0"]=888;
 Global.z_plane["temp15"]=888;
 Global.z_plane["temp60"]=888;

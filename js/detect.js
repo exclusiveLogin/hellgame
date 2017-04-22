@@ -15,9 +15,9 @@
  * console.log(agentInfo.browser.family); // Chrome
  *
  */
-con.addstr("detect.js подключен");
-con.addstr("Система определения браузера пользователя активирована");
-con.work();
+//con.addstr("detect.js подключен");
+//con.addstr("Система определения браузера пользователя активирована");
+//con.work();
 (function(root, undefined) {
     // Shim Array.prototype.map if necessary
     // Production steps of ECMA-262, Edition 5, 15.4.4.19

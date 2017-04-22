@@ -1,9 +1,8 @@
-/**
- * Created by SavinSV on 29.06.16.
- */
 GlobalSW = {};
 GlobalSW.user = 'once';
 GlobalSW.allowNoty = false;
+GlobalSW.version = "0.3.2";
+
 
 //Clients.matchAll().then(function (clients) {
 //    console.log(clients);
@@ -50,18 +49,26 @@ channel.port2.onmessage = function (e) {
 };
 self.addEventListener('message', function(event) {
     console.log("sw message received:");
-    channel.port2.postMessage("SW обратка");
+    //channel.port2.postMessage("SW обратка");
     console.log(event);
     if(event.ports[0]){
         GlobalSW.extPort = event.ports[0];
-        GlobalSW.extPort.postMessage({"data":"first test msg"});
     }else {
         console.log("ports empty");
     }
+    if(event.data.data.ver){
+        GlobalSW.user = event.data.data.login;
+        if(GlobalSW.extPort){
+            console.log("версия отправлена FE ver:"+GlobalSW.version);
+            GlobalSW.extPort.postMessage({data:{ver:GlobalSW.version}});
+        }
+    }
 
     if(event.data.data.login){
-        GlobalSW.user = event.data.data.login;
-        GlobalSW.extPort.postMessage("пользователь успешно установлен SW");
+        if(GlobalSW.extPort){
+            GlobalSW.user = event.data.data.login;
+            GlobalSW.extPort.postMessage("пользователь успешно установлен SW");
+        }
     }
     if(event.data.data.noty){
         GlobalSW.allowNoty = event.data.data.noty;

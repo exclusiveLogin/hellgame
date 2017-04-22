@@ -26,5 +26,5 @@ function addUserToLocalStorage(user){
 function deleteUserFromLocalStorage(){
     localStorage.setItem("username","once");
 }
-con.addstr("storage.js подключен");
-con.work();
+//con.addstr("storage.js подключен");
+//con.work();

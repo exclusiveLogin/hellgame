@@ -1,34 +1,46 @@
-var domobj;
-var domobjjq;
-var map;
-var marker;
-var circleAccuracy;
+Global.hgmapsrc.domobjjq;
+Global.hgmapsrc.uc_map;
+Global.hgmapsrc.uc_marker;
+Global.hgmapsrc.uc_circleAccuracy;
 
-con.addstr("maps.js подключен");
-con.work();
+//con.addstr("maps.js подключен");
+//con.work();
 
 $(document).ready(function () {
-    domobj = document.getElementById('usermap');
-    domobjjq = $("#usermap");
+    Global.hgmapsrc.domobjjq = $("#usermap");
+	Global.HgMap = new HGMap("hgmapcontainer");
+
+    Global.HgMap.HGmapObj.addListener("click",function(e){
+        console.log("click on HGmap",e);
+        console.log(e.latLng.lat());
+        console.log(e.latLng.lng());
+        $("#addmcLat").text(e.latLng.lat());
+        $("#addmcLng").text(e.latLng.lng());
+        Global.HgMap.markerHome.setPosition(e.latLng);
+        Global.HgMap.markerHome.setVisible(true);
+        $(".btn_addmonsterHgmap").removeClass("hidden");
+        $(".addmclabel").addClass("ok");
+    });
+
     InitMap();
 });
 
 function InitMap() {
-    con.addstr("Система геопозиционирования активирована");
-    con.work();
-    map = new google.maps.Map(domobjjq[0], {
+    //con.addstr("Система геопозиционирования активирована");
+    //con.work();
+    Global.hgmapsrc.uc_map = new google.maps.Map(Global.hgmapsrc.domobjjq[0], {
         center: {lat: 53.167097, lng: 48.477003},
         zoom: 15        
     });
     //animation = new google.map.Animation.DROP;
-    marker = new google.maps.Marker({
-        map:map,
+    Global.hgmapsrc.uc_marker = new google.maps.Marker({
+        map:Global.hgmapsrc.uc_map,
         position:{lat: 53.167097, lng: 48.477003},
         title:"Вас засекли здесь",
         animation:google.maps.Animation.DROP
     });
-    circleAccuracy = new google.maps.Circle({
-        map:map,
+    Global.hgmapsrc.uc_circleAccuracy = new google.maps.Circle({
+        map:Global.hgmapsrc.uc_map,
         center:{lat: 53.167097, lng: 48.477003},
         radius:30000,
         fillColor:"#009999",

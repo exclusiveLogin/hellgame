@@ -19,7 +19,13 @@ if($_POST['pmadd'] || $_GET['pmadd']){
     echo "Данные добавлены:".$pmtokken." user:".$pmuser."<br>";
 }
 if($_POST['pmsel'] || $_GET['pmsel']){//выбираем
-    $query = "SELECT * FROM `push_subscribes`";
+    if($_POST['pmuser']){
+        $tmp_user = $_POST['pmuser'];
+        $query = "SELECT * FROM `push_subscribes` WHERE `user`=\"$tmp_user\"";
+    }else{
+        $query = "SELECT * FROM `push_subscribes`";
+    }
+
     $pmarr = array();
     $resultsql = $mysql->query($query);
     $row = $resultsql->fetch_assoc();
@@ -33,8 +39,8 @@ if($_POST['pmsel'] || $_GET['pmsel']){//выбираем
     try {
         $response = $sender->sendMessage(
             $pmarr,
-            array(),
-            "collapse_key"
+            array("data1" => "test")//,
+            //"collapse_key"
         );
 
         if ($response->getNewRegistrationIdsCount() > 0) {

@@ -81,5 +81,5 @@ function createEvent(user,title,desc,status) {
         });
     }
 }
-con.addstr("Система событий включена на портале");
-con.work();
+//con.addstr("Система событий включена на портале");
+//con.work();

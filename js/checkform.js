@@ -1,6 +1,3 @@
-$(document).ready(function () {
-});
-
 function checkFormAddmc(){
     var form={
         'tempMin':0,
@@ -22,26 +19,29 @@ function checkFormAddmc(){
     form.windMin=$('#mc_wind_speed').slider('option','values')[0];
     form.windMax=$('#mc_wind_speed').slider('option','values')[1];
     form.speed=$('#mc_speed').slider('option','value');
-    form.distance=$('#mc_distance').slider('option','value');
     form.respawn=$('#mc_respawn').slider('option','value');
     form.liveTime=$('#mc_livetime').slider('option','value');
-    form.direction=$('#mc_direction').slider('option','value');
     form.name=$('#mc_name').val();
     form.description=$('#mc_desc').val();
+    console.log(form);
+    if(form.name){
+        $.ajax({
+            url:"addmcdb.php",
+            type:"POST",
+            dataType:"text",
+            data:{"namemc":form.name,"descriptionmc":form.description,"addmc":true},
+            success:function(text){
+                updList();
+            },
+            //complete:
+            error:function(x,textst,y){
+                alert("error:"+textst);
+            }
+        });
+    }else {
+        alert("Имя за тебя мать должна писать Еб ?");
+    }
 
-    $.ajax({
-        url:"addmcdb.php",
-        type:"POST",
-        dataType:"text",
-        data:{"namemc":form.name,"descriptionmc":form.description,"addmc":true},
-        success:function(text){
-            updList();
-        },
-        //complete:
-        error:function(x,textst,y){
-            alert("error:"+textst);
-        }
-    });
 }
-con.addstr("checkform.js подключен");
-con.work();
+//con.addstr("checkform.js подключен");
+//con.work();
