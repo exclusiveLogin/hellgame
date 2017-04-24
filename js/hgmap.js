@@ -49,12 +49,38 @@ class HGMap{
         });
 
 
-        this.addMonsterHG = function(){
+        this.addMonsterHG = function(lat,lng,name){
+            let monsterMarker = new google.maps.Marker({
+                map:this.HGmapObj,
+                position:{lat: Number(lat), lng: Number(lng)},
+                title:name,
+                animation:google.maps.Animation.DROP,
+                visible:true,
+                label:"M"
+            });
+            monsterMarker.addListener("click",function (e) {
+                this.setLabel(this.title);
+                console.log("title:",this.title);
+                console.log("label:",this.label);
+                var context = this;
+                setTimeout(function(){
+                    context.setLabel("M");
+                },5000);
+            });
+            this.monsterMarkers.push(monsterMarker);
 
         };
         this.removeMosterHG  = function () {
 
         };
+        this.resetMonsters = function(){
+            this.monsterMarkers.forEach(function (elem) {
+                elem.setMap(null);
+            });
+            this.monsterMarkers = [];
+        };
+        this.monsterMarkers = [];
+
     }
 
 }

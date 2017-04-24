@@ -10,16 +10,21 @@ $(document).ready(function () {
     Global.hgmapsrc.domobjjq = $("#usermap");
 	Global.HgMap = new HGMap("hgmapcontainer");
 
-    Global.HgMap.HGmapObj.addListener("click",function(e){
+    Global.HgMap.HGmapObj.addListener("rightclick",function(e){
         console.log("click on HGmap",e);
+        Global.hgmapsrc.newMonsterLat = e.latLng.lat();
+        Global.hgmapsrc.newMonsterLng = e.latLng.lng();
         console.log(e.latLng.lat());
         console.log(e.latLng.lng());
         $("#addmcLat").text(e.latLng.lat());
         $("#addmcLng").text(e.latLng.lng());
         Global.HgMap.markerHome.setPosition(e.latLng);
         Global.HgMap.markerHome.setVisible(true);
-        $(".btn_addmonsterHgmap").removeClass("hidden");
-        $(".addmclabel").addClass("ok");
+        if(Global.hgmapsrc.newMonsterLat && Global.hgmapsrc.newMonsterLng && !Global.hgmapsrc.openedCreatePlane){
+            Global.hgmapsrc.openedCreatePlane = true;
+            $(".btn_addmonsterHgmap").removeClass("hidden");
+            $(".addmclabel").addClass("ok");
+        }
     });
 
     InitMap();

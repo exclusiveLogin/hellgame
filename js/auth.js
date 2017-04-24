@@ -18,15 +18,6 @@ function refreshAuth(){
                 $('#menupda').html(menupda);
             }
         );
-        var pr_cfADM = fetch("/components/cardfooteradmin.html").then(
-            function (response) {
-                return response.text();
-            }
-        ).then(
-            function (cf) {
-                renderCardFooter(cf);
-            }
-        );
         var pr_amc = fetch("/components/addmc.html").then(
             function (response) {
                 return response.text();
@@ -121,7 +112,8 @@ function refreshAuth(){
             }
         );
 
-        Promise.all([pr_menuADM,pr_menuPDAADM,pr_amc,pr_cfADM]).then(function () {
+        Promise.all([pr_menuADM,pr_menuPDAADM,pr_amc]).then(function () {
+            updList();
             resetHandlers();
             setHandlers();
             refreshLogged();
@@ -150,28 +142,18 @@ function refreshAuth(){
                 $('#menupda').html(menupda);
             }
         );
-        var pr_cf = fetch("/components/cardfooter.html").then(
-            function (response) {
-                return response.text();
-            }
-        ).then(
-            function (cf) {
-                renderCardFooter(cf);
-            }
-        );
 
-        Promise.all([pr_menu, pr_menuPDA, pr_cf]).then(function () {
+        Promise.all([pr_menu, pr_menuPDA]).then(function () {
             $('#addmc').html('').hide(500);
             resetHandlers();
             setHandlers();
             refreshLogged();
+            updList();
         });
     }
 }
-function renderCardFooter(cf){
-    $('.cardmanage').each(function(){
-        $(this).html(cf);
-    });
+function setCardFooterHandler(){
+    $('.btn_deletemc').off();
     $('.btn_deletemc').on('click', function () {
         var id = $(this).parentsUntil('','.monster').attr('id').substr(9);
         var quest = confirm("Вы уверены что хотите удалить монстра из базы?(Это вас не спасет)");
@@ -221,14 +203,6 @@ function setHandlers(){
 			});
         }        
     });
-    $('.btnadmintools').on('click',function(){
-        $(this).addClass('disabled active');
-        $('#admintools').show(500);
-    });
-    $('.btnadmintoolscl').on('click',function(){
-        $('.btnadmintools').removeClass('disabled active');
-        $('#admintools').hide(500);
-    });
     $('.btnlogin').on('click',function(){
         $(this).addClass('disabled active');
         $('#loginform').show(500);
@@ -243,6 +217,7 @@ function setHandlers(){
     $('.btnlogout').on('click',function(){
         Global.authkey = false;
         Global.loggedAs = "";
+        Global.HgMap.oldMonsters=[];
         refreshAuth();
         deleteUserFromLocalStorage();
         showSysMsg("Вы успешно вышли из системы",true);
@@ -438,15 +413,24 @@ function loginToggle(state){
 function addmcformToggle(state){
     if(state){
         $("#addmc").show(500);
-        $(".btn_addmonsterHgmap").addClass("hidden");
-        $("#mc_btnsub").removeClass("hidden");
+        if(Global.hgmapsrc.newMonsterLat && Global.hgmapsrc.newMonsterLng){
+            $(".btn_addmonsterHgmap").addClass("hidden");
+            $("#mc_btnsub").removeClass("hidden");
+        }else {
+            alert("Где чухан то твой, скажи еб.");
+        }
+        Global.hgmapsrc.openedCreatePlane = true;
     }
     else{
         $("#addmc").hide(500);
         $('#hgmap').hide(500);
+        Global.HgMap.markerHome.setVisible(false);
         $('.btn-hgmap').removeClass('disabled active');
-        $(".btn_addmonsterHgmap").removeClass("hidden");
         $("#mc_btnsub").addClass("hidden");
+        $(".btn_addmonsterHgmap").addClass("hidden");
+        Global.hgmapsrc.newMonsterLat = false;
+        Global.hgmapsrc.newMonsterLng = false;
+        Global.hgmapsrc.openedCreatePlane = false;
     }
 }
 function wcToggle(state) {

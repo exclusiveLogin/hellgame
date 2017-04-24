@@ -11,12 +11,12 @@ if($_POST['addmc']){
     $namemc=mysqli_real_escape_string($mysql,$_POST["namemc"]);
     $descriptionmc=mysqli_real_escape_string($mysql,$_POST["descriptionmc"]);
     $addmcflag=$_POST["addmc"];
-    $sql = "INSERT INTO `units` (`name`,`description`) VALUES ('$namemc','$descriptionmc')";
-    //echo "Before:".$sql;
-
-    $res = $mysql->query($sql);
-    if($mysql->errno){echo "errors:".$mysql->error;}
-    //echo "namemc:$namemc, descriptiionmc:$descriptionmc, addmcflag:$addmcflag, res: $res";
+    $lat = $_POST["lat"];
+    $lng = $_POST["lng"];
+    $sql = "INSERT INTO `units` (`name`,`description`,`lat`,`lng`) VALUES ('$namemc','$descriptionmc','$lat','$lng')";
+    echo "<p>SQL:$sql</p>";
+    print_r($_POST);
+    $mysql->query($sql);
 }
 elseif($_POST['deletemc']){
     $deletemcid=$_POST["mcid"];

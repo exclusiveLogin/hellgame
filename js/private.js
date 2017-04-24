@@ -1,132 +1,144 @@
 $(document).ready(function () {
-    if(navigator.geolocation){
-        var tmp_str = 'Пытаемся получить ваше местоположение';
-        showSysMsg(tmp_str,true);
-        
-        if("getCurrentPosition" in navigator.geolocation.__proto__){
-            var options = {
-                enableHighAccuracy : true,
-                timeout : 300000
-            };
-            navigator.geolocation.getCurrentPosition(
-                function (position) {
-                    tmp_str = 'Данные получены';
-                    showSysMsg(tmp_str,true);
-                    //alert('Последний раз вас засекали здесь: <a href="https://www.google.ru/maps/place/'+position.coords.latitude+'"N+'+position.coords.longitude+'"E">'+position.coords.latitude + ", " + position.coords.longitude+'</a>');
-                    tmp_str = 'Ваше местоположение было определено<a href="http://google.ru/maps/place/'+position.coords.latitude+','+position.coords.longitude+'" target="_blank"> тут</a>';
-                    showSysMsg(tmp_str,true);
-                    //console.log(tmp_str);
-                    if(position.coords.longitude)Global.private_data.geo.lon = position.coords.longitude;
-                    if(position.coords.latitude)Global.private_data.geo.lat = position.coords.latitude;
-                    if(position.coords.accuracy)Global.private_data.geo.accuracy = position.coords.accuracy;
-                    if(position.coords.altitude)Global.private_data.geo.alt = position.coords.altitude;
-                    Global.private_data.geo.status = true;
-                    Global.private_data.geo.nav = true;
-                },function (errordata) {
-                    var tmp_str = 'Ваше местоположение не было определено';
-                    showSysMsg(tmp_str,false);
-                    //console.log(tmp_str);
-                    Global.private_data.geo.nav = true;
-                },options);
-        }else{
-            var tmp_str = 'Ваш браузер не поддерживает Geolocation.getCurrentPosition';
-            showSysMsg(tmp_str);
-        }
-
-        
+    if(navigator){
+        Global.private_data.user_agent = navigator.userAgent;
     }
-    else {
-        var tmp_str = 'Ваш браузер не поддерживает Geolocation';
-        showSysMsg(tmp_str);
+    Global.private_data.user = "Guest";
+    Global.private_data.token = randomInteger(0,9999999);
 
-    }
-    check_nav();
-});
+    let promiseIP2C = ip2c();
+    let promiseGeoNative = new Promise(function (resolve,reject) {
+        if(navigator.geolocation){
+            if("getCurrentPosition" in navigator.geolocation.__proto__){
+                var options = {
+                    enableHighAccuracy : true,
+                    timeout : 300000
+                };
+                navigator.geolocation.getCurrentPosition(
+                    function (position) {
+                        console.log("geo:",position);
+                        tmp_str = 'Ваше местоположение было определено<a href="http://google.ru/maps/place/'+
+                            position.coords.latitude+','+position.coords.longitude+'" target="_blank"> тут</a>';
 
-Global.private_data.user_agent = navigator.userAgent;
-Global.private_data.user = "Guest";
-var i=0;
-var random = 0;
-random = randomInteger(0,9999999);
-Global.private_data.token = random;
+                        showSysMsg(tmp_str,true);
 
-
-
-//IP и id_user вычисляются на стороне сервера
-
-function forming_request() {
-    var request = {};
-    request.user = Global.private_data.user;
-    request.user_agent = Global.private_data.user_agent;
-    request.token = Global.private_data.token;
-    if(Global.private_data.geo.status){
-        if(Global.private_data.geo.lat != undefined)request.geo_lat = Global.private_data.geo.lat;
-        if(Global.private_data.geo.lon != undefined)request.geo_lon = Global.private_data.geo.lon;
-        if(Global.private_data.geo.alt != undefined)request.geo_alt = Global.private_data.geo.alt;
-        if(Global.private_data.geo.accuracy != undefined)request.geo_accuracy = Global.private_data.geo.accuracy;
-        request.geo_status = Global.private_data.geo.status;
-    }else {
-        request.geo_status = Global.private_data.geo.status;
-    }
-    request.city = Global.private_data.ipinfo.city;
-    request.region = Global.private_data.ipinfo.region;
-    request.provider = Global.private_data.ipinfo.org;
-
-    return request;
-}
-function check_private() {
-    if(Global.private_complete){
-        privateSend();
-    }else {
-        setTimeout(function () {
-            check_private();
-        },5000);
-    }
-}
-function check_nav() {
-    if(Global.private_data.geo.nav){
-        ip2c();
-    }else {
-        setTimeout(function () {
-            check_nav();
-        },5000);
-    }
-}
-function ip2c() {
-    $.ajax({
-        url:"/ip2c.php",
-        dataType:"json",
-        success:function (data) {
-            //console.log(data);
-            if(data.status == "success"){
-                Global.private_data.ipinfo = data;
-                Global.private_data.ipinfo.status = true;
-                if (!Global.private_data.geo.status){
-                    Global.private_data.geo.lat = data.lat;
-                    Global.private_data.geo.lon = data.lon;
-                    Global.private_data.geo.alt = "0"; 
-                    Global.private_data.geo.status = true;
-                }
+                        if(position.coords.longitude)Global.private_data.geo.lon = position.coords.longitude;
+                        if(position.coords.latitude)Global.private_data.geo.lat = position.coords.latitude;
+                        if(position.coords.accuracy)Global.private_data.geo.accuracy = position.coords.accuracy;
+                        if(position.coords.altitude)Global.private_data.geo.alt = position.coords.altitude;
+                        Global.private_data.geo.status = true;
+                        resolve();
+                    },function (errordata) {
+                        var tmp_str = 'Ваше местоположение не было определено';
+                        showSysMsg(tmp_str,false);
+                        console.log("Ваше местоположение не было определено");
+                        resolve();
+                    },options);
+            }else{
+                var tmp_str = 'Ваш браузер не поддерживает Geolocation.getCurrentPosition';
+                showSysMsg(tmp_str);
+                console.log("Ваш браузер не поддерживает Geolocation");
+                resolve();
             }
-        },
-        error:function () {
-            console.log("error ipinfo");
-        },
-        complete:function () {
-            Global.private_complete = true;
-            check_private();
+        }
+        else {
+            var tmp_str = 'Ваш браузер не поддерживает Geolocation';
+            showSysMsg(tmp_str);
+            resolve();
         }
     });
-}
-function privateSend(){
-    request = forming_request();
+
+    Promise.all([promiseIP2C,promiseGeoNative]).then(
+        function () {
+            console.log("Private all:",Global.private_data.geo);
+            console.log("ipinfo all:",Global.private_data.ipinfo);
+            var request = {};
+            request.user = Global.private_data.user;
+            request.user_agent = Global.private_data.user_agent;
+            request.token = Global.private_data.token;
+
+            if(Global.private_data.geo.status && Global.private_data.geo.accuracy < 300){
+                if(Global.private_data.geo.lat){
+                    request.geo_lat = Global.private_data.geo.lat;
+                }else {
+                    request.geo_lat = 0;
+                }
+                if(Global.private_data.geo.lon){
+                    request.geo_lon = Global.private_data.geo.lon;
+                }else {
+                    request.geo_lon = 0;
+                }
+                if(Global.private_data.geo.alt){
+                    request.geo_alt = Global.private_data.geo.alt;
+                }else {
+                    request.geo_alt = 0;
+                }
+                if(Global.private_data.geo.accuracy){
+                    request.geo_accuracy = Global.private_data.geo.accuracy;
+                }else {
+                    request.geo_accuracy = 90000;
+                }
+                request.geo_status = Global.private_data.geo.status;
+            }else {
+                if(Global.private_data.ipinfo.lat){
+                    request.geo_lat = Global.private_data.ipinfo.lat;
+                }else{
+                    request.geo_lat = 0;
+                }
+                if(Global.private_data.ipinfo.lon){
+                    request.geo_lon = Global.private_data.ipinfo.lon;
+                }else {
+                    request.geo_lon = 0;
+                }
+                if(Global.private_data.ipinfo.alt){
+                    request.geo_alt = Global.private_data.ipinfo.alt;
+                }else {
+                    request.geo_alt = 0;
+                }
+                if(Global.private_data.ipinfo.accuracy){
+                    request.geo_accuracy = Global.private_data.ipinfo.accuracy;
+                }else {
+                    request.geo_accuracy = 0;
+                }
+                request.geo_status = Global.private_data.geo.status;
+            }
+            request.city = Global.private_data.ipinfo.city;
+            request.region = Global.private_data.ipinfo.region;
+            request.provider = Global.private_data.ipinfo.org;
+
+            console.log("request:",request);
+            privateSend(request);
+        }
+    );
+});
+
+function ip2c() {
+    return new Promise(function (resolve, reject) {
+        $.ajax({
+            url:"/ip2c.php",
+            dataType:"json",
+            success:function (data) {
+                if(data.status == "success"){
+                    Global.private_data.ipinfo = data;
+                    resolve();
+                }else {
+                    reject();
+                }
+            },
+            error:function () {
+                console.log("error ipinfo");
+                reject()
+            }
+        });
+    });
+}//<<<<<<<Global.private_data.ipinfo
+function privateSend(request){
     $.ajax(
         {
             url:"/privatecore.php",
             data:request,
             success:function (data_res) {
-                console.log("data:"+data_res);
-                Global.simplePrivateEnded = true;
+                Global.private_data.sended = true;
+                console.log(data_res);
             },
             error:function () {
                 console.log("private ajax error");
@@ -135,7 +147,7 @@ function privateSend(){
     );
 }
 function privateDetail() {
-    if(Global.simplePrivateEnded){
+    if(Global.private_data.sended){
         request = {
             "loged":true,
             "token":Global.private_data.token,
@@ -169,6 +181,9 @@ function privateDetail() {
                             var i;
                             for (i=0;i<data.length;i++){
                                 var dua = detect.parse(data[i].user_agent);
+                                //console.log("DUA:",dua);
+                                let deviceTpl = dua.device.type;
+                                if(dua.device.name)deviceTpl = dua.device.name;
                                 var obj = $('<tr>');
                                 obj.append("<td>"+data[i].name_user+"</td>");
                                 //http://www.openstreetmap.org/?mlat=53.14953&mlon=48.45610#map=17/53.14953/48.45610
@@ -177,7 +192,7 @@ function privateDetail() {
                                 obj.append("<td>"+data[i].accuracy+"</td>");
                                 obj.append("<td>"+dua.os.name+"</td>");
                                 obj.append("<td>"+dua.browser.name+"</td>");
-                                obj.append("<td>"+dua.device.name+"</td>");
+                                obj.append("<td>"+deviceTpl+"</td>");
                                 obj.append("<td>"+data[i].datetime+"</td>");
                                 obj.append("<td>"+data[i].region+"</td>");
                                 obj.append("<td>"+data[i].city+"</td>");
@@ -197,6 +212,7 @@ function privateDetail() {
             });
 
         });
+        $(".btn-privatelog").removeClass("disabled");
         $("#header").on("click",".btn_clspriv",function () {
             $("#privatelog").hide(500).empty();
         });
@@ -210,5 +226,3 @@ function randomInteger(min, max) {
     rand = Math.round(rand);
     return rand;
 }
-//con.addstr("private.js подключен");
-//con.work();

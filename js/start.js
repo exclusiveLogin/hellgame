@@ -5,6 +5,16 @@ Global.loginData={
 };
 Global.bugFixEv = new Event("resize");
 
+Global.demo = true;
+Global.version = {};
+Global.version.v = "1.0.1";
+Global.version.build = "97100";
+Global.version.desc = "<li>...</li>" +
+    "<li>Исправлен алгоритм расчета баланса</li>" +
+    "<li>Добавлен алгоритм потокового слежение</li>" +
+    "<li>Добавлен дампер базы данных</li>" +
+    "<li>Исправлены мелкие недочеты</li>";
+
 function tooltipHandler() {
     $("[data-tooltip]").mousemove(function (eventObject) {
 
@@ -42,6 +52,15 @@ function tooltipHandler() {
     });
 }
 $(document).ready(function(){
+    if(Global.demo){
+        $("#fancydemo").fancybox({
+            modal:true
+        }).click();
+         setTimeout(function(){
+            $.fancybox.close();
+         },5000);
+    }
+
     checkLastLogin();
     $.ajaxSetup({
         cache:false
@@ -278,8 +297,8 @@ $(document).ready(function(){
 
     //updList();
     setTimeout(updList,10000);
-    setTimeout(refreshAuth,5000);
-    //refreshAuth();
+    //setTimeout(refreshAuth,5000);
+    refreshAuth();
     
 
     $('#btnloginenter').on('click',function(){
@@ -300,6 +319,7 @@ $(document).ready(function(){
                     } 
                     showSysMsg(data.msg,state);
                 }
+                Global.HgMap.oldMonsters = [];
                 refreshAuth();
             },
             error:function(){
@@ -354,23 +374,32 @@ function deletemc(indexid){
         },
         //complete:
         error:function(x,textst,y){
-            alert("error:"+textst);
+            console.log("error:"+textst);
         }
     });
 }
 function updList(){
-    $('#container').empty();
     $.ajax({
         url:"/dbq.php",
         mode:"json",
-        success:function(json){
-            user(json);
+        success:function(data){
+            if(Global.HgMap.oldMonsters != data){
+                Global.HgMap.resetMonsters();
+                $('#container').empty();
+                var json = $.parseJSON(data);
+                var un;
+                for(un in json.units){
+                    createcard(json.units[un]);
+                }
+            }
+            setTimeout(updList,10000);
+            setCardFooterHandler();
+            Global.HgMap.oldMonsters = data;
         },
         complete: function () {
-            refreshAuth();
         },
         error:function(){
-            alert("error ajax");
+            console.log("error ajax");
         }
     });
 
@@ -381,27 +410,43 @@ function updList(){
         $('#fancytemp').click();
     });
 }
-function user(data){
-    var json = $.parseJSON(data);
-    var un;
-    for(un in json.units){
-        createcard(json.units[un]);
-    }
-}
 function createcard(card){
-    var Text={};
+    if(card.lat && card.lng && card.name){
+        Global.HgMap.addMonsterHG(card.lat,card.lng,card.name);
+    }
+    let Text={};
     if(card.active==='1'){
         Text.act="Активен";
     }
     else{
         Text.act="Не активен";
     }
+    let onmapTpl = '<div class="label label-success hidden"></div>' ;
+    if(card.lat && card.lng){
+        onmapTpl = '<div class="label label-success">На карте</div>' ;
+    }else {
+        onmapTpl = '<div class="label label-danger">Нет на карте</div>' ;
+    }
+
+    let cardFooterTpl = `<p>Управление:<span class="label label-default">Режим гостя</span></p>`;
+
+    if(Global.authkey){
+        cardFooterTpl = `<p>Управление:<span class="label label-danger">Режим администратора</span></p>
+            '<div class="managetools text-center">
+                <div class="btn-group">
+                    <button class="btn btn-warning btn-group-sm disabled">Редактировать</button>
+                    <button class="btn btn-danger btn-group-sm btn_deletemc">Удалить</button>
+                </div>
+            </div>`;
+    }
+
+
     $('#container').append('<div class="monster col-lg-4 col-md-6 col-sm-12 col-xs-12" id="monstermc'+card.id+'">'+
         '<div class="card panel panel-danger">'+
         '<div class="headermc col-lg-12 panel-heading"><p class="headermctext panel-title">'+card.name+'</p></div>'+
         '<div class="panel-body">'+
         '<div class="leftmc col-sm-6">'+
-        '<div class="photomc text-center thumbnail">'+
+        '<div class="photomc text-center thumbnail hidden-xs">'+
         '<img src="style/nophoto.png"></div>'+
         '<div class="dangermc">Класс опасности:'+card.class+'</div></div>'+
         '<div class="rightmc col-sm-6">'+
@@ -413,8 +458,13 @@ function createcard(card){
         '<div class="snowmc col-lg-3 col-md-3 col-sm-3"><i class="fa fa-cog"></i></div>'+
         '<div class="rainmc col-lg-3 col-md-3 col-sm-3"><i class="fa fa-tint"></i></div>'+
         '<div class="overcastmc col-lg-3 col-md-3 col-sm-3"><i class="fa fa-cloud"></i></div>'+
-        '<div class="clearskymc col-lg-3 col-md-3 col-sm-3"><i class="fa fa-sun-o"></i></div></div></div></div>'+
-        '<div class="panel-footer cardmanage">'+
+        '<div class="clearskymc col-lg-3 col-md-3 col-sm-3"><i class="fa fa-sun-o"></i></div></div>' +
+        '<div class="mc_lat">Широта: <span class="value">'+card.lat+'</span></div>'+
+        '<div class="mc_lng">Долгота: <span class="value">'+card.lng+'</span></div>' +
+        onmapTpl+
+        '</div></div>'+
+        '<div class="panel-footer cardmanage">' +
+        cardFooterTpl+
         '</div></div></div>'
     );
 
