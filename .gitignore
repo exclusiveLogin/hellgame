@@ -1,3 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
-.well-known/*
-webalizer/*
+.well-known/
+webalizer/
+cgi-bin/
+.idea/

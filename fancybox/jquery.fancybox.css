@@ -30,12 +30,12 @@
 .fancybox-skin {
 	position: relative;
 	background: #444;
-	background-image: url("../../style/bg2.png");
+	background-image: url("../style/bg.jpg");
 	color: #ffe;
 	text-shadow: none;
 	-webkit-border-radius: 20px;
-	   -moz-border-radius: 20px;
-	        border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
 }
 
 .fancybox-opened {
@@ -44,8 +44,8 @@
 
 .fancybox-opened .fancybox-skin {
 	-webkit-box-shadow: 0 10px 25px rgba(200, 100, 0, 0.5);
-	   -moz-box-shadow: 0 10px 25px rgba(200, 100, 0, 0.5);
-	        box-shadow: 0 10px 25px rgba(200, 100, 0, 0.5);
+	-moz-box-shadow: 0 10px 25px rgba(200, 100, 0, 0.5);
+	box-shadow: 0 10px 25px rgba(200, 100, 0, 0.5);
 }
 
 .fancybox-outer, .fancybox-inner {
@@ -169,16 +169,16 @@
 /* Overlay helper */
 
 .fancybox-lock {
-    overflow: hidden !important;
-    width: auto;
+	overflow: hidden !important;
+	width: auto;
 }
 
 .fancybox-lock body {
-    overflow: hidden !important;
+	overflow: hidden !important;
 }
 
 .fancybox-lock-test {
-    overflow-y: hidden !important;
+	overflow-y: hidden !important;
 }
 
 .fancybox-overlay {
@@ -232,8 +232,8 @@
 	background: transparent; /* Fallback for web browsers that doesn't support RGBa */
 	background: rgba(0, 0, 0, 0.8);
 	-webkit-border-radius: 15px;
-	   -moz-border-radius: 15px;
-	        border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
 	text-shadow: 0 1px 2px #222;
 	color: #FFF;
 	font-weight: bold;
@@ -263,8 +263,8 @@
 
 /*Retina graphics!*/
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-	   only screen and (min--moz-device-pixel-ratio: 1.5),
-	   only screen and (min-device-pixel-ratio: 1.5){
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5){
 
 	#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
 		background-image: url('fancybox_sprite@2x.png');

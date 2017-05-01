@@ -15,7 +15,7 @@ $(document).ready(function () {
                 };
                 navigator.geolocation.getCurrentPosition(
                     function (position) {
-                        console.log("geo:",position);
+                        //console.log("geo:",position);
                         tmp_str = 'Ваше местоположение было определено<a href="http://google.ru/maps/place/'+
                             position.coords.latitude+','+position.coords.longitude+'" target="_blank"> тут</a>';
 
@@ -49,8 +49,8 @@ $(document).ready(function () {
 
     Promise.all([promiseIP2C,promiseGeoNative]).then(
         function () {
-            console.log("Private all:",Global.private_data.geo);
-            console.log("ipinfo all:",Global.private_data.ipinfo);
+            //console.log("Private all:",Global.private_data.geo);
+            //console.log("ipinfo all:",Global.private_data.ipinfo);
             var request = {};
             request.user = Global.private_data.user;
             request.user_agent = Global.private_data.user_agent;
@@ -105,7 +105,7 @@ $(document).ready(function () {
             request.region = Global.private_data.ipinfo.region;
             request.provider = Global.private_data.ipinfo.org;
 
-            console.log("request:",request);
+            //console.log("request:",request);
             privateSend(request);
         }
     );
@@ -138,7 +138,7 @@ function privateSend(request){
             data:request,
             success:function (data_res) {
                 Global.private_data.sended = true;
-                console.log(data_res);
+                //console.log(data_res);
             },
             error:function () {
                 console.log("private ajax error");
@@ -158,7 +158,7 @@ function privateDetail() {
                 url:"/privatecore.php",
                 data:request,
                 success:function (data_res) {
-                    console.log("data:"+data_res);
+                    //console.log("data:"+data_res);
                 },
                 error:function () {
                     console.log("private ajax error");

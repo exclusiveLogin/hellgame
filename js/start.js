@@ -7,9 +7,10 @@ Global.bugFixEv = new Event("resize");
 
 Global.demo = true;
 Global.version = {};
-Global.version.v = "1.0.1";
-Global.version.build = "97100";
+Global.version.v = "1.0.2";
+Global.version.build = "10200";
 Global.version.desc = "<li>...</li>" +
+    "<li>Версия Service Worker 0.3.2</li>" +
     "<li>Исправлен алгоритм расчета баланса</li>" +
     "<li>Добавлен алгоритм потокового слежение</li>" +
     "<li>Добавлен дампер базы данных</li>" +
@@ -23,7 +24,7 @@ function tooltipHandler() {
         var tmpoffset = $("#tooltip").offset().left;
         var tmpw = $("#tooltip").width();
         var tmppanelw = $("body").outerWidth();
-        console.log("offset:"+tmpoffset+"width:"+tmpw+"bodywidth:"+tmppanelw);
+        //console.log("offset:"+tmpoffset+"width:"+tmpw+"bodywidth:"+tmppanelw);
 
         if((tmpoffset+tmpw+100)>tmppanelw){
             $("#tooltip").text(data_tooltip)
@@ -402,12 +403,20 @@ function updList(){
             console.log("error ajax");
         }
     });
-
+    $('#container').off('click','.headermc');
     $('#container').on('click','.headermc',function(event){
-        $('#fancytemp').html($(this).parent().parent().html());
-        $('#fancytemp').find('.card').attr('style','margin:15px;');
-        $('#fancytemp').fancybox();
-        $('#fancytemp').click();
+        // $('#fancytemp').html($(this).parent().parent().html());
+        // $('#fancytemp').find('.card').attr('style','margin:15px;');
+        // $('#fancytemp').fancybox();
+        // $('#fancytemp').click();
+
+        if($(this).hasClass("active")){
+            $(this).removeClass("active");
+            $(this).next().hide();
+        }else {
+            $(this).addClass("active");
+            $(this).next().show();
+        }
     });
 }
 function createcard(card){
@@ -432,7 +441,7 @@ function createcard(card){
 
     if(Global.authkey){
         cardFooterTpl = `<p>Управление:<span class="label label-danger">Режим администратора</span></p>
-            '<div class="managetools text-center">
+            <div class="managetools text-center">
                 <div class="btn-group">
                     <button class="btn btn-warning btn-group-sm disabled">Редактировать</button>
                     <button class="btn btn-danger btn-group-sm btn_deletemc">Удалить</button>
@@ -441,31 +450,52 @@ function createcard(card){
     }
 
 
-    $('#container').append('<div class="monster col-lg-4 col-md-6 col-sm-12 col-xs-12" id="monstermc'+card.id+'">'+
-        '<div class="card panel panel-danger">'+
-        '<div class="headermc col-lg-12 panel-heading"><p class="headermctext panel-title">'+card.name+'</p></div>'+
-        '<div class="panel-body">'+
-        '<div class="leftmc col-sm-6">'+
-        '<div class="photomc text-center thumbnail hidden-xs">'+
-        '<img src="style/nophoto.png"></div>'+
-        '<div class="dangermc">Класс опасности:'+card.class+'</div></div>'+
-        '<div class="rightmc col-sm-6">'+
-        '<div class="namemc">Уровень:'+card.level+'</div>'+
-        '<textarea class="descriptionmc" readonly>'+card.description+'</textarea>'+
-        '<div class="statusmc">'+card.status+'</div>'+
-        '<div class="activemc">'+Text.act+'</div>'+
-        '<div class="weathermc container-fluid">'+
-        '<div class="snowmc col-lg-3 col-md-3 col-sm-3"><i class="fa fa-cog"></i></div>'+
-        '<div class="rainmc col-lg-3 col-md-3 col-sm-3"><i class="fa fa-tint"></i></div>'+
-        '<div class="overcastmc col-lg-3 col-md-3 col-sm-3"><i class="fa fa-cloud"></i></div>'+
-        '<div class="clearskymc col-lg-3 col-md-3 col-sm-3"><i class="fa fa-sun-o"></i></div></div>' +
-        '<div class="mc_lat">Широта: <span class="value">'+card.lat+'</span></div>'+
-        '<div class="mc_lng">Долгота: <span class="value">'+card.lng+'</span></div>' +
-        onmapTpl+
-        '</div></div>'+
-        '<div class="panel-footer cardmanage">' +
-        cardFooterTpl+
-        '</div></div></div>'
+    $('#container').append(
+        `<div class="monster col-lg-4 col-md-6 col-sm-12 col-xs-12" id="monstermc${card.id}">
+            <div class="card panel panel-danger">
+                <div class="headermc col-lg-12 panel-heading">
+                    <p class="headermctext panel-title">${card.name}</p>
+                </div>
+                <div class="panel-body">
+                    <div class="leftmc col-sm-6">
+                        <div class="photomc text-center thumbnail hidden-xs">
+                            <img src="style/nophoto.png">
+                        </div>
+                        <div class="dangermc">Класс опасности:${card.class}</div>
+                    </div>
+                    <div class="rightmc col-sm-6">
+                        <div class="namemc">Уровень:${card.level}</div>
+                        <textarea class="descriptionmc" readonly>${card.description}</textarea>
+                        <div class="statusmc">${card.status}</div>
+                        <div class="activemc">${Text.act}</div>
+                        <div class="weathermc container-fluid">
+                            <div class="snowmc col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <i class="fa fa-cog"></i>
+                            </div>
+                            <div class="rainmc col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <i class="fa fa-tint"></i>
+                            </div>
+                            <div class="overcastmc col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <i class="fa fa-cloud"></i>
+                            </div>
+                            <div class="clearskymc col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <i class="fa fa-sun-o"></i>
+                            </div>
+                        </div>
+                        <div class="mc_lat">Широта: 
+                            <span class="value">${card.lat}</span>
+                        </div>
+                        <div class="mc_lng">Долгота: 
+                            <span class="value">${card.lng}</span>
+                        </div>
+                        ${onmapTpl}
+                    </div>
+                </div>
+                <div class="panel-footer cardmanage">
+                    ${cardFooterTpl}
+                </div>
+            </div>
+        </div>`
     );
 
     if(card.snow==='1'){
