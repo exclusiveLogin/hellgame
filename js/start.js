@@ -98,13 +98,6 @@ $(document).ready(function(){
 	$("#mc_btnsub").on("click",function () {
         checkFormAddmc();
     });
-	$(".btn_delmonsterHgmap").on("click",function () {
-        if($(this).hasClass("disabled")){
-            
-        }else {
-            
-        }        
-    });
 
     $(".btn_f_item_more").on("click",function(){
         if(!$(this).hasClass("disabled")){
@@ -523,6 +516,3 @@ function createcard(card){
         $('#monstermc'+card.id).find('.clearskymc').removeClass('wactmc');
     }
 }
-
-//con.addstr("start.js подключен");
-//con.work();

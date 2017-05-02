@@ -37,7 +37,6 @@ function InitMap() {
         center: {lat: 53.167097, lng: 48.477003},
         zoom: 15        
     });
-    //animation = new google.map.Animation.DROP;
     Global.hgmapsrc.uc_marker = new google.maps.Marker({
         map:Global.hgmapsrc.uc_map,
         position:{lat: 53.167097, lng: 48.477003},

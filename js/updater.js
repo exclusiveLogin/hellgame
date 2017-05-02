@@ -49,7 +49,7 @@ function startUpdater() {
 function globalUpdate(obj,newemo,refresh) {//сначала proto потом вне условия все остальное
     if(!Global[obj.login]){
         Global[obj.login] = {};
-        for(var key in Global.blank){
+        /*for(var key in Global.blank){
             if(typeof(Global.blank[key]) == 'object'){
                 for(var key2 in Global.blank[key]){
                     Global[obj.login][key]={};
@@ -58,8 +58,8 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
             }else {
                 Global[obj.login][key] = Global.blank[key];
             }
-        }
-        
+        }*/
+        Object.assign(Global[obj.login],Global.blank);
     }
     if(refresh){
         Global.users.push(obj.login);

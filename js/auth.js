@@ -344,6 +344,11 @@ function ucmapToggle(state) {
         $(".uc_map_container").show(500,function () {
             window.dispatchEvent(Global.bugFixEv);
             Global.georefresh = true;
+            if(Global.hgmapsrc && Global.opened){
+                if(Global.hgmapsrc.uc_map){
+                    Global.hgmapsrc.uc_map.panTo({lat: Global[Global.opened].privatedata.lat, lng: Global[Global.opened].privatedata.lon});
+                }
+            }
         });
         $(".uc_msg_container").hide(500);
         if($(".btn_uc_map").hasClass("active disabled")){

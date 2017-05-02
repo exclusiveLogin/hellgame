@@ -2,7 +2,7 @@
   Options +FollowSymLinks
   RewriteEngine On
 
-  RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+  RewriteCond %{HTTPS} !=on
   RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
 </IfModule>

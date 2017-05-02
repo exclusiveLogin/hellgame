@@ -202,13 +202,6 @@ function refreshUC(user) {
     if(Global[user].privatedata){
         window.dispatchEvent(Global.bugFixEv);
         if(Global.georefresh){
-            if(Global[user].privatedata.lat && Global[user].privatedata.lon){
-                Global.hgmapsrc.uc_map.setCenter({lat: Global[user].privatedata.lat, lng: Global[user].privatedata.lon});
-                Global.hgmapsrc.uc_marker.setPosition({lat: Global[user].privatedata.lat, lng: Global[user].privatedata.lon});
-                Global.hgmapsrc.uc_circleAccuracy.setCenter({lat: Global[user].privatedata.lat, lng: Global[user].privatedata.lon});
-                Global.hgmapsrc.uc_circleAccuracy.setRadius(Global[user].privatedata.accuracy/2);
-            }
-
             if(Global[user].privatedata.accuracy>25000){
                 Global.hgmapsrc.uc_map.setZoom(9);
             }
@@ -224,10 +217,16 @@ function refreshUC(user) {
             if(Global[user].privatedata.accuracy<1000){
                 Global.hgmapsrc.uc_map.setZoom(16);
             }
+            if(Global[user].privatedata.lat && Global[user].privatedata.lon){
+                Global.hgmapsrc.uc_marker.setPosition({lat: Global[user].privatedata.lat, lng: Global[user].privatedata.lon});
+                Global.hgmapsrc.uc_circleAccuracy.setCenter({lat: Global[user].privatedata.lat, lng: Global[user].privatedata.lon});
+                Global.hgmapsrc.uc_circleAccuracy.setRadius(Global[user].privatedata.accuracy/2);
+                Global.hgmapsrc.uc_map.setCenter({lat: Global[user].privatedata.lat, lng: Global[user].privatedata.lon});
+            }
             Global.georefresh = false;
         }
 
-    }      
+    }
 }
 
 //con.addstr("refresher.js подключен");

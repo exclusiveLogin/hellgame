@@ -182,14 +182,23 @@ function privateDetail() {
                             for (i=0;i<data.length;i++){
                                 var dua = detect.parse(data[i].user_agent);
                                 //console.log("DUA:",dua);
+
                                 let deviceTpl = dua.device.type;
                                 if(dua.device.name)deviceTpl = dua.device.name;
+
+                                let accuracyTpl = "";
+                                if(data[i].accuracy == "0"){
+                                    accuracyTpl = "<span class='emo_down'>Не точно</span>";
+                                }else {
+                                    accuracyTpl = "<span class='emo_up'>"+data[i].accuracy+"м.</span>";
+                                }
+
                                 var obj = $('<tr>');
                                 obj.append("<td>"+data[i].name_user+"</td>");
                                 //http://www.openstreetmap.org/?mlat=53.14953&mlon=48.45610#map=17/53.14953/48.45610
                                 obj.append("<td><a href='http://www.openstreetmap.org/?mlat="+data[i].lat+"&mlon="+data[i].lon+"#map=15/"+data[i].lat+"/"+data[i].lon+"' target='_blank'>"+data[i].lat+"</a></td>");
                                 obj.append("<td><a href='http://www.openstreetmap.org/?mlat="+data[i].lat+"&mlon="+data[i].lon+"#map=15/"+data[i].lat+"/"+data[i].lon+"' target='_blank'>"+data[i].lon+"</a></td>");
-                                obj.append("<td>"+data[i].accuracy+"</td>");
+                                obj.append("<td>"+accuracyTpl+"</td>");
                                 obj.append("<td>"+dua.os.name+"</td>");
                                 obj.append("<td>"+dua.browser.name+"</td>");
                                 obj.append("<td>"+deviceTpl+"</td>");
