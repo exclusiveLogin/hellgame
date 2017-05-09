@@ -13,10 +13,33 @@ if($_POST['pmadd'] || $_GET['pmadd']){
 
     if(isset($_POST['pmuser']))$pmuser = $_POST['pmuser'];
     if(isset($_GET['pmuser']))$pmuser = $_GET['pmuser'];
-
-    $query = "INSERT INTO `push_subscribes` (`pm`,`user`) VALUES (\"$pmtokken\",\"$pmuser\")";
-    $mysql->query($query);
-    echo "Данные добавлены:".$pmtokken." user:".$pmuser."<br>";
+	
+	$query = "SELECT `id` FROM `push_subscribes` WHERE `pm`=\"$pmtokken\"";
+	$resultQ = $mysql->query($query);
+	
+	if($resultQ->num_rows > 1){
+		//удаляем лишнее
+		$q = "DELETE FROM `push_subscribes` WHERE `pm`=\"$pmtokken\"";
+		$mysql->query($q);
+		$query = "INSERT INTO `push_subscribes` (`pm`,`user`) VALUES (\"$pmtokken\",\"$pmuser\")";
+		$mysql->query($query);
+		echo "Данные добавлены с удалением дубликатов tokken:".$pmtokken." user:".$pmuser."<br>";
+	}
+	if($resultQ->num_rows == 1){
+		//меняем
+		$row = $resultQ->fetch_assoc();
+		$id = (int)$row["id"];
+		
+		$query = "UPDATE `push_subscribes` SET `pm` = \"$pmtokken\",`user`=\"$pmuser\" WHERE `id`=$id";
+		$mysql->query($query);
+		echo "Данные обновлены pmtokken:".$pmtokken." user:".$pmuser."<br>";
+	}
+	if($resultQ->num_rows == 0){
+		//Добавляем в БД
+		$query = "INSERT INTO `push_subscribes` (`pm`,`user`) VALUES (\"$pmtokken\",\"$pmuser\")";
+		$mysql->query($query);
+		echo "Данные добавлены:".$pmtokken." user:".$pmuser."<br>";
+	}    
 }
 if($_POST['pmsel'] || $_GET['pmsel']){//выбираем
     if($_POST['pmuser']){
@@ -48,6 +71,8 @@ if($_POST['pmsel'] || $_GET['pmsel']){//выбираем
             foreach ($newRegistrationIds as $oldRegistrationId => $newRegistrationId){
                 //Update $oldRegistrationId to $newRegistrationId in DB
                 echo "old:".$oldRegistrationId." new:".$newRegistrationId."<br>";
+				$query = "UPDATE `push_subscribes` SET `pm`=\"$newRegistrationId\" WHERE `pm`=\"$oldRegistrationId\"";
+                $mysql->query($query);
             }
         }
 

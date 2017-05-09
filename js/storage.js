@@ -9,11 +9,9 @@ function checkLastLogin() {
         if(tmp_user != "once"){
             userEnter(tmp_user);
             con.addstr("Вы вошли как "+tmp_user);
-            //con.work();
         }
         else {
             con.addstr("Вы зашли как гость");
-            //con.work();
         }
         con.work();
     }
@@ -25,6 +23,5 @@ function addUserToLocalStorage(user){
 }
 function deleteUserFromLocalStorage(){
     localStorage.setItem("username","once");
+    sendUserName("once");
 }
-//con.addstr("storage.js подключен");
-//con.work();

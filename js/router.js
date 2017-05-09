@@ -12,6 +12,9 @@ $(document).ready(function () {
         }
         
     }
+    if(location.protocol == "http:"){
+        location.protocol = "https:";
+    }
 });
 //con.addstr("router.js подключен");
 //con.work();

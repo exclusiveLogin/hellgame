@@ -330,13 +330,14 @@ function userEnter(user) {
     }else{
         setTimeout(privateDetail,10000);
     }
+    addUserToLocalStorage(user);
     ucmapToggle(true);
     ucmapLock(false);
     ucMsgLock(false);
     createEvent("all","Пользователь "+Global.loggedAs+" зашел на сайт","Для подробностей посетите сайт игры","ok");
-    addUserToLocalStorage(user);
     sendUserName(user);
     refreshAuth();
+    refreshEvents();
 }
 function showSysMsg(msg,state) {
     if(state){

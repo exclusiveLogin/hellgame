@@ -1,8 +1,8 @@
 <IfModule mod_rewrite.c>
   Options +FollowSymLinks
-  RewriteEngine On
-
-  RewriteCond %{HTTPS} !=on
-  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+#  RewriteEngine On
+#
+#  RewriteCond %{HTTPS} !=on
+#  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
 </IfModule>

@@ -1,70 +1,104 @@
-Global.SWversion = "0.3.2";
-if("serviceWorker" in navigator){
-    Global.pr_readySW = navigator.serviceWorker.getRegistration();
-    Global.pr_readySW.then(function (reg) {
-        if(reg){
-            console.log("SW существует");
-            con.addstr("Service Worker уже установлен на компьютере");
-            con.work();
-            Global.SW = reg;
-            Global.swready = true;
-            Global.SW.active.postMessage({"data":{"ver":true}},[channel.port2]);
-            con.addstr("Запрос версии ServiceWorker...");
-            con.work();
-        }else {
-            console.log("SW ЕЩЕ не зарегистрирован");
-            con.addstr("Service Worker еще не установлен на компьютере");
-            console.log("Регистрация SW");
-            con.addstr("Регистрируем Service Worker");
-            con.work();
-            SWRegister();
-        }
-    });
-}else {
-    con.addstr("ServiceWorker НЕ установлен в системе");
-    con.work();
-}
-if("Notification" in window){
-    Notification.requestPermission(function (permission) {
-        if(permission == "granted"){
-            Global.notifyallow = true;
-            //console.log("Разрешение на notification получено");
-            con.addstr("Разрешение на notification получено");
-            con.work();
-            Global.pr_readySW.then(function () {
-                if(Global.swready){
-                    Global.SW.active.postMessage({"data":{"noty":true}});
-                }
-            });
-            //createNotify("Добро пожаловать на HellGame24","Игра начинается","ok");
-        }else {
-            Global.notifyallow = false;
-            //console.log("Разрешение на notification НЕ получено");
-            con.addstr("Разрешение на notification НЕ получено");
-            con.work();
-            Global.pr_readySW.then(function () {
-                if(Global.swready) {
-                    Global.SW.active.postMessage({"data": {"noty": false}});
-                }
-            });
-        }
-    });
-}
+Global.SWversion = "0.3.5";
+$(function () {
+    Global.swready = $.Deferred();
+    Global.usersListPromise = $.Deferred();
+    if("serviceWorker" in navigator){
+        Global.pr_readySW = navigator.serviceWorker.getRegistration();
+        Global.pr_readySW.then(function (reg) {
+            if(reg){
+                con.addstr("Service Worker уже установлен на компьютере");
+                con.work();
+                reg.update();
+                Global.SW = reg;
+                Global.swready.resolve();
+                Global.SW.active.postMessage({"data":{"ver":true}},[channel.port2]);
+                Global.SW.pushManager.getSubscription().then(function (pmsub) {
+                    if(pmsub){
+                        console.log("старая регистрация PM",pmsub);
+                        let username = Global.loggedAs || "guest";
 
-else {
-    con.addstr("Notification НЕ установлен в системе");
-    con.work();
-}
+                        var url = document.createElement('a');
+                        url.href = pmsub.endpoint;
+
+                        var tmpUrl = [];
+                        tmpUrl = url.pathname.split("/");
+
+                        var pmtokken = tmpUrl[tmpUrl.length-1];
+
+                        var data = "pmtokken="+encodeURIComponent(pmtokken)+"&pmuser="+
+                            encodeURIComponent(username)+"&pmadd=1";
+                        fetch("/pmcollector.php",{
+                            headers: {
+                                "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+                            },
+                            method:"POST",
+                            body:data
+                        }).then(function (data) {
+                            if(data.status==200){
+                                //console.log("status 200 успешен");
+                                return data.text();
+                            }
+                        }).then(function (dataResp) {
+                            //console.log("response получен");
+                            console.log(dataResp);
+                        }).catch(function (e) {
+                            console.log("fetch с ошибкой");
+                            console.log(e);
+                        });
+                    }else {
+                        PMregister();
+                    }
+                });
+            }else {
+                con.addstr("Service Worker еще не установлен на компьютере");
+                con.work();
+                SWRegister();
+            }
+        });
+    }else {
+        con.addstr("ServiceWorker НЕ установлен в системе");
+        con.work();
+    }
+    if("Notification" in window){
+        Notification.requestPermission(function (permission) {
+            if(permission == "granted"){
+                Global.notifyallow = true;
+                //console.log("Разрешение на notification получено");
+                con.addstr("Разрешение на notification получено");
+                con.work();
+                Global.pr_readySW.then(function () {
+                    Global.swready.then(function () {
+                        Global.SW.active.postMessage({"data":{"noty":true}});
+                    });
+                });
+                //createNotify("Добро пожаловать на HellGame24","Игра начинается","ok");
+            }else {
+                Global.notifyallow = false;
+                //console.log("Разрешение на notification НЕ получено");
+                con.addstr("Разрешение на notification НЕ получено");
+                con.work();
+                Global.pr_readySW.then(function () {
+                    Global.swready.then(function () {
+                        Global.SW.active.postMessage({"data": {"noty": false}});
+                    });
+                });
+            }
+        });
+    }
+    else {
+        con.addstr("Notification НЕ установлен в системе");
+        con.work();
+    }
+});
+
 function SWRegister(){
     navigator.serviceWorker.register('/sw.js').then(function (seviceWorker) {
         console.log("Регистрация SW успешна");
         Global.SW = seviceWorker;
+        Global.swready.resolve();
         seviceWorker.pushManager.getSubscription().then(function (pmsub) {
             if(pmsub){
-                console.log("старая регистрация PM");
-                //console.log(pmsub);
-                con.addstr("На компьютере найдена подписка на уведомления");
-                con.work();
+                console.log("старая регистрация PM",pmsub);
             }else {
                 PMregister();
             }
@@ -73,8 +107,8 @@ function SWRegister(){
 }
 function PMregister() {
     if(Global.SW){
-        seviceWorker.pushManager.subscribe({userVisibleOnly: true}).then(function (pmsubscribe) {
-            console.log("новая регистрация PM");
+        Global.SW.pushManager.subscribe({userVisibleOnly: true}).then(function (pmsubscribe) {
+            console.log("новая регистрация PM",pmsubscribe);
             //console.log(pmsubscribe);
             var url = document.createElement('a');
             url.href = pmsubscribe.endpoint;
@@ -85,9 +119,10 @@ function PMregister() {
             //console.log("tokken:"+tmpUrl[tmpUrl.length-1]);
             //console.log("user:"+Global.loggedAs);
             var pmtokken = tmpUrl[tmpUrl.length-1];
-            if(pmtokken && Global.loggedAs){
+            if(pmtokken){
+				let username = Global.loggedAs || "guest";
                 var data = "pmtokken="+encodeURIComponent(pmtokken)+"&pmuser="+
-                    encodeURIComponent(Global.loggedAs)+"&pmadd=1";
+                    encodeURIComponent(username)+"&pmadd=1";
                 //console.log(data);
                 fetch("/pmcollector.php",{
                     headers: {
@@ -96,10 +131,8 @@ function PMregister() {
                     method:"POST",
                     body:data
                 }).then(function (data) {
-                    //console.log("fetch успешен");
-                    //console.log(data);
                     if(data.status==200){
-                        console.log("status 200 успешен");
+                        //console.log("status 200 успешен");
                         return data.text();
                     }
                 }).then(function (dataResp) {
@@ -110,23 +143,17 @@ function PMregister() {
                     console.log(e);
                 });
             }
-            con.addstr("Новая регистрация PushManager");
-            con.work();
         });
     }
 }
 
-function SWRegisterLight() {
-    navigator.serviceWorker.register('/sw.js').then(function (seviceWorker) {
-        console.log("SW успешно обновлен на версию :"+Global.SWversion);
-        Global.SW = seviceWorker;
-        Global.SW.update();
-    });
-}
 function sendUserName(user) {
-    if(Global.swready){
+    Global.swready.then(function () {
         Global.SW.active.postMessage({"data":{"login":user}});
-    }
+        Global.usersListPromise.then(function () {
+            createEvent("all","Оповещение Hellgame24","Пользователь "+user+" Online");
+        });
+    });
 }
 
 var channel = new MessageChannel();

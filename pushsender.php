@@ -5,7 +5,7 @@ require_once "GCM/Message.php";
 require_once "GCM/Response.php";
 require_once "dbsetting_n_connect.php";
 
-
+require_once ""
 
 
 $sender = new Sender("AIzaSyCDV_cGYt4mHY0kGg6_4vvsvMc41Fw5g3c");
@@ -14,7 +14,7 @@ $sender = new Sender("AIzaSyCDV_cGYt4mHY0kGg6_4vvsvMc41Fw5g3c");
 
 try {
     $response = $sender->sendMessage(
-        array("favwEL6MrXI:APA91bFZIDa2-_KpBMbW5kP3UBTJoxk40G3dXRnxP4kUABA6soUOiSGnDQA5Ajdik7OAGpOqyJ3dk4uH0_kTIUP1DHjdGedsm306cwo9zfYbRmzeMIXW4cCwsAtMuoQZwodHOM0Qhkud"),
+        array("cax-fsYSk84:APA91bHpCCGawUDRGW6FkugcXG96YT1nytiY-s72SqJ6gyTdTioWcIUICgGGB4TxsGkiPWa7BYykTHNZVmN_6Kh5DtPwxmaEy5NGwCTSQacu5VQMiWqyHH-teFMS18IoEMd8cdrTq6m4"),
         array("data" => "123"),
         "collapse_key"
     );

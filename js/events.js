@@ -1,47 +1,36 @@
-/**
- * Created by alter on 27.06.2016.
- */
-
-setInterval(function () {
-    checkLoginAndEvents();
-},20000);
-
-function checkLoginAndEvents() {
+setInterval(refreshEvents,30000);
+function refreshEvents() {
+    let request = {};
     if(Global.loggedAs){
-        refreshEvents(Global.loggedAs)
-    }else{
-        refreshEvents("once");
-    }
-}
-
-
-function refreshEvents(user) {
-    if(Global.users.indexOf(user)>=0 || user == "once"){
-        var request = {
+        request = {
             getlast:true,
-            getfor:user
+            getfor:Global.loggedAs
         };
-        $.ajax({
-            url:"/eventcore.php",
-            dataType:"json",
-            data:request,
-            success:function (data) {
-                data.data = JSON.parse(data.data);
-                if(!data.error && data.data.length){
-                    for(var i = 0;i<data.data.length;i++){
-                        var tmp_title = data.data[i].title;
-                        var tmp_desc = data.data[i].desc;
-                        var tmp_status = data.data[i].status;
-                        createNotify(tmp_title,tmp_desc,tmp_status);
-                    }
-                }
-                //console.log("stop");
-            },
-            error:function () {
-                console.log("error event create");
-            }
-        });
+    }else {
+        request = {
+            getlast:true,
+            getfor:"once"
+        };
     }
+    $.ajax({
+        url:"/eventcore.php",
+        dataType:"json",
+        data:request,
+        success:function (data) {
+            data.data = JSON.parse(data.data);
+            if(!data.error && data.data.length){
+                for(var i = 0;i<data.data.length;i++){
+                    var tmp_title = data.data[i].title;
+                    var tmp_desc = data.data[i].desc;
+                    var tmp_status = data.data[i].status;
+                    createNotify(tmp_title,tmp_desc,tmp_status);
+                }
+            }
+        },
+        error:function () {
+            console.log("error event create");
+        }
+    });
 }
 function createEvent(user,title,desc,status) {
     //console.log(Global.users.indexOf(user));
@@ -72,14 +61,18 @@ function createEvent(user,title,desc,status) {
             url:"/eventcore.php",
             dataType:"json",
             data:request,
-            success:function (data) {
-                //console.log("stop");
+            success:function () {
+                request.for.forEach(function (user) {
+                   emitPushTo(user);
+                });
+                //emitPushAll();
             },
             error:function () {
                 console.log("error event create");
             }
         });
+        // request.for.forEach(function (el) {
+            //emitPushAll();
+        // });
     }
 }
-//con.addstr("Система событий включена на портале");
-//con.work();

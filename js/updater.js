@@ -24,6 +24,7 @@ function startUpdater() {
                 globalUpdate(data.r_users[uc],false,true);
             }
             refreshLogged();
+            Global.usersListPromise.resolve();
         },
         error:function(){
             console.log("error to load refresher ajax");

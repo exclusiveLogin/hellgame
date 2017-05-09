@@ -1,0 +1,33 @@
+{
+  "name": "Hellgame24 - game is life",
+  "gcm_sender_id":"1003834301130",
+  "short_name": "HELLGAME24",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#444",
+  "description": "Header Game of MSC 4 age.",
+  "icons": [{
+    "src": "style/logo32.png",
+    "sizes": "32x32",
+    "type": "image/png"
+  }, {
+    "src": "style/logo64.png",
+    "sizes": "64x64",
+    "type": "image/png"
+  }, {
+    "src": "style/logo96.png",
+    "sizes": "96x96",
+    "type": "image/png"
+  }, {
+    "src": "style/logo144.png",
+    "sizes": "144x144",
+    "type": "image/png"
+  }, {
+    "src": "style/logo196.png",
+    "sizes": "196x196",
+    "type": "image/png"
+  }],
+  "related_applications": [{
+    "platform": "web"
+  }]
+}
