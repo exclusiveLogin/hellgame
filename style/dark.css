@@ -819,3 +819,40 @@ a:hover{
 .mc_lng .value{
     color: orange;
 }
+.addNewForm{
+    text-align: center;
+    background-color: #DDD;
+    font-size: 120%;
+    padding: 10px;
+    margin: 10px auto;
+    margin-top: 30px;
+    border: orange 2px solid;
+     border-radius: 5px;
+    box-shadow: 0 5px 20px 1px rgba(0,0,0,0.5);
+}
+.newsContainer{
+    margin: 5px auto;
+}
+.newsItem{
+    background-color: #DDD;
+    border-radius: 5px;
+    box-shadow: 0 5px 20px 1px rgba(0,0,0,0.5);
+}
+.newsAuthorImg{
+    width: 30px;
+}
+.newsTitle{
+    height: 40px;
+    background-color: #DDA;
+    padding: 5px 10px;
+    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.5);
+}
+.newsImg{
+    height: 100%;
+}
+.newsBody{
+    height: 170px;
+}
+.newsLeft{
+    height: 100%;
+}
