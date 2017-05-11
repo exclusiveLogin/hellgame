@@ -77,6 +77,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://code.highcharts.com/stock/highstock.js"></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="components/news/logic.js?v1.0.1"></script>
+
 
 
 
@@ -477,7 +479,7 @@
 					<div class="col-lg-1 col-md-1 col-sm-2 col-xs-4">
 						<div class="wh_icon" id="wh_icon_humidity"></div>
 						<div class="h_led" id="wh_humidity_led"></div>
-						<div id="wh_wind">
+						<div id="wh_humidity">
 							<div class="wh_label hidden hidden-sm hidden-xs">Влажность</div>
 							<div class="wh_val"><span id="wh_humidity_val">---</span> %</div>
 						</div>
@@ -485,7 +487,7 @@
 					<div class="col-lg-1 col-md-1 col-sm-2 col-xs-4">
 						<div class="wh_icon" id="wh_icon_pressure"></div>
 						<div class="h_led" id="wh_pressure_led"></div>
-						<div id="wh_wind">
+						<div id="wh_pressure">
 							<div class="wh_label hidden hidden-sm hidden-xs">Давление</div>
 							<div class="wh_val"><span id="wh_pressure_val">---</span></div>
 						</div>
@@ -541,12 +543,13 @@
         <div id="news" class="container">
             <div class="col-md-12">
                 <div class="addNewForm form-horizontal">
-                    <button class="btnAddNews btn btn-warning btn-lg disabled">Добавить новость</button>
+                    <button class="btnAddNews btn btn-warning btn-lg">Добавить новость</button>
                     <div class="newsAddFormEditContainer">
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="newsAddImgPreview">Фотография</label>
                                 <img src="style/nophoto.png" id="newsAddImgPreview">
+                                <input type="file" id="newsImgFile" accept="image/jpeg">
                                 <span class="newsAddPhotoDesc">Для добавления фото коснитесь картинки</span>
                             </div>
                             <div class="col-md-6">
@@ -556,8 +559,8 @@
                                 <textarea id="newsFormText" class="form-control"></textarea>
                             </div>
                             <div class="col-md-12">
-                                <button class="btnAddNewsSubmit btn btn-success btn-sm disabled">Добавить</button>
-                                <button class="btnAddNewsCancel btn btn-warning btn-sm disabled">Отмена</button>
+                                <button class="btnAddNewsSubmit btn btn-success btn-sm">Добавить</button>
+                                <button class="btnAddNewsCancel btn btn-warning btn-sm">Отмена</button>
                             </div>
                         </div>
                     </div>
