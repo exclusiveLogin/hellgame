@@ -17,9 +17,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
 
-    <link rel="icon" sizes="192x192" href="/style/logo.png">
+    <link rel="icon" sizes="192x192" href="style/logo.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="style/dark.css?v1.0.1">
+    <link rel="stylesheet" href="components/news/style.css?v1.0.1">
     <link rel="stylesheet" href="style/z_plane.css?v1.0.1">
     <link rel="stylesheet" href="style/lightbox.css?v1.0.1">
     <link rel="stylesheet" href="fancybox/jquery.fancybox.css?v1.0.1">
@@ -30,49 +31,49 @@
     <!-- Latest compiled and minified JavaScript -->
 
 
-    <script src="/js/global.js?v1.0.1"></script>
+    <script src="js/global.js?v1.0.1"></script>
 
-    <script src="/js/jquery-1.11.3.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
     <script src="jquery-ui-1.11.4/jquery-ui.js"></script>
 
-    <script src="/js/console.js?v1.0.1"></script>
+    <script src="js/console.js?v1.0.1"></script>
 
-    <script src="/js/notifycenter.js?v1.0.1"></script>
+    <script src="js/notifycenter.js?v1.0.1"></script>
 
-    <script src="/js/auth.js?v1.0.1"></script>
-    <script src="/js/storage.js?v1.0.1"></script>
+    <script src="js/auth.js?v1.0.1"></script>
+    <script src="js/storage.js?v1.0.1"></script>
 
-	<script src="/js/windcore.js?v1.0.1"></script>
-    <script src="/js/updater.js?v1.0.1"></script>
-    <script src="/js/refresher.js?v1.0.1"></script>
+	<script src="js/windcore.js?v1.0.1"></script>
+    <script src="js/updater.js?v1.0.1"></script>
+    <script src="js/refresher.js?v1.0.1"></script>
 
-    <script src="/js/start.js?v1.0.1"></script>
+    <script src="js/start.js?v1.0.1"></script>
 
-    <script src="/js/color_led.js?v1.0.1"></script>
-    <script src="/js/trends.js?v1.0.1"></script>
-    <script src="/js/weatherparser.js?v1.0.1"></script>
+    <script src="js/color_led.js?v1.0.1"></script>
+    <script src="js/trends.js?v1.0.1"></script>
+    <script src="js/weatherparser.js?v1.0.1"></script>
 
-    <script src="/js/lightbox.js?v1.0.1"></script>
+    <script src="js/lightbox.js?v1.0.1"></script>
 
-    <script src="/js/detect.js?v1.0.1"></script>
+    <script src="js/detect.js?v1.0.1"></script>
 
-    <script src="/js/loadend.js?v1.0.1"></script>
+    <script src="js/loadend.js?v1.0.1"></script>
 
-    <script src="/js/events.js?v1.0.1"></script>
-    <script src="/js/private.js?v1.0.1"></script>
+    <script src="js/events.js?v1.0.1"></script>
+    <script src="js/private.js?v1.0.1"></script>
 
-    <script src="/js/router.js?v1.0.1"></script>
+    <script src="js/router.js?v1.0.1"></script>
 
     <!--Google Maps-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGc1IlCuJd173d1Q1685Eya-Cs7NJ5HOU"></script>
-    <script src="/js/maps.js?v1.0.1"></script>
-    <script src="/js/hgmap.js?v1.0.1"></script>
+    <script src="js/maps.js?v1.0.1"></script>
+    <script src="js/hgmap.js?v1.0.1"></script>
 
-    <script src="/fancybox/jquery.fancybox.js?v1.0.1"></script>
-    <script src="/fancybox/jquery.fancybox.pack.js?v1.0.1"></script>
+    <script src="fancybox/jquery.fancybox.js?v1.0.1"></script>
+    <script src="fancybox/jquery.fancybox.pack.js?v1.0.1"></script>
 
 
-    <script src="/js/checkform.js?v1.0.1"></script>
+    <script src="js/checkform.js?v1.0.1"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://code.highcharts.com/stock/highstock.js"></script>
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
@@ -539,8 +540,27 @@
     <div id="wrapper">
         <div id="news" class="container">
             <div class="col-md-12">
-                <div class="addNewForm">
-                    <button class="btnAddNews btn btn-warning disabled">Добавить новость</button>
+                <div class="addNewForm form-horizontal">
+                    <button class="btnAddNews btn btn-warning btn-lg disabled">Добавить новость</button>
+                    <div class="newsAddFormEditContainer">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="newsAddImgPreview">Фотография</label>
+                                <img src="style/nophoto.png" id="newsAddImgPreview">
+                                <span class="newsAddPhotoDesc">Для добавления фото коснитесь картинки</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="newsFormTitle">Название новости</label>
+                                <input id="newsFormTitle" type="text" class="form-control">
+                                <label for="newsFormTitle">Текст новости</label>
+                                <textarea id="newsFormText" class="form-control"></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <button class="btnAddNewsSubmit btn btn-success btn-sm disabled">Добавить</button>
+                                <button class="btnAddNewsCancel btn btn-warning btn-sm disabled">Отмена</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-12">
@@ -549,11 +569,24 @@
                         <div class="newsTitle">
                             <div class="newsAuthor">
                                 <img class="newsAuthorImg" src="photo/ssv_min.jpg">
+                                <span>Новость создал </span>
                                 <span class="newsAutorName">SSV</span>
                                 <span class="newsTimeCreate">20.04.2017 в 20:34</span>
                             </div>
+
+                            <div class="newsApproved text-right">
+                                <span>Принято: </span>
+                                <img class="newsAuthorImg" src="photo/msn_min.jpg">
+                                <span class="newsAutorName">MSN</span>
+                                <span class="newsTimeCreate">22.04.2017 в 02:34</span>
+                            </div>
+
+                            <div class="btnApproved text-right">
+                                <button class="btnAddNews btn btn-success btn-xs disabled">Принимаю</button>
+                            </div>
                         </div>
                         <div class="newsBody">
+                            <div class="row">
                                 <div class="col-md-4 newsLeft">
                                     <img src="photo/ssv_big.jpg" class="newsImg">
                                     <div class="newsImgDesc"></div>
@@ -563,6 +596,7 @@
                                     <span>Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться.Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации
                                     </span>
                                 </div>
+                            </div>
                         </div>
                         <div class="newsFooter"></div>
                     </div>

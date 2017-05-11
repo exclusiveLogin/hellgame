@@ -22,11 +22,11 @@ class HGMap{
 
         let sizeIcon = new google.maps.Size(32,32);
         let iconSSV = {
-            url:"/photo/ssv_min.jpg",
+            url:"photo/ssv_min.jpg",
             scaledSize:sizeIcon
         };
         let iconMSN = {
-            url:"/photo/msn_min.jpg",
+            url:"photo/msn_min.jpg",
             scaledSize:sizeIcon
         };
 

@@ -15,7 +15,7 @@ $(function () {
                 Global.SW.pushManager.getSubscription().then(function (pmsub) {
                     if(pmsub){
                         console.log("старая регистрация PM",pmsub);
-                        let username = Global.loggedAs || "guest";
+                        var username = Global.loggedAs || "guest";
 
                         var url = document.createElement('a');
                         url.href = pmsub.endpoint;
@@ -92,7 +92,7 @@ $(function () {
 });
 
 function SWRegister(){
-    navigator.serviceWorker.register('/sw.js').then(function (seviceWorker) {
+    navigator.serviceWorker.register('sw.js').then(function (seviceWorker) {
         console.log("Регистрация SW успешна");
         Global.SW = seviceWorker;
         Global.swready.resolve();
@@ -120,7 +120,7 @@ function PMregister() {
             //console.log("user:"+Global.loggedAs);
             var pmtokken = tmpUrl[tmpUrl.length-1];
             if(pmtokken){
-				let username = Global.loggedAs || "guest";
+				var username = Global.loggedAs || "guest";
                 var data = "pmtokken="+encodeURIComponent(pmtokken)+"&pmuser="+
                     encodeURIComponent(username)+"&pmadd=1";
                 //console.log(data);
@@ -185,25 +185,25 @@ channel.port1.onmessage = function (e) {
 function createNotify(title,msg,status) {
     var options = {
         body:"Надеемся Вам понравится",
-        icon:"/style/logo.png"
+        icon:"style/logo.png"
     };
     if(Global.notifyallow){
         switch (status){
             case "ok":
                 if(msg)options.body = msg;
-                options.icon = "/style/logo.png";
+                options.icon = "style/logo.png";
                 break;
             case "danger":
                 if(msg)options.body = msg;
-                options.icon = "/style/logo_dng.png";
+                options.icon = "style/logo_dng.png";
                 break;
             case "red":
                 if(msg)options.body = msg;
-                options.icon = "/style/logo_rc.png";
+                options.icon = "style/logo_rc.png";
                 break;
             case "orange":
                 if(msg)options.body = msg;
-                options.icon = "/style/logo_oc.png";
+                options.icon = "style/logo_oc.png";
                 break;
             default:
                 break;

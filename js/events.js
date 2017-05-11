@@ -13,7 +13,7 @@ function refreshEvents() {
         };
     }
     $.ajax({
-        url:"/eventcore.php",
+        url:"eventcore.php",
         dataType:"json",
         data:request,
         success:function (data) {
@@ -58,7 +58,7 @@ function createEvent(user,title,desc,status) {
             request.for.push(user);
         }
         $.ajax({
-            url:"/eventcore.php",
+            url:"eventcore.php",
             dataType:"json",
             data:request,
             success:function () {

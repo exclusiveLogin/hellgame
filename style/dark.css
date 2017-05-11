@@ -1,4 +1,4 @@
-@import "/style/garden/gardensc.css";
+@import "garden/gardensc.css";
 
 .headerdark{
     background-color: #313131;
@@ -37,7 +37,7 @@
 body{
     margin: 0;
     background-color: #919191;
-    background-image: url(bglogo.png);
+    background-image: url("bglogo.png");
     background-position: center center;
     background-repeat: no-repeat;
     height: 100%;
@@ -61,7 +61,7 @@ html{
 .photomc{
     border-radius: 5px;
     box-shadow: 0 0 10px 0px rgba(0,0,0,0.4);
-    background: url("/style/nophoto.png") no-repeat center;
+    background: url("nophoto.png") no-repeat center;
     background-size: contain;
 }
 .leftmc,.rightmc{
@@ -210,7 +210,7 @@ html{
     width: 50px;
     box-shadow: 2px 2px 10px 0 rgba(200,200,200,0.4);
     margin-right: 5px;
-    background: url("/style/nophoto.png") no-repeat center;
+    background: url("nophoto.png") no-repeat center;
     background-size: cover;
 }
 
@@ -318,7 +318,7 @@ h3.card_status_off{
     max-width: 150px;
     margin: 0px auto;
     margin-bottom: 10px;
-    background: url("/style/nophoto.png") no-repeat center;
+    background: url("nophoto.png") no-repeat center;
     background-size: cover;
     box-shadow: 0 0 10px 5px rgba(255,255,255,0.7);
 
@@ -485,7 +485,7 @@ h3.card_status_off{
 .weather_icon{
     height: 100%;
     width: 100%;
-    background-image: url("/weather/codes/w1000.png");
+    background-image: url("../weather/codes/w1000.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -499,7 +499,7 @@ h3.card_status_off{
     position: relative;
     height: 150px;
     /* width: 150px; */
-    background-image: url("/weather/codes/w1000.png");
+    background-image: url("../weather/codes/w1000.png");
     background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -511,13 +511,13 @@ h3.card_status_off{
     margin: 10px 0;
 }
 .wc_temp_min{
-    background-image: url("/weather/tmin.png");
+    background-image: url("../weather/tmin.png");
     background-position: center center;
     height: 48px;
     width: 48px;
 }
 .wc_temp_max{
-    background-image: url("/weather/tmax.png");
+    background-image: url("../weather/tmax.png");
     background-position: center center;
     height: 48px;
     width: 48px;
@@ -532,56 +532,56 @@ h3.card_status_off{
     border-bottom: 1px grey solid;
 }
 .wc_sun_up{
-    background-image: url("/weather/36.png");
+    background-image: url("../weather/36.png");
     background-position: center center;
     background-size: cover;
     height: 48px;
     width: 48px;
 }
 .wc_sun_down{
-    background-image: url("/weather/31.png");
+    background-image: url("../weather/31.png");
     background-position: center center;
     background-size: cover;
     height: 48px;
     width: 48px;
 }
 .wc_drop{
-    background-image: url("/weather/humidity.png");
+    background-image: url("../weather/humidity.png");
     background-position: center center;
     background-size: cover;
     height: 48px;
     width: 48px;
 }
 .wc_wind{
-    background-image: url("/weather/wind.png");
+    background-image: url("../weather/wind.png");
     background-position: center center;
     background-size: cover;
     height: 48px;
     width: 48px;
 }
 .wc_baro{
-    background-image: url("/weather/baro.png");
+    background-image: url("../weather/baro.png");
     background-position: center center;
     background-size: cover;
     height: 48px;
     width: 48px;
 }
 .wc_compass{
-    background-image: url("/weather/compass.png");
+    background-image: url("../weather/compass.png");
     background-position: center center;
     background-size: cover;
     height: 48px;
     width: 48px;
 }
 .wc_clouds{
-    background-image: url("/weather/cloud.png");
+    background-image: url("../weather/cloud.png");
     background-position: center center;
     background-size: cover;
     height: 48px;
     width: 48px;
 }
 .wc_wind_dir{
-    background-image: url("/images/wind_arrow_w.png");
+    background-image: url("../images/wind_arrow_w.png");
     background-position: center center;
     background-size: cover;
     height: 90px;
@@ -655,7 +655,7 @@ h3.card_status_off{
     position: relative;
     height: 50px;
     /* width: 150px; */
-    background-image: url("/weather/36.png");
+    background-image: url("../weather/36.png");
     background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -669,25 +669,25 @@ h3.card_status_off{
     right: -24px;
 }
 .f_item_humidity_i{
-    background-image: url("/weather/humidity.png");
+    background-image: url("../weather/humidity.png");
     background-position: center center;
     background-size: cover;
 }
 
 .f_item_wind_i{
-    background-image: url("/weather/wind.png");
+    background-image: url("../weather/wind.png");
     background-position: center center;
     background-size: cover;
 }
 
 .f_item_winddir_i{
-    background-image: url("/weather/compass.png");
+    background-image: url("../weather/compass.png");
     background-position: center center;
     background-size: cover;
 }
 
 .f_item_baro_i{
-    background-image: url("/weather/baro.png");
+    background-image: url("../weather/baro.png");
     background-position: center center;
     background-size: cover;
 }
@@ -818,41 +818,4 @@ a:hover{
 }
 .mc_lng .value{
     color: orange;
-}
-.addNewForm{
-    text-align: center;
-    background-color: #DDD;
-    font-size: 120%;
-    padding: 10px;
-    margin: 10px auto;
-    margin-top: 30px;
-    border: orange 2px solid;
-     border-radius: 5px;
-    box-shadow: 0 5px 20px 1px rgba(0,0,0,0.5);
-}
-.newsContainer{
-    margin: 5px auto;
-}
-.newsItem{
-    background-color: #DDD;
-    border-radius: 5px;
-    box-shadow: 0 5px 20px 1px rgba(0,0,0,0.5);
-}
-.newsAuthorImg{
-    width: 30px;
-}
-.newsTitle{
-    height: 40px;
-    background-color: #DDA;
-    padding: 5px 10px;
-    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.5);
-}
-.newsImg{
-    height: 100%;
-}
-.newsBody{
-    height: 170px;
-}
-.newsLeft{
-    height: 100%;
 }

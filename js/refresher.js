@@ -68,7 +68,7 @@ function refresher() {
         }
         //Аватарка
         if(Global[user_name].img_min){
-            widget_obj.find(".user_card_photo").css({"backgroundImage":'url("/photo/'+Global[user_name].img_min+'")'});
+            widget_obj.find(".user_card_photo").css({"backgroundImage":'url("photo/'+Global[user_name].img_min+'")'});
         }
         //StatusCode
         if(Global[user_name].status_code){
@@ -195,9 +195,9 @@ function refreshUC(user) {
         $(".emo_val_tend").text("---");
     }
     if(Global[user].img_big){
-        $(".uc_photo").css({"backgroundImage":'url("/photo/'+Global[user].img_big+'")'});
+        $(".uc_photo").css({"backgroundImage":'url("photo/'+Global[user].img_big+'")'});
     }else {
-        $(".uc_photo").css({"backgroundImage":'url("/style/nophoto.png")'});
+        $(".uc_photo").css({"backgroundImage":'url("style/nophoto.png")'});
     }
     if(Global[user].privatedata){
         window.dispatchEvent(Global.bugFixEv);

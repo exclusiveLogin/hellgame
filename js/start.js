@@ -5,7 +5,7 @@ Global.loginData={
 };
 Global.bugFixEv = new Event("resize");
 
-Global.demo = true;
+Global.demo = false;
 Global.version = {};
 Global.version.v = "1.0.2";
 Global.version.build = "10200";
@@ -375,7 +375,7 @@ function deletemc(indexid){
 }
 function updList(){
     $.ajax({
-        url:"/dbq.php",
+        url:"dbq.php",
         mode:"json",
         success:function(data){
             if(Global.HgMap.oldMonsters != data){

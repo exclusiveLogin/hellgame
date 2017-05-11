@@ -1,6 +1,6 @@
 function refreshAuth(){
     if(Global.authkey){//************************Авторизован****************
-        var pr_menuADM = fetch("/components/menuadmin.html").then(
+        var pr_menuADM = fetch("components/menuadmin.html").then(
             function (response) {
                 return response.text();
             }
@@ -9,7 +9,7 @@ function refreshAuth(){
                 $('#menu').html(menu);
             }
         );
-        var pr_menuPDAADM = fetch("/components/menupdaadmin.html").then(
+        var pr_menuPDAADM = fetch("components/menupdaadmin.html").then(
             function (response) {
                 return response.text();
             }
@@ -18,7 +18,7 @@ function refreshAuth(){
                 $('#menupda').html(menupda);
             }
         );
-        var pr_amc = fetch("/components/addmc.html").then(
+        var pr_amc = fetch("components/addmc.html").then(
             function (response) {
                 return response.text();
             }
@@ -124,7 +124,7 @@ function refreshAuth(){
         ucmapLock(true);
         ucMsgLock(true);
 
-        var pr_menu = fetch("/components/menu.html").then(
+        var pr_menu = fetch("components/menu.html").then(
             function (response) {
                 return response.text();
             }
@@ -133,7 +133,7 @@ function refreshAuth(){
                 $('#menu').html(menu);
             }
         );
-        var pr_menuPDA = fetch("/components/menupda.html").then(
+        var pr_menuPDA = fetch("components/menupda.html").then(
             function (response) {
                 return response.text();
             }
@@ -208,7 +208,7 @@ function setHandlers(){
         $('#loginform').show(500);
     });
     $('.btnfx95').on('click',function(){
-        window.open("/3d/index.html");
+        window.open("3d/index.html");
     });
     $('.btnlogincl').on('click',function(){
         $('.btnlogin').removeClass('disabled active');

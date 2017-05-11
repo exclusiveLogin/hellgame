@@ -14,7 +14,7 @@ function startUpdater() {
         users:[]
     };
     $.ajax({
-        url:"/refresher.php",
+        url:"refresher.php",
         dataType:"json",
         method:'GET',
         success:function(data){
@@ -33,7 +33,7 @@ function startUpdater() {
     var dataQueryLogin = {};
     dataQueryLogin['t_user'] = Global.loggedAs;
     $.ajax({
-        url:"/online.php",
+        url:"online.php",
         method:'GET',
         data:dataQueryLogin,
         success:function(data){
@@ -130,7 +130,7 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
             "last_private_user":obj.login
         };
         $.ajax({
-            url:"/getlastprivate.php",
+            url:"getlastprivate.php",
             dataType:"json",
             method:'GET',
             data:getLastPrivateResponse,
@@ -207,7 +207,7 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
     }
     //---------------
     $.ajax({
-        url:"/emocore.php",
+        url:"emocore.php",
         dataType:"json",
         method:'GET',
         data:dataQueryEmocore,

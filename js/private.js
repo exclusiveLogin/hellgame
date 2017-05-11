@@ -5,8 +5,8 @@ $(document).ready(function () {
     Global.private_data.user = "Guest";
     Global.private_data.token = randomInteger(0,9999999);
 
-    let promiseIP2C = ip2c();
-    let promiseGeoNative = new Promise(function (resolve,reject) {
+    var promiseIP2C = ip2c();
+    var promiseGeoNative = new Promise(function (resolve,reject) {
         if(navigator.geolocation){
             if("getCurrentPosition" in navigator.geolocation.__proto__){
                 var options = {
@@ -114,7 +114,7 @@ $(document).ready(function () {
 function ip2c() {
     return new Promise(function (resolve, reject) {
         $.ajax({
-            url:"/ip2c.php",
+            url:"ip2c.php",
             dataType:"json",
             success:function (data) {
                 if(data.status == "success"){
@@ -134,7 +134,7 @@ function ip2c() {
 function privateSend(request){
     $.ajax(
         {
-            url:"/privatecore.php",
+            url:"privatecore.php",
             data:request,
             success:function (data_res) {
                 Global.private_data.sended = true;
@@ -155,7 +155,7 @@ function privateDetail() {
         };
         $.ajax(
             {
-                url:"/privatecore.php",
+                url:"privatecore.php",
                 data:request,
                 success:function (data_res) {
                     //console.log("data:"+data_res);
@@ -170,7 +170,7 @@ function privateDetail() {
         $("#header").on("click",".btn-privatelog",function () {
             $("#privatelog").show(500).empty();
             $.ajax({
-                url:"/components/privatelog.html",
+                url:"components/privatelog.html",
                 dataType:"html",
                 success:function (data) {
                     $("#privatelog").html(data);
@@ -183,10 +183,10 @@ function privateDetail() {
                                 var dua = detect.parse(data[i].user_agent);
                                 //console.log("DUA:",dua);
 
-                                let deviceTpl = dua.device.type;
+                                var deviceTpl = dua.device.type;
                                 if(dua.device.name)deviceTpl = dua.device.name;
 
-                                let accuracyTpl = "";
+                                var accuracyTpl = "";
                                 if(data[i].accuracy == "0"){
                                     accuracyTpl = "<span class='emo_down'>Не точно</span>";
                                 }else {
