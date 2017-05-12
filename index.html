@@ -553,6 +553,12 @@
                                 <span class="newsAddPhotoDesc">Для добавления фото коснитесь картинки</span>
                             </div>
                             <div class="col-md-6">
+                                <div class="btn-group">
+                                    <button class="btnNewsStatus btnNewsStatusShowAll btn btn-danger btn-xs">Видно всем</button>
+                                    <button class="btnNewsStatus btnNewsStatusShowAuth btn btn-warning btn-xs">Для участников</button>
+                                    <button class="btnNewsStatus btnNewsStatusFromHG btn btn-primary btn-xs">От имени HG</button>
+                                    <button class="btnNewsStatus btnNewsStatusFromHGAll btn btn-success btn-xs">HG24 Всем</button>
+                                </div>
                                 <label for="newsFormTitle">Название новости</label>
                                 <input id="newsFormTitle" type="text" class="form-control">
                                 <label for="newsFormTitle">Текст новости</label>
@@ -566,44 +572,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12">
-                <div class="newsContainer">
-                    <div class="newsItem">
-                        <div class="newsTitle">
-                            <div class="newsAuthor">
-                                <img class="newsAuthorImg" src="photo/ssv_min.jpg">
-                                <span class="hidden-xs">Новость создал </span>
-                                <span class="newsAutorName">SSV</span>
-                                <span class="newsTimeCreate">20.04.2017 в 20:34</span>
-                            </div>
-
-                            <div class="newsApproved text-right hidden-xs">
-                                <span>Принято: </span>
-                                <img class="newsAuthorImg" src="photo/msn_min.jpg">
-                                <span class="newsAutorName">MSN</span>
-                                <span class="newsTimeCreate">22.04.2017 в 02:34</span>
-                            </div>
-
-                            <div class="btnApproved text-right">
-                                <button class="btnAddNews btn btn-success btn-xs disabled">Принимаю</button>
-                            </div>
-                        </div>
-                        <div class="newsBody">
-                            <div class="row">
-                                <div class="col-md-4 newsLeft">
-                                    <img src="photo/ssv_big.jpg" class="newsImg">
-                                    <div class="newsImgDesc"></div>
-                                </div>
-                                <div class="col-md-8 newsRight">
-                                    <h2 class="newsTitleH">Заголовок новости</h2>
-                                    <span>Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться.Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="newsFooter"></div>
-                    </div>
-                </div>
+            <div class="row newsContainer">
+                <!--вставить сюда новости-->
             </div>
         </div>
         <div id="container" class="container"></div>
