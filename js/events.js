@@ -34,7 +34,7 @@ function refreshEvents() {
 }
 function createEvent(user,title,desc,status) {
     //console.log(Global.users.indexOf(user));
-    if(Global.users.indexOf(user)>=0 || user == "all"){
+    if((Global.users.indexOf(user)>=0 || user == "all") && (Global.loggedAs != "akellared")){
         var request = {
             add:true,
             add_title:title,

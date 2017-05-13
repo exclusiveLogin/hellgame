@@ -131,37 +131,40 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
         };
         $.ajax({
             url:"getlastprivate.php",
-            dataType:"json",
+            dataType:"text",
             method:'GET',
             data:getLastPrivateResponse,
-            success:function(privatejson){
-                if(privatejson.errors){
-                    console.log("есть ошибка:"+data.errormsg);
-                }
-                else {
-                    Global[obj.login].privatedata.oldLat = Global[obj.login].privatedata.lat;
-                    Global[obj.login].privatedata.oldLon = Global[obj.login].privatedata.lon;
-
-                    if(privatejson.lat)Global[obj.login].privatedata.lat = Number(privatejson.lat);
-                    if(privatejson.lon)Global[obj.login].privatedata.lon = Number(privatejson.lon);
-                    if(privatejson.ip)Global[obj.login].privatedata.ip = privatejson.ip;
-                    if(privatejson.user_agent)Global[obj.login].privatedata.user_agent = privatejson.user_agent;
-                    if(privatejson.accuracy)Global[obj.login].privatedata.accuracy = Number(privatejson.accuracy);
-                    if(privatejson.alt)Global[obj.login].privatedata.alt = Number(privatejson.alt);
-                    if(privatejson.datetime)Global[obj.login].privatedata.datetime = privatejson.datetime;
-                    if(privatejson.region)Global[obj.login].privatedata.region = privatejson.region;
-                    if(privatejson.city)Global[obj.login].privatedata.city = privatejson.city;
-                    if(privatejson.provider)Global[obj.login].privatedata.provider = privatejson.provider;
-                    
-                    if(Global[obj.login].privatedata.oldLat == Global[obj.login].privatedata.lat){
-                        
-                    }else{
-                        Global.georefresh = true;
+            success:function(privatedata){
+                if(privatedata){
+                    var privatejson = JSON.parse(privatedata);
+                    if(privatejson.errors){
+                        console.log("есть ошибка:"+data.errormsg);
                     }
-                    if(Global[obj.login].privatedata.oldLon == Global[obj.login].privatedata.lon){
+                    else {
+                        Global[obj.login].privatedata.oldLat = Global[obj.login].privatedata.lat;
+                        Global[obj.login].privatedata.oldLon = Global[obj.login].privatedata.lon;
 
-                    }else{
-                        Global.georefresh = true;
+                        if(privatejson.lat)Global[obj.login].privatedata.lat = Number(privatejson.lat);
+                        if(privatejson.lon)Global[obj.login].privatedata.lon = Number(privatejson.lon);
+                        if(privatejson.ip)Global[obj.login].privatedata.ip = privatejson.ip;
+                        if(privatejson.user_agent)Global[obj.login].privatedata.user_agent = privatejson.user_agent;
+                        if(privatejson.accuracy)Global[obj.login].privatedata.accuracy = Number(privatejson.accuracy);
+                        if(privatejson.alt)Global[obj.login].privatedata.alt = Number(privatejson.alt);
+                        if(privatejson.datetime)Global[obj.login].privatedata.datetime = privatejson.datetime;
+                        if(privatejson.region)Global[obj.login].privatedata.region = privatejson.region;
+                        if(privatejson.city)Global[obj.login].privatedata.city = privatejson.city;
+                        if(privatejson.provider)Global[obj.login].privatedata.provider = privatejson.provider;
+
+                        if(Global[obj.login].privatedata.oldLat == Global[obj.login].privatedata.lat){
+
+                        }else{
+                            Global.georefresh = true;
+                        }
+                        if(Global[obj.login].privatedata.oldLon == Global[obj.login].privatedata.lon){
+
+                        }else{
+                            Global.georefresh = true;
+                        }
                     }
                 }
             },
@@ -208,49 +211,53 @@ function globalUpdate(obj,newemo,refresh) {//сначала proto потом в�
     //---------------
     $.ajax({
         url:"emocore.php",
-        dataType:"json",
+        dataType:"text",
         method:'GET',
         data:dataQueryEmocore,
-        success:function(data){
-            if(data.errors){
-                console.log("есть ошибка:"+data.errormsg);
-            }
-            else {
-                Global[obj.login].emotion = data.last_emo;
-                Global[obj.login].oldEmotion = data.prev_emo;
-                var tend = Global[obj.login].emotion - Global[obj.login].oldEmotion;
-                if (tend>0){
-                    Global[obj.login].tendention = "+"+tend;
+        success:function(raw){
+            if(raw){
+                var data = JSON.parse(raw);
+                if(data.errors){
+                    console.log("есть ошибка:"+data.errormsg);
                 }
-                else if(tend<0){
-                    Global[obj.login].tendention = tend;
-                }
-                else{
-                    Global[obj.login].tendention = 0;
-                }
-                
-                Global[obj.login].trend = [];
-                Global[obj.login].flags = [];
-                for(var snap in data.trend){
-                    var shot = data.trend[snap][0];
-                    var tempval = Number(data.trend[snap][1]);
-                    var utc_arr = [];
-                    utc_arr = shot.split(',');
-                    (utc_arr[1]>0)?utc_arr[1]-=1:utc_arr[1]=0;
-                    var utctime = Date.UTC(Number(utc_arr[0]),Number(utc_arr[1]),Number(utc_arr[2]),Number(utc_arr[3]),
-                        Number(utc_arr[4]),Number(utc_arr[5]));
-                    Global[obj.login].trend.push([utctime,tempval]);
-                    var tempTitle = data.trend[snap][2];
-                    var tempDesc = data.trend[snap][3];
-                    if(tempTitle){
-                        Global[obj.login].flags.push({"x":utctime,"title":tempTitle,"text":tempDesc});
+                else {
+                    Global[obj.login].emotion = data.last_emo;
+                    Global[obj.login].oldEmotion = data.prev_emo;
+                    var tend = Global[obj.login].emotion - Global[obj.login].oldEmotion;
+                    if (tend>0){
+                        Global[obj.login].tendention = "+"+tend;
+                    }
+                    else if(tend<0){
+                        Global[obj.login].tendention = tend;
+                    }
+                    else{
+                        Global[obj.login].tendention = 0;
+                    }
+
+                    Global[obj.login].trend = [];
+                    Global[obj.login].flags = [];
+                    for(var snap in data.trend){
+                        var shot = data.trend[snap][0];
+                        var tempval = Number(data.trend[snap][1]);
+                        var utc_arr = [];
+                        utc_arr = shot.split(',');
+                        (utc_arr[1]>0)?utc_arr[1]-=1:utc_arr[1]=0;
+                        var utctime = Date.UTC(Number(utc_arr[0]),Number(utc_arr[1]),Number(utc_arr[2]),Number(utc_arr[3]),
+                            Number(utc_arr[4]),Number(utc_arr[5]));
+                        Global[obj.login].trend.push([utctime,tempval]);
+                        var tempTitle = data.trend[snap][2];
+                        var tempDesc = data.trend[snap][3];
+                        if(tempTitle){
+                            Global[obj.login].flags.push({"x":utctime,"title":tempTitle,"text":tempDesc});
+                        }
+                    }
+                    if(data.msg){
+                        showSysMsg(data.msg,true);
                     }
                 }
-                if(data.msg){
-                    showSysMsg(data.msg,true);
-                }
+                refresher();
             }
-            refresher();
+
         },
         error:function(){
             console.log("error to load emocore ajax");

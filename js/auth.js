@@ -117,6 +117,7 @@ function refreshAuth(){
             resetHandlers();
             setHandlers();
             refreshLogged();
+            $(".newsAddBlock").show();
         });
         
     }else{//************************Гость****************
@@ -149,6 +150,7 @@ function refreshAuth(){
             setHandlers();
             refreshLogged();
             updList();
+            $(".newsAddBlock").hide();
         });
     }
 }

@@ -1,7 +1,20 @@
 $(function () {
+    setInterval(downloadNews,30000);
+
+    $(document).on("scroll",function (e) {
+        downloadNews();
+    });
     $(".btnAddNews").on("click",function () {
         $(".newsAddFormEditContainer").show(500).animate({opacity:1},500);
         $(this).addClass("active");
+        var dua = detect.parse(navigator.userAgent);
+        if(dua.device.type == "Mobile" || dua.device.type == "mobile"){
+            $("#news .newsContainer").empty();
+            Global.newsLast = false;
+            Global.topNewsId = false;
+        }
+        Global.lastID = false;
+        Global.topNewsId = false;
     });
     $(".btnNewsStatusShowAll").addClass("active");
     var newsStatus = "showall";
@@ -47,12 +60,17 @@ $(function () {
             xhr.onreadystatechange = function() {
                 if (this.readyState != 4) return;
                 console.log("XHR RESPONSE:",this.responseText);
+                downloadNews();
             };
         }
         closeNewsAddForm();
     });
     $(".btnAddNewsCancel").on("click",function () {
         //Close BTN
+        var dua = detect.parse(navigator.userAgent);
+        if(dua.device.type == "Mobile" || dua.device.type == "mobile"){
+            downloadNews();
+        }
         closeNewsAddForm();
     });
     function closeNewsAddForm() {
@@ -64,61 +82,92 @@ $(function () {
             $("#newsFormTitle").val("");
             $("#newsFormText").val("");
             $("#newsImgFile").val("");
+            $("body").animate({scrollTop:0},1000);
         })
     }
 
-    uploadNews();
+    downloadNews();
 
-    function uploadNews(privateSt) {
-        privat = false;
-        if(!privateSt)privat = "showall";
-
-        var fd = new FormData();
-
-        fd.append("newslist",true);
-        fd.append("newsprivate",privat);
-        fetch("components/news/newsbackend.php",{
-            method:"POST",
-            body:fd
-        }).then(function (data) {
-            if(data.status==200){
-                return data.text();
+    function downloadNews(privateSt) {
+        function download(lastid) {
+            var privat = false;
+            if(!privateSt)privat = "showall";
+            var fd = new FormData();
+            if(lastid){
+                fd.append("newslastid",lastid);
             }
-        }).then(function (dataResp) {
-            console.log("response:",dataResp);
-            var json = {};
-            try{
-                json = JSON.parse(dataResp);
-                renderNews(json);
-            }catch(e) {
-                console.log("Парсинг не удался по причине:",e);
-            }
-        }).catch(function (e) {
-            console.log("fetch с ошибкой");
-            console.log(e);
-        });
-        function renderNews(news) {
-
-            console.log("render news :",news);
-            news.forEach(function (element,idx) {
-                fetch("components/news/newsItem.tpl").then(function (data) {
-                    if(data.status==200){
-                        console.log("foreach id:",idx,"element:",element);
-                        return data.text();
+            fd.append("newslist",true);
+            fd.append("newsprivate",privat);
+            fetch("components/news/newsbackend.php",{
+                method:"POST",
+                body:fd
+            }).then(function (data) {
+                if(data.status==200){
+                    return data.text();
+                }
+            }).then(function (dataResp) {
+                if(Global.newsLast != dataResp){
+                    var json = [];
+                    try{
+                        json = JSON.parse(dataResp);
+                        if(json.length){
+                            if(Global.lastID){//оценка последнего ID
+                                if(Number(Global.lastID) > Number(json[json.length-1].id)){
+                                    Global.lastID = json[json.length-1].id;
+                                }
+                            }else {
+                                Global.lastID = json[json.length-1].id;
+                            }
+                            if(lastid){
+                                //когда новости скролят вниз
+                                renderNews(json,true);
+                            }else {
+                                //когда новости сверху
+                                if(Global.topNewsId){
+                                    if(Global.topNewsId != json[0].id){
+                                        renderNews(json);
+                                        Global.lastNewsDownloaded = false;
+                                        Global.topNewsId = json[0].id;
+                                        Global.lastID = json[json.length-1].id;
+                                    }
+                                }else {
+                                    renderNews(json);
+                                    Global.topNewsId = json[0].id;
+                                }
+                            }
+                        }else {
+                            Global.lastNewsDownloaded = true;
+                            renderNews(false,false,true);
+                        }
+                    }catch(e) {
+                        console.log("Парсинг не удался по причине:",e);
                     }
-                }).then(function (dataResp) {
-                    let NewsItemInstance = $(dataResp).appendTo("#news .newsContainer");
-
-                }).catch(function (e) {
-                    console.log("fetch с ошибкой");
-                    console.log(e);
-                });
+                }
+                Global.newsLast = dataResp;
+                Global.newsDownloading = false;
+            }).catch(function (e) {
+                Global.newsDownloading = false;
+                console.log("fetch с ошибкой");
+                console.log(e);
             });
         }
+        if($("#news")[0].getBoundingClientRect().top > 0){
+            download();
+        }else {
+            var bottomNews = $("#news")[0].getBoundingClientRect().bottom;
+            var bottomScreen = document.documentElement.clientHeight;
+            if(bottomNews+200 < bottomScreen && Global.lastID){
+                if(!Global.lastNewsDownloaded){
+                    if(!Global.newsDownloading){
+                        Global.newsDownloading = true;
+                        download(Global.lastID);
+                    }
+                }
+            }
+        }
     }
+    $(".newsFancyLink").fancybox();
     $("#newsImgFile").on("change",function (event) {
-        console.log("ev:",event);
-
         if(window.FileReader){
             var fr = new FileReader();
             fr.onerror = function () {
@@ -149,7 +198,62 @@ $(function () {
                 fr.readAsDataURL(file);
             }
         }
-
-
     });
+    function renderNews(news,addnews,nonews) {
+        if(nonews){
+            var tpl = `<div class="col-md-12">
+                <div class="addNewForm form-horizontal">
+                    <span class="label label-default label-lg">Новостей больше нет</span>
+                </div>
+            </div>`;
+            $(tpl).appendTo("#news .newsContainer");
+            return;
+        }
+        if(!addnews)$("#news .newsContainer").empty();
+        //console.log("render news :",news);
+        news.forEach(function (element,idx) {
+            fetch("components/news/newsItem.tpl").then(function (data) {
+                if(data.status==200){
+                    console.log("foreach id:",idx,"element:",element);
+                    return data.text();
+                }
+            }).then(function (dataResp) {
+                let NewsItemInstance = $(dataResp).appendTo("#news .newsContainer");
+                setTimeout(function(){
+                    NewsItemInstance.find(".newsAuthorName").text(element.author);
+                    if(Global[element.author]){
+                        if(Global[element.author].img_min){
+                            NewsItemInstance.find(".newsAuthorImg")[0].src="photo/"+Global[element.author].img_min;
+                        }
+                    }
+                    NewsItemInstance.find(".newsTimeCreate").text(element.datetime);
+                    if(element.img_min){
+                        NewsItemInstance.find(".newsImg")[0].src="components/news/"+element.img_min;
+                        NewsItemInstance.find(".newsImg")[0].onload = function () {
+                            $(this).removeClass("transparent");
+                        }
+                        if(element.img){
+                            NewsItemInstance.find(".newsFancyLink")[0].href="components/news/"+element.img;
+                            //$(".newsFancyLink").fancybox();
+                        }
+                    }else if(element.img){
+                        NewsItemInstance.find(".newsImg")[0].src="components/news"+element.img;
+                        NewsItemInstance.find(".newsImg")[0].onload = function () {
+                            $(this).removeClass("transparent");
+                        }
+                    }else {
+                        NewsItemInstance.find(".newsImg").removeClass("transparent");
+                    }
+                    NewsItemInstance.find(".newsTitleH").text(element.title);
+                    NewsItemInstance.find(".newsText").text(element.text);
+                    NewsItemInstance.find(".newsItem").removeClass("transparent");
+                },idx*500);
+                Global.newsDownloading = false;
+            }).catch(function (e) {
+                Global.newsDownloading = false;
+                console.log("fetch с ошибкой");
+                console.log(e);
+            });
+        });
+    }
 });
