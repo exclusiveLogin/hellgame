@@ -86,10 +86,11 @@ $(function () {
     });
     $(".btnAddNewsCancel").on("click",function () {
         //Close BTN
-        var dua = detect.parse(navigator.userAgent);
-        if(dua.device.type == "Mobile" || dua.device.type == "mobile"){
-            downloadNews();
-        }
+        //var dua = detect.parse(navigator.userAgent);
+        // if(dua.device.type == "Mobile" || dua.device.type == "mobile"){
+        //     downloadNews();
+        // }
+        downloadNews();
         closeNewsAddForm();
     });
     function closeNewsAddForm() {
@@ -175,7 +176,7 @@ $(function () {
         }else {
             var bottomNews = $("#news")[0].getBoundingClientRect().bottom;
             var bottomScreen = document.documentElement.clientHeight;
-            if(bottomNews+200 < bottomScreen && Global.lastID){
+            if(bottomNews < bottomScreen && Global.lastID){
                 if(!Global.lastNewsDownloaded){
                     if(!Global.newsDownloading){
                         Global.newsDownloading = true;
@@ -225,10 +226,11 @@ $(function () {
                     <span class="label label-default label-lg">Новостей больше нет</span>
                 </div>
             </div>`;
-            $(tpl).appendTo("#news .newsContainer");
+            $(tpl).appendTo("#newsEnd");
             return;
         }
         if(!addnews)$("#news .newsContainer").empty();
+        if(!addnews)$("#newsEnd").empty();
         //console.log("render news :",news);
         news.forEach(function (element,idx) {
             fetch("components/news/newsItem.tpl").then(function (data) {

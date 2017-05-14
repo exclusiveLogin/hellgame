@@ -45,7 +45,12 @@ if($_GET["add"] && $_GET["add_title"] && $_GET["add_desc"]){
             $row = $result->fetch_assoc();
             $result = mail($row["email"],$title,$description);
             //-----------------
-            $query = "INSERT INTO `events` (`for`,`title`,`desc`,`status`,`notify`) VALUES (\"$user\",\"$title\",\"$description\",\"$status\",$notify)";
+			if($_GET["img"]){
+				$img = $_GET["img"];
+				$query = "INSERT INTO `events` (`for`,`title`,`desc`,`status`,`notify`,`img`) VALUES (\"$user\",\"$title\",\"$description\",\"$status\",$notify,\"$img\")";
+			}else{
+				$query = "INSERT INTO `events` (`for`,`title`,`desc`,`status`,`notify`) VALUES (\"$user\",\"$title\",\"$description\",\"$status\",$notify)";
+			}
             //echo $query."<br>";
             array_push($answer["q"],$query);
             $mysql->query($query);

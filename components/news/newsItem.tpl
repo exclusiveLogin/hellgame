@@ -1,5 +1,4 @@
-<div class="clearfix"></div>
-<div class="newsItemCont col-md-12" data-id="0">
+<div class="newsItemCont col-md-6 col-lg-6 col-sm-6 col-xs-12">
     <div class="newsItem transparent">
         <div class="newsTitle">
             <div class="newsAuthor">
@@ -22,13 +21,13 @@
         </div>
         <div class="newsBody">
             <div class="row">
-                <div class="col-md-4 newsLeft">
+                <div class="col-md-4 col-xs-12 newsLeft">
                     <a class="newsFancyLink" href="#">
                         <img src="style/nophoto.png" class="newsImg transparent">
                     </a>
                     <div class="newsImgDesc"></div>
                 </div>
-                <div class="col-md-8 newsRight">
+                <div class="col-md-8 col-xs-12 newsRight">
                     <h2 class="newsTitleH">{newsTitle}</h2>
                     <span class="newsText">{newsText}</span>
                 </div>

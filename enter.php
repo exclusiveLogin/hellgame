@@ -13,6 +13,9 @@ if($_GET["login"]=="ssv"){
 }else if ($_GET["login"]=="msn"){
     $query = "SELECT * FROM `users` WHERE `login`='msn'";
     $login = 'msn';
+}else if ($_GET["login"]=="akellared"){
+    $query = "SELECT * FROM `users` WHERE `login`='akellared'";
+    $login = 'akellared';
 }else{
     $auth['auth']=false;
     $auth["login"]=$login;
