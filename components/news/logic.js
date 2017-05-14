@@ -8,11 +8,13 @@ $(function () {
         $(".newsAddFormEditContainer").show(500).animate({opacity:1},500);
         $(this).addClass("active");
         var dua = detect.parse(navigator.userAgent);
-        if(dua.device.type == "Mobile" || dua.device.type == "mobile"){
-            $("#news .newsContainer").empty();
-            Global.newsLast = false;
-            Global.topNewsId = false;
-        }
+        //alert(dua.device.type);
+        // if((dua.device.type == "Mobile") || (dua.device.type == "mobile")){
+        //     $("#news .newsContainer").empty();
+        //     Global.newsLast = false;
+        // }
+        $("#news .newsContainer").empty();
+        Global.newsLast = false;
         Global.lastID = false;
         Global.topNewsId = false;
     });
@@ -61,6 +63,23 @@ $(function () {
                 if (this.readyState != 4) return;
                 console.log("XHR RESPONSE:",this.responseText);
                 downloadNews();
+                if (this.responseText){
+                    try {
+                        let resp = JSON.parse(this.responseText);
+                        if(!resp.error){
+                            if(!title)title="Без названия";
+                            if(resp.img){
+                                createEvent("all","Пользователь "+author+" создал новость",title,"ok","components/news/"+resp.img);
+                            }else {
+                                createEvent("all","Пользователь "+author+" создал новость",title,"ok");
+                            }
+                        }else{
+                            console.log("ошибка при добавлении новости:",resp.error_string);
+                        }
+                    }catch (e){
+                        console.log("Парсинг ответа сервера при добавлении новости вернул ошибку:",e);
+                    }
+                }
             };
         }
         closeNewsAddForm();

@@ -23,7 +23,12 @@ function refreshEvents() {
                     var tmp_title = data.data[i].title;
                     var tmp_desc = data.data[i].desc;
                     var tmp_status = data.data[i].status;
-                    createNotify(tmp_title,tmp_desc,tmp_status);
+                    if(data.data[i].img){
+                        createNotify(tmp_title,tmp_desc,tmp_status,data.data[i].img);
+                    }else {
+                        createNotify(tmp_title,tmp_desc,tmp_status);
+                    }
+
                 }
             }
         },
@@ -32,14 +37,15 @@ function refreshEvents() {
         }
     });
 }
-function createEvent(user,title,desc,status) {
+function createEvent(user,title,desc,status,img) {
     //console.log(Global.users.indexOf(user));
-    if((Global.users.indexOf(user)>=0 || user == "all") && (Global.loggedAs != "akellared")){
+    if((Global.users.indexOf(user)>=0 || user == "all") && (Global.loggedAs != "akellared") && (Global.loggedAs != "once")){
         var request = {
             add:true,
             add_title:title,
             add_desc:desc,
             add_status:"",
+            img:img,
             for:[]
         };
         if(status){
@@ -61,7 +67,7 @@ function createEvent(user,title,desc,status) {
             url:"eventcore.php",
             dataType:"json",
             data:request,
-            success:function () {
+            success:function (data) {
                 request.for.forEach(function (user) {
                    emitPushTo(user);
                 });

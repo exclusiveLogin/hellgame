@@ -3,7 +3,7 @@ importScripts('localForage.js');
 GlobalSW = {};
 GlobalSW.user = '';
 GlobalSW.allowNoty = false;
-GlobalSW.version = "0.3.5";
+GlobalSW.version = "0.3.6";
 
 //Clients.matchAll().then(function (clients) {
 //    console.log(clients);
@@ -52,8 +52,15 @@ function pushEvents() {
                         body:elem.desc,
                         icon:"/style/logo.png"
                     };
-                    self.registration.showNotification(elem.title,options);
-                })
+                    if(elem.img){
+                        //fetch("components/news/"+elem.img).then(function () {
+                            options.icon = elem.img;
+                            self.registration.showNotification(elem.title,options);
+                        //});
+                    }else {
+                        self.registration.showNotification(elem.title,options);
+                    }
+                });
             }
         }).catch(function (e) {
             console.log("pmcore вернул ошибку");

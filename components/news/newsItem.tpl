@@ -1,4 +1,5 @@
-<div class="col-md-12" data-id="0">
+<div class="clearfix"></div>
+<div class="newsItemCont col-md-12" data-id="0">
     <div class="newsItem transparent">
         <div class="newsTitle">
             <div class="newsAuthor">

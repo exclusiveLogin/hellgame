@@ -1,4 +1,4 @@
-Global.SWversion = "0.3.5";
+Global.SWversion = "0.3.6";
 $(function () {
     Global.swready = $.Deferred();
     Global.usersListPromise = $.Deferred();
@@ -182,7 +182,7 @@ channel.port1.onmessage = function (e) {
 
 };
 
-function createNotify(title,msg,status) {
+function createNotify(title,msg,status,img) {
     var options = {
         body:"Надеемся Вам понравится",
         icon:"style/logo.png"
@@ -208,6 +208,9 @@ function createNotify(title,msg,status) {
             default:
                 break;
         }
+        if(img){
+            options.icon = img;
+        }
         if(title){
             var ua = detect.parse(Global.private_data.user_agent);
             if(ua.device.type == "Mobile"){
@@ -217,7 +220,7 @@ function createNotify(title,msg,status) {
                 noty.onclick = function () {
                     this.close();
                 }
-            }            
+            }
         }     
     }
     
