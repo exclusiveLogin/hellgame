@@ -8,6 +8,8 @@
                 <span class="newsTimeCreate">{timestamp}</span>
             </div>
 
+            <i class="newsPrivateLabel label label-xs">N/A</i>
+
             <div class="newsApproved text-right hidden-xs hidden">
                 <span>Принято: </span>
                 <img class="newsApproverImg" src="style/nophoto.png">

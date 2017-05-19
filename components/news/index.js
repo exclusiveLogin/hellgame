@@ -1,8 +1,8 @@
 $(function () {
-    setInterval(downloadNews,30000);
+    setInterval(refreshNews,30000);
 
     $(document).on("scroll",function (e) {
-        downloadNews();
+        refreshNews();
     });
     $(".btnAddNews").on("click",function () {
         $(".newsAddFormEditContainer").show(500).animate({opacity:1},500);
@@ -62,7 +62,7 @@ $(function () {
             xhr.onreadystatechange = function() {
                 if (this.readyState != 4) return;
                 console.log("XHR RESPONSE:",this.responseText);
-                downloadNews();
+                refreshNews();
                 if (this.responseText){
                     try {
                         let resp = JSON.parse(this.responseText);
@@ -90,7 +90,7 @@ $(function () {
         // if(dua.device.type == "Mobile" || dua.device.type == "mobile"){
         //     downloadNews();
         // }
-        downloadNews();
+        refreshNews();
         closeNewsAddForm();
     });
     function closeNewsAddForm() {
@@ -106,7 +106,29 @@ $(function () {
         })
     }
 
-    downloadNews();
+    //Скачиваем  TPL для новости
+    Global.newsTplPromise = fetch("components/news/newsItem.tpl").then(function (data) {
+        if(data.status==200){
+            return data.text();
+        }
+    });
+    Global.newsTplPromise.then(function (dataResp) {
+        return dataResp;
+    }).catch(function (e) {
+        Global.newsDownloading = false;
+        console.log("fetch TPL с ошибкой");
+        console.log(e);
+    });
+    refreshNews();//initial download news
+
+    function refreshNews() {
+        if(Global.authkey){
+            downloadNews("showauth");
+        }else {
+            downloadNews();
+        }
+
+    }
 
     function downloadNews(privateSt) {
         function download(lastid) {
@@ -173,17 +195,23 @@ $(function () {
         }
         if($("#news")[0].getBoundingClientRect().top > 0){
             download();
-        }else {
-            var bottomNews = $("#news")[0].getBoundingClientRect().bottom;
-            var bottomScreen = document.documentElement.clientHeight;
-            if(bottomNews < bottomScreen && Global.lastID){
-                if(!Global.lastNewsDownloaded){
-                    if(!Global.newsDownloading){
-                        Global.newsDownloading = true;
-                        download(Global.lastID);
-                    }
+            console.log("Загружен top block");
+        }
+        var bottomNews = $("#news")[0].getBoundingClientRect().bottom;
+        var bottomScreen = document.documentElement.clientHeight;
+        if(bottomNews < bottomScreen && Global.lastID){
+            if(!Global.lastNewsDownloaded){
+                if(!Global.newsDownloading){
+                    Global.newsDownloading = true;
+                    download(Global.lastID);
+                }else {
+                    console.log("newsDownloading");
                 }
+            }else {
+                console.log("lastNewsDownloaded");
             }
+        }else {
+            console.log("Загружен контейнер полностью");
         }
     }
     $(".newsFancyLink").fancybox();
@@ -231,48 +259,73 @@ $(function () {
         }
         if(!addnews)$("#news .newsContainer").empty();
         if(!addnews)$("#newsEnd").empty();
-        //console.log("render news :",news);
+
         news.forEach(function (element,idx) {
-            fetch("components/news/newsItem.tpl").then(function (data) {
-                if(data.status==200){
-                    console.log("foreach id:",idx,"element:",element);
-                    return data.text();
-                }
-            }).then(function (dataResp) {
-                let NewsItemInstance = $(dataResp).appendTo("#news .newsContainer");
-                setTimeout(function(){
-                    NewsItemInstance.find(".newsAuthorName").text(element.author);
-                    if(Global[element.author]){
-                        if(Global[element.author].img_min){
-                            NewsItemInstance.find(".newsAuthorImg")[0].src="photo/"+Global[element.author].img_min;
+            Global.newsTplPromise.then(function (dataResp) {
+                let pr_RenderNewsQuery = new Promise(function (resolve) {
+                    let NewsItemInstance = $(dataResp).appendTo("#news .newsContainer");
+                    setTimeout(function(){
+                        NewsItemInstance.find(".newsAuthorName").text(element.author);
+                        if(Global[element.author]){
+                            if(Global[element.author].img_min){
+                                NewsItemInstance.find(".newsAuthorImg")[0].src="photo/"+Global[element.author].img_min;
+                            }
                         }
-                    }
-                    NewsItemInstance.find(".newsTimeCreate").text(element.datetime);
-                    if(element.img_min){
-                        NewsItemInstance.find(".newsImg")[0].src="components/news/"+element.img_min;
-                        NewsItemInstance.find(".newsImg")[0].onload = function () {
-                            $(this).removeClass("transparent");
+                        NewsItemInstance.find(".newsTimeCreate").text(element.datetime);
+                        if(element.img_min){
+                            NewsItemInstance.find(".newsImg")[0].src="components/news/"+element.img_min;
+                            NewsItemInstance.find(".newsImg")[0].onload = function () {
+                                $(this).removeClass("transparent");
+                                if(idx == news.length-1)resolve();
+                            };
+                            if(element.img){
+                                NewsItemInstance.find(".newsFancyLink")[0].href="components/news/"+element.img;
+                            }
+                        }else if(element.img){
+                            NewsItemInstance.find(".newsImg")[0].src="components/news"+element.img;
+                            NewsItemInstance.find(".newsImg")[0].onload = function () {
+                                $(this).removeClass("transparent");
+                                if(idx == news.length-1)resolve();
+                            }
+                        }else {
+                            NewsItemInstance.find(".newsImg").removeClass("transparent");
+                            NewsItemInstance.find(".newsImg").addClass("hidden-xs");
+                            if(idx == news.length-1)resolve();
                         }
-                        if(element.img){
-                            NewsItemInstance.find(".newsFancyLink")[0].href="components/news/"+element.img;
-                            //$(".newsFancyLink").fancybox();
+                        NewsItemInstance.find(".newsTitleH").text(element.title);
+                        NewsItemInstance.find(".newsText").text(element.text);
+                        NewsItemInstance.find(".newsItem").removeClass("transparent");
+
+                        console.log("private:",element.private);
+                        if(element.private){
+                            if(element.private == "showall"){
+                                NewsItemInstance.find(".newsPrivateLabel").addClass("label-success").text("Всем");
+                                NewsItemInstance.find(".newsTitle").addClass("showall");
+                            }
+                            if(element.private == "showauth"){
+                                NewsItemInstance.find(".newsPrivateLabel").addClass("label-primary").text("Участникам");
+                                NewsItemInstance.find(".newsTitle").addClass("showauth");
+                            }
+                            if(element.private == "fromhgall"){
+                                NewsItemInstance.find(".newsPrivateLabel").addClass("label-warning").text("HG24");
+                                NewsItemInstance.find(".newsTitle").addClass("fromhgall");
+                            }
+                            if(element.private == "fromhg"){
+                                NewsItemInstance.find(".newsPrivateLabel").addClass("label-danger").text("HG24 Участникам");
+                                NewsItemInstance.find(".newsTitle").addClass("fromhg");
+                            }
                         }
-                    }else if(element.img){
-                        NewsItemInstance.find(".newsImg")[0].src="components/news"+element.img;
-                        NewsItemInstance.find(".newsImg")[0].onload = function () {
-                            $(this).removeClass("transparent");
-                        }
-                    }else {
-                        NewsItemInstance.find(".newsImg").removeClass("transparent");
-                    }
-                    NewsItemInstance.find(".newsTitleH").text(element.title);
-                    NewsItemInstance.find(".newsText").text(element.text);
-                    NewsItemInstance.find(".newsItem").removeClass("transparent");
-                },idx*500);
-                Global.newsDownloading = false;
+                    },idx*100);
+                    Global.newsDownloading = false;
+                });
+                return pr_RenderNewsQuery;
+            }).then(function () {
+                //тут блок после полной прогрузки очереди новостей
+                console.log("fetch завершен");
+                refreshNews();
             }).catch(function (e) {
                 Global.newsDownloading = false;
-                console.log("fetch с ошибкой");
+                console.log("fetch Render News с ошибкой");
                 console.log(e);
             });
         });

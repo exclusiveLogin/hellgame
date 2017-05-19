@@ -38,13 +38,23 @@
 .newsTitle{
     position: relative;
     height: 40px;
-    background-color: #ffa500;
+    background-color: #ccc;
     padding: 5px 10px;
     box-shadow: 0 5px 20px 0 rgba(0,0,0,0.5);
     z-index: 900;
-    /* font-size: 90%; */
-    font-weight: bold;
-
+    font-size: 90%;
+}
+.newsTitle.showall{
+    background-color: #4f4;
+}
+.newsTitle.showauth{
+    background-color: #6dd;
+}
+.newsTitle.fromhg{
+    background-color: #f33;
+}
+.newsTitle.fromhgall{
+    background-color: #f90;
 }
 .newsImg{
     box-shadow: 5px 0 20px 0 rgba(0,0,0,0.5);
@@ -110,4 +120,8 @@ img{
 }
 .newsAddBlock{
     display: none;
+}
+.newsPrivateLabel{
+    float: right;
+    margin-top: 7px;
 }
