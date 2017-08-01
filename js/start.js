@@ -53,6 +53,8 @@ function tooltipHandler() {
     });
 }
 $(document).ready(function(){
+    Global.NE = new NewsEngine("wrapper",30000);
+
     if(Global.demo){
         $("#fancydemo").fancybox({
             modal:true

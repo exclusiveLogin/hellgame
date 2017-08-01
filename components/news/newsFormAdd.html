@@ -1,0 +1,38 @@
+<div id="news" class="container">
+    <div class="newsAddBlock col-md-12">
+        <div class="addNewForm form-horizontal">
+            <button class="btnAddNews btn btn-warning btn-lg">Добавить новость</button>
+            <div class="newsAddFormEditContainer">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="newsAddImgPreview">Фотография</label>
+                        <img src="style/nophoto.png" id="newsAddImgPreview">
+                        <input type="file" id="newsImgFile" accept="image/jpeg">
+                        <span class="newsAddPhotoDesc">Для добавления фото коснитесь картинки</span>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="btn-group">
+                            <button class="btnNewsStatus btnNewsStatusShowAll btn btn-danger btn-xs">Видно всем</button>
+                            <button class="btnNewsStatus btnNewsStatusShowAuth btn btn-warning btn-xs">Для участников</button>
+                            <button class="btnNewsStatus btnNewsStatusFromHG btn btn-primary btn-xs">От имени HG</button>
+                            <button class="btnNewsStatus btnNewsStatusFromHGAll btn btn-success btn-xs">HG24 Всем</button>
+                        </div>
+                        <label for="newsFormTitle">Название новости</label>
+                        <input id="newsFormTitle" type="text" class="form-control">
+                        <label for="newsFormTitle">Текст новости</label>
+                        <textarea id="newsFormText" class="form-control"></textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <button class="btnAddNewsSubmit btn btn-success btn-sm">Добавить</button>
+                        <button class="btnAddNewsCancel btn btn-warning btn-sm">Отмена</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row newsContainer">
+        <!--вставить сюда новости-->
+    </div>
+</div>
+<div id="newsEnd"></div>

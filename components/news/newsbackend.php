@@ -75,11 +75,11 @@ if(isset($_POST["newslist"]) OR isset($_GET["newslist"])){
     if(isset($_POST["newslastid"]))$newslastid = $_POST["newslastid"];
     if(isset($_GET["newslastid"]))$newslastid = $_GET["newslastid"];
 
-    if($newsprivate){
+    if($newsprivate == "showall" OR $newsprivate == "fromhgall"){
         if(!$newslastid){
-            $query = "SELECT * FROM  `news` WHERE (`private`= \"$newsprivate\"  OR `private`=\"fromhgall\") ORDER BY `id` DESC LIMIT 4";
+            $query = "SELECT * FROM  `news` WHERE (`private`= \"showall\"  OR `private`=\"fromhgall\") ORDER BY `id` DESC LIMIT 4";
         }else{
-            $query = "SELECT * FROM  `news` WHERE (`private`= \"$newsprivate\" OR `private`=\"fromhgall\") AND `id` < $newslastid ORDER BY `id` DESC LIMIT 4";
+            $query = "SELECT * FROM  `news` WHERE (`private`= \"showall\" OR `private`=\"fromhgall\") AND `id` < $newslastid ORDER BY `id` DESC LIMIT 4";
         }
     }else{
         if(!$newslastid){
