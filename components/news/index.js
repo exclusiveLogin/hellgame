@@ -291,11 +291,11 @@ class NewsEngine{
         if(!addnews)$("#news .newsContainer").empty();
         if(!addnews)$("#newsEnd").empty();
         //console.log("renderNews this:",this);
-        news.forEach(function (element,idx) {
+        var newsBlock = news.map(function (element,idx) {
             //console.log("forEach this:",this);
             this.newsTplPromise.then(function (dataResp) {
                 //console.log("newsTpl this:",this);
-                var context = this;
+                //var context = this;
                 var pr_RenderNewsQuery = new Promise(function (resolve) {
                     //console.log("newsTplRender this:",this);
                     let NewsItemInstance = $(dataResp).appendTo("#news .newsContainer");
@@ -331,7 +331,7 @@ class NewsEngine{
                     NewsItemInstance.find(".newsText").text(element.text);
                     NewsItemInstance.find(".newsItem").removeClass("transparent");
 
-                    console.log("private:",element.private);
+                    //console.log("private:",element.private);
                     if(element.private){
                         if(element.private == "showall"){
                             NewsItemInstance.find(".newsPrivateLabel").addClass("label-success").text("Всем");
@@ -350,19 +350,19 @@ class NewsEngine{
                             NewsItemInstance.find(".newsTitle").addClass("fromhg");
                         }
                     }
-
-                    this.newsDownloading = false;
-                }.bind(this));
+                }.bind(this));//render новости
                 return pr_RenderNewsQuery;
-            }.bind(this)).then(function () {
-                //тут блок после полной прогрузки очереди новостей
-                console.log("fetch завершен this:",this);
-                this.refreshNews();
-            }.bind(this)).catch(function (e) {
-                console.log("fetch Render News с ошибкой this:",this);
-                console.log(e);
-                this.newsDownloading = false;
             }.bind(this));
         },this);
+        Promise.all(newsBlock).then(function () {
+            //тут блок после полной прогрузки очереди новостей
+            console.log("fetch завершен this:",this);
+            this.newsDownloading = false;
+            this.refreshNews();
+        }.bind(this)).catch(function (e) {
+            console.log("fetch Render News с ошибкой this:",this);
+            console.log(e);
+            this.newsDownloading = false;
+        }.bind(this));
     }
 }
